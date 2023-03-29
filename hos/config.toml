@@ -1,0 +1,84 @@
+title = 'Hos Blog'
+baseURL = 'https://hossein-lap.github.io/'
+languageCode = 'en-us'
+theme = 'allgray'
+pluralizelisttitles = false
+
+[params]
+	# "relatedtext" is the text that appears above the tag list at the bottom of pages.
+	relatedtext = "‹tags›"
+	favicon = "/favicon.ico"
+
+	#list items
+	datesinlist = true
+	authorsinlist = true
+
+	#footer items
+	nextprev = true
+	taglist = true
+	showrss = true
+
+	# If false, all contents of posts will appear on the front page and in pagination
+	truncate = true
+
+	custom_css = ["/css/syntax.css", "/css/style.css"]
+
+	# Switch to true to enable RSS icon link
+	rss = true
+
+	# Set to true to use a text label for RSS instead of an icon
+	# This is overwritten by the "rss" setting
+	textrss = false
+
+[markup]
+	[markup.goldmark]
+		[markup.goldmark.renderer]
+			unsafe = true
+
+	[markup.highlight]
+		noClasses = true
+		lineNos = true
+		lineNumbersInTable = false
+		anchorLineNos = false
+		lineAnchors = ''
+		style = "dracula"
+		codeFences = true
+		guessSyntax = false
+		hl_Lines = ''
+		hl_inline = false
+		lineNoStart = 1
+		noHl = false
+		tabWidth = 8
+
+## Top Menu
+[menu]
+    [[menu.main]]
+        Name = "Hossein"
+        URL = "/"
+        weight = 1
+
+    [[menu.main]]
+        Name = "Whoami"
+        URL = "/me"
+        weight = 2
+
+    [[menu.main]]
+        Name = "Doc"
+        URL = "/doc"
+        weight = 3
+
+    [[menu.main]]
+        Name = "Posts"
+        URL = "/posts"
+        weight = 4
+
+    [[menu.main]]
+        name = "Linux"
+        identifier = "linux"
+        url = "/linux/"
+        weight = 5
+
+    [[menu.main]]
+        Name = "Tags"
+        URL = "/tags"
+        weight = 6

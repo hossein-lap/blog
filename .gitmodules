@@ -1,0 +1,3 @@
+[submodule "hos/themes/allgray"]
+	path = hos/themes/allgray
+	url = https://github.com/hossein-lap/allgray
