@@ -1,0 +1,376 @@
+/* fonts {{{ */
+/* Serif {{{ */
+@font-face {
+  font-family: 'libsans';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-regular.woff2') format('woff2'),
+    url('./fonts/LM-regular.woff') format('woff'),
+    url('./fonts/LM-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'libsans';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-italic.woff2') format('woff2'),
+    url('./fonts/LM-italic.woff') format('woff'),
+    url('./fonts/LM-italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'libsans';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold.woff2') format('woff2'),
+    url('./fonts/LM-bold.woff') format('woff'),
+    url('./fonts/LM-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'libsans';
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold-italic.woff2') format('woff2'),
+    url('./fonts/LM-bold-italic.woff') format('woff'),
+    url('./fonts/LM-bold-italic.ttf') format('truetype');
+}
+/* }}} */
+/* Sans {{{ */
+@font-face {
+	font-style: normal;
+	font-weight: normal;
+	font-display: swap;
+	font-family: "libsans";
+	src: url('./fonts/cmunss.ttf') format('truetype');
+}
+@font-face {
+	font-style: normal;
+	font-weight: bold;
+	font-family: "libsans";
+	src: url('./fonts/cmunsx.ttf') format('truetype');
+}
+@font-face {
+	font-style: italic;
+	font-weight: normal;
+	font-family: "libsans";
+	src: url('./fonts/cmunsi.ttf') format('truetype');
+}
+@font-face {
+	font-weight: bold;
+	font-style: italic, oblique;
+	font-family: "libsans";
+	src: url('./fonts/cmunso.ttf') format('truetype');
+}
+/* }}} */
+/* libserif {{{ */
+@font-face {
+	font-style: normal;
+	font-weight: normal;
+	font-display: swap;
+	font-family: "libserif";
+	src: url('./fonts/LibertinusSerif-Regular.otf') format('opentype');
+}
+@font-face {
+	font-style: normal;
+	font-weight: bold;
+	font-family: "libserif";
+	src: url('./fonts/LibertinusSerif-Bold.otf') format('opentype');
+}
+@font-face {
+	font-style: italic;
+	font-weight: normal;
+	font-family: "libserif";
+	src: url('./fonts/LibertinusSerif-Italic.otf') format('opentype');
+}
+@font-face {
+	font-weight: bold;
+	font-style: italic, oblique;
+	font-family: "libserif";
+	src: url('./fonts/LibertinusSerif-BoldItalic.otf.ttf') format('opentype');
+}
+/* }}} */
+/* libsans {{{ */
+@font-face {
+	font-style: normal;
+	font-weight: normal;
+	font-display: swap;
+	font-family: "libsans";
+	src: url('./fonts/LibertinusSans-Regular.otf') format('opentype');
+}
+@font-face {
+	font-style: normal;
+	font-weight: bold;
+	font-family: "libsans";
+	src: url('./fonts/LibertinusSans-Bold.otf') format('opentype');
+}
+@font-face {
+	font-style: italic;
+	font-weight: normal;
+	font-family: "libsans";
+	src: url('./fonts/LibertinusSans-Italic.otf') format('opentype');
+}
+@font-face {
+	font-weight: bold;
+	font-style: italic, oblique;
+	font-family: "libsans";
+	src: url('./fonts/LibertinusSans-Bold.otf') format('opentype');
+}
+/* }}} */
+/* }}} */
+header {
+	font-weight: bold;
+	font-family: 'libserif';
+	text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	/* margin-left: -1cm; */
+	font-weight: normal;
+	background-color: #151617;
+	border: 5px solid #151617;
+	border-radius: 5px;
+	padding-left: 1%;
+	padding-right: 1.5%;
+	/* padding: 5px; */
+	display: inline-block;
+	text-align: left;
+}
+
+h1 {
+	font-size: 250%;
+}
+h2 {
+	font-size: 230%;
+}
+h3 {
+	font-size: 210%;
+}
+h4 {
+	font-size: 160%;
+}
+h5 {
+	font-size: 140%;
+}
+h6 {
+	font-size: 120%;
+}
+
+body {
+	/* font-size: larger; */
+	padding: 10px;
+	font-family: 'libserif';
+	background: #2E3436;
+	color: #bfbfbf;
+}
+
+blockquote, q, abbr, address, cite, bdo {
+	font-family: 'libsans';
+}
+
+p, ul, li, table {
+	/* text-indent: 3%; */
+	/* padding-left: 50px; */
+	white-space: wrap;
+	font-family: 'libserif';
+	background: #2E3436;
+	color: #bfbfbf;
+}
+
+li {
+	font-size: 20px;
+}
+
+li span {
+	font-size: 25px;
+}
+
+ul li:before {
+	content: '\0000a0';
+	list-style-type: square;
+}
+
+ol li {
+	padding: 5px;
+	margin-left: 35px;
+}
+
+ul li {
+	padding: 5px;
+	margin-left: 20px;
+}
+
+main {
+	font-size: 20px;
+	max-width: 800px;
+	margin: auto;
+	color: #bfbfbf;
+}
+
+img {
+	max-width: 100%;
+}
+
+a {
+    font-family: 'libsans';
+	color: #fff;
+}
+
+a:hover {
+	color: #000;
+	background: #fff;
+}
+
+footer {
+	text-align: center;
+	clear: both;
+}
+
+/* For TAGLIST.HTML */
+.taglist {
+	text-align: center;
+	clear: both;
+}
+
+/* For NEXTPREV.HTML */
+#nextprev:hover {
+	/* The container for both the previous and next articles. */
+}
+#prevart {
+	float: left;
+	text-align: left;
+}
+#nextart {
+	float: right;
+	text-align: right;
+}
+#nextart,#prevart {
+	margin-bottom: 5mm;
+	margin-top: 5mm;
+	max-width: 33%;
+	display: inline-block;
+}
+
+/* div(s) */
+.thetitle {
+	font-size: 300%;
+	border: 5px solid #151617;
+	border-radius: 15px;
+	background-color: #151617;
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-bottom: 2mm;
+	/* padding-left: 50px; */
+	/* height: 200px; Should be removed. Only for demonstration */
+}
+
+.theauthors {
+	border: 5px solid #151617;
+	border-radius: 5px;
+	background-color: #151617;
+	display: inline-block;
+	text-align: center;
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 5mm;
+}
+
+.thedate {
+	border: 5px solid #151617;
+	border-radius: 5px;
+	background-color: #151617;
+	display: inline-block;
+	text-align: center;
+	padding: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 2mm;
+}
+
+.ndhead {
+}
+
+.theheadings {
+	font-weight: bold;
+	color: #fff;
+	display: inline-block;
+	background-color: #151617;
+	text-align: left;
+	padding: 10px;
+}
+
+.topbar {
+	font-weight: normal;
+	text-align: left;
+	padding: 5px;
+	display: inline-block;
+	background-color: #151617;
+	clear: both;
+	margin-bottom: 5mm;
+	border: 2px solid #151617;
+	border-radius: 5px;
+	/* margin-left: 1cm; */
+	/* background-color: #151617; */
+	/* position: absolute; */
+	/* font-size: 32px; */
+	/* clear: both; */
+	/* display: table; */
+}
+
+.botbar {
+	font-weight: normal;
+	text-align: center;
+	padding: 10px;
+	padding-left: 150px;
+	padding-right: 150px;
+	display: inline-block;
+	background-color: #151617;
+	max-width: 100%;
+	border: 5px solid #151617;
+	border-radius: 5px;
+	/* margin-left: 1cm; */
+	/* background-color: #151617; */
+	/* position: absolute; */
+	/* font-size: 32px; */
+	/* clear: both; */
+	/* display: table; */
+}
+
+code {
+	font-size: 20px;
+	white-space: wrap;
+}
+
+.highlight {
+	margin-left: 5%;
+	margin-right: 5%;
+	/* border-style: ; */
+	color: #f8f8f2;
+	background: #282a36;
+	padding: 1%;
+	border: 2px solid black;
+	border-radius: 15px;
+}
+
+.left {
+	width: 45% ;
+	float: left ;
+	clear: both ;
+}
+
+.right {
+	width: 45% ;
+	float: right ;
+}
+
+br {
+	clear: both;
+}

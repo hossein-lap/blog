@@ -1,0 +1,14 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+	<title>Hos Blog</title>
+	<link>https://hossein-lap.github.io/</link>
+	<description>Recent content in Hossein Esmailzadeh on Hos Blog</description>
+	<generator>Hugo -- gohugo.io</generator>
+	<language>en-us</language>
+	<lastBuildDate>Wed, 29 Mar 2023 22:14:09 +0330</lastBuildDate>
+    
+        <atom:link href="https://hossein-lap.github.io/index.xml" rel="self" type="application/rss+xml" />
+	
+	
+	</channel>
+</rss>
