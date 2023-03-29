@@ -1,7 +1,7 @@
 [submodule "hos/themes/allgray"]
 	path = hos/themes/allgray
 	url = https://github.com/hossein-lap/allgray
-[submodule "hos/public/hossein-lap.github.io"]
-	path = hos/public/hossein-lap.github.io
+[submodule "hos/public"]
+	path = hos/public
 	url = https://github.com/hossein-lap/hossein-lap.github.io
 	branch = main
