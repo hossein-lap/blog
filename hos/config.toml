@@ -57,26 +57,26 @@ pluralizelisttitles = false
         URL = "/"
         weight = 1
 
-    [[menu.main]]
-        Name = "Whoami"
-        URL = "/me"
-        weight = 2
-
-    [[menu.main]]
-        Name = "Doc"
-        URL = "/doc"
-        weight = 3
-
-    [[menu.main]]
-        Name = "Posts"
-        URL = "/posts"
-        weight = 4
-
-    [[menu.main]]
-        name = "Linux"
-        identifier = "linux"
-        url = "/linux/"
-        weight = 5
+#    [[menu.main]]
+#        Name = "Whoami"
+#        URL = "/me"
+#        weight = 2
+#
+#    [[menu.main]]
+#        Name = "Doc"
+#        URL = "/doc"
+#        weight = 3
+#
+#    [[menu.main]]
+#        Name = "Posts"
+#        URL = "/posts"
+#        weight = 4
+#
+#    [[menu.main]]
+#        name = "Linux"
+#        identifier = "linux"
+#        url = "/linux/"
+#        weight = 5
 
     [[menu.main]]
         Name = "Tags"
