@@ -61,10 +61,10 @@ pluralizelisttitles = false
         URL = "/"
         weight = 1
 
-    [[menu.main]]
-        Name = "Write"
-        URL = "/write"
-        weight = 2
+#    [[menu.main]]
+#        Name = "Write"
+#        URL = "/write"
+#        weight = 2
 #
 #    [[menu.main]]
 #        Name = "Doc"
