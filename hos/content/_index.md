@@ -53,13 +53,13 @@ I have happen to gain some knowledge in programming languages such as:
 I happened to learn programming languages such as:
 
 <div>
-<div class=left>
+<div class=lleft>
 
 + C
 + Lua
 
 </div>
-<div class=right>
+<div class=lright>
 
 + Python
 
@@ -75,13 +75,13 @@ or extend.
 These tools mostly were [suckless](https://suckless.org) tools:
 
 <div>
-<div class=left>
+<div class=lleft>
 
 + [dwm](https://dwm.suckless.org)
 + [st](https://st.suckless.org)
 
 </div>
-<div class=right>
+<div class=lright>
 
 + [dmenu](https://tools.suckless.org/dmenu)
 + [sent](https://tools.suckless.org/sent)
