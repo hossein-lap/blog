@@ -16,9 +16,8 @@ draft: false
 
 <div class=left>
 
-Hi
+Hi I'm Hossein
 
-I'm Hossein, 22 Years old.
 Lua programmer, (Xe)LaTeX writer, SysAdmin and Linux user.
 Yet another minimalist person with a passion about Open Source Software.
 
