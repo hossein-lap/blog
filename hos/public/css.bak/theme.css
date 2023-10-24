@@ -1,0 +1,35 @@
+body {
+	background: #191A21;
+	color: #f8f8f2;
+}
+
+a {
+	color: #8be9fd;
+}
+
+#nextart:hover,#prevart:hover,a:hover {
+	color: #000;
+	background: #8be9fd;
+}
+
+header h1 {
+	color: #ff79c6;
+}
+h1 {
+	color: #ffb86c;
+}
+h2 {
+	color: #f1fa8c;
+}
+h3 {
+	color: #50fa7b;
+}
+h4 {
+	color: #f8f8f2;
+}
+h5 {
+	color: #f8f8f2;
+}
+h6 {
+	color: #f8f8f2;
+}
