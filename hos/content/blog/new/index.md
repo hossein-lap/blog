@@ -2,32 +2,32 @@
 draft: false
 title: 'New'
 date: 2023-09-04T00:51:13+03:30
+summary: "Desc Text."
 description: "Desc Text."
 # weight: 1
 # aliases: ["/first"]
 tags: ["template", "post"]
 author: "P J"
 # author: ["Me", "You"] # multiple authors
-showToc: true
+showToc: false
 TocOpen: false
 hidemeta: false
 comments: false
 # canonicalURL: "https://canonical.url/to/page"
-disableHLJS: true # to disable highlightjs
+disableHLJS: false # to disable highlightjs
 disableShare: false
-disableHLJS: false
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
-UseHugoToc: true
-# cover:
-#     image: "<image path/url>" # image path/url
-#     alt: "<alt text>" # alt text
-#     caption: "<text>" # display caption under cover
+UseHugoToc: false
+cover:
+    image: "/imgs/me.png" # image path/url
+    alt: "Alt-text" # alt text
+    caption: "Caption" # display caption under cover
 #     relative: false # when using page bundles set this to true
 #     hidden: true # only hide on current single page
 # editPost:
@@ -36,3 +36,20 @@ UseHugoToc: true
 #     appendFilePath: true # to append file path to Edit link
 ---
 
+## This is a test!
+
+we are here to see, watch and preserve.
+
+## More test
+
+### And more
+
+```c
+#include <stdio.h>
+int
+main(int argc, char *argv[])
+{
+	printf("Hello world!\n");
+	return 0;
+}
+```

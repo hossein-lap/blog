@@ -1,17 +1,17 @@
 ---
 title: "Lua"
+author: "primejade"
 date: 2023-08-18T05:17:00+03:30
 subtitle: ''
-tags:
-- null
+tags: ["null", "nil"]
 authors:
-- ''
+- 'primejade'
 draft: false
 summary: |
     This is a template for now.
+cover:
+    image: "/imgs/me/profile.png"
 ---
-
-# Lua
 
 ## Syntax <!--{{{-->
 

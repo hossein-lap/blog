@@ -17,3 +17,20 @@ summary: |
 # Use case
 
 Markdown is a **universal document converter**.
+
+
+```c
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    printf("Hello world!");
+    return 0;
+}
+```
+
+
+<p style="background: blue;">
+
+This is a FUCKING test
+
+</p>
+

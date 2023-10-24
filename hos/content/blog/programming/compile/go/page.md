@@ -6,7 +6,7 @@ tags:
 - null
 authors:
 - 'P J'
-- 'w3schools.com'
+- 'H E'
 draft: false
 summary: |
     This is a template for now.
@@ -30,7 +30,7 @@ package main
 import "fmt"
 
 func main() {
-  fmt.Println("Hello World!")
+	fmt.Println("Hello World!")
 }
 ```
 
