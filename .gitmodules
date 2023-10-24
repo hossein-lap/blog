@@ -2,10 +2,9 @@
 	path = hos/themes/allgray
 	url = https://github.com/hossein-lap/allgray
 	branch = master
-[submodule "hos/public"]
-	path = hos/public
-	url = https://github.com/hossein-lap/hossein-lap.github.io
-	branch = main
 [submodule "hos/themes/PaperMod"]
 	path = hos/themes/PaperMod
 	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "hos/hossein-lap.github.io"]
+	path = hos/hossein-lap.github.io
+	url = https://github.com/hossein-lap/hossein-lap.github.io

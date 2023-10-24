@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lua | Hossein Esmail</title>
+	<link rel="canonical" href="hossein-lap.github.io">
+	<link rel='alternate' type='application/rss+xml' title="Hossein Esmail RSS" href='/index.xml'>
+	<link rel='stylesheet' type='text/css' href='/css/style.css'>
+	<link rel='stylesheet' type='text/css' href='/css/theme.css'>
+	<link rel="icon" href="/favicon.ico">
+	<meta name="description" content="This is a template for now.">
+	<meta name="keywords" content="null, nil">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow">
+	<meta charset="utf-8">
+</head>
+<body>
+<main>
+<header><h1 id="tag_Lua">Lua</h1></header>
+<article>
+
+<h2 id="syntax-----">Syntax <!--{{{--></h2>
+<p>Invoking the interpreter with a Lua file name parameter begins execution of the
+file and continues until the script is finished. When the script is finished,
+the interpreter is no longer active.</p>
+<p>Let us write a simple Lua program. All Lua files will have extension <code>.lua</code>.
+So put the following source code in a <code>test.lua</code> file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59">1</span><span>print(<span style="color:#b8bb26">&#34;test&#34;</span>)
+</span></span></code></pre></div><p>Assuming, lua environment is setup correctly, let’s run the program using the
+following code:</p>
+<pre><code>$ lua test.lua
+</code></pre>
+<p>Result:</p>
+<pre><code>test
+</code></pre>
+<p>Let&rsquo;s try another way to execute a Lua program. Below is the modified
+<code>test.lua</code> file</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59">1</span><span><span style="color:#8ec07c">#!/usr/bin/env lua5.4</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59">2</span><span>print(<span style="color:#b8bb26">&#34;test&#34;</span>)
+</span></span></code></pre></div><p>Now, try to run this program as follows:</p>
+<pre><code>$ chmod +x test.lua
+$ ./test.lua
+</code></pre>
+<p>Result:</p>
+<pre><code>test
+</code></pre>
+<p>Lua also provides a mode called interactive mode. In this mode, you can type in
+instructions one after the other and get instant results. This can be invoked
+in the shell by using the <code>lua -i</code> or just the <code>lua</code> command. Once you type in
+this, press Enter and the interactive mode will be started as shown below.</p>
+<pre><code>$ lua
+Lua 5.4.4  Copyright (C) 1994-2022 Lua.org, PUC-Rio
+&gt; 
+</code></pre>
+<p>You can print something using the following statement:</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59">1</span><span>print(<span style="color:#b8bb26">&#34;test&#34;</span>)
+</span></span></code></pre></div><p>Result:</p>
+<pre><code>$ lua
+Lua 5.4.4  Copyright (C) 1994-2022 Lua.org, PUC-Rio
+&gt; print(&quot;test&quot;)
+test
+&gt;
+</code></pre>
+<h3 id="tokens-in-lua">Tokens in Lua</h3>
+<p>A Lua program consists of various tokens and a token is either a keyword, an
+identifier, a constant, a string literal, or a symbol. For example, the
+following Lua statement consists of three tokens:</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59">1</span><span>io.write(<span style="color:#b8bb26">&#34;Hello world, from &#34;</span>, _VERSION, <span style="color:#b8bb26">&#34;!</span><span style="color:#b8bb26">\n</span><span style="color:#b8bb26">&#34;</span>)
+</span></span></code></pre></div><p>Result:</p>
+<pre><code>Hello world, from Lua 5.4!
+file (0x7fb1521ef5a0)
+</code></pre>
+<!--}}}-->
+
+
+<div id="nextprev">
+<a href="hossein-lap.github.io/blog/programming/compile/go/page/"><div id="prevart">Previous:<br>Go</div></a>
+<a href="hossein-lap.github.io/blog/new/"><div id="nextart">Next:<br>New</div></a>
+</div>
+<div style="clear:both" class=taglist>Related<br><a id="tag_null" href="hossein-lap.github.io/tags/null">Null</a> &middot; <a id="tag_nil" href="hossein-lap.github.io/tags/nil">Nil</a></div>
+</article>
+</main>
+
+<footer>
+	<a href="hossein-lap.github.io">hossein-lap.github.io</a><br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+</footer>
+
+</body>
+</html>
