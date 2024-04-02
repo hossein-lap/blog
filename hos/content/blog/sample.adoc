@@ -1,0 +1,31 @@
+---
+title: "Sample"
+slug: "sample" 
+authors: ["Hossein Esmail"]
+date: "2024-04-02T22:46:29+03:30"
+language: en
+draft: false
+tags: ["cool-tag"]
+series: ["X"]
+categories: ["dev"]
+description: |
+    more modern approach
+---
+
+= Sample
+:doctype: book
+:source-highlighter: rouge
+:rouge-style: github
+:author: P J
+:email: hos@gmail
+:icon-set: fi
+:numbered:
+:toc:
+:toclevels: 1
+
+**Insert Lead paragraph here.**
+
+== New stuff
+
+
+

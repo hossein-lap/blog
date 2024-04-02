@@ -218,7 +218,7 @@ timeout = 60000
         pre = "<span class='fa-icon'><i class='fas fa-stream'></i></span><code>blog</code>"
         # pre = "<i class='fas fa-blog'></i> <code>ls posts/*</code>"
         # pre = "<i class='far fa-newspaper'></i> <code>ls posts/*</code>"
-        url = "/blog/"
+        url = "/docs/"
         weight = 1
 
     [[menu.main]]
