@@ -42,7 +42,8 @@ cover:
 
 Hi I'm Hossein
 
-```c
+[source,c]
+----
 #include <stdio.h>
 int
 main(int argc, char *argv[])
@@ -50,42 +51,47 @@ main(int argc, char *argv[])
 	printf("Hello world!\n");
 	return 0;
 }
-```
+----
 
 
 `Lua` programmer, (Xe)LaTeX writer, SysAdmin and Linux user.
 Yet another minimalist person with a passion about Open Source Software.
 
-<!-- ![some-madeup-logo](/imgs/me/profile.png) -->
-
 I was a Computer guy from my early days back in my 1st and 2nd grade.
 But all I did was playing video games. Until my dad came to me and said:
 
-> "Don't just play video games kiddo, it can do much more than that. try to
-> learn it."
+[qoute]
+____
+Don't just play video games kiddo, it can do much more than that. try to
+learn it.
+____
 
 And that was it. It became the goal of my life :)
 
-## What I know?
+== What I know?
 
 I have happen to gain some knowledge in programming languages such as:
 
 I happened to learn programming languages such as:
 
-+ C
-+ Lua
-+ Python
-+ Bash
+|====
+
+| C | Lua
+| Python | Bash
+
+|====
 
 By using tools that required a little programming knowledge to modify/configure
 or extend.
 
-## Tools
+== Tools
 
-These tools mostly were [suckless](https://suckless.org) tools:
+These tools mostly were https://suckless.org[suckless] tools:
 
-+ [dwm](https://dwm.suckless.org)
-+ [st](https://st.suckless.org)
-+ [dmenu](https://tools.suckless.org/dmenu)
-+ [sent](https://tools.suckless.org/sent)
+|====
+
+| https://dwm.suckless.org[dwm] | https://st.suckless.org[st]
+| https://tools.suckless.org/dmenu[dmenu] | https://tools.suckless.org/sent[sent]
+
+|====
 

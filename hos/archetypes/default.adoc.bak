@@ -1,0 +1,19 @@
+= {{ replace .Name "-" " " | title }}
+//:home: /home/hos
+:author: P J
+:email: hos@gmail
+:icons: font
+:icon-set: fi
+//:numbered:
+:sectnums:
+:source-highlighter: rouge
+:rouge-style: github.light
+//:source-highlighter: pygments
+//:pygments-style: github
+//:source-language: go
+:doctype: book
+:toc: macro
+:toc:
+:toclevels: 4
+:toc-title: My Content
+//:stylesheet: styles.css

@@ -1,0 +1,31 @@
+---
+title: "{{ .Name | replaceRE "\\d{4}-\\d{2}-\\d{2}-(.*)" "$1" | replaceRE "-" " " | title }}"
+slug: "{{ .Name | replaceRE "\\d{4}-\\d{2}-\\d{2}-(.*)" "$1" }}" 
+authors: ["Hossein Esmail"]
+date: "{{ .Date }}"
+language: en
+draft: true
+tags: ["cool-tag"]
+series: ["X"]
+categories: ["dev"]
+description: |
+
+---
+
+= {{ .Name | replaceRE "\\d{4}-\\d{2}-\\d{2}-(.*)" "$1" | replaceRE "-" " " | title }}
+:doctype: book
+:source-highlighter: rouge
+:rouge-style: github
+:author: P J
+:email: hos@gmail
+:icon-set: fi
+:numbered:
+:toc:
+:toclevels: 1
+
+**Insert Lead paragraph here.**
+
+== New stuff
+
+
+
