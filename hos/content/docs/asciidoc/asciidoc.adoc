@@ -31,7 +31,7 @@ Okay, let's do it.
 .Test
 [source,c]
 ----
-include::{home}/.cache/wal/colors-wal-st.h[]
+// include::{home}/.cache/wal/colors-wal-st.h[]
 ----
 
 == Lists
