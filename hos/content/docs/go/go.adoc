@@ -1,13 +1,13 @@
 ---
 title: "Go Programming Language"
-slug: "golang" 
+# slug: "golang" 
 authors: ["Hossein Esmail"]
 date: "2024-04-02T22:30:03+03:30"
 language: en
 draft: false
-tags: ["go", "cli", "tools", "backend"]
-categories: ["dev", "golang"]
-series: ["golang", "go"]
+tags: ["Programming", "Go", "CLI", "Tools", "Backend"]
+# categories: ["dev", "golang"]
+# series: ["golang", "go"]
 description: |
     go is a very simple programming language with a strong standard library and
     useful features.
@@ -20,7 +20,7 @@ description: |
 :author: P J
 :email: hos@gmail
 :icon-set: fi
-:numbered:
+// :numbered:
 :toc:
 :toclevels: 1
 

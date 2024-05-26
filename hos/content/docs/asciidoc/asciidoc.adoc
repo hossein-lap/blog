@@ -1,13 +1,13 @@
 ---
 title: "AsciiDoc(tor): Yo Dawg!"
-slug: "asciidoc" 
+# slug: "asciidoc" 
 authors: ["Hossein Esmail"]
 date: "2024-04-02T22:09:44+03:30"
 language: en
 draft: false
-tags: ["writing"]
-series: ["asciidoc"]
-categories: ["document"]
+tags: ["Writing", "Documentation", "AsciiDoc"]
+# series: ["asciidoc"]
+# categories: ["document"]
 description: |
     AsciiDoc is a markup language similar to markdown but vay more standardized
     and with more features/elements.
@@ -20,7 +20,7 @@ description: |
 :author: P J
 :email: hos@gmail
 :icon-set: fi
-:numbered:
+// :numbered:
 :toc:
 :toclevels: 1
 

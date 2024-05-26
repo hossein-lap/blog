@@ -6,38 +6,12 @@ date: 2023-03-29T22:14:09+03:30
 description: |
     For a very long time I've wanted to create a weblog to write and
     share some stuffs in it. There we go :D
-# weight: 1
-# aliases: ["/first"]
-# tags: ["template", "post"]
-author: "Me"
-# author: ["Me", "You"] # multiple authors
-showToc: false
-TocOpen: false
-hidemeta: true
-comments: false
-# canonicalURL: "https://canonical.url/to/page"
-disableHLJS: false # to disable highlightjs
-disableShare: false
-disableHLJS: false
-hideSummary: false
-searchHidden: true
-ShowReadingTime: false
-ShowBreadCrumbs: false
-ShowPostNavLinks: false
-ShowWordCount: false
-ShowRssButtonInSectionTermList: true
-UseHugoToc: false
 cover:
-    image: "/imgs/me/profile.png" # image path/url
+    image: "/images/me/me-square.png" # image path/url
     alt: "profile-pic" # alt text
     caption: "Me" # display caption under cover
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page
-
-# editPost:
-#     URL: "https://github.com/<path_to_repo>/content"
-#     Text: "Suggest Changes" # edit text
-#     appendFilePath: true # to append file path to Edit link
 ---
 
 Hi I'm Hossein

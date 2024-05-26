@@ -1,0 +1,39 @@
+---
+#title: "Welcome"
+authors: ["Hossein Esmail"]
+date: "2024-05-26T22:08:49+03:30"
+language: en
+draft: false
+---
+
+== ****WIP****
+
+|===
+| |
+| Welcome to my blog. I'll be posting myown notes, ideas, programs.
+I am a programmer / DevOps engineer with passions about open-source
+software and trees.
+
+Also, I use vim btw :)
+
+| image:/images/me/me-circle.png[Me, 250, 250,left]
+|===
+
+|====
+| |
+
+| *Hobbies*
+| Coding, Biking, Volleyball, Fishing
+
+| *Programming Languages*
+| Lua, Go, C, Bash
+
+| *Tools*
+| Linux, Git, KVM, Docker, K8S, Ansible
+
+| *Markup / Typesetting Languages*
+| LaTeX, groff, AsciiDoc(tor), Markdown
+
+| |
+|====
+

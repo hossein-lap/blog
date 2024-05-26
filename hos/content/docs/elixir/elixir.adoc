@@ -5,9 +5,9 @@ slug: "Elixir"
 authors: ["Hossein Esmail"]
 language: en
 draft: false
-tags: ["programming"]
-categories: ["functional programming"]
-series: ["elixir"]
+tags: ["Programming", "Functional", "Elixir"]
+# categories: ["functional programming"]
+# series: ["elixir"]
 description: |
     Elixir is a function programming language which uses Erlang's VM (BEAM)
     and has a very similar approach to Erlang
@@ -17,7 +17,7 @@ description: |
 :doctype: article
 // :toc:
 :toclevels: 1
-:numbered:
+// :numbered:
 :icons: font
 :icon-set: fi
 :source-highlighter: rouge

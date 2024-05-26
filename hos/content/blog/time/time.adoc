@@ -1,0 +1,32 @@
+---
+title: "Time"
+slug: "time" 
+authors: ["Hossein Esmail"]
+date: "2024-05-17T22:42:43+03:30"
+language: en
+draft: false
+tags: ["cool-tag"]
+series: ["X"]
+categories: ["dev"]
+description: |
+
+---
+
+= Time
+:doctype: book
+:source-highlighter: rouge
+:rouge-style: github
+:author: P J
+:email: hos@gmail
+:icon-set: fi
+:numbered:
+:toc:
+:toclevels: 1
+
+**Insert Lead paragraph here.**
+
+== New stuff
+
+ We are new here ;)
+
+include::nah.txt[]
