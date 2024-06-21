@@ -1,0 +1,47 @@
+extends: default
+font:
+  catalog:
+    Noto Serif:
+      normal:      /usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf
+      bold:        /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf
+      italic:      /usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf
+      bold_italic: /usr/share/fonts/truetype/liberation/LiberationSans-BoldItalic.ttf
+    M+ 1mn:
+      normal:      /usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf
+      bold:        /usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf
+      italic:      /usr/share/fonts/truetype/ubuntu/UbuntuMono-RI.ttf
+      bold_italic: /usr/share/fonts/truetype/ubuntu/UbuntuMono-BI.ttf
+    Title Sans:
+      normal:      /usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf
+      bold:        /usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf
+      italic:      /usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf
+      bold_italic: /usr/share/fonts/truetype/liberation/LiberationSerif-BoldItalic.ttf
+base:
+  #font-family: LiberationSans
+  font-size: 10.5
+code:
+  #font-family: UbuntuMono
+  font-size: 8
+codespan:
+  #font-family: UbuntuMono
+  font-size: 9
+kbd:
+  #font-family: UbuntuMono
+button:
+  #font-family: LiberationSans
+caption:
+  font-color: #7a2518
+  font-size: 9
+heading:
+  h1-font-family: "Title Sans"
+  h2-font-family: "Title Sans"
+  h3-font-family: "Title Sans"
+  h4-font-family: "Title Sans"
+  h5-font-family: "Title Sans"
+  h6-font-family: "Title Sans"
+  h1-font-size: floor($base_font_size * 2.6)
+  h2-font-size: floor($base_font_size * 2.15)
+  h3-font-size: round($base_font_size * 1.7)
+  h4-font-size: $base_font_size_large
+  h5-font-size: $base_font_size
+  h6-font-size: $base_font_size_small
