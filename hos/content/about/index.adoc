@@ -16,19 +16,6 @@ cover:
 
 Hi I'm Hossein
 
-[source,c]
-----
-#include <stdio.h>
-int
-main(int argc, char *argv[])
-{
-	printf("Hello world!\n");
-	return 0;
-}
-----
-
-
-`Lua` programmer, (Xe)LaTeX writer, SysAdmin and Linux user.
 Yet another minimalist person with a passion about Open Source Software.
 
 I was a Computer guy from my early days back in my 1st and 2nd grade.
@@ -42,30 +29,64 @@ ____
 
 And that was it. It became the goal of my life :)
 
-== What I know?
+== Programming
 
-I have happen to gain some knowledge in programming languages such as:
+I have a solid background with writing and patching softwares in some
+programming languages like
 
-I happened to learn programming languages such as:
+|====
+| C | Lua | Go | Bash | Python | ...
 
 |====
 
-| C | Lua
-| Python | Bash
+by _mostly_ using some tools that required a little programming knowledge to
+modify / configure or extend.
 
-|====
+.Let me give you an example
+****
+I wanted to learn Python language so I needed to take some notes, I decided to
+use LaTeX for that matter and my notes were getting dirty, I was losing some of
+them, they're getting out-of-hand, then I've decided to use git for managing
+them.
+****
 
-By using tools that required a little programming knowledge to modify/configure
-or extend.
+I learned `C` by patching / configuring the http://suckless.org[suckless]
+tools, `Lua` by configuring neovim and writing plugins for it, `Bash` by using
+it daily with "Live inside terminal" approach. of cource I've also read books
+and documentations for them eventually. `Python` and `Go` are the ones that I
+really sat-down and read books / docs about them from the beginning of the
+journey.
 
-== Tools
+== Workflow
 
-These tools mostly were https://suckless.org[suckless] tools:
+I'm a simple guy so I like simplicity.
 
-|====
+I use https://st.suckless.org[st] as my terminal emulator.
+I have https://vim.org[vim] (or https://neovim.io[neovim] I'm fine with both)
+as my text editor in my pocket, https://github.com/tmux/tmux/wiki[tmux] as
+multiplexer / session-manager by my side, I have a home in any window manger
+(but I perfer it to be inside https://dwm.suckless.org[dwm] over the other).
+Also for some BiDi papers and documents I've let the little evil in,
+https://github.com/doomemacs/doomemacs[doom emacs].
 
-| https://dwm.suckless.org[dwm] | https://st.suckless.org[st]
-| https://tools.suckless.org/dmenu[dmenu] | https://tools.suckless.org/sent[sent]
+To be honest, I just need a POSIX-complaint shell, tmux, vim and git.
+All of these can be repleaced and I'm fine wit their alternatives.
 
-|====
+=== Operating System
+
+Currently (as of June 21, 2024) I'm using NixOS as my daily-driver OS.
+I love NixOS's approach and its reproducability, just starting to like Nix
+language / packages manager, I've wanted to learn a functional programming
+language anyway (I still might go for Elixir) so, that's might be it,
+who knows ;)
+
+I'm very fine and comfortable with most of other Linux Distributions out there.
+I've started using Linux with Ubuntu 18.04, shortly moved to Linux mint 18
+and used it about a 6 to 10 months, after that I went for Manjaro xfce,
+installed it, used it for about 3 or so months and then, I installed Manjaro i3.
+
+The emphasizing *Manjaro i3* is because it really changed the way I look at a
+GUI.
+
+== WIP
 

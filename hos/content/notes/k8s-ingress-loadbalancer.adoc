@@ -1,0 +1,24 @@
+---
+title: "K8s Ingress LoadBalancer"
+authors: ["Hossein Esmail"]
+date: "2024-05-31T18:50:32+03:30"
+language: en
+draft: false
+tags: ["K8S", "ingress", "nginx", "LoadBalancer", "NodePort"]
+description: |
+    Configure kubernetes infrastructre with NodePort, ClusterIP, Ingress, nginx load-balancer
+---
+
+= K8s Ingress LoadBalancer
+
+WARNING: This is some note, nothing serious.
+
+== Exposing services to external clients
+
+Few ways to make a service accessible externally:
+
+* `NodePort` service type
+* `LoadBalancer` service type
+* Create `Ingress` resource, _radically different mechanism_
+
+
