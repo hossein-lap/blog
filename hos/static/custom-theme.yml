@@ -2,36 +2,38 @@ extends: default
 font:
   catalog:
     Noto Serif:
-      normal:      /usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf
-      bold:        /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf
-      italic:      /usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf
-      bold_italic: /usr/share/fonts/truetype/liberation/LiberationSans-BoldItalic.ttf
+      normal:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Regular.ttf
+      bold:        /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Bold.ttf
+      italic:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Italic.ttf
+      bold_italic: /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-BoldItalic.ttf
     M+ 1mn:
-      normal:      /usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf
-      bold:        /usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf
-      italic:      /usr/share/fonts/truetype/ubuntu/UbuntuMono-RI.ttf
-      bold_italic: /usr/share/fonts/truetype/ubuntu/UbuntuMono-BI.ttf
+      normal:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/ubuntu/UbuntuMono-R.ttf
+      bold:        /home/hos/dev/hossein-lap/blog/hos/static/fonts/ubuntu/UbuntuMono-B.ttf
+      italic:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/ubuntu/UbuntuMono-RI.ttf
+      bold_italic: /home/hos/dev/hossein-lap/blog/hos/static/fonts/ubuntu/UbuntuMono-BI.ttf
     Title Sans:
-      normal:      /usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf
-      bold:        /usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf
-      italic:      /usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf
-      bold_italic: /usr/share/fonts/truetype/liberation/LiberationSerif-BoldItalic.ttf
+      normal:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Regular.ttf
+      bold:        /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Bold.ttf
+      italic:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Italic.ttf
+      bold_italic: /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-BoldItalic.ttf
 base:
-  #font-family: LiberationSans
-  font-size: 10.5
+  #font-family: LiberationSerif
+  font-size: 11.5
 code:
   #font-family: UbuntuMono
-  font-size: 8
+  font-size: 10
 codespan:
   #font-family: UbuntuMono
-  font-size: 9
+  font-size: 10
+  font-color: #25187a
 kbd:
   #font-family: UbuntuMono
 button:
-  #font-family: LiberationSans
+  #font-family: LiberationSerif
 caption:
   font-color: #7a2518
-  font-size: 9
+  font-size: 10
+  font-style: bold # bold_italic
 heading:
   h1-font-family: "Title Sans"
   h2-font-family: "Title Sans"

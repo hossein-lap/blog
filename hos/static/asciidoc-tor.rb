@@ -28,19 +28,24 @@ output_file ||= input_file.sub('.adoc', '.pdf')
 # }}}
 
 settings = {
-  font_main: 'LiberationSans',
-  font_title: 'LiberationSerif',
-  font_code: 'UbuntuMono',
-  font_size_main: 10.5,
-  font_size_code: 8,
-  font_size_caption: 9,
+  font_main:	'LiberationSerif',
+  font_title:	'LiberationSerif',
+  font_code:	'UbuntuMono',
+  # font_code:	'JetBrainsMono',
+  font_prepath: Dir.pwd,
+  font_size_main: 11.5,
+  font_size_code: 10,
+  font_size_caption: 10,
+  number: true,
+  # cap_color: "#ff7700",
+  cap_color:	"#7a2518",
+  code_color:	"#25187a",
   doc_author: "Hos Es",
-  doc_syntax: "algol", # pygments
+  doc_syntax: "bw", # pygments: algol, friendly_grayscale; rouge: base16.solarized.light
   # doc_lang: "lua",
   doc_name: input_file,
   h_dlist: false,
 }
-
 
 # def lists {{{
 if settings[:h_dlist]
@@ -79,34 +84,40 @@ font_catalog = {
         bold_italic: '/home/hos/.local/share/fonts/gnu-freefonts/mono/FreeMonoBoldOblique.ttf',
     },
     'LiberationSerif' => {
-        normal:      '/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf',
-        bold:        '/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf',
-        italic:      '/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf',
-        bold_italic: '/usr/share/fonts/truetype/liberation/LiberationSerif-BoldItalic.ttf',
+        normal:      settings[:font_prepath] + '/fonts/liberation/LiberationSerif-Regular.ttf',
+        bold:        settings[:font_prepath] + '/fonts/liberation/LiberationSerif-Bold.ttf',
+        italic:      settings[:font_prepath] + '/fonts/liberation/LiberationSerif-Italic.ttf',
+        bold_italic: settings[:font_prepath] + '/fonts/liberation/LiberationSerif-BoldItalic.ttf',
     },
     'LiberationSans' => {
-        normal:      '/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf',
-        bold:        '/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf',
-        italic:      '/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf',
-        bold_italic: '/usr/share/fonts/truetype/liberation/LiberationSans-BoldItalic.ttf',
+        normal:      settings[:font_prepath] + '/fonts/liberation/LiberationSans-Regular.ttf',
+        bold:        settings[:font_prepath] + '/fonts/liberation/LiberationSans-Bold.ttf',
+        italic:      settings[:font_prepath] + '/fonts/liberation/LiberationSans-Italic.ttf',
+        bold_italic: settings[:font_prepath] + '/fonts/liberation/LiberationSans-BoldItalic.ttf',
     },
     'LiberationMono' => {
-        normal:      '/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf',
-        bold:        '/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf',
-        italic:      '/usr/share/fonts/truetype/liberation/LiberationMono-Italic.ttf',
-        bold_italic: '/usr/share/fonts/truetype/liberation/LiberationMono-BoldItalic.ttf',
+        normal:      settings[:font_prepath] + '/fonts/liberation/LiberationMono-Regular.ttf',
+        bold:        settings[:font_prepath] + '/fonts/liberation/LiberationMono-Bold.ttf',
+        italic:      settings[:font_prepath] + '/fonts/liberation/LiberationMono-Italic.ttf',
+        bold_italic: settings[:font_prepath] + '/fonts/liberation/LiberationMono-BoldItalic.ttf',
+    },
+    'JetBrainsMono' => {
+        normal:      settings[:font_prepath] + '/fonts/jetbrains/JetBrainsMono-Regular.ttf',
+        bold:        settings[:font_prepath] + '/fonts/jetbrains/JetBrainsMono-Bold.ttf',
+        italic:      settings[:font_prepath] + '/fonts/jetbrains/JetBrainsMono-Italic.ttf',
+        bold_italic: settings[:font_prepath] + '/fonts/jetbrains/JetBrainsMono-BoldItalic.ttf',
     },
     'UbuntuMono' => {
-        normal:      '/usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf',
-        bold:        '/usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf',
-        italic:      '/usr/share/fonts/truetype/ubuntu/UbuntuMono-RI.ttf',
-        bold_italic: '/usr/share/fonts/truetype/ubuntu/UbuntuMono-BI.ttf',
+        normal:      settings[:font_prepath] + '/fonts/ubuntu/UbuntuMono-R.ttf',
+        bold:        settings[:font_prepath] + '/fonts/ubuntu/UbuntuMono-B.ttf',
+        italic:      settings[:font_prepath] + '/fonts/ubuntu/UbuntuMono-RI.ttf',
+        bold_italic: settings[:font_prepath] + '/fonts/ubuntu/UbuntuMono-BI.ttf',
     },
     'Ubuntu' => {
-        normal:      '/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf',
-        bold:        '/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf',
-        italic:      '/usr/share/fonts/truetype/ubuntu/Ubuntu-RI.ttf',
-        bold_italic: '/usr/share/fonts/truetype/ubuntu/Ubuntu-BI.ttf',
+        bold:        settings[:font_prepath] + '/fonts/ubuntu/Ubuntu-B.ttf',
+        normal:      settings[:font_prepath] + '/fonts/ubuntu/Ubuntu-R.ttf',
+        italic:      settings[:font_prepath] + '/fonts/ubuntu/Ubuntu-RI.ttf',
+        bold_italic: settings[:font_prepath] + '/fonts/ubuntu/Ubuntu-BI.ttf',
     },
     'CMUSerif' => {
         normal:      '/usr/share/fonts/truetype/cmu/cmunrm.ttf',
@@ -159,13 +170,15 @@ code:
 codespan:
   #font-family: #{settings[:font_code]}
   font-size: #{settings[:font_size_caption]}
+  font-color: #{settings[:code_color]}
 kbd:
   #font-family: #{settings[:font_code]}
 button:
   #font-family: #{settings[:font_main]}
 caption:
-  font-color: #7a2518
+  font-color: #{settings[:cap_color]}
   font-size: #{settings[:font_size_caption]}
+  font-style: bold # bold_italic
 heading:
   h1-font-family: "Title Sans"
   h2-font-family: "Title Sans"
@@ -206,7 +219,7 @@ options = {
         "icons" => "font",
         "icon-set" => "fi",
         'toc' => false,
-        'sectnums' => true,
+        'sectnums' => settings[:number],
         'linenums' => false,
         'source-highlighter' => 'pygments',
         'pygments-style' => settings[:doc_syntax],

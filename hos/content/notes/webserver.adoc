@@ -309,11 +309,11 @@ type Dog struct {
 ----
 func main() {
     input := `{
-  "name": "Coffee",
-  "breed": "Toy Poodle",
-  "age": 5,
-  "favorite_treat": "Kibble"
-}`
+      "name": "Coffee",
+      "breed": "Toy Poodle",
+      "age": 5,
+      "favorite_treat": "Kibble"
+    }`
 
     var coffee Dog
 

@@ -54,7 +54,7 @@ summaryLength = 70  # number of words for article summaries
     fitImageInArticlePreview = true  # make article preview images fit the article preview instead of getting cropped
     articleSummary = true  # show a summary in article preview; default true
     
-    fontFamily = "sans-serif"  # changes the font, default "JetBrains Mono"
+    fontFamily = "serif"  # changes the font, default "JetBrains Mono"
     titleFontFamily = "serif"  # font used for titles and headings
     monospaceFontFamily = "monospace"  # changes the monospace font for code, default "JetBrains Mono"
 
@@ -188,6 +188,7 @@ summaryLength = 70  # number of words for article summaries
 source-highlighter = "rouge"
 rouge-style = "base16.dark"
 rouge-css = "syntax"
+sectnums = true
 
 # # this section is necessary if you want infinite scrolling
 # # it allows to output the article list as paged JSON so that "pages" can be retrieved via javascript

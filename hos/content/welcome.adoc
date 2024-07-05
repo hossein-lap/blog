@@ -22,11 +22,9 @@ Also, I use vim btw ;)
 | Linux, Git, QEMU/KVM, Docker, K8S, Ansible, tmux
 
 | *Markup / Typesetting Languages*
-| LaTeX, groff, AsciiDoc(tor), Markdown
+| LaTeX, Groff, Asciidoc(tor), Markdown
 
 | *Hobbies*
 | Coding, Biking, Volleyball, Fishing
-
-| |
 |====
 
