@@ -3,6 +3,7 @@ title: "Golang stdlib - Webserver"
 authors: ["Hossein Esmail"]
 date: "2024-05-31T16:47:17+03:30"
 language: en
+toc: true
 draft: false
 tags: ["Go", "RESTFul", "HTTP", "JSON", "Redis", "SQL"]
 description: |
@@ -11,7 +12,11 @@ description: |
 
 = Golang stdlib - Webserver
 
-WARNING: This is just some notes, nothing serious.
+[WARNING]
+====
+This is some note, nothing serious.
+*DO NOT* cite from this article.
+====
 
 We need `"net/http"` module to create webserver and listen to the specified port.
 

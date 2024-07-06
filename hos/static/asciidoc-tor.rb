@@ -35,7 +35,7 @@ settings = {
   font_prepath: Dir.pwd,
   font_size_main: 11.5,
   font_size_code: 10,
-  font_size_caption: 10,
+  font_size_caption: 12.5,
   number: true,
   # cap_color: "#ff7700",
   cap_color:	"#7a2518",

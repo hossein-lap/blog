@@ -13,7 +13,6 @@ copyright = "Hos Es"
 paginate = 5  # number of articles per page in the index
 summaryLength = 70  # number of words for article summaries
 
-
 [params]
     author = "Hossein Esmail"
     description = "Personal blog"  # this will be added as metadata
@@ -114,7 +113,7 @@ summaryLength = 70  # number of words for article summaries
     # Colors are defined in data/colors.yml
 
     # alternative sidebar layout
-    enableSidebarLayout = false
+    enableSidebarLayout = true
     tocInSidebar = true  # if the sidebar is enbabled, show the TOC in the sidebar
 
     # redirect to baseURL if current URL host doesn't match
@@ -124,7 +123,7 @@ summaryLength = 70  # number of words for article summaries
     forceRedirect = true
 
     infiniteScrolling = false  # activates infinite scrolling instead of regular pagination
-    enableFooterColumns = false  # activates footer columns, as described below
+    enableFooterColumns = true  # activates footer columns, as described below
     enableJumbotron = true  # enables jumbotron, as described below
     # related articles will be selected randomly based on tags and shown at
     # the bottom of the article, after the comments
@@ -189,6 +188,12 @@ source-highlighter = "rouge"
 rouge-style = "base16.dark"
 rouge-css = "syntax"
 sectnums = true
+toc = true
+
+[markup.tableOfContents]
+endLevel = 5
+ordered = false
+startLevel = 1
 
 # # this section is necessary if you want infinite scrolling
 # # it allows to output the article list as paged JSON so that "pages" can be retrieved via javascript

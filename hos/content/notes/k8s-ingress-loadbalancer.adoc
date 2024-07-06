@@ -4,14 +4,19 @@ authors: ["Hossein Esmail"]
 date: "2024-05-31T18:50:32+03:30"
 language: en
 draft: false
-tags: ["K8S", "ingress", "nginx", "LoadBalancer", "NodePort"]
+tags: ["K8S", "Ingress", "LoadBalancer", "NodePort", "infrastructure"]
+toc: true
 description: |
-    Configure kubernetes infrastructre with NodePort, ClusterIP, Ingress, nginx load-balancer
+    Configure kubernetes infrastructure with NodePort, ClusterIP, Ingress, nginx load-balancer
 ---
 
 = Accessing K8S pods
 
-WARNING: This is some note, nothing serious.
+[WARNING]
+====
+This is some note, nothing serious.
+*DO NOT* cite from this article.
+====
 
 link:/pdfs/notes/k8s-ingress-loadbalancer.pdf[Download this note as a PDF]
 
