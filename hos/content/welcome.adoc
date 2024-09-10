@@ -12,19 +12,28 @@ open-source software and trees.
 
 Also, I use vim btw ;)
 
-|====
-| |
+[horizontal]
+*Programming Languages*:: Lua, Go, C, Bash
+*Tools*:: Linux, Git, QEMU/KVM, Docker, K8S, Ansible, tmux
+*Markup / Typesetting Languages*:: LaTeX, Groff, Asciidoc(tor), Markdown
+*Hobbies*:: Coding, Biking, Volleyball, Fishing
 
-| *Programming Languages*
-| Lua, Go, C, Bash
+// |====
+// 
+// | *Key* | *Value*
+// 
+// | Programming Languages
+// | Lua, Go, C, Bash
+// 
+// | Tools
+// | Linux, Git, QEMU/KVM, Docker, K8S, Ansible, tmux
+// 
+// | Markup / Typesetting Languages
+// | LaTeX, Groff, Asciidoc(tor), Markdown
+// 
+// | Hobbies
+// | Coding, Biking, Volleyball, Fishing
+// 
+// |====
 
-| *Tools*
-| Linux, Git, QEMU/KVM, Docker, K8S, Ansible, tmux
-
-| *Markup / Typesetting Languages*
-| LaTeX, Groff, Asciidoc(tor), Markdown
-
-| *Hobbies*
-| Coding, Biking, Volleyball, Fishing
-|====
 

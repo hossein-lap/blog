@@ -1,0 +1,15 @@
+---
+title: "Vim"
+authors: ["Hossein Esmail"]
+date: "2024-07-14T14:42:49+03:30"
+language: en
+draft: false
+toc: false
+tags: [ "Vim", "vim-lang", "config", "vimscript" ]
+description: |
+   
+---
+
+= Vim
+
+

@@ -4,6 +4,7 @@ title: "Lua Progamming Language"
 authors: ["Hossein Esmail"]
 date: "2024-04-02T22:30:09+03:30"
 language: en
+toc: true
 draft: false
 tags: ["Lua", "Embedded", "Game", "Plugin"]
 # categories: ["Progamming"]

@@ -577,12 +577,47 @@ kubia     kubia.example.com    192.168.99.100     80          29m
 ....
 
 [NOTE]
+====
 When running on cloud providers, the address may take time to appear,
 because the Ingress controller provisions a load balancer behind the scenes.
+====
 
 * The IP is shown in the `ADDRESS` column.
 
 
+[TIP]
+====
+Once you know the IP, you can then either configure your DNS servers to resolve
+kubia.example.com to that IP or you can setup hosts: add the following line to
+`/etc/hosts` (or `C:\windows\system32\drivers\etc\hosts` on Windows):
 
+.`/etc/hosts`
+----
+192.168.99.100		kubia.example.com
+----
 
+So you can access the service at http://kubia.example.com using a browser or
+`curl`
+====
+
+==== Understading how Ingress work
+
+* The client first performed a DNS lookup of kubia.example.com, and the DNS
+  server (or the local operating system) returned the IP of the Ingress
+  controller
+* The client then sent an HTTP request to the Ingress controller and specified
+  `kubia.example.com` in the `Host` header
+** From that header, the controller determined which service the client is
+   trying to access, looked up the pod IPs through the Endpoints object
+   associated with the service, and forwarded the client's request to one of
+   the pods.
+* The Ingress controller don't forward the request to the service
+** It only use it to select a pod
+** Most, if not all, controllers work like this
+
+=== Exposing multiple services through the same Ingress
+
+Both `rules` and `paths` are arrays, so they can contain multiple items
+
+==== Mapping different services to different paths of the same host
 

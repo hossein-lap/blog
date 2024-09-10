@@ -32,7 +32,7 @@ button:
   #font-family: LiberationSerif
 caption:
   font-color: #7a2518
-  font-size: 10
+  font-size: 12.5
   font-style: bold # bold_italic
 heading:
   h1-font-family: "Title Sans"

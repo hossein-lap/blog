@@ -35,6 +35,7 @@ settings = {
   font_prepath: Dir.pwd,
   font_size_main: 11.5,
   font_size_code: 10,
+  font_size_inlinecode: 10,
   font_size_caption: 12.5,
   number: true,
   # cap_color: "#ff7700",
@@ -169,7 +170,7 @@ code:
   font-size: #{settings[:font_size_code]}
 codespan:
   #font-family: #{settings[:font_code]}
-  font-size: #{settings[:font_size_caption]}
+  font-size: #{settings[:font_size_inlinecode]}
   font-color: #{settings[:code_color]}
 kbd:
   #font-family: #{settings[:font_code]}

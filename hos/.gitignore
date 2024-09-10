@@ -1,2 +1,7 @@
 public
 themes/allgray
+result
+resources/_*
+*.bak
+*.old
+*.pdf
