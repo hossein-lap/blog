@@ -1,0 +1,1068 @@
+---
+title: "Perl"
+authors: ["Hossein Esmail"]
+date: "2024-09-11T15:04:10+03:30"
+language: en
+draft: false
+toc: true
+tags: ["perl", "script", "legacy"]
+description: |
+   Perl programming language notes/tutorials
+---
+
+= Perl
+
+.Hello World!
+[source,perl]
+----
+#!/bin/perl
+use warnings;
+print("Hello world!\n");
+----
+
+.Note
+`use warnings;` is called _pragma_ in Perl. This pragma instructs Perl to turn
+on additional warning reporting.
+
+== Perl Syntax
+
+Basic *Perl syntax* to get started with Perl language quickly including
+variables, expressions, statements, block, comments, whitespaces, and keywords.
+
+=== Values and Variables
+
+You develop Perl programs to manipulate some kinds of data. The data can be
+either <<doc/03-perl-numbers.adoc#_Perl_numbers,numbers>>,
+<<doc/04-perl-strings.adoc#_Perl_strings,strings>>, or more complex such as a
+<<doc/06-perl-list.adoc#_Perl_list,list>>. Data is held as value.
+
+.Some values
+[source,perl]
+----
+10
+20.2
+"Perl Syntax"
+----
+
+To hold a piece of data, you need *variables*. You use a variable to store a
+value. And through the name of the variable, you can process the value.
+
+The following illustrates some variables in Perl:
+
+.Define variables
+[source,perl]
+----
+$x = 10;
+$y = 20;
+$s = "Perl string";
+----
+
+We have two integer variables (`$x` and `$y`) and one string variable (`$s`).
+For more information on Perl variables, check it out the
+<<doc/02-perl-variables.adoc#_Perl_variables,Perl variables>>.
+
+=== Expressions
+
+In Perl, an expression is anything that returns a value.
+
+The expression can be used in a larger expression or a statement. The expression can be a literal
+<<doc/03-perl-numbers.adoc#_Perl_numbers,number>>, complex expression with
+<<doc/05-perl-operators.adoc#_Perl_operators,operators>>, or a
+<<doc/20-perl-subroutine.adoc#_Perl_subroutine,function (aka subroutine)>>, call.
+
+For example, 3 is an expression that returns a value of 3. The `$a + $b` is an
+expression that returns the sum of two variables: `$a` and `$b`.
+
+=== Statements
+
+A statement is made up of expressions. A statement is executed by Perl at run-time.
+
+Each Perl statement must end with a semicolon (`;`). The following example
+shows the statements in Perl:
+
+[source,perl]
+----
+$c = $a + $b;
+print($c);
+----
+
+=== Blocks
+
+A block is made up of statements wrapped in curly braces `{}`. You use blocks
+to organize statements in the program.
+
+The following example illustrates a block in Perl:
+
+[source,perl]
+----
+{
+	$a = 1;
+	$a = $a + 1;
+	print($a);
+}
+----
+
+Any variable declared inside a block has its own scope.
+
+It means the variables declared inside a block only last as long as the block
+is executed.
+
+=== Comments
+
+In Perl, a comment begins with a hash (`#`) character. Perl interpreter ignores
+comments at both compile-time and runtime.
+
+Typically, you use comments to document the logic of your code. The code tells
+you what it does however comments provides information on why the code does so.
+
+Comments are very important and useful to you as a programmer in order to
+understand the code later. They’re also useful to other programmers who will
+read and maintain your programs in the future.
+
+Let’s take a look at the following example:
+
+[source,perl]
+----
+$salary = $salary + 1.05;
+----
+
+What the code does is to increase the value of the variable `$salary` 5%.
+However, why it does so was not documented.
+
+Therefore the following code with comment is much clearer.
+
+[source,perl]
+----
+# increase salary %5 for employees who achieve KPI
+$salary = $salary + 1.05;
+----
+
+Perl also allows you to place a comment on the same line as the statement. See
+the following example:
+
+[source,perl]
+----
+$counter = 0; # reset the counter
+----
+
+It is important to use comments properly to make your code easier to
+understand.
+
+=== Whitespace
+
+Whitespaces are spaces, tabs, and newlines. Perl is very flexible in terms of
+whitespaces usages. Consider the following example:
+
+[source,perl]
+----
+$x = 20;
+$y=20;
+----
+
+Both lines of code work perfectly. We surrounded the assignment operator (`=`)
+with whitespace in the first statement, but not in the second one.
+
+Perl really doesn’t care about the whitespace. However, it is a good practice
+to use whitespace to make the code more readable.
+
+=== Keywords
+
+Perl has a set of keywords that have special meanings to its language.
+
+Perl keywords fall into some categories such as built-in function and control
+keywords.
+
+You should always avoid using keywords to name variables, functions,
+<<doc/21-perl-modules.adoc#_Perl_modules,modules>>, and other objects. Check it
+out the http://learn.perl.org/docs/keywords.html[Perl keywords].
+
+Sometimes, it is fine to use a variable name such as `$print`, which is similar
+to the built-in `print()` function. However, this may lead to confusion. In
+addition, if the program has an issue, it’s more difficult to troubleshoot.
+
+== Perl Variables
+
+To manipulate data in your program, you use variables.
+
+Perl provides three types of variables: scalars, lists, and hashes to help you
+manipulate the corresponding data types including scalars, lists, and hashes.
+
+We'll focus on the scalar variable in this section.
+
+=== Naming variables
+
+You use scalar variables to manipulate scalar data such as
+<<doc/03-perl-numbers.adoc#_Perl_numbers,numbers>> and
+<<doc/04-perl-strings.adoc#_Perl_strings,strings>>,
+
+A scalar variable starts with a dollar sign (`$`), followed by a letter or
+underscore, after that, any combination of numbers, letters, and underscores.
+The name of a variable can be up to 255 characters.
+
+Perl is case-sensitive. The `$variable` and `$Variable` are different variables.
+
+Perl uses the dollar sign (`$`) as a prefix for the scalar variables because of
+the `$` looks like the character S in the scalar. You can use this tip to
+remember when you want to declare a scalar variable.
+
+.Valid variables:
+[source,perl]]
+----
+$gate = 10;
+$_port = 20;
+----
+
+.Invalid variables:
+[source,perl]]
+----
+$4whatever = 20; # no letter or underscore found after dollar sign ($)
+$email-address = "zen@example.com"; # special character (-) found
+$home url = "http://localhost/perltutorial"; # space is not allowed
+----
+
+=== Declaring variables
+
+Perl doesn’t require you to declare a variable before using it.
+
+For example, you can introduce a variable in your program and use it right away
+as follows:
+
+[source,perl]
+----
+$a = 10;
+$b = 20;
+$c = $a + $b;
+print($c);
+----
+
+In some cases, using a variable without declaring it explicitly may lead to
+problems. Let’s take a look at the following example:
+
+[source,perl]
+----
+$color = 'red';
+print "Your favorite color is " . $colour . "\n";
+----
+
+The expected output was `Your favorite color is red`. 
+
+However, in this case, you got `Your favorite color is`, because the `$color`
+and `$colour` are different variables. The mistake was made because of the
+_different variable names_.
+
+To prevent such cases, Perl provides a _pragma_ called `strict` that requires you
+to declare variable explicitly before using it. 
+
+In this case, if you use the `my` keyword to declare a variable and try to run
+the script, Perl will issue an error message indicating that a compilation
+error occurred due to the `$colour` variable must be declared explicitly.
+
+[source,perl]
+----
+#!/usr/bin/perl
+use strict;
+my $color = 'red';
+print "Your favorite color is " . $colour . "\n"
+----
+
+A variable declared with the `my` keyword is a _lexically scoped_ variable.
+
+It means the variable is only accessible inside the enclosing block or all
+blocks nested inside the enclosing block. In other words, the variable is local
+to the enclosing block.
+
+Now, you’ll learn a very important concept in programming called variable
+scopes.
+
+=== Perl variable scopes
+
+Let’s take a look at the following example:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+$color = 'red';
+print("my favorite #1 color is " . $color . "\n");
+# another block
+{
+	my $color = 'blue';
+	print("my favorite #2 color is " . $color . "\n");  
+}
+# for checking
+print("my favorite #1 color is " . $color . "\n");
+----
+
+.In the example above:
+____
+* First, declared a global variable named `$color`.
+* Then, displayed the favorite color by referring to the `$color` variable. As
+  expected, we get the red color in this case.
+* Next, created a new block and declared a variable with the same name `$color`
+  using the `my` keyword. The `$color` variable is lexical. It is a local
+  variable and only visible inside the enclosing block.
+* After that, inside the block, we displayed the favorite color and we got the
+  `blue` color. The local variable takes priority in this case.
+* Finally, following the block, we referred to the `$color` variable and Perl
+  referred to the `$color` global variable.
+____
+
+If you want to declare global variables that are visible throughout your
+program or from external packages, you can use `our` keyword as shown in the
+following code:
+
+[source,perl]
+----
+our $color = 'red';
+----
+
+=== Perl variable interpolation
+
+Perl interpolates variables in double-quoted strings. It means if you place a
+variable inside a double-quoted string, you’ll get the value of the variable
+instead of its name.
+
+Let’s take a look at the following example:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my $amount = 20;
+my $s = "The amount is $amount\n";
+print($s);
+----
+
+Perl interpolates the value of `$amount` into the string which is 20.
+
+[NOTE]
+====
+Note that Perl only interpolates scalar variables and
+<<doc/07-perl-array.adoc#_Perl_array,array>>, not
+<<doc/07-perl-hash.adoc#_Perl_hash,hashes>>. In addition, the interpolation is
+only applied to the double-quoted string, but not the single-quoted string.
+====
+
+== Perl Numbers
+
+Perl has two kinds of numbers: integer and floating-point numbers.
+
+=== Perl integers
+
+Integers are whole numbers that have no digits after the decimal points i.e
+`10`, `-20` or `100`.
+
+In Perl, integers are often expressed as decimal integers, base 10. The
+following illustrates some integer numbers:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+$x = 20;
+$y = 100;
+$z = -200;
+----
+
+When the integer number is big, you often use a comma as a separator to make it
+easier to read e.g., 123,763,213.
+
+However, Perl already uses a comma (`,`) as a separator in the list so for
+integer numbers Perl uses an underscore character (`_`) instead. In this case,
+`123,763,213` is written in Perl as `123_763_213`.
+
+Take a look at the following example:
+
+[source,perl]
+----
+my $a = 123_763_213;
+print($a, "\n"); # 123763213
+----
+
+In the output of the example above, Perl uses no comma or underscore as the
+separator.
+
+Besides the decimal format, Perl also supports other formats including binary,
+octal, and hexadecimal.
+
+The following table shows you prefixes for formatting with binary, octal, and
+hexadecimal integers.
+
+|===
+| Number | Format
+
+| 0b123
+| Binary integer using a prefix of 0b
+
+| 0255
+| Octal integer using a prefix of 0
+
+| 0xABC
+| Hexadecimal integer using a prefix of 0x
+
+|===
+
+All the following integer numbers are 12 in Perl:
+
+....
+12
+0b1100
+014
+0xC
+....
+
+=== Perl floating-point numbers
+
+You use floating-point numbers to store real numbers. Perl represents
+floating-point numbers in two forms:
+
+* *Fixed point*: the decimal point is fixed in the number to denote fractional
+  part starts e.g., `100.25`
+* *Scientific*: consists of a significand with the actual number value and an
+  exponent representing the power of 10 that the significand is multiplied by,
+  for example, `+1.0025e2` or  `-1.0025E2` is `100.25.`
+
+The floating-point number holds 8 bytes, with 11 bits reserved for the exponent
+and 53 bits for significand.
+
+The range of floating-point numbers is essentially determined by the standard C
+library of the underlying platform where Perl is running.
+
+== Perl String
+
+Perl's built-in string functions to manipulate strings.
+
+=== Introduction to Perl strings
+
+In Perl, a string is a sequence of characters surrounded by some kind of
+quotation marks. A string can contain ASCII, UNICODE, and escape sequences
+characters such as `\n`.
+
+A Perl string has a length that depends on the amount of memory in your system,
+which is theoretically unlimited.
+
+The following example demonstrates single and double-quoted strings.
+
+[source,perl]
+----
+my $s1 = "string with doubled-quotes";
+my $s2 = 'string with single quote';
+----
+
+It is important to remember that the double-quoted string replaces variables
+inside it by their values, while the single-quoted string treats them as text.
+This is known as variable interpolation in Perl.
+
+=== Perl string alternative delimiters
+
+Besides the single and double quotes, Perl also allows you to use quote-like
+operators such as:
+
+* The `q//` acts like a single-quoted string.
+* The `qq//` acts like double-quoted string.
+
+You can choose any non-alphabetic and non-numeric characters as the delimiters,
+not only just characters `//`.
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $s= q/"Are you learning Perl String today?" We asked./;
+print($s ,"\n");
+
+my $name = 'Jack';
+my $s2 = qq/"Are you learning Perl String today?"$name asked./;
+print($s2 ,"\n");
+----
+
+How it works.
+
+* First, defined a single-quoted string variable with the quote-like operator
+  `q/`. The string  `$s` ends with `/`.
+* Second, defined a double-quoted string with the quote-like operator `qq/`. In
+  this case, we used the `$name` variable inside a string and it is replaced by
+  its value, `Jack`.
+
+The following example demonstrates string with the `^` delimiter.
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $s = q^A string with different delimiter ^;
+print($s,"\n");
+----
+
+=== Perl string functions
+
+Perl provides a set of functions that allow you to manipulate strings
+effectively. We cover the most commonly used string functions in the following
+section for your reference.
+
+==== Perl string length
+
+To find the number of characters in a string, you use the `length()` function.
+
+[source,perl]
+----
+my $s = "This is a string\n";
+print(length($s),"\n"); #17
+----
+
+==== Changing cases of string
+
+To change the cases of a string you use a pair of functions `lc()` and `uc()`
+that returns the lowercase and uppercase versions of a string.
+
+[source,perl]
+----
+my $s = "Change cases of a string\n";
+print("To upper case:\n");
+print(uc($s),"\n");
+
+print("To lower case:\n");
+print(lc($s),"\n");
+----
+
+==== Search for a substring inside a string
+
+To search for a substring inside a string, you use `index()` and `rindex()`
+functions.
+
+* The `index()` function searches for a substring inside a string from a
+  specified position and returns the position of the first occurrence of the
+  substring in the searched string. If the position is omitted, it searches
+  from the beginning of the string.
+* The `rindex()` function works like the `index()` function except it searches
+  from the end of the string instead of from the beginning.
+
+The following example demonstrates how to use the `index()` and `rindex()`
+functions:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $s = "Learning Perl is easy\n";
+my $sub = "Perl";
+my $p = index($s,$sub); # rindex($s,$sub);
+print(qq\The substring "$sub" found at position "$p" in string "$s"\,"\n");
+----
+
+==== Get or modify substring inside a string
+
+To extract a substring out of a string, you use the `substr()` function.
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+# extract substring
+my $s = "Green is my favorite color";
+my $color  = substr($s, 0, 5);      # Green
+my $end    = substr($s, -5);        # color
+
+print($end,":",$color,"\n");
+
+# replace substring
+substr($s, 0, 5, "Red"); #Red is my favorite color
+print($s,"\n");
+----
+
+==== Other useful Perl string functions
+
+The following table illustrates other useful Perl string functions with their
+descriptions:
+
+|===
+| Function | Description
+
+| `chr`
+| Return ASCII or UNICODE character of a number
+
+| `crypt`
+| Encrypts passwords in one way fashion
+
+| `hex`
+| Converts a hexadecimal string to the corresponding value
+
+| `index`
+| Searches for a substring inside a string returns position where the first occurrence of the substring found
+
+| `lc`
+| Returns a lowercase version of the string
+
+| `length`
+| Returns the number of characters of a string
+
+| `oct`
+| Converts a string to an octal number
+
+| `ord`
+| Returns the numeric value of the first character of a string
+
+| `q/string/`
+| Creates single-quoted strings
+
+| `qq/string/`
+| Creates double-quoted strings
+
+| `reverse`
+| Reverses a string
+
+| `rindex`
+| Searches for a substring from right to left
+
+| `sprintf`
+| Formats string to be used with print()
+
+| `substr`
+| Gets or modifies a substring in a string
+
+| `uc`
+| Returns the uppercase version of the string
+|===
+
+== Perl Operator
+
+Perl operators including numeric operators, string operators, and logical operators.
+
+=== Numeric operators
+
+Perl provides numeric operators to help you operate on numbers including
+arithmetic, Boolean and bitwise operations. Let’s examine the different kinds
+of operators in more detail.
+
+==== Arithmetic operators
+
+Perl arithmetic operators deal with basic math such as adding, subtracting,
+multiplying, diving, etc. To add (`+`) or subtract (`-`) numbers, you would do
+something as follows:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 10 + 20, "\n"; # 30
+print 20 - 10, "\n"; # 10
+----
+
+To multiply or divide numbers, you use divide (`/`) and multiply (`*`) operators as follows:
+
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 10 * 20, "\n"; # 200
+print 20 / 10, "\n"; # 2
+----
+
+When you combine adding, subtracting, multiplying, and dividing operators
+together, Perl will perform the calculation in an order, which is known as
+operator precedence.
+
+The multiply and divide operators have higher precedence than add and subtract
+operators, therefore, Perl performs multiplying and dividing before adding and
+subtracting. See the following example:
+
+[source,perl]
+----
+print 10 + 20/2 - 5 * 2 , "\n"; # 10
+----
+
+Perl performs 20/2 and 5*2 first, therefore you will get 10 + 10 – 10 = 10.
+
+You can use brackets `()` to force Perl to perform calculations based on the
+precedence you want as shown in the following example:
+
+[source,perl]
+----
+print (((10 + 20) / 2 - 5) * 2); # 20;
+----
+
+To raise one number to the power of another number, you use the exponentiation
+operator.
+
+.Exponentiation operators:
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 2**3, "\n"; # = 2 * 2 * 2 = 8.
+print 3**4, "\n"; # = 3 * 3 * 3 * 3 = 81.
+----
+
+To get the remainder of the division of one number by another, you use the modulo operator (`%`).
+
+It is handy to use the modulo operator (`%`) to check if a number is odd or even
+by dividing it by 2 to get the remainder. If the remainder is zero, the number
+is even, otherwise, the number is odd. See the following example:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 4 % 2, "\n"; # 0 even
+print 5 % 2, "\n"; # 1 odd
+----
+
+==== Bitwise Operators
+
+Bitwise operators allow you to operate on numbers one bit at a time. Think of a
+number as a series of bits e.g., `125` can be represented in binary form as
+`1111101`. Perl provides all basic bitwise operators including and (`&`), or
+(`|`), exclusive or (`^`) , not (`~`) operators, shift right (`>>`), and shift
+left (`<<`) operators.
+
+The bitwise operators perform from right to left. In other words, bitwise
+operators perform from the rightmost bit to the leftmost bit.
+
+.Bitwise operations
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $a = 0b0101; # 5
+my $b = 0b0011; # 3
+
+my $c = $a & $b; # 0001 or 1
+print $c, "\n";
+
+$c = $a | $b; # 0111 or 7
+print $c, "\n";
+
+$c = $a ^ $b; # 0110 or 6
+print $c, "\n";
+
+$c = ~$a; # 11111111111111111111111111111010 (64bits computer) or 4294967290
+print $c, "\n";
+
+$c = $a >> 1; # 0101 shift right 1 bit, 010 or 2
+print $c, "\n";
+
+$c = $a << 1; # 0101 shift left 1 bit, 1010 or 10
+print $c, "\n";
+----
+
+==== Comparison operators for numbers
+
+|===
+| Equality | Operators
+
+| Equal
+| `==`
+
+| Not Equal
+| `!=`
+
+| Comparison
+| `<=>`
+
+| Less than
+| `<`
+
+| Greater than
+| `>`
+
+| Less than or equal
+| `<=`
+
+| Greater than or equal
+| `>=`
+|===
+
+All the operators in the table above are obvious except the number comparison
+operator `<=>` which is also known as spaceship operator.
+
+The number comparison operator is often used in sorting numbers. See the code
+below:
+
+++++
+$a <=> $b
+++++
+
+
+* *1* if `$a` is greater than `$b`
+* *0* if `$a` and `$b` are equal
+* *-1* if `$a` is lower than `$b`
+
+.Example
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $a = 10;
+my $b = 20;
+
+print $a <=> $b, "\n";
+
+$b = 10;
+print $a <=> $b, "\n";
+
+$b = 5;
+print $a <=> $b, "\n";
+----
+
+=== String operators
+
+==== Comparison operators
+
+|===
+| Equality | Operators
+
+| Equal
+| `eq`
+
+| Not Equal
+| `ne`
+
+| Comparison
+| `cmp`
+
+| Less than
+| `lt`
+
+| Greater than
+| `gt`
+
+| Less than or equal
+| `le`
+
+| Greater than or equal
+| `ge`
+
+|===
+
+==== Concatenation operators
+
+Perl provides the concatenation (`.`) and repetition (`x`) operators that allow
+you to manipulate strings
+
+.Concatenation operator (`.`)
+[source,perl]
+----
+print "This is" . " concatenation operator" . "\n";
+----
+
+.Repetition operators (`x`)
+[source,perl]
+----
+print "a message " x 4, "\n";
+----
+
+==== The chomp() operator
+
+The `chomp()` operator (or function) removes the last character in a string and
+returns a number of characters that were removed. The `chomp()` operator is
+very useful when dealing with the user’s input because it helps you remove the
+new line character \n from the string that the user entered.
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $s;
+chomp($s = <STDIN>);
+print $s;
+----
+
+NOTE: The `<STDIN>` is used to get input from users.
+
+=== Logical operators
+
+Logical operators are often used in control statements such as
+<<doc/09-perl-if-statement.adoc#_Perl_if_Statement,if>>,
+<<doc/13-perl-while-loop.adoc#_Perl_while_Loop,while>>,
+<<doc/11-perl-given.adoc#_Perl_given,given>>,
+etc., to control the flow of the program. The following are logical operators in Perl:
+
+* `$a && $b` performs the logic `AND` of two variables or expressions. The
+  logical `&&` operator checks if both variables or expressions are true.
+* `$a || $b` performs the logic `OR` of two variables or expressions. The
+  logical `||` operator checks whether a variable or expression is true.
+* `!$a` performs the logic `NOT` of the variable or expression. The logic `!`
+  operator inverts the value of the following variable or expression. In the
+  other words, it converts `true` to `false` or `false` to `true`.
+
+== Perl List
+
+Perl list and how to manipulate list elements using various techniques such as
+list slicing, ranging and qw() function.
+
+A Perl list is a sequence of
+<<doc/02-perl-variables.adoc#_Perl_Variables,scalar>>
+values. You use parenthesis and comma operators to construct a list. Each value
+is the list is called list element. List elements are indexed and ordered. You
+can refer to each element by its position.
+
+=== Simple Perl list
+
+[source,perl]
+----
+();
+(10,20,30);
+("this", "is", "a","list");
+----
+
+.In the example above:
+
+* The first list `()` is an empty list.
+* The second list `(10,20,30)` is a list of integers.
+* The third list `("this", "is", "a","list")` is a list of strings.
+
+Each element in the list is separated by a comma `(,)`. The print` operator is
+a list operator. So let’s display our lists above with the `print` operator to
+see how it works:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+print(()); # display nothing
+print("\n");
+print(10,20,30); # display 102030
+print("\n");
+print("this", "is", "a","list"); # display: thisisalist
+print("\n");
+----
+
+We passed several lists to the `print` operator to display their elements. All
+the lists that we have seen so far contain an element with the same data type.
+These lists are called simple lists.
+
+=== Complex Perl list
+
+A Perl list may contain elements that have different data types. This kind of
+list is called a complex list. Let’s take a look at the following example:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $x = 10;
+my $s = "a string";
+print("complex list", $x , $s ,"\n");
+----
+
+=== Using qw function
+
+Perl provides the `qw()` function that allows you to get a list by extracting
+words out of a string using the space as a delimiter. The `qw` stands for quote
+word. The two lists below are the same:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+print('red','green','blue'); # redgreenblue
+print("\n");
+
+print(qw(red green blue)); # redgreenblue
+print("\n");
+----
+
+Similar to the `q/` and `q//` operators, you can use any non-alphanumeric
+character as a delimiter. The following lists are the same:
+
+[source,perl]
+----
+qw\this is a list\;
+qw{this is a list};
+qw[this is a list];
+----
+
+=== Flattening list
+
+If you put a list, called an internal list, inside another list, Perl
+automatically flattens the internal list. The following lists are the same:
+
+[source,perl]
+----
+(2,3,4,(5,6))
+(2,3,4,5,6)
+((2,3,4),5,6)
+----
+
+=== Accessing list element
+
+You can access elements of a list by using the zero-based index. To access the
+n^th^ element, you put (n – 1) index inside square brackets.
+
+.Let’s take a look at the following example:
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+print(
+     (1,2,3)[0] # 1 first element
+);
+print "\n"; # new line
+
+print(
+     (1,2,3)[2] # 3 third element
+);
+print "\n"; # new line
+----
+
+To get multiple elements of a list at a time, you can put a list inside square
+brackets. This feature is called list slice. You can omit the parenthesis of
+the list inside the square bracket.
+
+[source,perl]
+----
+(1,2,3,4,5)[0,2,3] # (1,3,4)
+----
+
+The above code returns a list of three elements `(1, 3, 4)`.
+
+=== Ranges
+
+Perl allows you to build a list based on a range of numbers or characters e.g.,
+a list of numbers from 1 to 100, a list of characters from a to z. The
+following example defines two lists:
+
+[source,perl]
+----
+(1..100)
+(a..z)
+----
+
+== WIP
+
+
+
