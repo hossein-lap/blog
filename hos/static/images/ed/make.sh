@@ -3,7 +3,7 @@
 accent="#8bb158"
 
 imagemagick-string \
-    -i 'V' \
+    -i '{}' \
     -o foo.png \
     -bg None \
     -fg "${accent}" \
@@ -11,7 +11,7 @@ imagemagick-string \
     -l 500 \
     -w 500 \
     -g 0.01 \
-    -e "-stroke ${accent} -strokewidth 7"
+    -e "-stroke ${accent} -strokewidth 35"
     #-ps 200
 # imagemagick-trim foo.png
 # imagemagick-shadow -i foo.png -o foo.png -sc Black

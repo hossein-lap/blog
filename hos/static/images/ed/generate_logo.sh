@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+./make.sh
+
 if [ -z "$1" ]; then
     echo "Warning: no input file is defined, using foo.png.." > /dev/stderr
     FNAME=foo.png

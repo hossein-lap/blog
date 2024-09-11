@@ -31,9 +31,9 @@ params:
   imageInArticlePreview: true  # show images in article preview
   fitImageInArticlePreview: true  # make article preview images fit the article preview
   articleSummary: true  # show a summary in article preview
-  # fontFamily: "CMU Sans Serif"
-  # titleFontFamily: "CMU Serif"
-  # monospaceFontFamily: "CMU Typewriter Text"
+  fontFamily: "CMU Sans Serif"
+  titleFontFamily: "CMU Serif"
+  monospaceFontFamily: "CMU Typewriter Text"
   titleFontSizeMultiplier: 2.0
   mainFontSizeMultiplier: 1.5
   monoFontSizeMultiplier: 1.7
