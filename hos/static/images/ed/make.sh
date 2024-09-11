@@ -3,7 +3,7 @@
 accent="#8bb158"
 
 imagemagick-string \
-    -i '{}' \
+    -i 'V' \
     -o foo.png \
     -bg None \
     -fg "${accent}" \

@@ -1,0 +1,104 @@
+baseURL: "https://hossein-lap.github.io"
+theme: "hugo-ficurinia"
+title: "Hossein Esmailzadeh"
+languageCode: "en"
+defaultContentLanguage: "en"
+copyright: "Hos Es"
+paginate: 5  # number of articles per page in the index
+summaryLength: 70  # number of words for article summaries
+
+params:
+  author: "Hossein Esmailzadeh"
+  description: "Personal blog"  # this will be added as metadata
+  posts: "blog"  # content directory where to find home page posts
+  showPostsLink: false  # show or hide the link to the simple post list
+  extraContentDirs:
+    - "docs"
+    - "notes"
+    - "about"
+  showcaseDir: "showcase"  # create a content directory that shows a special showcase section in the home page
+  showSinglePageAsHome: true  # shows a specified single page as a home page
+  homeSinglePage: "/welcome"
+  logo: "/images/ed/foo.png"
+  svgicon: "/images/ed/foo.png"
+  favicon: "/images/ed/foo.png"  # 32x32
+  faviconIco: "/images/ed/foo.png"  # 32x32
+  appletouch: "/images/ed/foo.png"  # 180x180
+  icon512: "/images/ed/foo.png"  # 512x512 png image
+  logoRightOfTitle: true  # positions the logo to the right of the title
+  showTags: true  # show the Tags menu item
+  showRss: true  # show the link for the RSS feed
+  imageInArticlePreview: true  # show images in article preview
+  fitImageInArticlePreview: true  # make article preview images fit the article preview
+  articleSummary: true  # show a summary in article preview
+  fontFamily: "CMU Sans Serif"
+  titleFontFamily: "CMU Serif"
+  monospaceFontFamily: "CMU Typewriter Text"
+  titleFontSizeMultiplier: 2.0
+  mainFontSizeMultiplier: 1.5
+  monoFontSizeMultiplier: 1.7
+  contentWidth: "1200px"  # maximum width of the site content
+  paperCards: true  # enable paper card style
+  buttonTags: true  # enable button tag style
+  tagsInArticlePreview: true  # enable tags list in the article preview card
+  gridView: false  # show post list as a grid
+  bigArticleTitle: true  # makes the title in the single article view bigger
+  navtype: "standard"  # changes the style of the pagination
+  enableShadow: true  # shows a shadow around some elements
+  # menuStyle: "buttons"  # changes the style of the main site navigation menu
+  inputStyle: "standard"  # changes the style of inputs (like the searchbar)
+  enableSearch: true  # enable search page
+  searchbarEverywhere: true  # show searchbar in every page
+  searchMenuLink: false  # add a search link to the navigation menu
+  mobileHamburgerNav: false  # alternative hamburger menu layout for small screens
+  enableFeatured: false  # enable a particular view for featured articles
+  underlineTitleLinks: false  # show an underline for links that are titles
+  enableShareOnFediverse: false  # enable a button to share on the fediverse
+  tocBeforeImage: false  # show the table of contents before the main article image
+  enableSidebarLayout: false  # alternative sidebar layout
+  tocInSidebar: true  # show the TOC in the sidebar
+  forceRedirect: true  # redirect to baseURL if current URL host doesn't match
+  infiniteScrolling: false  # activates infinite scrolling
+  enableFooterColumns: false  # activates footer columns
+  enableJumbotron: true  # enables jumbotron
+  enableRelatedArticles: true  # enables related articles
+  relatedArticlesNum: 3  # number of related articles to show
+  randomRelated: false  # sorts related articles in random order
+
+menu:
+  icons:
+    - identifier: "github"
+      name: "GitHub"
+      url: "https://github.com/hossein-lap"
+      weight: 10
+    - identifier: "gitlab"
+      name: "GitLab"
+      url: "https://gitlab.com/primejade"
+      weight: 10
+    - identifier: "linkedin"
+      name: "LinkedIn"
+      url: "https://linkedin.com/in/hossein-smail"
+      weight: 10
+    - identifier: "email"
+      name: "Gmail"
+      url: "mailto://hosteam01@gmail.com"
+      weight: 10
+
+markup:
+  asciidocExt:
+    attributes:
+      source-highlighter: "rouge"
+      rouge-style: "base16.dark"
+      rouge-css: "syntax"
+
+security:
+  enableInlineShortcodes: true
+  exec:
+    allow:
+      - "^dart-sass-embedded$"
+      - "^go$"
+      - "^npx$"
+      - "^postcss$"
+      - "^asciidoctor$"
+    osEnv:
+      - "(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM)$"
