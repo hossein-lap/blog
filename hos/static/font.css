@@ -1,85 +1,79 @@
 
-/* Sans {{{ */
 @font-face {
-font-family: "CMU Sans Serif";
-  src: url('/font.d/cmu.sans-serif-medium.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf') format('opentype');
+font-family: "CMUSansSerif";
+  src: url('/fonts/cmu.sans-serif-medium.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "CMU Sans Serif";
-  src: url('/font.d/cmu.sans-serif-bold'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf') format('opentype');
+  font-family: "CMUSansSerif";
+  src: url('/fonts/cmu.sans-serif-bold'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf') format('opentype');
   font-weight: bold;
 }
 
 @font-face {
-  font-family: "CMU Sans Serif";
-  src: url('/font.d/cmu.sans-serif-oblique.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf') format('opentype');
+  font-family: "CMUSansSerif";
+  src: url('/fonts/cmu.sans-serif-oblique.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf') format('opentype');
   font-style: italic, oblique;
 }
 
 @font-face {
-  font-family: "CMU Sans Serif";
-  src: url('/font.d/cmu.sans-serif-boldoblique.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf') format('opentype');
+  font-family: "CMUSansSerif";
+  src: url('/fonts/cmu.sans-serif-boldoblique.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf') format('opentype');
   font-weight: bold;
   font-style: italic, oblique;
 }
-/* }}} */
 
-/* Serif {{{ */
 @font-face {
-  font-family: "CMU Serif";
-  src: url('/font.d/cmu.serif-roman.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunrm.otf') format('opentype');
+  font-family: "CMUSerif";
+  src: url('/fonts/cmu.serif-roman.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunrm.otf') format('opentype');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
-  font-family: "CMU Serif";
-  src: url('/font.d/cmu.serif-bold.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbx.otf') format('opentype');
+  font-family: "CMUSerif";
+  src: url('/fonts/cmu.serif-bold.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbx.otf') format('opentype');
   font-weight: bold;
 }
 
 @font-face {
-  font-family: "CMU Serif";
-  src: url('/font.d/cmu.serif-italic.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunci.otf') format('opentype');
+  font-family: "CMUSerif";
+  src: url('/fonts/cmu.serif-italic.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunci.otf') format('opentype');
   font-style: italic, oblique;
 }
 
 @font-face {
-  font-family: "CMU Serif";
-  src: url('/font.d/cmu.serif-bolditalic.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbi.otf') format('opentype');
+  font-family: "CMUSerif";
+  src: url('/fonts/cmu.serif-bolditalic.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbi.otf') format('opentype');
   font-weight: bold;
   font-style: italic, oblique;
 }
-/* }}} */
 
-/* Mono / Typewriter {{{ */
 @font-face {
-  font-family: "CMU Typewriter Text";
-  src: url('/font.d/cmu.typewriter-text-regular.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmuntt.otf') format('opentype');
+  font-family: "CMUTypewriterText";
+  src: url('/fonts/cmu.typewriter-text-regular.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmuntt.otf') format('opentype');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
-  font-family: "CMU Typewriter Text";
-  src: url('/font.d/cmu.typewriter-text-bold.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmuntb.otf') format('opentype');
+  font-family: "CMUTypewriterText";
+  src: url('/fonts/cmu.typewriter-text-bold.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmuntb.otf') format('opentype');
   font-weight: bold;
 }
 
 @font-face {
-  font-family: "CMU Typewriter Text";
-  src: url('/font.d/cmu.typewriter-text-italic.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunit.otf') format('opentype');
+  font-family: "CMUTypewriterText";
+  src: url('/fonts/cmu.typewriter-text-italic.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunit.otf') format('opentype');
   font-style: italic, oblique;
 }
 
 @font-face {
-  font-family: "CMU Typewriter Text";
-  src: url('/font.d/cmu.typewriter-text-bolditalic.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmuntx.otf') format('opentype');
+  font-family: "CMUTypewriterText";
+  src: url('/fonts/cmu.typewriter-text-bolditalic.ttf') format('truetype'), url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmuntx.otf') format('opentype');
   font-weight: bold;
   font-style: italic, oblique;
 }
-/* }}} */
 
