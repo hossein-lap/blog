@@ -3,7 +3,7 @@ theme: "hugo-ficurinia"
 title: "Hossein Esmailzadeh"
 languageCode: "en"
 defaultContentLanguage: "en"
-copyright: "Hos Es"
+copyright: "Hossein Esmail"
 paginate: 5  # number of articles per page in the index
 summaryLength: 200  # number of words for article summaries
 
@@ -86,6 +86,11 @@ menu:
       weight: 10
 
 markup:
+  markup:
+  tableOfContents:
+    endLevel: 4
+    ordered: false
+    startLevel: 2
   asciidocExt:
     attributes:
       source-highlighter: "rouge"

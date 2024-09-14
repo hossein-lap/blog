@@ -1,5 +1,5 @@
 ---
-title: ":)"
+title: "This is P J :)"
 authors: ["Hossein Esmail"]
 date: "2024-05-26T22:08:49+03:30"
 language: en
@@ -12,30 +12,17 @@ software and trees.
 
 Also, I use vim btw ;)
 
-[horizontal]
-*Programming:*:: Lua, Go, C, Bash
-*Tools:*:: Linux, Git, QEMU/KVM, Docker, K8S, Ansible, tmux
-*Writing:*:: LaTeX, Groff, Asciidoc(tor), Markdown
-*Hobbies:*:: Coding, Biking, Volleyball, Fishing
-
-// |====
-// 
-// //| *Key* | *Value*
-// 
-// | | 
-// 
-// | Programming Languages
-// | Lua, Go, C, Bash
-// 
-// | Tools
-// | Linux, Git, QEMU/KVM, Docker, K8S, Ansible, tmux
-// 
-// | Markup / Typesetting Languages
-// | LaTeX, Groff, Asciidoc(tor), Markdown
-// 
-// | Hobbies
-// | Coding, Biking, Volleyball, Fishing
-// 
-// |====
-
+.*Bookshelf*
+____
+Programming Languages::
+* `Lua` `Go` `C` `Bash`
+// `Perl` `Ruby` `Elm` `Elixir`
+Tools that I know or use::
+* `Linux` `Git` `Docker` `Kubernetes` `Ansible` `QEMU/KVM` `Vim` `tmux`
+// * `Helm` `OpenStack` `OpenShift` `Grafana` `FreeBSD`
+Writing / Typestting::
+* `LaTeX` `Groff` `Asciidoc` `Markdown`
+Hobbies::
+* `Coding` `Writing` `Biking` `Volleyball` `Fishing` `Music` `Movies`
+____
 

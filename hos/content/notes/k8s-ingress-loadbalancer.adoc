@@ -11,6 +11,9 @@ description: |
 ---
 
 = Accessing K8S pods
+:toc:
+:numbered:
+:icon-set: fi
 
 [WARNING]
 ====

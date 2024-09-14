@@ -11,6 +11,9 @@ description: |
 ---
 
 = Grafana
+:toc:
+:numbered:
+:icon-set: fi
 
 [WARNING]
 ====

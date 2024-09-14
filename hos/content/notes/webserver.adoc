@@ -11,6 +11,9 @@ description: |
 ---
 
 = Golang stdlib - Webserver
+:toc:
+:numbered:
+:icon-set: fi
 
 [WARNING]
 ====

@@ -15,6 +15,9 @@ description: |
 ---
 
 = Lua Progamming Language
+:toc:
+:numbered:
+:icon-set: fi
 
 Lua is a powerful, fast, lightweight and embeddable programming language. It is
 used by many frameworks, games and other applications. While it can be used by

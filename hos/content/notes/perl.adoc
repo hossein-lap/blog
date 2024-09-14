@@ -11,6 +11,9 @@ description: |
 ---
 
 = Perl
+:toc:
+:numbered:
+:icon-set: fi
 
 .Hello World!
 [source,perl]
