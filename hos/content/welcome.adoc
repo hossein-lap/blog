@@ -1,5 +1,5 @@
 ---
-title: "WIP"
+title: ":)"
 authors: ["Hossein Esmail"]
 date: "2024-05-26T22:08:49+03:30"
 language: en
@@ -7,20 +7,22 @@ draft: false
 ---
 
 Welcome to my blog. I'm Hossein and I'll be posting myown notes, ideas,
-programs. A programmer / DevOps engineer with passions about
-open-source software and trees.
+programs. A Programmer / DevOps Engineer with passions about open-source
+software and trees.
 
 Also, I use vim btw ;)
 
 [horizontal]
-*Programming Languages*:: Lua, Go, C, Bash
-*Tools*:: Linux, Git, QEMU/KVM, Docker, K8S, Ansible, tmux
-*Markup / Typesetting Languages*:: LaTeX, Groff, Asciidoc(tor), Markdown
-*Hobbies*:: Coding, Biking, Volleyball, Fishing
+*Programming:*:: Lua, Go, C, Bash
+*Tools:*:: Linux, Git, QEMU/KVM, Docker, K8S, Ansible, tmux
+*Writing:*:: LaTeX, Groff, Asciidoc(tor), Markdown
+*Hobbies:*:: Coding, Biking, Volleyball, Fishing
 
 // |====
 // 
-// | *Key* | *Value*
+// //| *Key* | *Value*
+// 
+// | | 
 // 
 // | Programming Languages
 // | Lua, Go, C, Bash
