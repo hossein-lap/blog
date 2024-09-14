@@ -1,15 +1,46 @@
 ---
 title: "Docker"
 authors: ["Hossein Esmail"]
-date: "2024-06-15T21:58:14+03:30"
+date: "2024-09-14T15:53:26+03:30"
 language: en
-draft: true
-tags: ["cool-tag"]
+draft: false
+toc: true
+tags: ["docker", "container"]
 description: |
-    description
+   Personal notes about docker container manager
 ---
 
 = Docker
+:toc:
+:numbered:
+:icon-set: fi
 
+WIP
 
+== Multi stage/image docker file
+
+[source,docker]
+----
+FROM golang:alpine as builder
+LABEL maintainer="Hossein Esmailzadeh <hosteam01@gmail.com>"
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+
+## runner
+FROM alpine:latest  
+
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=builder /app/main .
+
+EXPOSE 9090
+
+CMD ["./main"] 
+----
 
