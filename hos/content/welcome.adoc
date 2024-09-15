@@ -14,13 +14,13 @@ Also, I use vim btw ;)
 
 .*Bookshelf*
 ____
-Programming Languages::
+Languages::
 * `Lua` `Go` `C` `Bash`
 // `Perl` `Ruby` `Elm` `Elixir`
-Tools that I know or use::
+Tools::
 * `Linux` `Git` `Docker` `Kubernetes` `Ansible` `QEMU/KVM` `Vim` `tmux`
-// * `Helm` `OpenStack` `OpenShift` `Grafana` `FreeBSD`
-Writing / Typestting::
+// * `Helm` `OpenStack` `OpenShift` `Grafana` `Kafka` `FreeBSD`
+Writing::
 * `LaTeX` `Groff` `Asciidoc` `Markdown`
 Hobbies::
 * `Coding` `Writing` `Biking` `Volleyball` `Fishing` `Music` `Movies`
