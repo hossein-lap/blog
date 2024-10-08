@@ -4,7 +4,7 @@ title: "Hossein Esmailzadeh"
 languageCode: "en"
 defaultContentLanguage: "en"
 copyright: "Hossein Esmail"
-paginate: 5  # number of articles per page in the index
+paginate: 7  # number of articles per page in the index
 summaryLength: 200  # number of words for article summaries
 
 params:
