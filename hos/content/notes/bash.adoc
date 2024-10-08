@@ -1,0 +1,44 @@
+---
+title: "Bash"
+authors: ["Hossein Esmail"]
+date: "2024-10-07T15:10:23+03:30"
+language: en
+draft: false
+toc: true
+tags: ["Bash", "Shell", "Linux"]
+description: |
+   Some bash/shell scripting notes/tips.
+---
+
+= Bash
+:toc:
+:icon-set: fi
+:numbered:
+
+== Add Colors
+
+[source,bash]
+----
+#!/bin/sh
+# colors
+blue=$(tput setaf 4)
+cyan=$(tput setaf 6)
+magenta=$(tput setaf 5)
+yellow=$(tput setaf 3)
+green=$(tput setaf 2)
+red=$(tput setaf 1)
+normal=$(tput sgr0)
+
+check() {
+    if [ "${?}" = '0' ]; then
+        printf "${green}Done${normal}"
+        printf '\n'
+    else
+        printf "${red}Fail${normal}"
+        printf '\n'
+    fi
+}
+
+check
+----
+
