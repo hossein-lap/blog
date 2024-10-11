@@ -4,7 +4,7 @@ title: "Hossein Esmailzadeh"
 languageCode: "en"
 defaultContentLanguage: "en"
 copyright: "Hossein Esmail"
-paginate: 7  # number of articles per page in the index
+pagination.pagerSize: 7  # number of articles per page in the index
 summaryLength: 200  # number of words for article summaries
 
 params:
@@ -18,7 +18,7 @@ params:
     - "about"
   showcaseDir: "showcase"  # create a content directory that shows a special showcase section in the home page
   showSinglePageAsHome: true  # shows a specified single page as a home page
-  homeSinglePage: "/welcome"
+  homeSinglePage: "/README"
   logo: "/images/ed/foo.png"
   svgicon: "/images/ed/foo.png"
   favicon: "/images/ed/foo.png"  # 32x32
