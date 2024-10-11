@@ -8,3 +8,7 @@
 [submodule "hos/hossein-lap.github.io"]
 	path = hos/hossein-lap.github.io
 	url = https://github.com/hossein-lap/hossein-lap.github.io
+[submodule "content"]
+	path = content
+	url = git@github.com:hossein-lap/blog.posts
+	branch = master
