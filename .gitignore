@@ -1,8 +1,4 @@
-public
-themes/allgray
 result
-themes/hugo-ficurinia.old
-themes/hugo-ficurinia
 resources/_*
 *.bak
 *.old
