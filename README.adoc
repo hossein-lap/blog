@@ -1,0 +1,36 @@
+= About Me
+
+Hey, I'm Hossein!
+
+* Lua and Go programmer with a passion about open-source software and trees.
+* DevOps Engineer with a focus on automation, CI/CD pipelines, and cloud
+  infrastructure, driven by a keen interest in efficiency and scalability.
+* Linux user who lives in his shell and never redirects `stderr` to `/dev/null`.
+* Suckless guy who enjoys reading, writing, and executing ;)
+
+== Languages
+
+* Lua, Go, Bash, C, Python
+
+== Workflow
+
+* Linux, tmux, Vim, git, QEMU, Docker
+
+== Documenting -- writing
+
+* LaTeX, Markdown, groff, AsciiDoc
+
+////
+== Need to learn / improve
+
+* Ansible
+* Helm
+* OpenShift
+* OpenStack
+
+* Elixir
+* LXC
+* BSDs
+
+////
+
