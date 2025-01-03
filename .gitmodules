@@ -16,3 +16,6 @@
 	path = content
 	url = git@github.com:hossein-lap/blog.posts
 	branch = master
+[submodule "themes/hugo-texify3"]
+	path = themes/hugo-texify3
+	url = https://github.com/michaelneuper/hugo-texify3.git
