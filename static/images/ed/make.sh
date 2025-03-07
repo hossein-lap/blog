@@ -1,6 +1,7 @@
 #!/bin/sh
 
-accent="#8bb158"
+# accent="#8bb158"
+accent="#6fe2e2"
 
 imagemagick-string \
     -i '{}' \
@@ -11,7 +12,7 @@ imagemagick-string \
     -l 500 \
     -w 500 \
     -g 0.01 \
-    -e "-stroke ${accent} -strokewidth 35"
+    -e "-stroke ${accent} -strokewidth 20"
     #-ps 200
 # imagemagick-trim foo.png
 # imagemagick-shadow -i foo.png -o foo.png -sc Black

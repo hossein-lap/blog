@@ -1,7 +1,7 @@
 title: hos
 hugeTitle: true
 subtitle: DevOps Engineer
-image: /images/me/me-circle.png
+image: /images/me/test.png
 imagePosition: left  # values: left, right, top, bottom
 background: /images/me/banner.png
 # backgroundVideo: /jumbotron_video.mp4  # will replace the background image
@@ -10,9 +10,9 @@ background: /images/me/banner.png
 # backgroundVideoWebm: /jumbotron_video.webm
 # videoOpacity: 1.0
 textShadow: true
-fullscreen: false
-downArrow: true
-whiteText: true  # force white text in the jumbotron
+fullscreen: true
+downArrow: false
+whiteText: false  # force white text in the jumbotron
 links:
   - title: About
     link: /about
