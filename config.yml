@@ -1,6 +1,6 @@
 baseURL: "https://hossein-lap.github.io"
 theme: "hugo-ficurinia"
-title: "Hossein Esmailzadeh"
+title: "Hossein Esmail"
 languageCode: "en"
 defaultContentLanguage: "en"
 copyright: "Hossein Esmail"
@@ -13,11 +13,12 @@ params:
   posts: "blog"  # content directory where to find home page posts
   showPostsLink: false  # show or hide the link to the simple post list
   extraContentDirs:
+    # - "about"
     - "docs"
     - "notes"
-    - "about"
+    # - "oldschool"
   showcaseDir: "showcase"  # create a content directory that shows a special showcase section in the home page
-  showSinglePageAsHome: true  # shows a specified single page as a home page
+  showSinglePageAsHome: false  # shows a specified single page as a home page
   homeSinglePage: "/README"
   logo: "/images/ed/foo.png"
   svgicon: "/images/ed/foo.png"
@@ -31,17 +32,20 @@ params:
   imageInArticlePreview: true  # show images in article preview
   fitImageInArticlePreview: true  # make article preview images fit the article preview
   articleSummary: true  # show a summary in article preview
-  titleFontFamily: "Computer Modern Serif"
-  fontFamily: "Computer Modern Sans"
-  monospaceFontFamily: "Computer Modern Typewriter"
-  titleFontSizeMultiplier: 2.0
-  mainFontSizeMultiplier: 1.5
-  monoFontSizeMultiplier: 1.7
+  # titleFontFamily: "Computer Modern Serif"
+  # fontFamily: "Computer Modern Sans"
+  # monospaceFontFamily: "Computer Modern Typewriter"
+  titleFontFamily: "Ubuntu"
+  fontFamily: "Clear Sans"
+  monospaceFontFamily: "Noto Sans Mono"
+  titleFontSizeMultiplier: 1.2
+  mainFontSizeMultiplier: 1.1
+  monoFontSizeMultiplier: 1.3
   contentWidth: "1200px"  # maximum width of the site content
   paperCards: true  # enable paper card style
   buttonTags: true  # enable button tag style
   tagsInArticlePreview: true  # enable tags list in the article preview card
-  gridView: false  # show post list as a grid
+  gridView: true  # show post list as a grid
   bigArticleTitle: true  # makes the title in the single article view bigger
   navtype: "standard"  # changes the style of the pagination
   enableShadow: true  # shows a shadow around some elements
@@ -50,21 +54,21 @@ params:
   enableSearch: true  # enable search page
   searchbarEverywhere: true  # show searchbar in every page
   searchMenuLink: false  # add a search link to the navigation menu
-  mobileHamburgerNav: false  # alternative hamburger menu layout for small screens
+  mobileHamburgerNav: true  # alternative hamburger menu layout for small screens
   enableFeatured: false  # enable a particular view for featured articles
   underlineTitleLinks: false  # show an underline for links that are titles
   enableShareOnFediverse: false  # enable a button to share on the fediverse
   tocBeforeImage: false  # show the table of contents before the main article image
   toc: true
-  enableSidebarLayout: false  # alternative sidebar layout
+  enableSidebarLayout: true  # alternative sidebar layout
   tocInSidebar: true  # show the TOC in the sidebar
   forceRedirect: true  # redirect to baseURL if current URL host doesn't match
   infiniteScrolling: false  # activates infinite scrolling
-  enableFooterColumns: false  # activates footer columns
+  enableFooterColumns: true  # activates footer columns
   enableJumbotron: true  # enables jumbotron
   enableRelatedArticles: true  # enables related articles
   relatedArticlesNum: 3  # number of related articles to show
-  randomRelated: false  # sorts related articles in random order
+  randomRelated: true  # sorts related articles in random order
 
 menu:
   icons:
@@ -88,11 +92,15 @@ menu:
 markup:
   markup:
   tableOfContents:
-    endLevel: 4
+    endLevel: 3
     ordered: false
     startLevel: 2
   asciidocExt:
+    # options:
+    #   safe: "unsafe"
     attributes:
+      numbered: true
+      icons: font
       source-highlighter: "rouge"
       rouge-style: "base16.dark"
       rouge-css: "syntax"

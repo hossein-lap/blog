@@ -2,7 +2,7 @@
 
 [ -d "pdfs" ] || mkdir -v "pdfs"
 
-[ $# -gt 0 ] && ./asciidoc-tor.rb -i ../content/notes/k8s-ingress-loadbalancer.adoc -o _test.pdf && exit 0
+[ $# -gt 0 ] && asciidoc-tor.rb -i ../content/notes/k8s-ingress-loadbalancer.adoc -o _test.pdf && exit 0
 
 adoc2pdf() {
     if [ $# -eq 2 ]; then

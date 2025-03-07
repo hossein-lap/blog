@@ -2,20 +2,20 @@ extends: default
 font:
   catalog:
     Noto Serif:
-      normal:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Regular.ttf
-      bold:        /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Bold.ttf
-      italic:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Italic.ttf
-      bold_italic: /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-BoldItalic.ttf
+      normal:      /home/hos/dev/personal/blog.git/main/static/fonts/liberation/LiberationSerif-Regular.ttf
+      bold:        /home/hos/dev/personal/blog.git/main/static/fonts/liberation/LiberationSerif-Bold.ttf
+      italic:      /home/hos/dev/personal/blog.git/main/static/fonts/liberation/LiberationSerif-Italic.ttf
+      bold_italic: /home/hos/dev/personal/blog.git/main/static/fonts/liberation/LiberationSerif-BoldItalic.ttf
     M+ 1mn:
-      normal:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/ubuntu/UbuntuMono-R.ttf
-      bold:        /home/hos/dev/hossein-lap/blog/hos/static/fonts/ubuntu/UbuntuMono-B.ttf
-      italic:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/ubuntu/UbuntuMono-RI.ttf
-      bold_italic: /home/hos/dev/hossein-lap/blog/hos/static/fonts/ubuntu/UbuntuMono-BI.ttf
+      normal:      /home/hos/dev/personal/blog.git/main/static/fonts/ubuntu/UbuntuMono-R.ttf
+      bold:        /home/hos/dev/personal/blog.git/main/static/fonts/ubuntu/UbuntuMono-B.ttf
+      italic:      /home/hos/dev/personal/blog.git/main/static/fonts/ubuntu/UbuntuMono-RI.ttf
+      bold_italic: /home/hos/dev/personal/blog.git/main/static/fonts/ubuntu/UbuntuMono-BI.ttf
     Title Sans:
-      normal:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Regular.ttf
-      bold:        /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Bold.ttf
-      italic:      /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-Italic.ttf
-      bold_italic: /home/hos/dev/hossein-lap/blog/hos/static/fonts/liberation/LiberationSerif-BoldItalic.ttf
+      normal:      /home/hos/dev/personal/blog.git/main/static/fonts/liberation/LiberationSerif-Regular.ttf
+      bold:        /home/hos/dev/personal/blog.git/main/static/fonts/liberation/LiberationSerif-Bold.ttf
+      italic:      /home/hos/dev/personal/blog.git/main/static/fonts/liberation/LiberationSerif-Italic.ttf
+      bold_italic: /home/hos/dev/personal/blog.git/main/static/fonts/liberation/LiberationSerif-BoldItalic.ttf
 base:
   #font-family: LiberationSerif
   font-size: 11.5

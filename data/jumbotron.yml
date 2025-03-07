@@ -1,6 +1,6 @@
-title: P J :)
+title: hos
 hugeTitle: true
-subtitle: Simple Geek
+subtitle: DevOps Engineer
 image: /images/me/me-circle.png
 imagePosition: left  # values: left, right, top, bottom
 background: /images/me/banner.png
@@ -11,10 +11,10 @@ background: /images/me/banner.png
 # videoOpacity: 1.0
 textShadow: true
 fullscreen: false
-downArrow: false
-whiteText: false  # force white text in the jumbotron
-# links:
-#   - title: About me
-#     link: /pages/about
-#   - title: Read my blog
-#     link: /posts
+downArrow: true
+whiteText: true  # force white text in the jumbotron
+links:
+  - title: About
+    link: /about
+  - title: Resume
+    link: /resume
