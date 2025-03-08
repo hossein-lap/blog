@@ -20,12 +20,12 @@ params:
   showcaseDir: "showcase"  # create a content directory that shows a special showcase section in the home page
   showSinglePageAsHome: false  # shows a specified single page as a home page
   homeSinglePage: "/README"
-  logo: "/images/ed/foo.png"
-  svgicon: "/images/ed/foo.png"
-  favicon: "/images/ed/foo.png"  # 32x32
-  faviconIco: "/images/ed/foo.png"  # 32x32
-  appletouch: "/images/ed/foo.png"  # 180x180
-  icon512: "/images/ed/foo.png"  # 512x512 png image
+  logo: "/images/ed/bar.png"
+  svgicon: "/images/ed/bar.png"
+  favicon: "/images/ed/bar.png"  # 32x32
+  faviconIco: "/images/ed/bar.png"  # 32x32
+  appletouch: "/images/ed/bar.png"  # 180x180
+  icon512: "/images/ed/bar.png"  # 512x512 png image
   logoRightOfTitle: true  # positions the logo to the right of the title
   showTags: true  # show the Tags menu item
   showRss: true  # show the link for the RSS feed
@@ -99,7 +99,7 @@ markup:
     # options:
     #   safe: "unsafe"
     attributes:
-      numbered: true
+      # numbered: true
       icons: font
       source-highlighter: "rouge"
       rouge-style: "base16.dark"
