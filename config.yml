@@ -41,7 +41,7 @@ params:
   titleFontSizeMultiplier: 1.2
   mainFontSizeMultiplier: 1.1
   monoFontSizeMultiplier: 1.3
-  contentWidth: "1200px"  # maximum width of the site content
+  contentWidth: "1500px"  # maximum width of the site content
   paperCards: true  # enable paper card style
   buttonTags: true  # enable button tag style
   tagsInArticlePreview: true  # enable tags list in the article preview card
