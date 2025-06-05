@@ -1,7 +1,7 @@
 #!/bin/sh
 
-imagemagick-round -i test.png -o neon.png
-imagemagick-shadow -i neon.png -o neon.png
+# imagemagick-round -i test.png -o neon.png
+# imagemagick-shadow -i neon.png -o neon.png
 
 # # circle {{{
 # circle() {
@@ -33,8 +33,8 @@ imagemagick-shadow -i neon.png -o neon.png
 # 	imtrim.sh me.png
 # }
 # # }}}
-#
-# convert -scale 20% _banner.png banner.png
-#
+
+convert -scale 20% _banner.png banner.png
+
 # circle
 
