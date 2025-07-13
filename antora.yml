@@ -1,0 +1,5 @@
+name: programming
+version: ~
+title: Go Programming Language
+nav:
+- modules/ROOT/nav.adoc
