@@ -1,0 +1,6 @@
+= Perl Programming
+
+Perl is an interesting language to learn.
+
+* xref:perl.adoc[Perl]
+* xref:small-perl.adoc[Small Perl]

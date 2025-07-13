@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree>
+  <directory name="modules/ROOT/pages/">
+    <file name="index.adoc"></file>
+    <file name="perl.adoc"></file>
+    <file name="small-perl.adoc"></file>
+  </directory>
+  <report>
+    <directories>1</directories>
+    <files>3</files>
+  </report>
+</tree>
