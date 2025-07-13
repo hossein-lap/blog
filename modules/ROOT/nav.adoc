@@ -1,3 +1,0 @@
-** xref:golang/go.adoc[Go]
-** xref:golang/k8s-ingress-loadbalancer.adoc[K8s Ingress Loadbalancer]
-** xref:golang/webserver.adoc[Webserver]
