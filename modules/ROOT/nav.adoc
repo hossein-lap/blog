@@ -1,2 +1,2 @@
-* xref:perl/perl.adoc[Perl]
-* xref:perl/small-perl.adoc[Small Perl]
+** xref:perl/perl.adoc[Perl]
+** xref:perl/small-perl.adoc[Small Perl]
