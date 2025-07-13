@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tree>
   <directory name="modules/ROOT/pages/">
-    <file name="go.adoc"></file>
-    <file name="index.adoc"></file>
-    <file name="k8s-ingress-loadbalancer.adoc"></file>
-    <file name="webserver.adoc"></file>
+    <directory name="golang">
+      <file name="go.adoc"></file>
+      <file name="index.adoc"></file>
+      <file name="k8s-ingress-loadbalancer.adoc"></file>
+      <file name="webserver.adoc"></file>
+    </directory>
   </directory>
   <report>
-    <directories>1</directories>
+    <directories>2</directories>
     <files>4</files>
   </report>
 </tree>
