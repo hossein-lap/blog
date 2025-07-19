@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case $1 in
+    nav)
+        ;;
+    run)
+        ;;
+    stop)
+        ;;
+    *)
+        ;;
+esac
+
+nav() {
+    tree -X $(find ../antora/ -name ROOT) | tee modules/ROOT/pages/nav.xml
+    ./hos-nav-gen modules/ROOT/nav.xml | grep -v '^* ' | tee modules/ROOT/nav.adoc
+}
+
+run() {
+}
+
+remove() {
+}
+
+

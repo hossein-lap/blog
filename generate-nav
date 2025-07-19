@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+root='modules/ROOT'
+
+# list=$(find "${root}/pages" -type f -name '*.adoc' | grep -v index.adoc)
+
+gen_nav() {
+
+    tree -X ${root}/pages | tee ${root}/nav.xml >/dev/null
+    # cat ${root}/nav.xml
+    ./hos-nav-gen ${root}/nav.xml
+
+    # list="${@}"
+    # for page in ${list}; do
+    #     _name=$(echo ${page} | sed 's,modules/ROOT/pages/,,')
+    #     name="$(echo ${_name} | awk -F '/' '{print $NF;}' | sed 's,.adoc$,,')"
+    #     printf '* xref:%s[%s]\n' $_name $name
+    # done
+}
+
+# gen_nav
+gen_nav | tee "${root}/nav.adoc"

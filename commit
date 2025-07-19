@@ -1,0 +1,7 @@
+#!/bin/sh
+
+list=$(ls ../antora/)
+
+for branch in $list; do
+    ( cd $branch; git add . && git commit -m 'testing' && git push origin HEAD )
+done

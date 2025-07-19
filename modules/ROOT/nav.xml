@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree>
+  <directory name="../antora/golang/modules/ROOT" size="4096">
+    <directory name="pages" size="4096">
+      <directory name="golang" size="4096">
+        <file name="go.adoc" size="264"></file>
+        <file name="index.adoc" size="137"></file>
+        <file name="k8s-ingress-loadbalancer.adoc" size="18704"></file>
+        <file name="webserver.adoc" size="8589"></file>
+      </directory>
+    </directory>
+  </directory>
+  <directory name="../antora/perl/modules/ROOT" size="4096">
+    <directory name="pages" size="4096">
+      <directory name="perl" size="4096">
+        <file name="index.adoc" size="57"></file>
+        <file name="perl.adoc" size="53563"></file>
+        <file name="small-perl.adoc" size="1601"></file>
+      </directory>
+    </directory>
+  </directory>
+  <report>
+    <directories>6</directories>
+    <files>7</files>
+  </report>
+</tree>

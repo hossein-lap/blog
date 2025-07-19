@@ -1,0 +1,41 @@
+site:
+  title: Hos's blog
+  # start_page: hos-docs::index.adoc
+content:
+  sources:
+
+  # - url: ../antora/perl
+  #   branches: antora/perl
+  #   start_paths: /
+  # - url: ../antora/golang
+  #   branches: antora/golang
+  #   start_paths: /
+
+  - url: https://github.com/hossein-lap/blog.git
+    branches: antora/perl
+    start_paths: /
+  - url: https://github.com/hossein-lap/blog.git
+    branches: antora/golang
+    start_paths: /
+
+  # - url: https://gitlab.com/hos-blog/antora.git
+  #   branches: perl
+  #   start_paths: .
+  # - url: https://gitlab.com/hos-blog/antora.git
+  #   branches: golang
+  #   start_paths: .
+
+ui:
+  bundle:
+    url: https://gitlab.com/hos-blog/antora-ui-hos/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+asciidoc: 
+  attributes: 
+    skip-front-matter: true
+    icons: font
+    icon-set: fi
+    sectnums: true
+    toc: false
+    source-highlighter: rouge
+    rouge-style: base16.dark
+    # highlightjs-theme: tomorrow-night
