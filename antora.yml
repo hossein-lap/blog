@@ -1,5 +1,5 @@
 name: programming
-version: v0.1.0
+version: v0.0.1
 title: Go Programming Language
-# nav:
-# - modules/ROOT/nav.adoc
+nav:
+- modules/ROOT/nav.adoc
