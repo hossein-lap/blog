@@ -1,5 +1,5 @@
-name: programming
+name: tools
 version: v0.0.1
-title: Go Programming Language
+title: Git Version Control System
 nav:
 - modules/ROOT/nav.adoc
