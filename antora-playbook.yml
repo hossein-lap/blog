@@ -12,6 +12,10 @@ content:
   #   start_paths: /
 
   - url: https://github.com/hossein-lap/blog.git
+    branches: master
+    start_paths: /
+
+  - url: https://github.com/hossein-lap/blog.git
     branches: antora/perl
     start_paths: /
   - url: https://github.com/hossein-lap/blog.git
@@ -27,7 +31,9 @@ content:
 
 ui:
   bundle:
-    url: https://gitlab.com/hos-blog/antora-ui-hos/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    # url: https://gitlab.com/hos-blog/antora-ui-hos/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    url: https://github.com/hossein-lap/asciidoctor-docs-ui/releases/download/prod-350/ui-bundle.zip
+
     snapshot: true
 asciidoc: 
   attributes: 

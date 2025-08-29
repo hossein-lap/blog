@@ -3,3 +3,5 @@ resources/_*
 *.bak
 *.old
 *.pdf
+build
+.cache
