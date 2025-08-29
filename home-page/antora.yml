@@ -1,5 +1,0 @@
-name: Hos's blog
-# version: v0.0.1
-title: Home Page
-nav:
-- modules/ROOT/nav.adoc

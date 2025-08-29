@@ -1,6 +1,6 @@
 site:
   title: Hos's blog
-  # start_page: hos-docs::index.adoc
+  start_page: home-page::index.adoc
 content:
   sources:
 
@@ -12,8 +12,8 @@ content:
   #   start_paths: /
 
   - url: https://github.com/hossein-lap/blog.git
-    branches: master
-    start_paths: home-page
+    branches: antora/home
+    start_paths: /
 
   - url: https://github.com/hossein-lap/blog.git
     branches: antora/perl
