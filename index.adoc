@@ -1,0 +1,661 @@
+---
+title: "AsciiDoc(tor): Yo Dawg!"
+# slug: "asciidoc" 
+authors: ["Hossein Esmail"]
+date: "2024-04-02T22:09:44+03:30"
+language: en
+draft: false
+toc: true
+tags: ["Writing", "Documentation", "AsciiDoc"]
+# series: ["asciidoc"]
+# categories: ["document"]
+description: |
+    AsciiDoc is a markup language similar to markdown but vay more standardized
+    and with more features/elements.
+---
+
+= Asciidoc(tor): Yo Dawg!
+:doctype: book
+:source-highlighter: rouge
+:rouge-style: github
+:author: P J
+:email: hos@gmail
+:icon-set: fi
+:numbered:
+:toc:
+
+== Intro
+
+Okay, let's do it.
+
+.Testing `include::<path>[]` command
+[source,asciidoc]
+------
+[source,config]
+----
+\include::/home/hos/dev/hossein-lap/void-packages/etc/xbps.d/repos-remote.conf[]
+----
+------
+.Output
+[source,config]
+----
+include::/home/hos/dev/hossein-lap/void-packages/etc/xbps.d/repos-remote.conf[]
+----
+
+== Lists
+
+=== Unordered lists
+
+[source,asciidoc]
+------
+* level 1
+** level 2
+*** level 3
+**** level 4
+***** level 5
+* level 1
+------
+.Output
+********
+* level 1
+** level 2
+*** level 3
+**** level 4
+***** level 5
+* level 1
+********
+
+=== Ordered lists
+
+[source,asciidoc]
+------
+. level 1
+.. level 2
+... level 3
+.... level 4
+..... level 5
+. level 1
+------
+.Output
+********
+. level 1
+.. level 2
+... level 3
+.... level 4
+..... level 5
+. level 1
+********
+
+=== TODO lists
+
+[source,asciidoc]
+------
+- [*] checked
+- [x] also checked
+- [ ] not checked
+- normal list item
+------
+.Output
+********
+- [*] checked
+- [x] also checked
+- [ ] not checked
+- normal list item
+********
+
+=== Separating lists
+
+[source,asciidoc]
+------
+. Apples
+. Oranges
+
+//-
+
+. Walnuts
+. Almonds
+------
+.Output
+********
+. Apples
+. Oranges
+
+//-
+
+. Walnuts
+. Almonds
+********
+
+== Definitions
+
+=== Normal definition list
+
+[source,asciidoc]
+------
+first term:: definition of first term
+section term:: definition of second term
+------
+.Output
+********
+first term:: definition of first term
+section term:: definition of second term
+********
+
+=== Horizontal definition list
+
+[source,asciidoc]
+------
+[horizontal]
+first term:: definition of first term
+section term:: definition of second term
+------
+.Output
+********
+[horizontal]
+first term:: definition of first term
+section term:: definition of second term
+********
+
+=== Multi-line definition list
+
+[source,asciidoc]
+------
+first term::
+definition of first term
+section term::
+definition of second term
+------
+.Output
+********
+first term::
+definition of first term
+section term::
+definition of second term
+********
+
+=== Q&A
+
+[source,asciidoc]
+------
+[qanda]
+What is Asciidoctor?::
+An implementation of the AsciiDoc processor in Ruby.
+What is the answer to the Ultimate Question?:: 42
+------
+.Output
+********
+[qanda]
+What is Asciidoctor?::
+An implementation of the AsciiDoc processor in Ruby.
+What is the answer to the Ultimate Question?:: 42
+********
+
+=== Mixed
+
+[source,asciidoc]
+------
+Operating Systems::
+    Linux:::
+        . Fedora
+            * Desktop
+        . Ubuntu
+            * Desktop
+            * Server
+    BSD:::
+        . FreeBSD
+        . NetBSD
+Cloud Providers::
+    PaaS:::
+        . OpenShift
+        . CloudBees
+    IaaS:::
+        . Amazon EC2
+        . Rackspace
+------
+.Output
+********
+Operating Systems::
+    Linux:::
+        . Fedora
+            * Desktop
+        . Ubuntu
+            * Desktop
+            * Server
+    BSD:::
+        . FreeBSD
+        . NetBSD
+Cloud Providers::
+    PaaS:::
+        . OpenShift
+        . CloudBees
+    IaaS:::
+        . Amazon EC2
+        . Rackspace
+********
+
+NOTE: Note that the indentation is optional
+
+=== Complex content in outline lists
+
+[source,asciidoc]
+------
+* Every list item has at least one paragraph of content,
+  which may be wrapped, even using a hanging indent.
++
+Additional paragraphs or blocks are adjoined by putting
+a list continuation on a line adjacent to both blocks.
++
+list continuation:: a plus sign (`{plus}`) on a line by itself
+
+* A literal paragraph does not require a list continuation.
+
+ $ gem install asciidoctor
+
+* AsciiDoc lists may contain any complex content.
++
+[cols="2", options="header"]
+|===
+|Application
+|Language
+|AsciiDoc
+|Python
+|Asciidoctor
+|Ruby
+|===
+------
+.Output
+********
+* Every list item has at least one paragraph of content,
+  which may be wrapped, even using a hanging indent.
++
+Additional paragraphs or blocks are adjoined by putting
+a list continuation on a line adjacent to both blocks.
++
+list continuation:: a plus sign (`{plus}`) on a line by itself
+
+* A literal paragraph does not require a list continuation.
+
+ $ gem install asciidoctor
+
+* AsciiDoc lists may contain any complex content.
++
+[cols="2", options="header"]
+|===
+|Application
+|Language
+|AsciiDoc
+|Python
+|Asciidoctor
+|Ruby
+|===
+********
+
+== Links
+
+=== External
+
+[source,asciidoc]
+------
+http://asciidoctor.org - automatic!
+
+http://asciidoctor.org[Asciidoctor]
+
+https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
+------
+.Output
+********
+http://asciidoctor.org - automatic!
+
+http://asciidoctor.org[Asciidoctor]
+
+https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
+********
+
+=== Relative
+
+[source,asciidoc]
+------
+link:test.adoc[Docs]
+------
+.Output
+********
+link:test.adoc[Docs]
+********
+
+=== Email and IRC
+
+[source,asciidoc]
+------
+devel@discuss.arquillian.org
+
+mailto:devel@discuss.arquillian.org[Discuss Arquillian]
+
+mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
+
+irc://irc.freenode.org/#asciidoctor
+------
+.Output
+********
+devel@discuss.arquillian.org
+
+mailto:devel@discuss.arquillian.org[Discuss Arquillian]
+
+mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
+
+irc://irc.freenode.org/#asciidoctor
+********
+
+=== Inline anchors
+
+[source,asciidoc]
+------
+[[bookmark-a]]Inline anchors make arbitrary content referenceable.
+
+anchor:bookmark-b[]Use a cross reference to link to this location.
+------
+.Output
+********
+[[bookmark-a]]Inline anchors make arbitrary content referenceable.
+
+anchor:bookmark-b[]Use a cross reference to link to this location.
+********
+
+=== Internal cross references
+
+[source,asciidoc]
+------
+See <<paragraphs>> to learn how to write paragraphs.
+
+Learn how to organize the document into <<section-titles,sections>>.
+------
+.Output
+********
+See <<paragraphs>> to learn how to write paragraphs.
+
+Learn how to organize the document into <<section-titles,sections>>.
+********
+
+=== Images
+
+[source,asciidoc]
+------
+image::/images/asciidoc/rose.png[]
+
+image::/images/asciidoc/rose.png[Rose]
+
+[[img-sunset]]
+
+image::/images/asciidoc/rose.png[caption="Figure 1: ", title="A rose", alt="Rose", width="300", height="200", link="http://www.flickr.com/photos/javh/5448336655"]
+
+image::http://asciidoctor.org/images/octocat.jpg[GitHub mascot]
+------
+.Output
+********
+image::/images/asciidoc/rose.png[]
+
+image::/images/asciidoc/rose.png[Rose]
+
+[[img-sunset]]
+
+image::/images/asciidoc/rose.png[caption="Figure 1: ", title="A rose", alt="Rose", width="300", height="200", link="http://www.flickr.com/photos/javh/5448336655"]
+
+image::http://asciidoctor.org/images/octocat.jpg[GitHub mascot]
+********
+
+== Admonition paragraph
+
+=== NOTE
+
+[source,asciidoc]
+------
+NOTE: This is a NOTE!
+------
+.Output
+********
+NOTE: This is a NOTE!
+********
+
+=== TIP
+
+[source,asciidoc]
+------
+TIP: This is a TIP!
+------
+.Output
+********
+TIP: This is a TIP!
+********
+
+=== WARNING
+
+[source,asciidoc]
+------
+WARNING: This is a WARNING!
+------
+.Output
+********
+WARNING: This is a WARNING!
+********
+
+=== CAUTION
+
+[source,asciidoc]
+------
+CAUTION: This is a CAUTION!
+------
+.Output
+********
+CAUTION: This is a CAUTION!
+********
+
+=== IMPORTANT
+
+[source,asciidoc]
+------
+IMPORTANT: This is a IMPORTANT!
+------
+.Output
+********
+IMPORTANT: This is a IMPORTANT!
+********
+
+=== Admonition blocks
+
+[source,asciidoc]
+------
+[NOTE]
+====
+This is an example of an admonition block.
+Unlike an admonition paragraph, it may contain any AsciiDoc content.
+The style can be any one of the admonition labels:
+
+* NOTE
+* TIP
+* WARNING
+* CAUTION
+* IMPORTANT
+====
+------
+.Output
+********
+[NOTE]
+====
+This is an example of an admonition block.
+Unlike an admonition paragraph, it may contain any AsciiDoc content.
+The style can be any one of the admonition labels:
+
+* NOTE
+* TIP
+* WARNING
+* CAUTION
+* IMPORTANT
+====
+********
+
+== Blocks
+=== Listing block
+
+[source,asciidoc]
+------
+-----
+This is a **_listing block_**
+-----
+------
+.Output
+********
+-----
+This is a **_listing block_**
+-----
+********
+
+=== Example block
+
+[source,asciidoc]
+------
+=====
+This is a **_example block_**
+=====
+------
+.Output
+********
+=====
+This is a **_example block_**
+=====
+********
+
+=== Comment block
+
+[source,asciidoc]
+------
+////
+This is a **_comment block_**
+////
+------
+.Output
+********
+////
+This is a **_comment block_**
+////
+********
+
+=== Literal block
+
+[source,asciidoc]
+------
+....
+This is a **_literal block_**
+....
+------
+.Output
+********
+....
+This is a **_literal block_**
+....
+********
+
+=== Pass block
+
+[source,asciidoc]
+------
+++++
+== This is raw text
+++++
+------
+.Output
+********
+++++
+== This is raw text
+++++
+********
+
+=== Quote/Verse block
+
+[source,asciidoc]
+------
+____
+This is a very very simple quote
+____
+------
+.Output
+********
+____
+This is a very very simple quote
+____
+********
+
+==== blockqoutes
+
+[source,asciidoc]
+------
+.After landing the cloaked Klingon bird of prey in Golden Gate park:
+[quote,Captain James T. Kirk,Star Trek IV: The Voyage Home]
+Everybody remember where we parked.
+------
+.Output
+********
+.After landing the cloaked Klingon bird of prey in Golden Gate park:
+[quote,Captain James T. Kirk,Star Trek IV: The Voyage Home]
+Everybody remember where we parked.
+********
+
+=== Sidebar block
+
+[source,asciidoc]
+------
+.Some Title
+****
+This is a Sidebar block -- I have no idea why it's called `sidebar`
+****
+------
+.Output
+********
+.Some Title
+****
+This is a Sidebar block -- I have no idea why it's called `sidebar`
+****
+********
+
+=== Block metadata
+
+[source,asciidoc]
+------
+.Gettysburg Address
+[[gettysburg]]
+[quote, Abraham Lincoln, Soldiers' National Cemetery Dedication]
+----
+Four score and seven years ago our fathers brought forth
+on this continent a new nation...
+Now we are engaged in a great civil war, testing whether
+that nation, or any nation so conceived and so dedicated,
+can long endure. ...
+----
+------
+.Output
+********
+.Gettysburg Address
+[[gettysburg]]
+[quote, Abraham Lincoln, Soldiers' National Cemetery Dedication]
+----
+Four score and seven years ago our fathers brought forth
+on this continent a new nation...
+Now we are engaged in a great civil war, testing whether
+that nation, or any nation so conceived and so dedicated,
+can long endure. ...
+----
+********
+
+== Customization (WIP)
+
+== Render (WIP)
+
+//== New approach
+//
+//[horizontal]
+//Listings:: `----`
+//Literals:: `....`
+
+//[index]
+//= index
+//
+//[appendix]
+//= Test
