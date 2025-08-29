@@ -29,6 +29,10 @@ content:
   #   branches: golang
   #   start_paths: .
 
+runtime:
+  cache_dir: ./cache/antora
+
+
 ui:
   bundle:
     # url: https://gitlab.com/hos-blog/antora-ui-hos/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
@@ -42,6 +46,6 @@ asciidoc:
     icon-set: fi
     sectnums: true
     toc: false
-    source-highlighter: rouge
-    rouge-style: base16.dark
+    source-highlighter: pygments
+    pygments-style: solarized-light
     # highlightjs-theme: tomorrow-night

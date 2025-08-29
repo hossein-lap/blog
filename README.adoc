@@ -1,0 +1,18 @@
+= personal blog
+
+.Blog Structure
+[source,yaml]
+----
+programming:
+    - index.adoc
+    - name: golang
+      path: golang/index.adoc
+    - name: perl
+      path: perl/index.adoc
+tools:
+    - index.adoc
+    - name: git
+      path: git/index.adoc
+    - name: asciidoc
+      path: asciidoc/index.adoc
+----

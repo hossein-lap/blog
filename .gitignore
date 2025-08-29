@@ -5,3 +5,4 @@ resources/_*
 *.pdf
 build
 .cache
+cache
