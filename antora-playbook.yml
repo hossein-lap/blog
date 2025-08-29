@@ -13,7 +13,7 @@ content:
 
   - url: https://github.com/hossein-lap/blog.git
     branches: master
-    start_paths: /
+    start_paths: /home-page
 
   - url: https://github.com/hossein-lap/blog.git
     branches: antora/perl
