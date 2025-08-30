@@ -1,3 +1,0 @@
-= Perl Page
-
-this is a simple test!
