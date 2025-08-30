@@ -1,0 +1,6 @@
+= Test -- homepage
+Hos Es
+
+== New
+
+This is the home page
