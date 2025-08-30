@@ -1,8 +1,0 @@
-= Tools part!
-
-yeah
-
-* xref:k8s-ingress-loadbalancer.adoc[k8s-ingress-loadbalancer]
-* xref:go.adoc[go]
-* xref:webserver.adoc[webserver]
-

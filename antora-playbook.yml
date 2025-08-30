@@ -1,6 +1,6 @@
 site:
   title: Hos's blog
-  start_page: home-page::index.adoc
+  start_page: hos-docs::index.adoc
 content:
   sources:
 
