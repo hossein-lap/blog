@@ -1,3 +1,2 @@
-* xref:index.adoc[]
-** xref:perl/index.adoc[Perl]
-** xref:golang/index.adoc[Golang]
+* xref:perl/index.adoc[Perl]
+* xref:golang/index.adoc[Golang]
