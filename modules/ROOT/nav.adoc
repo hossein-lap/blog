@@ -1,3 +1,2 @@
-* xref:index.adoc[]
-** xref:git/index.adoc[Git]
-** xref:asciidoc/index.adoc[AsciiDoctor]
+* xref:git/index.adoc[Git]
+* xref:asciidoc/index.adoc[AsciiDoctor]
