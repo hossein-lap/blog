@@ -1,0 +1,5 @@
+name: hos-docs
+version: ~
+title: Personal Documentations
+nav:
+- modules/ROOT/nav.adoc
