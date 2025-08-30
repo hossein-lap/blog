@@ -1,5 +1,5 @@
 name: tools
 version: v0.1.0
-title: Daily Tools
+title: Tools
 nav:
 - modules/ROOT/nav.adoc
