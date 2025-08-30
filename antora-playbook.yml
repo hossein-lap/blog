@@ -1,5 +1,5 @@
 site:
-  title: Hos's blog
+  title: primejade
   start_page: hos-docs::index.adoc
 content:
   sources:
