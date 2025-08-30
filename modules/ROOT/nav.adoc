@@ -1,3 +1,3 @@
 * xref:index.adoc[Go]
-* xref:perl/index.adoc[Perl Programming]
-* xref:golang/index.adoc[Go Programming]
+* xref:git/index.adoc[Perl Programming]
+* xref:asciidoc/index.adoc[Go Programming]

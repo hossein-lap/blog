@@ -1,5 +1,5 @@
-name: programming
+name: tools
 version: v0.1.0
-title: Programming Language
+title: Daily Tools
 nav:
 - modules/ROOT/nav.adoc
