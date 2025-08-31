@@ -1,4 +1,21 @@
+= Programming
+:syntax-highligher: pygments
+:pygments-style: solarized-light
 
-.Programming
 this is a simple test!
+
+[source,perl]
+----
+#!/usr/bin/env perl
+
+use warnings;
+use strict;
+
+sub cap {
+    my ($name, $path) = @_;
+    foreach my $key (@keys) {
+        print("key: $key\n");
+    }
+}
+----
 
