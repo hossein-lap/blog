@@ -1,12 +1,10 @@
 site:
+  url: https://primejade.github.io
   title: primejade
   start_page: hos-docs::index.adoc
+
 content:
   sources:
-
-  # - url: https://github.com/hossein-lap/blog.git
-  #   branches: antora/home
-  #   start_paths: /
 
   - url: https://github.com/hossein-lap/blog.git
     branches: master
@@ -26,24 +24,47 @@ content:
   # - url: ../antora/golang
   #   branches: antora/golang
   #   start_paths: /
-
   # - url: https://gitlab.com/hos-blog/antora.git
   #   branches: perl
   #   start_paths: .
   # - url: https://gitlab.com/hos-blog/antora.git
   #   branches: golang
   #   start_paths: .
+  # - url: https://github.com/hossein-lap/blog.git
+  #   branches: antora/home
+  #   start_paths: /
 
 runtime:
+
   cache_dir: ./cache/antora
 
+  # log: 
+  #   format: json 
+  #   failure_level: warn 
+  #   level: all 
+  #   level_format: number 
+  #   destination: 
+  #     file: ./antora.log 
+  #     append: true 
+  #     buffer_size: 4096 
+  #     sync: true 
+
+network: 
+  http_proxy: http://127.0.0.1:20171
+  https_proxy: http://127.0.0.1:20171
 
 ui:
   bundle:
     # url: https://gitlab.com/hos-blog/antora-ui-hos/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
-    url: https://github.com/hossein-lap/asciidoctor-docs-ui/releases/download/prod-350/ui-bundle.zip
-
+    # url: https://github.com/hossein-lap/asciidoctor-docs-ui/releases/download/prod-350/ui-bundle.zip
+    url: https://github.com/hossein-lap/asciidoctor-docs-ui/releases/download/prod-351/ui-bundle.zip
     snapshot: true
+  # default_layout: article
+
+output:
+  clean: true
+  dir: ./build
+
 asciidoc: 
   attributes: 
     skip-front-matter: true
@@ -51,6 +72,7 @@ asciidoc:
     icon-set: fi
     sectnums: true
     toc: false
-    source-highlighter: pygments
-    pygments-style: solarized-light
+    source-highlighter: highlight.js
     # highlightjs-theme: tomorrow-night
+    # pygments-style: solarized-light
+

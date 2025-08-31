@@ -1,3 +1,4 @@
 = Main Page
+:page-layout: home
 
 this is a simple test!
