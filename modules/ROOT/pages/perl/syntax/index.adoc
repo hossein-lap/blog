@@ -1,5 +1,3 @@
 = Perl Programming -- Basic Syntax
-:relfileprefix: "perl/syntax"
-:relfilesuffix: /
 
-This section is still WIP. the xref:{relfileprefix}/syntax-12-while.adoc[while loop] is the last published section.
+This section is still WIP. the xref:perl/syntax/syntax-12-while.adoc[while loop] is the last published section.
