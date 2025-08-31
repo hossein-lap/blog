@@ -4,22 +4,22 @@ Perl array and how to use arrays effectively in your program and techniques to
 manipulate array’s elements.
 
 A
-xref:syntax-05-list.adoc[list]
+xref:perl/syntax/syntax-05-list.adoc[list]
 is immutable so you cannot change it directly. In order to change a
 list, you need to store it in an array
-xref:syntax-01-variables.adoc[variable].
+xref:perl/syntax/syntax-01-variables.adoc[variable].
 
 By definition, an array is a variable that provides dynamic storage for a list.
 
 In Perl, the terms array and
-xref:syntax-05-list.adoc[list]
+xref:perl/syntax/syntax-05-list.adoc[list]
 are used interchangeably, but you have to
 note an important difference: a list is immutable whereas an array is mutable.
 In other words, you can modify the array’s elements, grow or shrink the array,
 but not a list.
 
 A
-xref:syntax-01-variables.adoc[scalar variable]
+xref:perl/syntax/syntax-01-variables.adoc[scalar variable]
 begins with the dollar sign (`$`), however, an array variable begins with an
 at-sign (`@`).
 
@@ -261,6 +261,6 @@ print("sorted:", "@a", "\n"); # sorted: 1 2 3 4 6 7
 * Third, we displayed the elements of the sorted array @a.
 
 For more information on the `sort()` function, check out the
-xref:syntax-22-sort.adoc[Perl sort function].
+xref:perl/syntax/syntax-22-sort.adoc[Perl sort function].
 
 

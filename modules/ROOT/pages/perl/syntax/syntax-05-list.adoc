@@ -4,7 +4,7 @@ Perl list and how to manipulate list elements using various techniques such as
 list slicing, ranging and qw() function.
 
 A Perl list is a sequence of
-xref:syntax-01-variables.adoc[scalar]
+xref:perl/syntax/syntax-01-variables.adoc[scalar]
 values. You use parenthesis and comma operators to construct a list. Each value
 is the list is called list element. List elements are indexed and ordered. You
 can refer to each element by its position.

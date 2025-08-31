@@ -10,8 +10,8 @@ We'll focus on the scalar variable in this section.
 == Naming variables
 
 You use scalar variables to manipulate scalar data such as
-xref:syntax-02-numbers.adoc[numbers] and
-xref:syntax-03-strings.adoc[strings],
+xref:perl/syntax/syntax-02-numbers.adoc[numbers] and
+xref:perl/syntax/syntax-03-strings.adoc[strings],
 
 A scalar variable starts with a dollar sign (`$`), followed by a letter or
 underscore, after that, any combination of numbers, letters, and underscores.
@@ -158,8 +158,8 @@ Perl interpolates the value of `$amount` into the string which is 20.
 [NOTE]
 ====
 Perl only interpolates scalar variables and
-xref:syntax-06-array.adoc[array], not
-xref:syntax-07-hash.adoc[hashes]. In addition, the interpolation is
+xref:perl/syntax/syntax-06-array.adoc[array], not
+xref:perl/syntax/syntax-07-hash.adoc[hashes]. In addition, the interpolation is
 only applied to the double-quoted string, but not the single-quoted string
 ====
 

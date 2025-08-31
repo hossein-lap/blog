@@ -22,9 +22,9 @@ variables, expressions, statements, block, comments, whitespaces, and keywords.
 == Values and Variables
 
 You develop Perl programs to manipulate some kinds of data. The data can be
-either xref:syntax-02-numbers.adoc[numbers],
-xref:syntax-03-strings.adoc[strings], or more complex such as a
-xref:syntax-05-list.adoc[list]. Data is held as value.
+either xref:perl/syntax/syntax-02-numbers.adoc[numbers],
+xref:perl/syntax/syntax-03-strings.adoc[strings], or more complex such as a
+xref:perl/syntax/syntax-05-list.adoc[list]. Data is held as value.
 
 .Some values
 [source,perl]
@@ -49,16 +49,16 @@ $s = "Perl string";
 
 We have two integer variables (`$x` and `$y`) and one string variable (`$s`).
 For more information on Perl variables, check it out the
-xref:syntax-01-variables.adoc[Perl variables].
+xref:perl/syntax/syntax-01-variables.adoc[Perl variables].
 
 == Expressions
 
 In Perl, an expression is anything that returns a value.
 
 The expression can be used in a larger expression or a statement. The expression can be a literal
-xref:syntax-02-numbers.adoc[number], complex expression with
-xref:syntax-04-operators.adoc[operators], or a
-xref:syntax-18-subroutine.adoc[function (aka subroutine)], call.
+xref:perl/syntax/syntax-02-numbers.adoc[number], complex expression with
+xref:perl/syntax/syntax-04-operators.adoc[operators], or a
+xref:perl/syntax/syntax-18-subroutine.adoc[function (aka subroutine)], call.
 
 For example, 3 is an expression that returns a value of 3. The `$a + $b` is an
 expression that returns the sum of two variables: `$a` and `$b`.
@@ -163,7 +163,7 @@ Perl keywords fall into some categories such as built-in function and control
 keywords.
 
 You should always avoid using keywords to name variables, functions,
-xref:syntax-19-modules.adoc[modules], and other objects. Check it
+xref:perl/syntax/syntax-19-modules.adoc[modules], and other objects. Check it
 out the http://learn.perl.org/docs/keywords.html[Perl keywords].
 
 Sometimes, it is fine to use a variable name such as `$print`, which is similar
