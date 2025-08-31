@@ -1,3 +1,5 @@
 = Perl Programming Language
+:relfileprefix: perl/
 
-This section is still WIP. the xref:syntax-12-while.adoc[while loop] is the last published section.
+
+This section is still WIP. the xref:{relfileprefix}syntax-12-while.adoc[while loop] is the last published section.
