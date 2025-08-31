@@ -2,7 +2,9 @@
 
 yeah
 
-* xref:k8s-ingress-loadbalancer.adoc[k8s-ingress-loadbalancer]
-* xref:go.adoc[go]
-* xref:webserver.adoc[webserver]
+== Some docs
+
+* xref:golang/k8s-ingress-loadbalancer.adoc[k8s-ingress-loadbalancer]
+* xref:golang/go.adoc[go]
+* xref:golang/webserver.adoc[webserver]
 
