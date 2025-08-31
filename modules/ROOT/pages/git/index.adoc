@@ -1,19 +1,6 @@
----
-title: "Git"
-authors: ["Hossein Esmail"]
-date: "2024-09-26T09:54:32+03:30"
-language: en
-draft: false
-toc: true
-tags: ["git", "vcs"]
-description: |
-   git and git-worktree (bare repository)
----
-
 = Git
-:toc:
-:icon-set: font
-:numbered:
+
+yea.
 
 == init
 
