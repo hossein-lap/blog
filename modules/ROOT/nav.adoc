@@ -1,2 +1,7 @@
 * xref:perl/index.adoc[Perl]
+** xref:perl/perl.adoc[Basic]
+** xref:perl/small-perl.adoc[Small Perl]
 * xref:golang/index.adoc[Golang]
+** xref:golang/k8s-ingress-loadbalancer.adoc[k8s-ingress-loadbalancer]
+** xref:golang/go.adoc[go]
+** xref:golang/webserver.adoc[webserver]
