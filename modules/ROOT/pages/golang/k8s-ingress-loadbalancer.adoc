@@ -1,4 +1,5 @@
 = Accessing K8S pods
+:source-language: go
 
 Configure kubernetes infrastructure with NodePort, ClusterIP, Ingress, nginx load-balancer
 

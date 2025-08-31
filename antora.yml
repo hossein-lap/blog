@@ -10,7 +10,7 @@ asciidoc:
     icons: font
     icon-set: fi
     sectnums: true
-    toc: false
+    toc: true
     source-highlighter: highlight.js
-    # highlightjs-theme: tomorrow-night
+    highlightjs-theme: github
     # pygments-style: solarized-light
