@@ -1,6 +1,4 @@
 = Programming
-:syntax-highligher: pygments
-:pygments-style: solarized-light
 
 this is a simple test!
 
