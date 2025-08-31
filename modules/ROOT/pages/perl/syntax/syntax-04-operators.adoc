@@ -261,8 +261,8 @@ NOTE: The `<STDIN>` is used to get input from users.
 == Logical operators
 
 Logical operators are often used in control statements such as
-xref:perl/syntax/syntax-08-if-statement.adoc[if],
-xref:perl/syntax/syntax-12-while-loop.adoc[while],
+xref:perl/syntax/syntax-08-if.adoc[if],
+xref:perl/syntax/syntax-12-while.adoc[while],
 xref:perl/syntax/syntax-10-given.adoc[given],
 etc., to control the flow of the program. The following are logical operators in Perl:
 
