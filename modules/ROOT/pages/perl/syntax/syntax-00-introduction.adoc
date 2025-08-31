@@ -163,7 +163,7 @@ Perl keywords fall into some categories such as built-in function and control
 keywords.
 
 You should always avoid using keywords to name variables, functions,
-xref:perl/syntax/syntax-19-modules.adoc[modules], and other objects. Check it
+xref:perl/syntax/syntax-19-module.adoc[modules], and other objects. Check it
 out the http://learn.perl.org/docs/keywords.html[Perl keywords].
 
 Sometimes, it is fine to use a variable name such as `$print`, which is similar
