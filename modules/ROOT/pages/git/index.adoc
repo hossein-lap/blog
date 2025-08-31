@@ -1,4 +1,5 @@
 = Git
+:source-language: bash
 
 yea.
 

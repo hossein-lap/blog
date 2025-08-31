@@ -1,12 +1,4 @@
 = Asciidoc(tor): Yo Dawg!
-:doctype: book
-:source-highlighter: rouge
-:rouge-style: github
-:author: P J
-:email: hos@gmail
-:icon-set: fi
-:numbered:
-:toc:
 
 == Intro
 
