@@ -1,0 +1,285 @@
+= Helper functions: Perl language
+
+======
+[NOTE]
+====
+.Background
+I prefer to use *only* Perl's core modules (or those of any other language I'm
+using) for portability. Thus I'm always writing some of the functionalities
+that I need and use.
+====
+
+[NOTE]
+====
+.Version
+I tested and used these code against this version of Perl:
+[source,bash]
+----
+perl --version
+----
+====
+
+[NOTE]
+====
+.Output
+....
+
+This is perl 5, version 38, subversion 2 (v5.38.2) built for
+x86_64-linux-gnu-thread-multi (with 51 registered patches, see perl -V for more
+detail)
+
+Copyright 1987-2023, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at https://www.perl.org/, the Perl Home Page.
+
+....
+====
+======
+
+And there we go.
+
+== Logging
+
+Better terminal output.
+
+.Modules
+----
+use warnings;
+use strict;
+use POSIX qw(strftime);  # current time
+----
+
+.Subroutine
+----
+sub logger {
+    my $subname = (caller(0))[3];
+    my ($package, $filename, $line) = caller();
+    my ($msg, $level, $modname) = @_;
+    my $message;
+    $modname = $subname unless $modname;
+    my $current_date = strftime("%Y-%m-%d %H:%M:%S", localtime);
+    $message = "] $current_date ${filename} ${modname} ${line} | $msg";
+    if ($level eq 1) {
+        print("$message\n");
+    } elsif ($level eq 2) {
+        print(STDERR "$message\n");
+    } elsif ($level eq 3) {
+        print(STDERR "$message\n");
+        exit $line;
+    }
+}
+----
+
+.How to use it
+----
+unless (-d $path) {
+    logger("$path: No such file or directory", 3, $subname);
+}
+----
+
+.Output
+....
+] 2025-09-04 15:36:07 navigator main::finder 46 | /dev/null: No such file or directory
+....
+
+== Finding files
+
+Find files or directories basted on path, type and name pattern
+
+.Modules
+----
+use Cwd 'abs_path';  # get absolute path
+----
+
+.Subroutine
+----
+sub finder {
+    my $subname = (caller(0))[3];
+    my ($opts) = @_; # hashref
+    $opts ||= {};
+    my $path     = $opts->{path}    // '.';
+    my $type     = $opts->{type}    // '';
+    my $pattern  = $opts->{pattern} // '';
+    my $hidden   = $opts->{hidden}  // 0;
+    unless (-d $path) {
+        logger("$path: No such file or directory", 3, $subname);
+    }
+    $path =~ s,/$,,;  # remove trailing /
+    my @directories;
+    opendir (my $dir, $path);
+    while (my $entry = readdir $dir) {
+        my $full_path;
+        if ($path =~ /^\//) {  # double check for full name vs relative name
+            $full_path = $path."/".$entry;
+        } else {
+            $full_path = abs_path($entry);
+        }
+        unless ($hidden) {
+            next if $entry =~ /^\./;  # show hidden files or don't
+        }
+        next if $entry eq '.' or $entry eq '..';  # ignore . and .. directory
+        if ($type eq "d") {
+            next unless -d $full_path;
+        } elsif ($type eq "f") {
+            next unless -f $full_path;
+        } elsif ($type eq "l") {
+            next unless -l $full_path;
+        } else {
+            next unless -e $full_path;
+        }
+        if ($pattern) {
+            if ($entry =~ /$pattern/) {
+                push(@directories, $full_path);
+            }
+        } else {
+            push(@directories, $full_path);
+        }
+    }
+    return sort @directories;
+    closedir $dir;
+}
+----
+
+.How to use it
+----
+my @root = finder({path => "/tmp", type => "d", pattern => "systemd"});
+foreach my $dir (@root) {
+    print("$dir\n");
+}
+----
+
+.Output
+....
+/tmp/systemd-private-8d727da391f74241890c032844d152d1-ModemManager.service-NByLAH
+/tmp/systemd-private-8d727da391f74241890c032844d152d1-fwupd.service-A4BZql
+/tmp/systemd-private-8d727da391f74241890c032844d152d1-polkit.service-lYqcFr
+/tmp/systemd-private-8d727da391f74241890c032844d152d1-power-profiles-daemon.service-Fx9E2m
+/tmp/systemd-private-8d727da391f74241890c032844d152d1-switcheroo-control.service-J56YmG
+/tmp/systemd-private-8d727da391f74241890c032844d152d1-systemd-logind.service-qi68SJ
+/tmp/systemd-private-8d727da391f74241890c032844d152d1-systemd-resolved.service-bN81cy
+/tmp/systemd-private-8d727da391f74241890c032844d152d1-systemd-timesyncd.service-T6AXjP
+/tmp/systemd-private-8d727da391f74241890c032844d152d1-upower.service-nTuKst
+....
+
+== Fetch / Download file
+
+Yeah, I don't know why, But I wrote it anyway :)
+
+.Modules
+----
+use File::Path qw(make_path);  # directory handler
+use File::Fetch;  # remote handler
+use File::Basename;  # filename handling
+----
+
+.Subroutine
+----
+sub fetcher {
+    my $subname = (caller(0))[3];
+    my ($opts) = @_;  # hashref
+    $opts ||= {};
+    my $url        = $opts->{url}       // '';
+    my $name       = $opts->{name}      // '';
+    my $directory  = $opts->{directory} // $ENV{PWD};  # fallback to PWD
+    make_path($directory) unless -d $directory;  # create output directory
+    my $ff = File::Fetch->new(uri => $url);
+    my $file = basename($url);
+    my $full_name = $directory.'/'.$ff->file;
+    my $return_value = {
+        name => $name,
+        url => $url,
+        file => $ff->file,
+        full_name => $full_name,
+    };
+    if (-f $full_name) {
+        print(STDERR "[ignore] file already exists ");
+        return $return_value;
+    }
+    # fetch
+    my $where = $ff->fetch(to => "$directory/$name") or logger($ff->error, 3);
+    return $return_value;
+}
+----
+
+.How to use it
+----
+fetcher({
+    url => "https://musl.libc.org/releases/musl-1.2.5.tar.gz",
+    name => "musl.tar.gz",
+    directory => "/tmp/fetch"
+});
+----
+
+.Output
+This one is silent
+
+[source,bash]
+----
+ls -lhtr /tmp/fetch
+----
+
+....
+total 4.0K
+drwxrwxr-x 2 hos hos 4.0K Sep  4 16:12 musl.tar.gz
+....
+
+It will complain on error only:
+----
+fetcher({
+    url => "https://musl.libc.org/releases=musl-1.2.5.tar.gz",  # invalid URL
+    name => "musl.tar.gz",
+    directory => "/tmp/fetch"
+});
+----
+
+....
+Fetch failed! HTTP response: 404 Not Found [404 Not Found] at tmp.pl line 54.
+Command failed:  at tmp.pl line 54.
+Command failed:  at tmp.pl line 54.
+] 2025-09-04 16:15:46 tmp.pl main::logger 54 | Command failed: 
+....
+
+== Look for a binary in the PATH
+
+Kinda like bash's `command` command =)
+
+.Modules
+Uses nothing special
+
+.Subroutine
+----
+sub command {
+    my $program = $_[0];
+    my $path = $ENV{"PATH"};
+    my @directories = split(":", $path);
+    my $found = '';
+    foreach my $dir (@directories) {
+        my $full_path = "$dir/$program";
+        if (-x $full_path) {
+            $found = $full_path;
+            last;
+        }
+    }
+    return $found;
+}
+----
+
+.How to use it
+----
+if (command("magick")) {
+    $found_im = 0;
+    $runner = command("magick");
+} else {
+    $found_im = 1;
+}
+----
+
+.Output
+Does not print anything by itself
+
+
