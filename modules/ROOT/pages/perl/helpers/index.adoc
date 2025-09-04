@@ -18,7 +18,7 @@ perl --version
 ----
 
 .Output
-++++
+....
 
 This is perl 5, version 38, subversion 2 (v5.38.2) built for
 x86_64-linux-gnu-thread-multi (with 51 registered patches, see perl -V for more
@@ -33,7 +33,7 @@ Complete documentation for Perl, including FAQ lists, should be found on
 this system using "man perl" or "perldoc perl".  If you have access to the
 Internet, point your browser at https://www.perl.org/, the Perl Home Page.
 
-++++
+....
 ====
 
 And there we go.
@@ -78,9 +78,9 @@ unless (-d $path) {
 ----
 
 .Output
-++++
+....
 ] 2025-09-04 15:36:07 navigator main::finder 46 | /dev/null: No such file or directory
-++++
+....
 
 == Finding files
 
@@ -149,7 +149,7 @@ foreach my $dir (@root) {
 ----
 
 .Output
-++++
+....
 /tmp/systemd-private-8d727da391f74241890c032844d152d1-ModemManager.service-NByLAH
 /tmp/systemd-private-8d727da391f74241890c032844d152d1-fwupd.service-A4BZql
 /tmp/systemd-private-8d727da391f74241890c032844d152d1-polkit.service-lYqcFr
@@ -159,7 +159,7 @@ foreach my $dir (@root) {
 /tmp/systemd-private-8d727da391f74241890c032844d152d1-systemd-resolved.service-bN81cy
 /tmp/systemd-private-8d727da391f74241890c032844d152d1-systemd-timesyncd.service-T6AXjP
 /tmp/systemd-private-8d727da391f74241890c032844d152d1-upower.service-nTuKst
-++++
+....
 
 == Fetch / Download file
 
@@ -218,10 +218,10 @@ This one is silent
 ls -lhtr /tmp/fetch
 ----
 
-++++
+....
 total 4.0K
 drwxrwxr-x 2 hos hos 4.0K Sep  4 16:12 musl.tar.gz
-++++
+....
 
 It will complain on error only:
 ----
@@ -232,12 +232,12 @@ fetcher({
 });
 ----
 
-++++
+....
 Fetch failed! HTTP response: 404 Not Found [404 Not Found] at tmp.pl line 54.
 Command failed:  at tmp.pl line 54.
 Command failed:  at tmp.pl line 54.
 ] 2025-09-04 16:15:46 tmp.pl main::logger 54 | Command failed: 
-++++
+....
 
 == Look for a binary in the PATH
 
