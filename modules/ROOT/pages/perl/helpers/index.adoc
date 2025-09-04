@@ -277,4 +277,68 @@ if (command("magick")) {
 .Output
 Does not print anything by itself
 
+== Shell commands
+
+A better way to execute shell command and capture the Exit code and create an
+array of their output. This way we can iterate over the output line by line.
+
+.Modules
+Nothing extra; just the `warnings` and `strict`.
+
+.Subroutine
+----
+sub commander {
+    my $subname = (caller(0))[3];
+    my ($package, $filename, $line) = caller();
+    my @commands = @_;
+    my $msg = "] $subname $line @commands";
+    my $_command = "@commands";
+    my $_cmd_output = `$_command`;
+    my $err_msg = $!;
+    my $cmd_exit_code = $? >> 8;
+    chomp($_cmd_output);
+    my @cmd_output = split("\n", $_cmd_output);
+    print(STDERR "$msg: error") if $cmd_exit_code;
+    if ($err_msg) {
+        print(": $err_msg\n");
+    } else {
+        print("\n");
+    }
+    return (\@cmd_output, $cmd_exit_code);
+}
+----
+
+.How to use it
+----
+my ($ref_cmd_output, $exit_code) = commander("ls -l /tmp");
+exit 1 if $cmd_exit_code;  # exit on error
+my @cmd_output = @{$ref_cmd_output};
+foreach my $line (@cmd_output) {
+    print("$line\n");  # do whatever you want with it
+}
+----
+
+.Output
+....
+total 76
+drwx------ 2 hos  hos  4096 Sep  3 08:17 babel-O0fn1v
+drwxrwxr-x 2 hos  hos  4096 Sep  3 08:17 babel-stable-556
+drwxrwxr-x 3 hos  hos  4096 Sep  4 16:10 dl
+drwxrwxr-x 3 hos  hos  4096 Sep  4 16:12 fetch
+drwxr-xr-x 2 hos  hos  4096 Sep  4 16:23 hsperfdata_hos
+drwxr-xr-x 2 root root 4096 Sep  3 11:57 hsperfdata_root
+drwx------ 2 hos  hos  4096 Sep  3 08:17 net-export
+drwx------ 4 hos  hos  4096 Sep  4 16:13 nvim.hos
+-rw------- 1 hos  hos   168 Sep  3 08:17 serverauth.JAVaP1nh0z
+drwx------ 3 root root 4096 Sep  2 17:57 systemd-private-8d727da391f74241890c032844d152d1-fwupd.service-A4BZql
+drwx------ 3 root root 4096 Sep  2 17:03 systemd-private-8d727da391f74241890c032844d152d1-ModemManager.service-NByLAH
+drwx------ 3 root root 4096 Sep  2 17:03 systemd-private-8d727da391f74241890c032844d152d1-polkit.service-lYqcFr
+drwx------ 3 root root 4096 Sep  2 17:03 systemd-private-8d727da391f74241890c032844d152d1-power-profiles-daemon.service-Fx9E2m
+drwx------ 3 root root 4096 Sep  2 17:03 systemd-private-8d727da391f74241890c032844d152d1-switcheroo-control.service-J56YmG
+drwx------ 3 root root 4096 Sep  2 17:03 systemd-private-8d727da391f74241890c032844d152d1-systemd-logind.service-qi68SJ
+drwx------ 3 root root 4096 Sep  2 17:03 systemd-private-8d727da391f74241890c032844d152d1-systemd-resolved.service-bN81cy
+drwx------ 3 root root 4096 Sep  2 17:03 systemd-private-8d727da391f74241890c032844d152d1-systemd-timesyncd.service-T6AXjP
+drwx------ 3 root root 4096 Sep  2 17:57 systemd-private-8d727da391f74241890c032844d152d1-upower.service-nTuKst
+drwx------ 2 hos  hos  4096 Sep  2 18:01 tmux-1000
+....
 
