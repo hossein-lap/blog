@@ -1,0 +1,539 @@
+
+body {
+    margin: 200px; 
+}
+
+* {
+	font-size: 1em;
+	box-sizing: border-box;
+}
+
+.rssfeed {
+	padding-top: 0%;
+	font-size: 1em;
+	padding-left: 0%;
+	padding-right: 0%;
+}
+
+.footer {
+	text-align: center;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+header {
+	font-weight: bold;
+	/* font-family: "Liberation Sans", Arial, Tahoma, Geneva, Verdana, Helvetica; */
+	font-family: "Libertinus Sans", Times, "FreeSerif", Georgia, Garamond;
+	/* text-align: center; */
+	padding: 0%;
+}
+
+p {
+	text-indent: 0%;
+	line-height: 1.7;
+}
+
+
+h1 {
+	font-size: 2em;
+	padding-top: 3%;
+	padding-bottom: 2%;
+}
+h2 {
+	font-size: 1.8em;
+	padding-top: 3%;
+	padding-bottom: 2%;
+}
+h3 {
+	font-size: 1.6em;
+	padding-top: 3%;
+	padding-bottom: 2%;
+}
+h4 {
+	font-size: 1.4em;
+}
+h5 {
+	font-size: 1.2em;
+}
+h6 {
+	font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+	font-family: "Libertinus Sans", Times, "FreeSerif", Georgia, Garamond;
+	margin-bottom: 0%;
+	border-radius: 0px;
+	padding-left: 0%;
+	padding-right: 0%;
+	/* display: inline-block; */
+	text-align: left;
+	padding-top: 3%;
+	padding-bottom: 2%;
+}
+
+body {
+	padding: 0px;
+	/* font-family: Times, "Libertinus Sans", "FreeSerif", Georgia, Garamond; */
+	margin: 0;
+}
+
+abbr, address, cite, bdo {
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+}
+
+p, ul, li, table {
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+}
+
+li {
+	font-size: 100%;
+}
+
+/* li span { */
+/* 	font-size: 100%; */
+/* } */
+
+main {
+	-ms-flex-wrap: wrap; /* IE10 */
+	-ms-flex: 70%; /* IE10 */
+	display: -ms-flexbox; /* IE10 */
+	display: flex;
+	flex-wrap: wrap;
+	flex: 70%;
+	font-size: 100%;
+	margin: auto;
+	padding-bottom: 0%;
+	padding-left:  00%;
+	padding-right: 00%;
+	padding-top:    0%;
+	/* padding: 5%; */
+}
+
+img {
+    max-width: 100%;
+    /* width: 100%; */
+    height: auto;
+}
+
+a {
+	/* text-decoration: none; */
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+}
+
+/* q:before { */
+/*     content: open-quote; */
+/* } */
+/**/
+/* q:after { */
+/*     content: close-quote; */
+/* } */
+
+.title {
+    padding-top: 1.5em;
+	font-style: italic;
+	font-width: bold;
+    font-family: "Libertinus Sans", "FreeSerif", Times, Georgia, Garamond;
+}
+
+.literalblock, .listingblock {
+    .content {
+        overflow-x: auto;
+    }
+}
+
+
+.quoteblock {
+    p {
+        padding-left: 1em;
+        color: none;
+        display: block;
+        font-family: "Libertinus Sans", "FreeSerif", Times, Georgia, Garamond;
+    }
+}
+
+blockquote {
+    overflow-x: auto;
+    /* margin: 1em; */
+    /* margin-top: 1em; */
+    /* margin-bottom: 1em; */
+    margin-left: 40px;
+    /* margin-right: 40px; */
+	/* font-style: italic; */
+}
+
+/* For TAGLIST.HTML */
+.taglist {
+	text-align: center;
+	clear: both;
+}
+
+/* For NEXTPREV.HTML */
+#prevart {
+	float: left;
+	text-align: left;
+}
+#nextart {
+	float: right;
+	text-align: right;
+}
+#nextart,#prevart {
+	margin-bottom: 1%;
+	margin-top: 1%;
+	margin-left: 1%;
+	margin-right: 1%;
+	max-width: 33%;
+	display: inline-block;
+}
+
+/* div(s) */
+.thetitle {
+	font-family: "Libertinus Sans", Times, Georgia, Garamond;
+	font-size: 2.2em;
+	/* border-radius: 0px; */
+	border-radius: 5%;
+	/* text-align: center; */
+	/* float: center; */
+	padding: 1%;
+}
+
+.thesubtitle {
+	/* font-family: "Libertinus Sans", Times, Georgia, Garamond; */
+	font-size: 1.5em;
+	padding: 1%;
+}
+
+.theauthors {
+	/* font-family: "Libertinus Sans", Times, Georgia, Garamond; */
+	/* text-align: center; */
+	padding: 1%;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.thedate {
+	/* font-family: "Libertinus Sans", Times, Georgia, Garamond; */
+	padding: 1%;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.summary {
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-size: 1em;
+	white-space: wrap;
+	text-align: left;
+	font-style: normal;
+	font-weight: normal;
+	padding: 1%;
+}
+
+/* .header { */
+/* 	padding-bottom: 1%; */
+/* } */
+
+.subheader {
+	padding: 1px;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	text-align: center;
+}
+
+.theheadings {
+	font-weight: bold;
+	text-align: left;
+	padding: 0px;
+}
+
+.collapse {
+	font-weight: normal;
+	text-align: left;
+	padding: 2%;
+	text-indent: 0%;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	border: 0px solid black;
+	border-radius: 0px;
+	margin-top: 2%;
+	margin-bottom: 2%;
+} 
+
+aside {
+    padding-right: 2%;
+    width: 20%;
+}
+
+.sitemap {
+	font-weight: normal;
+	text-align: left;
+	padding: 1%;
+    overflow-x: auto;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        border: 1px solid #191A21;
+        text-align: left;
+    }
+} 
+
+.sitemap li {
+    p, a: {
+        font-family: "Libertinus Sans", Sans;
+    }
+}
+
+.topbar {
+	padding: 0px;
+	font-size: 1em;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	text-align: left;
+	-ms-flex: 100%; /* IE10 */
+	flex: 100%;
+}
+
+.topbariten {
+    padding: 1.0em;
+    a {
+        padding: 0.4em;
+    }
+	font-weight: normal;
+	text-align: left;
+	display: inline-block;
+	clear: both;
+	margin-bottom: 1em;
+	margin-right: 0mm;
+	font-size: 1.0em;
+	border-radius: 0px;
+	border-radius: 5%;
+}
+
+.topbaritem {
+    padding: 0.4em;
+    a {
+        padding: 0.4em;
+    }
+	font-weight: normal;
+	text-align: left;
+	display: inline-block;
+	clear: both;
+	margin-bottom: 1em;
+	margin-right: 0mm;
+	font-size: 1.0em;
+	border-radius: 0px;
+	border-radius: 5%;
+}
+
+.topbaritem:hover {
+    padding: 0.4em;
+    a {
+        padding: 0.4em;
+    }
+}
+
+.botbar {
+	font-size: 1em;
+	text-align: center;
+	max-width: 100%;
+	/* border-radius: 5px; */
+	padding: 2%;
+}
+
+.botbar td {
+	text-align: left;
+	/* padding-left: 2%; */
+	/* padding-top: 1%; */
+	/* padding-bottom: 0.7%; */
+	width: 33%;
+}
+
+
+.highlight, .rouge {
+	/* padding-top: 2%; */
+	/* padding-bottom: 2%; */
+ /*    padding-left: 5%; */
+	/* padding-right: 5%; */
+	padding: 2%;
+	/* border: 1% solid black; */
+	border-radius: 10px;
+    overflow-x: auto;
+}
+
+p {
+    code {
+        border-radius: 0.5em;
+        margin: 0.1em;
+        font-size: 1.3em;
+    }
+}
+
+code {
+	font-family: monospace;
+	font-size: 1em;
+	/* white-space: wrap; */
+	/* padding: 5px; */
+	/* border-radius: 2%; */
+	/* padding-left: 4px; */
+	/* padding-right: 4px; */
+}
+
+/* Column container */
+
+/* main {   */
+/* } */
+
+/* Sidebar/left column */
+.mainside {
+	-ms-flex: 25%; /* IE10 */
+	flex: 25%;
+	padding: 00px;
+}
+
+/* Main column */
+.mainmain {   
+	-ms-flex: 75%; /* IE10 */
+	flex: 75%;
+	padding: 00px;
+	padding-left: 0px;
+	max-width: 1400px;
+    margin: auto;
+	width: 100%;
+}
+
+body {
+	padding: 20px;
+}
+
+.hdlist {
+    table {
+        tr {
+            .hdlist1 {
+                font-width: bold;
+            }
+        }
+    }
+}
+
+.mainpad {
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+@media screen and (max-width: 700px) {
+	.mainrow {   
+		flex-direction: column;
+	}
+}
+
+/* .picleft { */
+/* 	width: 65%; */
+/* 	float: left; */
+/* } */
+/* .picright { */
+/* 	width: 30%; */
+/* 	float: right; */
+/* } */
+
+
+/* .lleft { */
+/* 	width: 45%; */
+/* 	float: left; */
+/* 	clear: both; */
+/* } */
+/* .lright { */
+/* 	width: 45%; */
+/* 	float: right; */
+/* } */
+
+br {
+	clear: both;
+}
+
+.serif {
+	font-family: "Libertinus Sans", ubuntu, Times, Georgia, Garamond;
+	/* display: inline-block; */
+}
+.sans {
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+}
+
+.left {
+	width: 50%;
+	float: left;
+	clear: both;
+}
+
+.right {
+	width: 50%;
+	float: left;
+	/* text-align: right; */
+}
+
+.imgleft {
+	width: 65%;
+	float: left;
+	clear: both;
+}
+
+.imgright {
+	width: 25%;
+	text-align: center;
+	float: right;
+}
+
+@media only screen and (min-width: 400px) {
+	/* For mobile phones: */
+	.left, .right, .imgright {
+		width: 100%;
+		max-width: 100%;
+	}
+	main {
+		padding: 0%;
+	}
+	.right {
+		text-align: center;
+	}
+}
+
+/* two column config */
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+.mainpad {
+    flex: 3; /* Takes up 3 parts of the available space */
+    padding: 00px;
+}
+.mainside {
+    flex: 1;
+    padding: 20px;
+    a {
+        text-decoration: none;
+    }
+}
+.scrollable {
+    width: 100%;
+    padding: 20px;
+	border-radius: 00px;
+    max-height: 1000px;
+    overflow: auto;
+}
+.tableofcontents {
+    width: 100%;
+    max-height: 600px;
+    overflow: auto;
+	font-weight: normal;
+	text-align: left;
+	text-indent: 0%;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	border-radius: 00px;
+} 
+

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Grafana | tanren&#8217;s blog</title>
+        <link rel="canonical" href="https://hossein-lap.github.io/">
+        <link rel='alternate' type='application/rss+xml' title="tanren RSS" href='/index.xml'>
+        <link rel='stylesheet' type='text/css' href='/fonts/fonts.css'>
+        <link rel='stylesheet' type='text/css' href='/css/style.css'>
+        <link rel='stylesheet' type='text/css' href='/css/syntax.css'>
+        <link rel='stylesheet' type='text/css' href='/css/theme.css'>
+        <script type="text/javascript" src="/fonts/fix-adoc.js"></script>
+        <link rel="icon" href="/favicon.ico">
+        <meta name="description" content="WIP: description
+">
+        <meta name="keywords" content="Grafana, Monitoring, Logging, Infrastructure, Telemetry">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <div class="mainmain">
+                <div class="topbar">
+                    
+                    <nav>
+   
+   
+   
+
+   
+   
+   <div class='topbariten'>
+         <a href="/">
+            <span class=pre></span>
+            <span class=menuname>P J</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a class="menuactive" href="/programming/">
+            <span class=pre></span>
+            <span class=menuname>Programming</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="/tools/">
+            <span class=pre></span>
+            <span class=menuname>Tools</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="https://hossein-lap.github.io">
+            <span class=pre></span>
+            <span class=menuname>About</span>
+         </a>
+   </div>
+   
+</nav>
+
+                    </div>
+                <header>
+                    
+                    <div class="header">
+                        <div class="thetitle">
+                            Grafana
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="thedate">
+                            July 6, 2024
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </header>
+                
+                <article>
+                    <div class="row">
+                        
+                        
+                        <div class="container">
+                            <div class="mainpad">
+                            <div class="scrollable">
+                                
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This is some note, nothing serious.
+<strong>DO NOT</strong> cite from this article.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_grafana_stack">1. Grafana stack</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Grafana offers many tools, which we’ve grouped into the following categories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The core Grafana stack: <strong>LGTM</strong> and the <strong>Grafana Agent</strong></p>
+</li>
+<li>
+<p>Grafana enterprise plugins</p>
+</li>
+<li>
+<p>Incident response tools</p>
+</li>
+<li>
+<p>Other Grafana tools</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_the_core_grafana_stack">1.1. The core Grafana stack</h3>
+<div class="paragraph">
+<p>The core Grafana stack consists of <strong>Mimir</strong>, <strong>Loki</strong>, <strong>Tempo</strong>, and <strong>Grafana</strong>; the
+acronym <strong>LGTM</strong> is often used to refer to this tech stack.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Mimir</div>
+<div class="paragraph">
+<p>Mimir is a <strong>Time Series Database</strong> (<strong>TSDB</strong>) for the storage of metric data. It
+uses low-cost object storage such as S3, GCS, or Azure Blob Storage.
+Mimir is a fully Prometheus-compatible solution that addresses the common
+scalability problems encountered with storing and searching huge quantities of
+metric data.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>An active time series is a metric with a value and unique labels that has
+reported a sample in the last 20 minutes.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Loki</div>
+<div class="paragraph">
+<p>Loki is a set of components that offer a full feature logging stack. Loki uses
+lower-cost object storage such as S3 or GCS, and only indexes label metadata.
+Log aggregation tools typically use two data structures to store log data. An
+index that contains references to the location of the raw data paired with
+searchable metadata, and the raw data itself stored in a compressed form.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Loki differs from a lot of other log aggregation tools by keeping the index
+data relatively small and scaling the search functionality by using horizontal
+scaling of the querying component.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Tempo</div>
+<div class="paragraph">
+<p>Tempo is a storage backend for high-scale distributed trace telemetry, with the
+aim of sampling 100% of the read path. Like Loki and Mimir, it leverages
+lower-cost object storage such as S3, GCS, or Azure Blob Storage.
+Tempo also offers the ability to generate metrics from spans as they are
+ingested; these metrics can be written to any backend that supports Prometheus
+remote write.</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Grafana</div>
+<div class="paragraph">
+<p>Grafana has been a staple for fantastic visualization of data since 2014. It
+has targeted the ability to connect to a huge variety of data sources from
+TSDBs to relational databases and even other observability tools. Grafana has
+over 150 data source plugins available. Grafana has a huge community using it
+for many different purposes. This community supports over 6,000 dashboards,
+which means there is a starting place for most available technologies with
+minimal time to value.</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Grafana Agent</div>
+<div class="paragraph">
+<p>Grafana Agent is a collection of tools for collecting logs, metrics, and
+traces. There are many other collection tools that Grafana integrates well
+with.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_grafana_enterprise_plugins">1.2. Grafana Enterprise plugins</h3>
+<div class="paragraph">
+<p>These are part of any paid subscription to Grafana.</p>
+</div>
+<div class="paragraph">
+<p>The Enterprise data source plugins allow organizations to read data from many
+other storage tools they may use, from software development tools such as <strong>GitLab</strong>
+and <strong>Azure DevOps</strong> to business intelligence tools such as <strong>Snowflake</strong>,
+<strong>Databricks</strong>, and <strong>Looker</strong>. Grafana also offers tools to read data from many
+other observability tools, which enables organizations to build comprehensive
+operational coverage while offering individual teams a choice of the tools they
+use.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_grafana_incident_response_and_management">1.3. Grafana incident response and management</h3>
+<div class="paragraph">
+<p>Grafana offers three products in the <strong>incident response and management</strong> (<strong>IRM</strong>)
+space:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At the foundation of IRM are <strong>alerting rules</strong>, which can notify via messaging
+apps, email, or Grafana OnCall</p>
+</li>
+<li>
+<p><strong>Grafana OnCall</strong> offers an on-call schedule management system that
+centralizes alert grouping and escalation routing</p>
+</li>
+<li>
+<p><strong>Grafana Incident</strong> offers a chatbot functionality that can set up necessary
+incident spaces, collect timelines for a post-incident review process, and
+even manage the incident directly from a messaging service</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_grafana_tools">1.4. Other Grafana tools</h3>
+<div class="paragraph">
+<p>Grafana Labs continues to be a leader in observability and has acquired several
+companies in this space to release new products that complement the tools we’ve
+already discussed.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Faro</div>
+<div class="paragraph">
+<p><strong>Grafana Faro</strong> is a JavaScript agent that can be added to frontend web
+applications. The project allows for <strong>real user monitoring</strong> (<strong>RUM</strong>) by
+collecting telemetry from a browser.
+By adding RUM into an environment where backend applications and infrastructure
+are instrumented, observers gain the ability to traverse data from the full
+application stack.</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">k6</div>
+<div class="paragraph">
+<p><strong>k6</strong> is a load testing tool that provides both a packaged tool to run in your
+own infrastructure and a cloud <strong>Software as a Service</strong> (<strong>SaaS</strong>) offering. Load
+testing, especially as part of a CI/CD pipeline, really enables teams to see
+how their application will perform under load, and evaluate optimizations and
+refactoring. Paired with other detailed analysis tools such as Pyroscope, the
+level of visibility and accessibility to non-technical members of the team can
+be astounding.</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Pyroscope</div>
+<div class="paragraph">
+<p><strong>Pyroscope</strong> is a tool that enable teams to engage in the continuous profiling
+of system resource use by applications (CPU, memory, etc.). Pyroscope
+advertises that with a minimal overhead of ~2-5% of performance, they can
+collect samples as frequently as every 10 seconds. <strong>Phlare</strong> is a Grafana Labs
+project started in 2022, and the two projects have now merged.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_common_log_formats">2. Common log formats</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Logs support performance and capacity monitoring in infrastructure, bug
+detection in software, root cause analysis, user behavior tracking, and more.
+Following certain guidelines will help your future self when you need to
+analyze logs.
+Log formats usually identify if they are structured or unstructured, the data
+types used in them, and if any encoding or delimitation is being used.</p>
+</div>
+<div class="sect2">
+<h3 id="_structured_semi_structured_and_unstructured_logging">2.1. Structured, semi-structured, and unstructured logging</h3>
+<div class="paragraph">
+<p>It does not matter what your logs look like and they can come in structured,
+semi-structured, or unstructured formats.
+when designing and building observability solutions, it’s important to
+understand the log formats you are working with. This ensures that you can
+ingest, parse, and store the data in a way that it can be used effectively.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you familiarized yourself with the <em>personas</em>, you have an awareness of who
+they will be used by and for what purpose.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="sect3">
+<h4 id="_structured_logging">2.1.1. Structured logging</h4>
+<div class="paragraph">
+<p><strong>Structured logs</strong> have a predetermined message format that allows them to be
+treated as datasets rather than text. The idea of structured logging is to
+present data with a defined pattern that can be easily understood by humans and
+efficiently processed by machines. The log entries are often delimited with
+characters such as a comma, space, or hyphen. Data fields may also be joined
+using an equals sign or colon for key-value pairs, such as <code>name=Diego</code> or
+<code>city=Berlin</code>.</p>
+</div>
+<div class="literalblock">
+<div class="title">A structured log format</div>
+<div class="content">
+<pre>{
+&#34;timestamp&#34;: &#34;2023-04-25T12:15:03.006Z&#34;,
+&#34;message&#34;: &#34;User Diego.Developer has logged in&#34;,
+&#34;log&#34;: {
+&#34;level&#34;: &#34;info&#34;,
+&#34;file&#34;: &#34;auth.py&#34;,
+&#34;line&#34;: 77
+},
+&#34;user&#34;: {
+&#34;name&#34;: &#34;diego.developer&#34;,
+&#34;id&#34;: 123
+},
+&#34;event&#34;: {
+&#34;success&#34;: true
+}
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An additional benefit of structured logging is that you can validate the
+conformation of the data to a schema with tools such as JSON schema. This opens
+up the possibility of making version control changes to the schema, which is
+where logs and event bus technology overlap.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_semi_structured_logging">2.1.2. Semi-structured logging</h4>
+<div class="paragraph">
+<p><strong>Semi-structured</strong> logs aim to bridge the gap between unstructured and structured
+and, as a result, can be quite complicated. They are designed to be easy for
+humans to read but also have a schema that makes it possible for machines to
+process them too. They have complex field and event separators and usually come
+with a defined pattern to aid with ingesting and parsing. Parsing is usually
+done using regular expressions or other code.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unstructured_logging">2.1.3. Unstructured logging</h4>
+<div class="paragraph">
+<p><strong>Unstructured logging</strong> typically refers to log entries that are presented in a
+textual format that can easily be read by humans but is difficult for machines
+to process. They are often color-coded with blank spaces to improve
+presentation and readability.</p>
+</div>
+<div class="paragraph">
+<p>Parsing and splitting the data correctly creates a disassociation between
+events and their identifying metadata. An unstructured log will require some
+custom parsing, requiring intimate knowledge of the data and often creating
+additional work for the engineer when ingesting data. This also creates
+technical liability; the dependency on the log remaining the same restricts
+developers from changing logs or runs the risk of parsing and reporting on
+unstructured logs prone to breaking.</p>
+</div>
+<div class="paragraph">
+<p>To aid the ability of machines to process unstructured logs, encapsulation
+prevents entries such as stack traces from splitting at an inappropriate
+location.</p>
+</div>
+<div class="paragraph">
+<p>The following is an example of a multiline log, with a naive encapsulation that
+looks for line breaks; this will appear in logging systems as four distinct
+events:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>2023-04-25 12:15:03,006 INFO [SVR042] UserMembershipsIterable Found 4
+children for 4 groups in 3 ms
+Begin Transaction update record.
+Process started.
+Process completed.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With encapsulation based on the timestamp at the start of the event, this will
+be stored correctly for searching.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sample_log_formats">2.2. Sample log formats</h3>
+<div class="paragraph">
+<p>Many log formats have been used in computer systems. All of these formats have
+a common goal of presenting a standard structure or set of fields for recording
+important information about the activity of a computer system.</p>
+</div>
+<div class="sect3">
+<h4 id="_common_event_format_cef">2.2.1. Common Event Format (CEF)</h4>
+<div class="paragraph">
+<p>Developed by ArcSight to fulfill the <strong>Security Information and Event Management</strong>
+(SIEM) use case, the CEF is a structured text-based log format. Using UTF-8
+encoding, the format contains a prefix, a CEF header, and a body containing
+additional enrichment data.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;"/>
+<col style="width: 50%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Log Section</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It combines the event timestamp and source hostname</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CEF header</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>It combines the following pieces of metadata:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Software version</p>
+</li>
+<li>
+<p>Vendor name</p>
+</li>
+<li>
+<p>Product name</p>
+</li>
+<li>
+<p>Product version</p>
+</li>
+<li>
+<p>Event name</p>
+</li>
+<li>
+<p>Product event class identification code</p>
+</li>
+<li>
+<p>Event severity</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It contains a list of key-value pairs</p></td>
+</tr>
+</tbody>
+</table>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>CEF:0|Security Provider|Security Product|Version|123|User
+Authenticated|3|src=10.51.113.149 suser=diego target=diego msg=User
+authenticated from 1001:db7::5</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ncsa_common_log_format_clf">2.2.2. NCSA Common Log Format (CLF)</h4>
+<div class="paragraph">
+<p>As one of the oldest log formats used by web servers, the NCSA CLF has for a
+long time been the most common and well-known log formats. It has a fixed
+format text-based structure and therefore cannot be customized at all.</p>
+</div>
+<div class="ulist">
+<div class="title">Here is the NCSA CLF field list:</div>
+<ul>
+<li>
+<p>Remote host address</p>
+</li>
+<li>
+<p>Remote log name</p>
+</li>
+<li>
+<p>Username</p>
+</li>
+<li>
+<p>Timestamp</p>
+</li>
+<li>
+<p>Request and protocol version</p>
+</li>
+<li>
+<p>HTTP status code</p>
+</li>
+<li>
+<p>Bytes sento</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Where data is missing from the log, a hyphen acts as a placeholder. Unsupported
+characters are replaced with the + symbol.</p>
+</div>
+<div class="literalblock">
+<div class="title">Here is an example NCSA CLF log:</div>
+<div class="content">
+<pre>127.0.0.1 user-identifier diego [25/Apr/2023:12:15:03 -0000] &#34;GET /
+apache_pb.gif HTTP/1.1&#34; 200 2326</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_w3c_extended_log_file_format">2.2.3. W3C Extended Log File Format</h4>
+<div class="paragraph">
+<p>The Microsoft Internet Information Server log format known as W3C is a
+structured yet configurable format. Full control over the included fields
+ensures log files contain the most relevant data. Identification of the
+information or direction of flow is denoted using a string prefix: server (S),
+client ©, server to client (SC), and client to server (CS).</p>
+</div>
+<div class="ulist">
+<div class="title">Here is the W3C Extended Log File Format field list:</div>
+<ul>
+<li>
+<p>Timestamp</p>
+</li>
+<li>
+<p>Client IP</p>
+</li>
+<li>
+<p>Server IP</p>
+</li>
+<li>
+<p>URI-stem</p>
+</li>
+<li>
+<p>HTTP status code</p>
+</li>
+<li>
+<p>Bytes sent</p>
+</li>
+<li>
+<p>Bytes received</p>
+</li>
+<li>
+<p>Time taken</p>
+</li>
+<li>
+<p>Version</p>
+</li>
+</ul>
+</div>
+<div class="literalblock">
+<div class="title">Here is an example W3C log:</div>
+<div class="content">
+<pre>#Software: Internet Information Services 10.0
+#Version: 1.0
+#Date: 2023-04-25 12:15:03
+#Fields: time c-ip cs-method cs-uri-stem sc-status cs-version
+12:15:03 10.51.113.149 GET /home.htm 200 HTTP/1.0</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_windows_event_log">2.2.4. Windows Event Log</h4>
+<div class="paragraph">
+<p>The Microsoft Windows operating system comes with a built-in complex structured
+logging system that captures data related to specific events on the operating
+system. There are four common Windows event log categories - system,
+application, security, and setup - and an additional special category for
+forwarded events.</p>
+</div>
+<div class="paragraph">
+<p>Each event log is also one of five different types: information, warning,
+error, success audit, and failure audit. Windows Event Log is one of the most
+verbose log formats in use. It usually includes details such as timestamp,
+event ID, username, hostname, message, and category, making it invaluable in
+diagnosing problems. Windows event IDs are documented and searchable, so you
+can easily get detailed information regarding the log event; they are grouped
+into categories, narrowing down the area where the event occurred, which makes
+debugging very accurate.</p>
+</div>
+<div class="literalblock">
+<div class="title">Here is a trimmed example of Microsoft Windows Event Log:</div>
+<div class="content">
+<pre>An account was successfully logged on.
+Subject:
+Security ID: SYSTEM
+Account Name: DESKTOP-TMC369$
+Account Domain: WORKGROUP
+Logon ID: 0xE37
+Logon Information:
+New Logon:
+Security ID: AD\DiegoDeveloper
+Account Name: diego.developer@themelt.cafe
+Account Domain: AD
+Logon ID: 0xEC4093F
+Network Information:
+Workstation Name: DESKTOP-TMC369</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_javascript_object_notation_json">2.2.5. JavaScript Object Notation (JSON)</h4>
+<div class="paragraph">
+<p>As one of the newer yet most commonly used log formats today, JSON is a
+structured format constructed from multiple key-value pairs. Using JSON, data
+can be nested into different layers while keeping the format easy to read.
+Additionally, different data types can be represented, such as string, number,
+Boolean, null, object, and array.</p>
+</div>
+<div class="literalblock">
+<div class="title">Here is an example JSON log file:</div>
+<div class="content">
+<pre>{
+&#34;timestamp&#34;: &#34;2023-04-25T12:15:03.006Z&#34;,
+&#34;message&#34;: &#34;User Diego.Developer has logged in&#34;,
+&#34;log&#34;: {
+&#34;level&#34;: &#34;info&#34;,
+&#34;file&#34;: &#34;auth.py&#34;,
+&#34;line&#34;: 77
+},
+&#34;user&#34;: {
+&#34;name&#34;: &#34;diego.developer&#34;,
+&#34;id&#34;: 123
+},
+&#34;event&#34;: {
+&#34;success&#34;: true
+}
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_syslog">2.2.6. Syslog</h4>
+<div class="paragraph">
+<p>The go-to log format for many years and still widely used, Syslog is a defined
+standard for creating and transmitting logs. The <strong>Syslog transport protocol</strong>
+specifies how log transmission takes place, as well as the data format. The
+default network ports for the protocol are <code>514</code> and <code>6514</code>, with the latter
+being used for encryption.</p>
+</div>
+<div class="paragraph">
+<p>The Syslog message format combines a standardized header and message holding
+the body of the log.</p>
+</div>
+<div class="literalblock">
+<div class="title">Here is an example Syslog log:</div>
+<div class="content">
+<pre>Apr 25 12:15:03 server1 sshd[41458] : Failed password for  diego from
+10.51.113.149 port 22 ssh2</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_logfmt">2.2.7. Logfmt</h4>
+<div class="paragraph">
+<p>Logfmt is a widely used log format that fits as human readable and structured
+so that computers and people can both read it. A Logfmt-formatted log line
+consists of any number of key-value pairs that can be easily parsed. As there
+are no standards, it is easy to extend and perfect for developers to simply add
+more key-value pairs to the output.</p>
+</div>
+<div class="literalblock">
+<div class="title">Here is an example Logfmt log:</div>
+<div class="content">
+<pre>level=info method=GET path=/ host=myserver.me fwd=&#34;10.51.113.149&#34;
+service=4ms status=200</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exploring_metric_types_and_best_practices">3. Exploring metric types and best practices</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Metrics, along with logs, are an essential tool for software developers and
+operators, providing them with indicators regarding the state of applications
+and systems. Resource usage data is great for monitoring a metric that captures
+numerical data over time. There are many different types of resources but some
+good examples would be CPU or RAM usage, the number of messages in a queue, and
+the number of received HTTP requests. Metrics are frequently generated and
+easily enriched with labels, attributes, or dimensions, making them efficient
+to search and ideal in determining if something is wrong, or different from
+usual.</p>
+</div>
+<div class="ulist">
+<div class="title">A metric commonly has the following fields:</div>
+<ul>
+<li>
+<p><strong>Name</strong>: This uniquely identifies the metric</p>
+</li>
+<li>
+<p><strong>Data point value(s)</strong>: The data that’s stored varies by metric type</p>
+</li>
+<li>
+<p><strong>Dimensions</strong>: Additional enrichment labels or attributes that support analysis</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_wip">3.1. WIP</h3>
+
+</div>
+</div>
+</div>
+
+                            </div>
+                            </div>
+                            <div class="mainside">
+                                
+                                
+                                
+                                <h5>Table Of Content</h5>
+                                <div class="tableofcontents">
+                                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#_grafana_stack">1. Grafana stack</a>
+      <ul>
+        <li><a href="#_the_core_grafana_stack">1.1. The core Grafana stack</a></li>
+        <li><a href="#_grafana_enterprise_plugins">1.2. Grafana Enterprise plugins</a></li>
+        <li><a href="#_grafana_incident_response_and_management">1.3. Grafana incident response and management</a></li>
+        <li><a href="#_other_grafana_tools">1.4. Other Grafana tools</a></li>
+      </ul>
+    </li>
+    <li><a href="#_common_log_formats">2. Common log formats</a>
+      <ul>
+        <li><a href="#_structured_semi_structured_and_unstructured_logging">2.1. Structured, semi-structured, and unstructured logging</a></li>
+        <li><a href="#_sample_log_formats">2.2. Sample log formats</a></li>
+      </ul>
+    </li>
+    <li><a href="#_exploring_metric_types_and_best_practices">3. Exploring metric types and best practices</a>
+      <ul>
+        <li><a href="#_wip">3.1. WIP</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        
+
+                         <div id="nextprev">
+<a href="/tools/k8s-ingress-loadbalancer/"><div id="prevart">« Previous<br>Accessing K8S pods</div></a>
+<a href="/programming/vim/"><div id="nextart">Next »<br>Vim</div></a>
+</div>
+<br>
+ <div style="clear:both" class=taglist>Related<br><a id="tag_grafana" href="https://hossein-lap.github.io/tags/grafana">Grafana</a> &middot; <a id="tag_monitoring" href="https://hossein-lap.github.io/tags/monitoring">Monitoring</a> &middot; <a id="tag_logging" href="https://hossein-lap.github.io/tags/logging">Logging</a> &middot; <a id="tag_infrastructure" href="https://hossein-lap.github.io/tags/infrastructure">Infrastructure</a> &middot; <a id="tag_telemetry" href="https://hossein-lap.github.io/tags/telemetry">Telemetry</a></div>
+ </div>
+                </article>
+                <br>
+                <hr>
+                
+                <footer>
+                    <div class="footer">
+                        <div class='botbar'>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="https://hossein-lap.github.io/">tanren</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="/index.xml"> Subscribe via RSS for updates. </a>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </footer>
+                
+        </main>
+    </body>
+</html>

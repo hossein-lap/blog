@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Docker | tanren&#8217;s blog</title>
+        <link rel="canonical" href="https://hossein-lap.github.io/">
+        <link rel='alternate' type='application/rss+xml' title="tanren RSS" href='/index.xml'>
+        <link rel='stylesheet' type='text/css' href='/fonts/fonts.css'>
+        <link rel='stylesheet' type='text/css' href='/css/style.css'>
+        <link rel='stylesheet' type='text/css' href='/css/syntax.css'>
+        <link rel='stylesheet' type='text/css' href='/css/theme.css'>
+        <script type="text/javascript" src="/fonts/fix-adoc.js"></script>
+        <link rel="icon" href="/favicon.ico">
+        <meta name="description" content="Some notes about docker container manager
+">
+        <meta name="keywords" content="docker, container">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <div class="mainmain">
+                <div class="topbar">
+                    
+                    <nav>
+   
+   
+   
+
+   
+   
+   <div class='topbariten'>
+         <a href="/">
+            <span class=pre></span>
+            <span class=menuname>P J</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a class="menuactive" href="/programming/">
+            <span class=pre></span>
+            <span class=menuname>Programming</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="/tools/">
+            <span class=pre></span>
+            <span class=menuname>Tools</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="https://hossein-lap.github.io">
+            <span class=pre></span>
+            <span class=menuname>About</span>
+         </a>
+   </div>
+   
+</nav>
+
+                    </div>
+                <header>
+                    
+                    <div class="header">
+                        <div class="thetitle">
+                            Docker
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="thedate">
+                            September 14, 2024
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </header>
+                
+                <article>
+                    <div class="row">
+                        
+                        
+                        <div class="container">
+                            <div class="mainpad">
+                            <div class="scrollable">
+                                
+<div class="sect1">
+<h2 id="_intro">1. Intro</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Yeah I don’t like long intros either, but this one needs a little more digging.
+Let’s begin.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_is_docker">1.1. What is Docker?</h3>
+<div class="paragraph">
+<p>Docker is a container management service. You may also hear it referred as
+<em>container engine</em>. All it can do is <strong>create</strong>, <strong>run</strong> and <strong>manage</strong> containers.
+Let’s go a little bit deeper.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_is_a_container">1.2. What is a container</h3>
+<div class="paragraph">
+<p>Let me put it this way, what you need to run a program? A computer (servers are
+also computers) and what a computer (beside hardware) has? Software.
+Now what software do you use to work with the computer’s hardware? <strong>Operating
+System</strong>. Containers are just a small isolated things that emulates a Operating
+System. In a different approach we can say: <strong>Using OS-level virtualization to
+deliver software in packages called <em>containers</em></strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_containers_vs_virtual_machines">1.3. Containers VS. Virtual-Machines</h3>
+<div class="paragraph">
+<p>Every VM requires its own dedicated operating system (OS) is a major flaw.
+Every OS consumes CPU, RAM and other resources that could otherwise be used to
+power more applications. Every OS needs patching and monitoring. And in some
+cases, every OS requires a license. All of this results in wasted time and
+resources.</p>
+</div>
+<div class="paragraph">
+<p>A major difference is that containers do not require their own full-blown OS.
+In fact, all containers on a single host share the host’s OS. This frees up
+huge amounts of system resources such as CPU, RAM, and storage. It also reduces
+potential licensing costs and reduces the overhead of OS patching and other
+maintenance.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/notes/docker/vm-vs-container.png" alt="vm vs container"/>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_linux_containers">1.4. Linux containers</h3>
+<div class="paragraph">
+<p>Modern containers started in the Linux world and are the product of an immense
+amount of work from a wide variety of people over a long period of time. Just
+as one example, Google LLC has contributed many container-related technologies
+to the Linux kernel. Without these, and other contributions, we wouldn’t have
+modern containers today.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There are many operating system virtualization technologies similar to
+containers that pre-date Docker and modern containers. Some even date back to
+System/360 on the Mainframe. BSD Jails and Solaris Zones are some other
+well-known examples of Unix-type container technologies.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basics">2. Basics</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Pulling an image</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">docker image pull ubuntu:latest</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dockerfile">2.1. Dockerfile</h3>
+<div class="paragraph">
+<p>You can create your own Docker image from a file called <code>Dockerfile</code>.
+This file includes instructions to build an application. Instructions like
+installing dependencies, copying files, running compile / build commands and
+so on. <em>Things that needs to be done for preparing the environment that you app
+will run in it</em>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Dockerfile — Simple webapp</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="dockerfile"><span style="color: #aa759f">FROM</span><span style="color: #90a959"> alpine</span>
+<span style="color: #aa759f">LABEL</span><span style="color: #90a959"> maintainer=&#34;example@mail.com&#34;</span>
+<span style="color: #aa759f">RUN </span>apk add <span style="color: #f4bf75">--update</span> nodejs nodejs-npm
+<span style="color: #aa759f">COPY</span><span style="color: #90a959"> . /src</span>
+<span style="color: #aa759f">WORKDIR</span><span style="color: #90a959"> /src</span>
+<span style="color: #aa759f">RUN </span>npm <span style="color: #d0d0d0;background-color: #151515">install</span>
+<span style="color: #aa759f">EXPOSE</span><span style="color: #90a959"> 8080</span>
+<span style="color: #aa759f">ENTRYPOINT</span><span style="color: #90a959"> [&#34;node&#34;, &#34;./app.js&#34;]</span></code></pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Keywords</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>FROM</code>: The <strong>base</strong> image to use</p>
+</li>
+<li>
+<p><code>LABEL</code>: Image’s metadata</p>
+</li>
+<li>
+<p><code>RUN</code>: Command to run inside the image at build time</p>
+</li>
+<li>
+<p><code>COPY</code>: Copy files from <code>&lt;local&gt;</code> to <code>&lt;image&gt;</code></p>
+</li>
+<li>
+<p><code>WORKDIR</code>: Change the working directory</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Note that if the directory does not exists, it will be created</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>EXPOSE</code>: The port that will be exposed</p>
+<div class="ulist">
+<ul>
+<li>
+<p>available to the host/other images</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ENTRYPOINT</code>: The command that will be run at the end</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The actual app; all the previous commands are just a preparation for this command/section</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Dockerfile — Build image</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">docker buildx build <span style="color: #f4bf75">-f</span> Dockerfile <span style="color: #f4bf75">-t</span> test-name .</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[+] Building 35.5s (10/10) FINISHED                                                  docker:default
+ =&gt; [internal] load build definition from Dockerfile                                           0.0s
+ =&gt; =&gt; transferring dockerfile: 363B                                                           0.0s
+ =&gt; [internal] load .dockerignore                                                              0.0s
+ =&gt; =&gt; transferring context: 2B                                                                0.0s
+ =&gt; [internal] load metadata for docker.io/library/alpine:latest                               0.0s
+ =&gt; [1/5] FROM docker.io/library/alpine                                                        0.0s
+ =&gt; [internal] load build context                                                              0.0s
+ =&gt; =&gt; transferring context: 36.77kB                                                           0.0s
+ =&gt; [2/5] RUN apk add --update nodejs npm curl                                                 9.2s
+ =&gt; [3/5] COPY . /src                                                                          0.0s
+ =&gt; [4/5] WORKDIR /src                                                                         0.0s
+ =&gt; [5/5] RUN npm install                                                                     26.0s
+ =&gt; exporting to image                                                                         0.2s
+ =&gt; =&gt; exporting layers                                                                        0.2s
+ =&gt; =&gt; writing image sha256:1825da98372a937a095e523f71f59dcd6a4c41f6f0f573ed1bfe118fae8d50ed   0.0s
+ =&gt; =&gt; naming to docker.io/library/test                                                        0.0s</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Docker CLI — Get list of images</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">docker image <span style="color: #d0d0d0;background-color: #151515">ls</span></code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>REPOSITORY             TAG               IMAGE ID       CREATED         SIZE
+test                   latest            1825da98372a   6 minutes ago   95.4MB</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Docker CLI — Run an image/container</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">docker container run <span style="color: #f4bf75">-d</span> <span style="color: #f4bf75">--name</span> web1 <span style="color: #f4bf75">--publish</span> 8080:8080 <span style="color: #d0d0d0;background-color: #151515">test</span>:latest</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>63e334d59c7d937c99f6cbe6e5628c3b180ab26cb4b3f7e3d2cdd007cfd78f37</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="title">Docker CLI — Get list of running images/containers</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">docker ps</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>CONTAINER ID   IMAGE         COMMAND           CREATED          STATUS          PORTS                                       NAMES
+63e334d59c7d   test:latest   &#34;node ./app.js&#34;   14 seconds ago   Up 13 seconds   0.0.0.0:8080-&gt;8080/tcp, :::8080-&gt;8080/tcp   web1</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also use multiple images inside one container:</p>
+</div>
+<div class="listingblock">
+<div class="title">Multi-stage Dockerfile</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="docker"><span style="color: #505050"># pull golang image to build the app</span>
+<span style="color: #aa759f">FROM</span><span style="color: #d0d0d0;background-color: #151515"> </span><span style="color: #90a959">golang:alpine</span><span style="color: #d0d0d0;background-color: #151515"> </span><span style="color: #aa759f">as</span><span style="color: #d0d0d0;background-color: #151515"> </span><span style="color: #90a959">builder</span>
+<span style="color: #505050"># add a label</span>
+<span style="color: #aa759f">LABEL</span><span style="color: #90a959"> maintainer=&#34;Hossein Esmailzadeh &lt;hosteam01@gmail.com&gt;&#34;</span>
+
+<span style="color: #505050">## inside golang:alpine image</span>
+<span style="color: #505050"># change the working directory</span>
+<span style="color: #aa759f">WORKDIR</span><span style="color: #90a959"> /app</span>
+
+<span style="color: #505050"># copy golang&#39;s related files (checksum and module files)</span>
+<span style="color: #aa759f">COPY</span><span style="color: #90a959"> go.mod go.sum ./</span>
+<span style="color: #505050"># get the needed modules</span>
+<span style="color: #aa759f">RUN </span>go mod download
+<span style="color: #505050"># copy the source code</span>
+<span style="color: #aa759f">COPY</span><span style="color: #90a959"> . .</span>
+
+<span style="color: #505050"># compile the app</span>
+<span style="color: #aa759f">RUN </span><span style="color: #d0d0d0;background-color: #151515">CGO_ENABLED</span><span style="color: #d0d0d0">=</span>0 <span style="color: #d0d0d0;background-color: #151515">GOOS</span><span style="color: #d0d0d0">=</span>linux go build <span style="color: #f4bf75">-a</span> <span style="color: #f4bf75">-installsuffix</span> cgo <span style="color: #f4bf75">-o</span> main .
+
+<span style="color: #505050">## inside our image</span>
+<span style="color: #505050"># use a alpine (very small OS) image as base</span>
+<span style="color: #aa759f">FROM</span><span style="color: #90a959"> alpine:latest</span>
+
+<span style="color: #505050"># install dependencies</span>
+<span style="color: #aa759f">RUN </span>apk <span style="color: #f4bf75">--no-cache</span> add ca-certificates
+<span style="color: #505050"># change the working directory</span>
+<span style="color: #aa759f">WORKDIR</span><span style="color: #90a959"> /root/</span>
+<span style="color: #505050"># copy the built binary from the golang:alpine image inside our container</span>
+<span style="color: #aa759f">COPY</span><span style="color: #90a959"> --from=builder /app/main .</span>
+
+<span style="color: #505050"># let port 9090 to be accessible for others</span>
+<span style="color: #aa759f">EXPOSE</span><span style="color: #90a959"> 9090</span>
+
+<span style="color: #505050"># run the binary at the end</span>
+<span style="color: #aa759f">CMD</span><span style="color: #90a959"> [&#34;./main&#34;]</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+                            </div>
+                            </div>
+                            <div class="mainside">
+                                
+                                
+                                
+                                <h5>Table Of Content</h5>
+                                <div class="tableofcontents">
+                                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#_intro">1. Intro</a>
+      <ul>
+        <li><a href="#_what_is_docker">1.1. What is Docker?</a></li>
+        <li><a href="#_what_is_a_container">1.2. What is a container</a></li>
+        <li><a href="#_containers_vs_virtual_machines">1.3. Containers VS. Virtual-Machines</a></li>
+        <li><a href="#_linux_containers">1.4. Linux containers</a></li>
+      </ul>
+    </li>
+    <li><a href="#_basics">2. Basics</a>
+      <ul>
+        <li><a href="#_dockerfile">2.1. Dockerfile</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        
+
+                         <div id="nextprev">
+<a href="/programming/perl/perl/"><div id="prevart">« Previous<br>Perl</div></a>
+<a href="/programming/git/"><div id="nextart">Next »<br>Git</div></a>
+</div>
+<br>
+ <div style="clear:both" class=taglist>Related<br><a id="tag_docker" href="https://hossein-lap.github.io/tags/docker">Docker</a> &middot; <a id="tag_container" href="https://hossein-lap.github.io/tags/container">Container</a></div>
+ </div>
+                </article>
+                <br>
+                <hr>
+                
+                <footer>
+                    <div class="footer">
+                        <div class='botbar'>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="https://hossein-lap.github.io/">tanren</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="/index.xml"> Subscribe via RSS for updates. </a>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </footer>
+                
+        </main>
+    </body>
+</html>

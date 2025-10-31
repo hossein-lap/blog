@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Git | tanren&#8217;s blog</title>
+        <link rel="canonical" href="https://hossein-lap.github.io/">
+        <link rel='alternate' type='application/rss+xml' title="tanren RSS" href='/index.xml'>
+        <link rel='stylesheet' type='text/css' href='/fonts/fonts.css'>
+        <link rel='stylesheet' type='text/css' href='/css/style.css'>
+        <link rel='stylesheet' type='text/css' href='/css/syntax.css'>
+        <link rel='stylesheet' type='text/css' href='/css/theme.css'>
+        <script type="text/javascript" src="/fonts/fix-adoc.js"></script>
+        <link rel="icon" href="/favicon.ico">
+        <meta name="description" content="git and git-worktree (bare repository)
+">
+        <meta name="keywords" content="git, vcs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <div class="mainmain">
+                <div class="topbar">
+                    
+                    <nav>
+   
+   
+   
+
+   
+   
+   <div class='topbariten'>
+         <a href="/">
+            <span class=pre></span>
+            <span class=menuname>P J</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a class="menuactive" href="/programming/">
+            <span class=pre></span>
+            <span class=menuname>Programming</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="/tools/">
+            <span class=pre></span>
+            <span class=menuname>Tools</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="https://hossein-lap.github.io">
+            <span class=pre></span>
+            <span class=menuname>About</span>
+         </a>
+   </div>
+   
+</nav>
+
+                    </div>
+                <header>
+                    
+                    <div class="header">
+                        <div class="thetitle">
+                            Git
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="thedate">
+                            September 26, 2024
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </header>
+                
+                <article>
+                    <div class="row">
+                        
+                        
+                        <div class="container">
+                            <div class="mainpad">
+                            <div class="scrollable">
+                                
+<div class="sect1">
+<h2 id="_init">1. init</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This will create a <strong>local</strong> git repository.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git init</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also you can git it an <strong>initial branch name</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git init <span style="color: #f4bf75">--initial-branch</span><span style="color: #d0d0d0">=</span>trunk</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_config">2. config</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can configure git to behave how you like it to do.</p>
+</div>
+<div class="listingblock">
+<div class="title">Some popular options are:</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">user.name <span style="color: #d0d0d0">=</span> Your name        <span style="color: #505050"># critical</span>
+user.email <span style="color: #d0d0d0">=</span> your@email.com  <span style="color: #505050"># critical</span>
+core.editor <span style="color: #d0d0d0">=</span> vim      <span style="color: #505050"># default git&#39;s text editor</span>
+core.autocrlf <span style="color: #d0d0d0">=</span> input  <span style="color: #505050"># for fixing EOL character across multiple OSs</span>
+commit.gpgsign <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">true</span>  <span style="color: #505050"># signed commits using GPG</span>
+tag.gpgSign <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">true</span>     <span style="color: #505050">#   //   tags     //   //</span>
+merge.ff <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">true</span>        <span style="color: #505050"># fast-forward only when merging/pulling/etc..</span>
+init.defaultBranch <span style="color: #d0d0d0">=</span> master  <span style="color: #505050"># default branch for `git init`</span>
+color.pager <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">true</span>           <span style="color: #505050"># colored output e.g `git log --oneline`</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">If you’re wondering How to apply these settings on the command line:</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git config <span style="color: #f4bf75">--global</span> user.name <span style="color: #90a959">&#34;Your Name&#34;</span>
+git config <span style="color: #f4bf75">--global</span> user.email you@email.com
+git config <span style="color: #f4bf75">--global</span> merge.ff <span style="color: #d0d0d0;background-color: #151515">true</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_staging_area">3. staging area</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Middle stage between <em>Untracked</em> files and <em>Tracked</em> files.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git add <span style="color: #d0d0d0;background-color: #151515">.</span>
+git add &lt;path/to/file&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To see or do anything on files in the staging area (beside committing them),
+you need to pass <code>--cached</code> argument to the git <em>subcommand</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git <span style="color: #d0d0d0;background-color: #151515">rm</span> <span style="color: #f4bf75">--cached</span> &lt;file-name&gt;
+git diff <span style="color: #f4bf75">--cached</span> .</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_status">4. status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Show the status of files in current repository.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git status</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>On branch notes/git
+Changes not staged for commit:
+  (use &#34;git add &lt;file&gt;...&#34; to update what will be committed)
+  (use &#34;git restore &lt;file&gt;...&#34; to discard changes in working directory)
+    modified:   git.adoc
+
+Untracked files:
+  (use &#34;git add &lt;file&gt;...&#34; to include in what will be committed)
+    .session.vim/
+    asciidoctor-theme.yml
+    git.pdf
+
+no changes added to commit (use &#34;git add&#34; and/or &#34;git commit -a&#34;)</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Short version:</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git status <span style="color: #f4bf75">-s</span></code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre> M git.adoc
+?? .session.vim/
+?? asciidoctor-theme.yml
+?? git.pdf</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>??</code>: Untracked files</p>
+</li>
+<li>
+<p><code>M</code> : Modified tracked files</p>
+</li>
+<li>
+<p><code>A</code> : Files in staging area but not committed</p>
+</li>
+<li>
+<p><code>UU</code>: Files having <em>conflicts</em> which needs extra manual/automated work</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="listingblock">
+<div class="title">If you want to see the status from the current working directory:</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git status <span style="color: #f4bf75">-s</span> .</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre> M git.adoc
+?? .session.vim/
+?? asciidoctor-theme.yml
+?? git.pdf</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_commit">5. commit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Look at <strong>commit</strong> as adding changes to the <em>git history</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git commit</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The command above will open the <em>git’s text editor</em> for you to write a <em>commit
+message</em> for the changes you’ve made. To avoid that you can give the message
+at the command line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git commit <span style="color: #f4bf75">-m</span> <span style="color: #90a959">&#39;my very obvious commit message&#39;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Some extra flags for commit:</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash"><span style="color: #f4bf75">--no-gpg-sign</span>  <span style="color: #505050"># don&#39;t sign the commit, just for this one</span>
+<span style="color: #f4bf75">--amend</span>        <span style="color: #505050"># apply changes to the last commit, no new commit</span>
+               <span style="color: #505050"># Warning: be careful with this, it can mess things up</span>
+<span style="color: #f4bf75">--no-edit</span>      <span style="color: #505050"># used with `--amend`, don&#39;t change commit message</span></code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authenticate">5.1. authenticate</h3>
+<div class="paragraph">
+<p>For committing you need to be authenticated. You can this in a global scope
+(which is recommended for most users) or do it in a per-repo basis:</p>
+</div>
+<div class="listingblock">
+<div class="title">Global</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git config <span style="color: #f4bf75">--global</span> user.name <span style="color: #90a959">&#39;You Name&#39;</span>
+git config <span style="color: #f4bf75">--global</span> user.email <span style="color: #90a959">&#39;you@email.com&#39;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Per Repository, inside the local repository</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git config user.name <span style="color: #90a959">&#39;You Name&#39;</span>
+git config user.email <span style="color: #90a959">&#39;you@email.com&#39;</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keep that in mind for working with services like <strong>github.com</strong> and <strong>gitlab.com</strong>,
+the email you provide to the git, must be the same email as the one which you
+gave these services.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_log">6. log</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Shows information about the current repository such as <strong>branches</strong>, <strong>commits</strong>,
+HEAD position, etc.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git log</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>commit f80c36530015cb932a4d60c06f94f93cf22570cf
+Author: Hossein Esmail &lt;hosteam01@gmail.com&gt;
+Date:   Sun Oct 13 23:38:50 2024 +0330
+
+    more / better notes for docker
+
+commit 6e057f8ee426d75045693f417d9769c8ff2093bd
+Author: Hossein Esmail &lt;hosteam01@gmail.com&gt;
+Date:   Fri Oct 11 15:17:28 2024 +0330
+
+    import contents
+
+commit a9555db8084619a61b2da3c51ae04c972a242f94
+Author: Hos Es &lt;62862610+hossein-lap@users.noreply.github.com&gt;
+Date:   Wed Oct 9 20:13:41 2024 +0330
+
+    Initial commit</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Some extra flags</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash"><span style="color: #f4bf75">--oneline</span>  <span style="color: #505050"># show short commit hash and only the commit message</span>
+<span style="color: #f4bf75">--all</span>      <span style="color: #505050"># show all branches</span>
+<span style="color: #f4bf75">--graph</span>    <span style="color: #505050"># draw the graph for branches</span>
+<span style="color: #f4bf75">--stat</span>     <span style="color: #505050"># show changed files</span>
+<span style="color: #f4bf75">--show-signature</span>  <span style="color: #505050"># show gpg signature</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git log <span style="color: #f4bf75">--all</span> <span style="color: #f4bf75">--oneline</span> <span style="color: #f4bf75">--graph</span></code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>* afd0009 (notes/perl, origin/notes/perl) Add array section
+* f80c365 (HEAD -&gt; notes/git, origin/notes/git) more docker notes
+* 6e057f8 import contents
+* a9555db Initial commit</pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">What is <strong>HEAD</strong>?</div>
+<p><strong>HEAD</strong> is a name which points to your <strong>current working area</strong>&#39;s position in the
+git repository. In the above output, inside the parentheses on the second line
+you can see <code>HEAD -&gt; notes/git</code>, that mean <strong>HEAD is pointing at notes/git
+branch</strong>. <code>notes/git</code> is the name of the branch that I’m writing this document
+inside of it that will be merged later with <code>master</code> branch of this repository.</p>
+</div>
+<div class="paragraph">
+<p>Now that we know HEAD is the current position, let’s be a little more proactive
+shall we? Okay, what about pointing at <strong>one previous position</strong> or
+<strong>two previous</strong>? Easy, <code>HEAD~1</code> and <code>HEAD~2</code> are for that.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>HEAD~&lt;number&gt;</code> means <code>&lt;number&gt;</code> times before the <strong>current position of HEAD</strong>.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_remotes">7. remotes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The remote URL(s) that you are/will be working with. Most of the time it’s
+called <strong>origin</strong> but remember, it’s just a name which points to an URL.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git remote</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>origin</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Verbose output</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git remote <span style="color: #f4bf75">-v</span></code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>origin    git@github.com:hossein-lap/blog.posts.git (fetch)
+origin    git@github.com:hossein-lap/blog.posts.git (push)</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Working with remotes</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git remote add &lt;name&gt; &lt;url&gt;  <span style="color: #505050"># add new remote URL</span>
+git remote remove &lt;name&gt;     <span style="color: #505050"># remove existing remote URL</span></code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>remote URL can be another directory/folder on the same machine. git does
+not care.</p>
+</li>
+<li>
+<p>If you want to connect a local repository to a remote one, you need to create
+the remote yourself</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Let’s say you are working on a project on your local machine and now you’ve
+decided to share it on github, you go create the repository on github, and
+create a remote using <code>git remote add &lt;name&gt; &lt;url&gt;</code> command.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="sect2">
+<h3 id="_ssh_vs_https">7.1. ssh vs https</h3>
+<div class="paragraph">
+<p>Most developers prefer using <code>ssh</code> when it comes to working with remote
+repositories. <code>ssh</code> has a SHA-256 hash-based key authentication method.
+Unlike <code>https</code> which requires username and password each time for the
+authentication.</p>
+</div>
+<div class="listingblock">
+<div class="title">Generate ssh key</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">ssh-keygen</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>After creating a ssh key-pair, you need to add the <strong>public</strong> pair of the key to
+your github/gitlab account. Look for a <code>*.pub</code> file in your <code>~/.ssh</code> directory.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="literalblock">
+<div class="title">ssh remote URL:</div>
+<div class="content">
+<pre>origin    git@github.com:hossein-lap/blog.posts.git (fetch)
+origin    git@github.com:hossein-lap/blog.posts.git (push)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">https remote URL:</div>
+<div class="content">
+<pre>origin    https://github.com/hossein-lap/blog.posts (fetch)
+origin    https://github.com/hossein-lap/blog.posts (push)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_clone">8. clone</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloning a repository is like downloading it from your local machine but with or
+without the commit histories.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git clone &lt;url&gt;
+git clone https://github.com/hossein-lap/blog.posts
+git clone git@github.com:hossein-lap/blog.posts.git</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Some extra flags</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash"><span style="color: #f4bf75">--depth</span> &lt;number&gt;   <span style="color: #505050"># depths of previous commit history</span>
+<span style="color: #f4bf75">--branch</span> &lt;name&gt;    <span style="color: #505050"># move HEAD to the &lt;name&gt; branch after clone</span>
+<span style="color: #f4bf75">--origin</span> &lt;name&gt;    <span style="color: #505050"># use &lt;name&gt; instead of default `origin` for remote</span>
+<span style="color: #f4bf75">--bare</span>             <span style="color: #505050"># clone the bare repo (useful but very advanced)</span>
+                   <span style="color: #505050"># see the last section for more information.</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fetch">9. fetch</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Synchronize the local repository with the remote repository. This does not change
+anything in the current working area. Just synchronizing.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git fetch <span style="color: #f4bf75">--all</span>        <span style="color: #505050"># fetch all changes from all branches</span>
+git fetch <span style="color: #f4bf75">--unshallow</span>  <span style="color: #505050"># fetch all the missing contents from remote</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_push">10. push</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Upload the git history from local to the remote.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git push &lt;remote-name&gt; &lt;branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git push origin master</code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Forced push</div>
+<div class="paragraph">
+<p>You need to use <code>--force</code> flag if you want to have used <code>--amend</code> flag
+(you’ve amended a commit) when pushing to a <strong>unprotected</strong> remote branch.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git commit <span style="color: #f4bf75">--amend</span> <span style="color: #f4bf75">--no-edit</span>
+git push origin feature/new-module <span style="color: #f4bf75">--force</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Use this with caution</div>
+<p>If the branch if <strong>protected</strong> you cannot use <code>--force</code> with.
+You must remove it from <strong>protected branches</strong> first.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pull">11. pull</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Get the changes from remote repository to the local repository.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git pull origin master</code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Be careful what branch are you currently on and what branch are you pulling
+from. This can mess things up very easily.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_branch">12. branch</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Working with branches.
+Branches are created from one point in the history which is you current branch</p>
+</div>
+<div class="listingblock">
+<div class="title">Your current branch</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git branch</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>* notes/git</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Create new branch</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git switch <span style="color: #f4bf75">-C</span> &lt;new-branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Above command will create a new branch from your current position on the git
+history (your current branch, your current commit) and switch to it.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively you can use <code>checkout</code> (sometimes you <strong>need</strong> to use <code>checkout</code>) but
+the <code>checkout</code> command does a lot more than creating/switching branches.
+<strong>It can be dangerous</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git checkout <span style="color: #f4bf75">-b</span> &lt;new-branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Switch back to previous branch</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git checkout -
+git switch -</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_stash">13. stash</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To be able to change branches your current working area must be clean. Now imagine
+you’re middle of working on something and something new comes up which is
+important, git won’t allow you to change your branch until you commit your
+changes (make your working area clean) so what you’re gonna do? Apply a temp
+commit? (you can do that on paper but it’s advised against doing this). Here
+<code>stash</code> comes to save the day.</p>
+</div>
+<div class="paragraph">
+<p><code>git stash</code> takes all your changes (on tracked files only) and temporarily
+moves them on <strong>stash area</strong> so you can access it (move it back to your working
+area) after you’ve did you explorations.</p>
+</div>
+<div class="paragraph">
+<p>Let’s see how <code>git log</code> looks like before stashing the changes:</p>
+</div>
+<div class="listingblock">
+<div class="title">Move changes to stash from working area</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git log <span style="color: #f4bf75">--oneline</span> <span style="color: #f4bf75">--all</span> <span style="color: #f4bf75">--graph</span></code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>* afd0009 Add array section
+* f80c365 more / better notes for docker
+* 6e057f8 import contents
+* a9555db Initial commit</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Stashing changes</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git stash push</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Saved working directory and index state WIP on notes/git: f80c365 more / better notes for docker</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let’s see how <code>git log</code> looks like at this point</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git log <span style="color: #f4bf75">--oneline</span> <span style="color: #f4bf75">--all</span> <span style="color: #f4bf75">--graph</span></code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>*   aa604f7 WIP on notes/git: f80c365 more / better notes for docker
+|\
+| * 977460d index on notes/git: f80c365 more / better notes for docker
+|/
+| * afd0009 Add array section
+|/
+* f80c365 more / better notes for docker
+* 6e057f8 import contents
+* a9555db Initial commit</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See all the new forks and diversions from the commits?</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>*   aa604f7 WIP on notes/git: f80c365 more / better notes for docker
+|\
+| * 977460d index on notes/git: f80c365 more / better notes for docker
+|/
+| * afd0009 Add array section
+|/
+* f80c365 more / better notes for docker</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Move back changes to working area from stash</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git stash pop</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>On branch notes/git
+Changes not staged for commit:
+  (use &#34;git add &lt;file&gt;...&#34; to update what will be committed)
+  (use &#34;git restore &lt;file&gt;...&#34; to discard changes in working directory)
+        modified:   git.adoc
+
+Untracked files:
+  (use &#34;git add &lt;file&gt;...&#34; to include in what will be committed)
+        .session.vim/
+        asciidoctor-theme.yml
+        git.pdf
+        git.xml
+
+no changes added to commit (use &#34;git add&#34; and/or &#34;git commit -a&#34;)
+Dropped refs/stash@{0} (a5eec65b3011ad09cd73c9845646ea1b87659f9e)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now everything is exactly how it was before stashing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git log <span style="color: #f4bf75">--oneline</span> <span style="color: #f4bf75">--all</span> <span style="color: #f4bf75">--graph</span></code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>* afd0009 Add array section
+* f80c365 more / better notes for docker
+* 6e057f8 import contents
+* a9555db Initial commit</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>stash has a stack-like structure.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Alternatively you can use a <code>bare repo</code> with git’s <code>worktree</code> feature which
+allows you to have multiple branches checked-out at the same time. But it can
+add complexity to your workflow. You can take a look at the last section of
+this
+document.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rebase">14. rebase</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Rebasing a branch is pulling the point branch was forked (created from) to a
+new point.</p>
+</div>
+<div class="literalblock">
+<div class="title">git’s manpage does a good explanation about it:</div>
+<div class="content">
+<pre>Assume the following history exists and the current branch is &#34;topic&#34;:
+
+              A---B---C topic
+             /
+        D---E---F---G master
+
+From this point, the result of either of the following commands:
+
+    git rebase master
+    git rebase master topic
+
+would be:
+
+                      A&#39;--B&#39;--C&#39; topic
+                     /
+        D---E---F---G master</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All the git manpages are available through either <code>git &lt;subcommand&gt; --help</code>
+command or <code>man git-&lt;subcommand&gt;</code> command on the command line.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git rebase --help
+man git-rebase</pre>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_restore">15. restore</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Restores the state of file(s) to a previous or current state in git <strong>history</strong>.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git restore <span style="color: #f4bf75">--source</span><span style="color: #d0d0d0">=</span>HEAD .</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph">
+<p>The above command will remove all changes on the current working directory
+which are not in neither staging area nor have been committed.
+The <code>.</code> means <strong>current working directory</strong>. You can replace it with file name(s)
+or (some) directory.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reset">16. reset</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Okay, now we are entering the <strong>DANGER</strong> zone. The reset command <strong>will remove
+your commit history</strong>. Especially with the <code>--hard</code> flag.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git reset <span style="color: #f4bf75">--hard</span> HEAD~1
+git reset <span style="color: #f4bf75">--hard</span> 6e057f8 <span style="color: #505050"># reset everything to a certain point</span>
+                         <span style="color: #505050"># using commit hash</span></code></pre>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_patching">17. patching</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can get a diff file using <code>git diff</code> command and use it later.
+These &#34;diff&#34; files contains all changes on file(s) which can be applied on same
+files somewhere else.</p>
+</div>
+<div class="listingblock">
+<div class="title">Get diff file</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git diff HEAD~1 HEAD <span style="color: #d0d0d0">&gt;</span> &lt;file-name&gt;
+git diff HEAD~1 HEAD <span style="color: #d0d0d0">&gt;</span> test-changes.diff</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Apply the diff</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">patch <span style="color: #f4bf75">-p1</span> &lt; &lt;file-name&gt;
+patch <span style="color: #f4bf75">-p1</span> &lt; test-changes.diff</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keep that in mind which the sequence of stages/commits must be <strong>older to newer</strong>
+if you want to <strong>apply</strong> the changes and <strong>newer to older</strong> if you want to <strong>revert</strong>
+the changes.
+Reverts</p>
+</div>
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p><strong>Older to newer</strong>: Applies changes</p>
+</li>
+<li>
+<p><strong>Newer to older</strong>: Reverts changes</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This process is called <strong>patching</strong> or <strong>applying patch</strong>.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When you are applying patch(es), you must be at the <strong>exact directory</strong> that
+you’ve get the diff file from.
+On the other words, applying patches only works when
+you are applying them at the same <strong>root directory</strong> of getting the patch (diff
+file).</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="listingblock">
+<div class="title">A diff file</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git diff Makefile default-theme.yml</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="diff"><span style="color: #6a9fb5;background-color: #151515;font-weight: bold">diff --git a/Makefile b/Makefile
+index 16ab52b..db20550 100644
+</span><span style="color: #ac4142">--- a/Makefile
+</span><span style="color: #90a959">+++ b/Makefile
+</span><span style="color: #d0d0d0">@@ -1,6 +1,6 @@</span>
+ NAME = ttr
+<span style="color: #151515;background-color: #ac4142">
+</span> all:
+<span style="color: #ac4142">-    asciidoctor -a stylesheet=my-stylesheet.css ttr.adoc
+-    # asciidoctor -a linkcss -a copycss README.adoc
+</span><span style="color: #90a959">+    # asciidoctor -a stylesheet=my-stylesheet.css ttr.adoc
++    asciidoctor -a linkcss -a copycss ttr.adoc
+</span>     asciidoctor-pdf ttr.adoc --theme hos.yml
+<span style="color: #6a9fb5;background-color: #151515;font-weight: bold">diff --git a/default-theme.yml b/default-theme.yml
+index f23711b..889785a 100644
+</span><span style="color: #ac4142">--- a/default-theme.yml
+</span><span style="color: #90a959">+++ b/default-theme.yml
+</span><span style="color: #d0d0d0">@@ -43,11 +43,11 @@</span> base:
+   border_color: EEEEEE
+   border_radius: 4
+   border_width: 0.5
+<span style="color: #ac4142">-base:
+-  font:
+-    color: #333333
+-    family: Times-Roman
+-    size: 12
+</span><span style="color: #90a959">+# base:
++#   font:
++#     color: #333333
++#     family: Times-Roman
++#     size: 12
+</span> role:
+   lead:
+     font_size: $base_font_size_large</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git_worktree_and_bare_repos">18. git worktree and bare repos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section is a very advanced topic and is unique approach to solving some
+problems like changing branches and checking them out at the same time.</p>
+</div>
+<div class="paragraph">
+<p>In this approach, every branch is a separated directory. To changes branches
+you need to change your current <strong>working directory</strong> (e.g
+<code>cd ../&lt;branch-name&gt;</code>).</p>
+</div>
+<div class="listingblock">
+<div class="title">Clone bare repo</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git clone <span style="color: #f4bf75">--bare</span> git@github.com:hossein-lap/blog.git blog.git</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Create worktree</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git worktree add &lt;branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">With new branch</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git worktree add <span style="color: #f4bf75">-b</span> &lt;new-branch-name&gt; &lt;new-directory-name&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Remove worktree</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">git worktree remove &lt;branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cloning a repository bare, requires to add the <code>.git</code> at the end of URL.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You still can change (mess things up if you will) other branches while you are
+on a different branch. Be careful with that.</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="sect2">
+<h3 id="_wrapper_script">18.1. Wrapper script</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash"><span style="color: #505050">#!/usr/bin/env bash</span>
+<span style="color: #d0d0d0;background-color: #151515">set</span> <span style="color: #f4bf75">-e</span>
+
+<span style="color: #505050"># help function</span>
+<span style="color: #d0d0d0;background-color: #151515">prompt</span><span style="color: #d0d0d0">=</span><span style="color: #8f5536">$(</span><span style="color: #d0d0d0;background-color: #151515">echo</span> <span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">0</span><span style="color: #aa759f">}</span> | <span style="color: #d0d0d0;background-color: #151515">awk</span> <span style="color: #f4bf75">-F</span> <span style="color: #90a959">&#39;/&#39;</span> <span style="color: #90a959">&#39;{print $NF;}&#39;</span><span style="color: #8f5536">)</span>
+<span style="color: #d0d0d0;background-color: #151515">help</span><span style="color: #d0d0d0">()</span> <span style="color: #d0d0d0">{</span>
+<span style="color: #d0d0d0;background-color: #151515">cat</span> <span style="color: #d0d0d0">&lt;&lt;</span> <span style="color: #f4bf75">EOF</span><span style="color: #90a959">
+</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">prompt</span><span style="color: #aa759f">}</span><span style="color: #90a959">: setup git worktree and bare repo
+
+usage: [-h] [-u url] [-d directory] [-a extra_args]
+
+   • arguemts:
+       -u --url      repo url (ssh)
+       -d --dir      directory name
+       -a --args     extra args (to pass to the git)
+       -h --help     print this message
+
+   • example:
+       </span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">prompt</span><span style="color: #aa759f">}</span><span style="color: #90a959"> -u gitlab.com:hos-workflow/scripts -d test.git -a &#39;--depth 1&#39;
+
+   • running without any arguments will show this message
+</span><span style="color: #f4bf75">EOF
+</span><span style="color: #d0d0d0">}</span>
+
+<span style="color: #505050"># argument parsing</span>
+<span style="color: #aa759f">while</span> <span style="color: #d0d0d0">[</span> <span style="color: #90a959">&#34;</span><span style="color: #aa759f">${#}</span><span style="color: #90a959">&#34;</span> <span style="color: #f4bf75">-gt</span> 0 <span style="color: #d0d0d0">]</span><span style="color: #d0d0d0">;</span> <span style="color: #aa759f">do
+    case</span> <span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">1</span><span style="color: #aa759f">}</span> <span style="color: #aa759f">in</span>
+        <span style="color: #f4bf75">-u</span><span style="color: #d0d0d0">|</span><span style="color: #f4bf75">--url</span><span style="color: #d0d0d0">)</span>
+            <span style="color: #d0d0d0;background-color: #151515">input</span><span style="color: #d0d0d0">=</span><span style="color: #90a959">&#34;</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">2</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span>
+            <span style="color: #d0d0d0;background-color: #151515">shift</span>
+            <span style="color: #d0d0d0">;;</span>
+        <span style="color: #f4bf75">-d</span><span style="color: #d0d0d0">|</span><span style="color: #f4bf75">--directory</span><span style="color: #d0d0d0">)</span>
+            <span style="color: #d0d0d0;background-color: #151515">output</span><span style="color: #d0d0d0">=</span><span style="color: #90a959">&#34;</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">2</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span>
+            <span style="color: #d0d0d0;background-color: #151515">shift</span>
+            <span style="color: #d0d0d0">;;</span>
+        <span style="color: #f4bf75">-h</span><span style="color: #d0d0d0">|</span><span style="color: #f4bf75">--help</span><span style="color: #d0d0d0">)</span>
+            <span style="color: #d0d0d0;background-color: #151515">help
+            exit </span>0
+            <span style="color: #d0d0d0">;;</span>
+        <span style="color: #f4bf75">-a</span><span style="color: #d0d0d0">|</span><span style="color: #f4bf75">--args</span><span style="color: #d0d0d0">)</span>
+            <span style="color: #d0d0d0;background-color: #151515">args</span><span style="color: #d0d0d0">=</span><span style="color: #90a959">&#34;</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">args</span><span style="color: #aa759f">}</span><span style="color: #90a959"> </span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">2</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span>
+            <span style="color: #d0d0d0;background-color: #151515">shift</span>
+            <span style="color: #d0d0d0">;;</span>
+        <span style="color: #aa759f">*</span><span style="color: #d0d0d0">)</span>
+            <span style="color: #d0d0d0;background-color: #151515">echo</span> <span style="color: #90a959">&#34;Unknown parameter passed: </span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">1</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span>
+            <span style="color: #d0d0d0;background-color: #151515">exit </span>1
+            <span style="color: #d0d0d0">;;</span>
+    <span style="color: #aa759f">esac</span>
+    <span style="color: #d0d0d0;background-color: #151515">shift
+</span><span style="color: #aa759f">done</span>
+
+<span style="color: #505050"># checking args</span>
+<span style="color: #aa759f">if</span> <span style="color: #d0d0d0">[</span> <span style="color: #f4bf75">-z</span> <span style="color: #90a959">&#34;</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">input</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span> <span style="color: #d0d0d0">]</span><span style="color: #d0d0d0">;</span> <span style="color: #aa759f">then
+    </span><span style="color: #d0d0d0;background-color: #151515">printf</span> <span style="color: #90a959">&#39;%s\n\n&#39;</span> <span style="color: #90a959">&#34;No url is specified&#34;</span> 1&gt;&amp;2
+    <span style="color: #d0d0d0;background-color: #151515">help
+    exit </span>1
+<span style="color: #aa759f">fi
+
+if</span> <span style="color: #d0d0d0">[</span> <span style="color: #f4bf75">-z</span> <span style="color: #90a959">&#34;</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">output</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span> <span style="color: #d0d0d0">]</span><span style="color: #d0d0d0">;</span> <span style="color: #aa759f">then
+    </span><span style="color: #d0d0d0;background-color: #151515">printf</span> <span style="color: #8f5536">\</span>
+        <span style="color: #90a959">&#34;No directory name is specified, &#34;</span> <span style="color: #8f5536">\</span>
+        <span style="color: #90a959">&#34;Using default directory name..</span><span style="color: #8f5536">\n</span><span style="color: #90a959">&#34;</span> <span style="color: #8f5536">\</span>
+        1&gt;&amp;2
+    <span style="color: #d0d0d0;background-color: #151515">output</span><span style="color: #d0d0d0">=</span><span style="color: #90a959">&#34;</span><span style="color: #8f5536">$(</span><span style="color: #d0d0d0;background-color: #151515">echo</span> <span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">input</span><span style="color: #aa759f">}</span> | <span style="color: #d0d0d0;background-color: #151515">awk</span> <span style="color: #f4bf75">-F</span> <span style="color: #90a959">&#39;/&#39;</span> <span style="color: #90a959">&#39;{print $NF;}&#39;</span><span style="color: #8f5536">)</span><span style="color: #90a959">&#34;</span>
+<span style="color: #aa759f">fi</span>
+
+<span style="color: #505050"># start</span>
+git clone <span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">args</span><span style="color: #aa759f">}</span> <span style="color: #f4bf75">--bare</span> git@<span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">input</span><span style="color: #aa759f">}</span> <span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">output</span><span style="color: #aa759f">}</span>
+<span style="color: #d0d0d0;background-color: #151515">cd</span> <span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">output</span><span style="color: #aa759f">}</span>
+<span style="color: #d0d0d0;background-color: #151515">mkdir</span> .bare
+<span style="color: #d0d0d0;background-color: #151515">mv</span> <span style="color: #aa759f">*</span> .bare
+<span style="color: #d0d0d0;background-color: #151515">echo</span> <span style="color: #90a959">&#34;gitdir: ./.bare&#34;</span> <span style="color: #d0d0d0">&gt;</span> .git
+
+<span style="color: #d0d0d0;background-color: #151515">check_branch</span><span style="color: #d0d0d0">=</span><span style="color: #8f5536">$(</span>git <span style="color: #f4bf75">--no-pager</span> branch | <span style="color: #d0d0d0;background-color: #151515">grep</span> <span style="color: #f4bf75">-v</span> <span style="color: #90a959">&#39;*\|+&#39;</span> | <span style="color: #d0d0d0;background-color: #151515">awk</span> <span style="color: #90a959">&#39;{print $1;}&#39;</span> | <span style="color: #d0d0d0;background-color: #151515">wc</span> <span style="color: #f4bf75">-l</span><span style="color: #8f5536">)</span>
+
+<span style="color: #aa759f">if</span> <span style="color: #d0d0d0">[</span> <span style="color: #90a959">&#34;</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">check_branch</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span> <span style="color: #f4bf75">-gt</span> 0 <span style="color: #d0d0d0">]</span><span style="color: #d0d0d0">;</span> <span style="color: #aa759f">then
+    for </span>i <span style="color: #aa759f">in</span> <span style="color: #8f5536">$(</span>git <span style="color: #f4bf75">--no-pager</span> branch | <span style="color: #d0d0d0;background-color: #151515">sed</span> <span style="color: #90a959">&#39;s/^[*+]/ /&#39;</span> | <span style="color: #d0d0d0;background-color: #151515">awk</span> <span style="color: #90a959">&#39;{print $1;}&#39;</span><span style="color: #8f5536">)</span><span style="color: #d0d0d0">;</span> <span style="color: #aa759f">do
+        </span>git worktree add <span style="color: #90a959">&#34;</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">i</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span> <span style="color: #90a959">&#34;</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">i</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span>
+    <span style="color: #aa759f">done
+else
+    </span><span style="color: #d0d0d0;background-color: #151515">i</span><span style="color: #d0d0d0">=</span><span style="color: #8f5536">$(</span>git <span style="color: #f4bf75">--no-pager</span> branch | <span style="color: #d0d0d0;background-color: #151515">awk</span> <span style="color: #90a959">&#39;{print $NF;}&#39;</span><span style="color: #8f5536">)</span>
+    git worktree add <span style="color: #90a959">&#34;</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">i</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span> <span style="color: #90a959">&#34;</span><span style="color: #aa759f">${</span><span style="color: #d0d0d0;background-color: #151515">i</span><span style="color: #aa759f">}</span><span style="color: #90a959">&#34;</span>
+<span style="color: #aa759f">fi</span>
+
+<span style="color: #505050"># git config remote.origin.url &#34;git@${input}&#34;</span>
+git config remote.origin.fetch <span style="color: #90a959">&#39;+refs/heads/*:refs/remotes/origin/*&#39;</span>
+git fetch</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+                            </div>
+                            </div>
+                            <div class="mainside">
+                                
+                                
+                                
+                                <h5>Table Of Content</h5>
+                                <div class="tableofcontents">
+                                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#_init">1. init</a></li>
+    <li><a href="#_config">2. config</a></li>
+    <li><a href="#_staging_area">3. staging area</a></li>
+    <li><a href="#_status">4. status</a></li>
+    <li><a href="#_commit">5. commit</a>
+      <ul>
+        <li><a href="#_authenticate">5.1. authenticate</a></li>
+      </ul>
+    </li>
+    <li><a href="#_log">6. log</a></li>
+    <li><a href="#_remotes">7. remotes</a>
+      <ul>
+        <li><a href="#_ssh_vs_https">7.1. ssh vs https</a></li>
+      </ul>
+    </li>
+    <li><a href="#_clone">8. clone</a></li>
+    <li><a href="#_fetch">9. fetch</a></li>
+    <li><a href="#_push">10. push</a></li>
+    <li><a href="#_pull">11. pull</a></li>
+    <li><a href="#_branch">12. branch</a></li>
+    <li><a href="#_stash">13. stash</a></li>
+    <li><a href="#_rebase">14. rebase</a></li>
+    <li><a href="#_restore">15. restore</a></li>
+    <li><a href="#_reset">16. reset</a></li>
+    <li><a href="#_patching">17. patching</a></li>
+    <li><a href="#_git_worktree_and_bare_repos">18. git worktree and bare repos</a>
+      <ul>
+        <li><a href="#_wrapper_script">18.1. Wrapper script</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        
+
+                         <div id="nextprev">
+<a href="/programming/docker/"><div id="prevart">« Previous<br>Docker</div></a>
+<a href="/tools/bash/"><div id="nextart">Next »<br>Bash</div></a>
+</div>
+<br>
+ <div style="clear:both" class=taglist>Related<br><a id="tag_git" href="https://hossein-lap.github.io/tags/git">Git</a> &middot; <a id="tag_vcs" href="https://hossein-lap.github.io/tags/vcs">Vcs</a></div>
+ </div>
+                </article>
+                <br>
+                <hr>
+                
+                <footer>
+                    <div class="footer">
+                        <div class='botbar'>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="https://hossein-lap.github.io/">tanren</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="/index.xml"> Subscribe via RSS for updates. </a>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </footer>
+                
+        </main>
+    </body>
+</html>

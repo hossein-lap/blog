@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Makefile | tanren&#8217;s blog</title>
+        <link rel="canonical" href="https://hossein-lap.github.io/">
+        <link rel='alternate' type='application/rss+xml' title="tanren RSS" href='/index.xml'>
+        <link rel='stylesheet' type='text/css' href='/fonts/fonts.css'>
+        <link rel='stylesheet' type='text/css' href='/css/style.css'>
+        <link rel='stylesheet' type='text/css' href='/css/syntax.css'>
+        <link rel='stylesheet' type='text/css' href='/css/theme.css'>
+        <script type="text/javascript" src="/fonts/fix-adoc.js"></script>
+        <link rel="icon" href="/favicon.ico">
+        <meta name="description" content="Makefile tips
+">
+        <meta name="keywords" content="Makefile, Build System">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <div class="mainmain">
+                <div class="topbar">
+                    
+                    <nav>
+   
+   
+   
+
+   
+   
+   <div class='topbariten'>
+         <a href="/">
+            <span class=pre></span>
+            <span class=menuname>P J</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="/programming/">
+            <span class=pre></span>
+            <span class=menuname>Programming</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a class="menuactive" href="/tools/">
+            <span class=pre></span>
+            <span class=menuname>Tools</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="https://hossein-lap.github.io">
+            <span class=pre></span>
+            <span class=menuname>About</span>
+         </a>
+   </div>
+   
+</nav>
+
+                    </div>
+                <header>
+                    
+                    <div class="header">
+                        <div class="thetitle">
+                            Makefile
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="thedate">
+                            October 8, 2024
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </header>
+                
+                <article>
+                    <div class="row">
+                        
+                        
+                        <div class="container">
+                            <div class="mainpad">
+                            <div class="scrollable">
+                                
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This Makefile serves two purposes. The first is to automate common admin tasks
+(like running tests, checking for vulnerabilities, pushing changes to a remote
+repository, and deploying to production), and the second is to provide short
+aliases for Go commands that are long or difficult to remember.</p>
+</div>
+<div class="paragraph">
+<p>The exact contents of the Makefile changes from project to project. It’s
+generic enough that you should be able to use it as-is for almost all projects.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gist">1. Gist</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre># Change these variables as necessary.
+main_package_path = ./cmd/example
+binary_name = example
+
+# =========================================================================== #
+# HELPERS
+# =========================================================================== #
+
+## help: print this help message
+.PHONY: help
+help:
+    @echo &#39;Usage:&#39;
+    @sed -n &#39;s/^##//p&#39; ${MAKEFILE_LIST} | column -t -s &#39;:&#39; |  sed -e &#39;s/^/ /&#39;
+
+.PHONY: confirm
+confirm:
+    @echo -n &#39;Are you sure? [y/N] &#39; &amp;&amp; read ans &amp;&amp; [ $${ans:-N} = y ]
+
+.PHONY: no-dirty
+no-dirty:
+    @test -z &#34;$(shell git status --porcelain)&#34;
+
+
+# =========================================================================== #
+# QUALITY CONTROL
+# =========================================================================== #
+
+## audit: run quality control checks
+.PHONY: audit
+audit: test
+    go mod tidy -diff
+    go mod verify
+    test -z &#34;$(shell gofmt -l .)&#34;
+    go vet ./...
+    go run honnef.co/go/tools/cmd/staticcheck@latest -checks=all,-ST1000,-U1000 ./...
+    go run golang.org/x/vuln/cmd/govulncheck@latest ./...
+
+## test: run all tests
+.PHONY: test
+test:
+    go test -v -race -buildvcs ./...
+
+## test/cover: run all tests and display coverage
+.PHONY: test/cover
+test/cover:
+    go test -v -race -buildvcs -coverprofile=/tmp/coverage.out ./...
+    go tool cover -html=/tmp/coverage.out
+
+
+# =========================================================================== #
+# DEVELOPMENT
+# =========================================================================== #
+
+## tidy: tidy modfiles and format .go files
+.PHONY: tidy
+tidy:
+    go mod tidy -v
+    go fmt ./...
+
+## build: build the application
+.PHONY: build
+build:
+    # Include additional build steps, like TypeScript, SCSS or Tailwind compilation here...
+    go build -o=/tmp/bin/${binary_name} ${main_package_path}
+
+## run: run the  application
+.PHONY: run
+run: build
+    /tmp/bin/${binary_name}
+
+## run/live: run the application with reloading on file changes
+.PHONY: run/live
+run/live:
+    go run github.com/cosmtrek/air@v1.43.0 \
+        --build.cmd &#34;make build&#34; --build.bin &#34;/tmp/bin/${binary_name}&#34; --build.delay &#34;100&#34; \
+        --build.exclude_dir &#34;&#34; \
+        --build.include_ext &#34;go, tpl, tmpl, html, css, scss, js, ts, sql, jpeg, jpg, gif, png, bmp, svg, webp, ico&#34; \
+        --misc.clean_on_exit &#34;true&#34;
+
+
+# =========================================================================== #
+# OPERATIONS
+# =========================================================================== #
+
+## push: push changes to the remote Git repository
+.PHONY: push
+push: confirm audit no-dirty
+    git push
+
+## production/deploy: deploy the application to production
+.PHONY: production/deploy
+production/deploy: confirm audit no-dirty
+    GOOS=linux GOARCH=amd64 go build -ldflags=&#39;-s&#39; -o=/tmp/bin/linux_amd64/${binary_name} ${main_package_path}
+    upx -5 /tmp/bin/linux_amd64/${binary_name}
+    # Include additional deployment steps here...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Makefile is organized into several sections, each with its own set of targets:</p>
+</div>
+<div class="sect2">
+<h3 id="_helpers">1.1. Helpers</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>help</code>: Prints a help message for the Makefile, including a list of available
+targets and their descriptions.</p>
+</li>
+<li>
+<p><code>confirm</code>: Prompts the user to confirm an action with a &#34;y/N&#34; prompt.</p>
+</li>
+<li>
+<p><code>no-dirty</code>: Checks that there there are no untracked files or uncommitted
+changes to the tracked files in the current git repository.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quality_control">1.2. Quality Control</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>audit</code>: Runs quality control checks on the codebase, including using <code>go mod tidy
+-diff</code> to check that the <code>go.mod</code> and <code>go.sum</code> files are up-to-date and
+correctly formatted, verifying the dependencies with <code>go mod verify</code>, running
+<code>test -z &#34;$(shell gofmt -l .)&#34;</code> to check that all <code>.go</code> files are correctly
+formatted, running static analysis with go <code>vet</code> and <code>staticcheck</code>, checking
+for vulnerabilities using <code>govulncheck</code>, and running all tests. Note that it
+uses <code>go run</code> to execute the latest versions of the remote <code>staticcheck</code> and
+<code>govulncheck</code> packages, meaning that you don’t need to install these tools
+first.</p>
+</li>
+<li>
+<p><code>test</code>: Runs all tests. Note that we enable the race detector and embed build
+info in the test binary.</p>
+</li>
+<li>
+<p><code>test/cover</code>: Runs all tests and outputs a coverage report in HTML format.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_development">1.3. Development</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tidy</code>: Updates the dependencies and formats the <code>go.mod</code> and go.sum using
+<code>go mod tidy</code>, and formats all <code>.go</code> files using <code>go fmt</code>.</p>
+</li>
+<li>
+<p><code>build</code>: Builds the package at <code>main_package_path</code> and outputs a binary at
+<code>/tmp/bin/{binary_name}</code>.</p>
+</li>
+<li>
+<p><code>run</code>: Calls the <code>build</code> target and then runs the binary. Note that my main
+reason for not using <code>go run</code> here is that <code>go run</code> doesn’t embed build info
+in the binary.</p>
+</li>
+<li>
+<p><code>run/live</code>: Use the <code>air</code> tool to run the application with live reloading
+enabled. When changes are made to any files with the specified extensions,
+the application is rebuilt and the binary is re-run.</p>
+</li>
+<li>
+<p><strong>Depending on the project</strong> you might want to add more to this section, such
+as targets for connecting to a development database instance and managing SQL
+migrations.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Example: Makefile targets for working with sqlite</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="Makefile">## db/connect: create to the local database
+.PHONY: db/connect
+db/connect:
+    sqlite3 db.sqlite
+
+## db/migrations/new name=$1: create a new migration
+.PHONY: db/migrations/new
+db/migrations/new:
+    go run -tags &#39;sqlite3&#39; github.com/golang-migrate/migrate/v4/cmd/migrate@latest create -seq -ext=.sql -dir=./resources/migrations ${name}
+
+## db/migrations/up: apply all up migrations
+.PHONY: db/migrations/up
+db/migrations/up:
+    go run -tags &#39;sqlite3&#39; github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database=&#34;sqlite3://db.sqlite&#34; up
+
+## db/migrations/down: apply all down migrations
+.PHONY: db/migrations/down
+db/migrations/down: confirm
+    go run -tags &#39;sqlite3&#39; github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database=&#34;sqlite3://db.sqlite&#34; down
+
+## db/migrations/goto version=$1: migrate to a specific version number
+.PHONY: db/migrations/goto
+db/migrations/goto: confirm
+    go run -tags &#39;sqlite3&#39; github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database=&#34;sqlite3://db.sqlite&#34; goto ${version}
+
+## db/migrations/force version=$1: force database migration version number
+.PHONY: db/migrations/force
+db/migrations/force: confirm
+    go run -tags &#39;sqlite3&#39; github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database=&#34;sqlite3://db.sqlite&#34; force ${version}
+
+## db/migrations/version: print the current migration version
+.PHONY: db/migrations/version
+db/migrations/version:
+    go run -tags &#39;sqlite3&#39; github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database=&#34;sqlite3://db.sqlite&#34; version</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_operations">1.4. Operations</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>push</code>: Push changes to the remote Git repository. This asks for y/N
+confirmation first, and automatically runs the <code>audit</code> and <code>no-dirty</code> targets
+to make sure that all audit checks are passing and there are no uncommitted
+changes in the repository before the push is executed.</p>
+</li>
+<li>
+<p><code>production/deploy</code>: Builds the a binary for linux/amd64 architecture,
+compress it using <code>upx</code>, and then run any deployment steps. Note that this
+target asks for y/N confirmation before anything is executed, and also runs
+the <code>audit</code> and <code>no-dirty</code> checks too.</p>
+</li>
+<li>
+<p><strong>Depending on the project</strong> I often add more to this section too. For example,
+a <code>staging/deploy</code> rule for deploying to a staging server,
+<code>production/connect</code> for SSHing into a production server, <code>production/log</code>
+for viewing production logs, <code>production/db</code> for connecting to the production
+database, and <code>production/upgrade</code> for updating and upgrading software on a
+production server.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage">2. Usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each of these targets can be executed by running <code>make</code> followed by the target
+name in your terminal. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">make tidy</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>go mod tidy -v
+go fmt ./...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you run <code>make help</code> (or the naked <code>make</code> command without specifiying a
+target) then you’ll get a description of the available targets.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="bash">make <span style="color: #d0d0d0;background-color: #151515">help</span></code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Usage:
+  help                print this help message
+  tidy                tidy modfiles and format .go files
+  audit               run quality control checks
+  test                run all tests
+  test/cover          run all tests and display coverage
+  build               build the application
+  run                 run the  application
+  run/live            run the application with reloading on file changes
+  push                push changes to the remote Git repository
+  production/deploy   deploy the application to production</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reference">3. Reference</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.alexedwards.net/blog/a-time-saving-makefile-for-your-go-projects" class="bare">https://www.alexedwards.net/blog/a-time-saving-makefile-for-your-go-projects</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+                            </div>
+                            </div>
+                            <div class="mainside">
+                                
+                                
+                                
+                                <h5>Table Of Content</h5>
+                                <div class="tableofcontents">
+                                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#_gist">1. Gist</a>
+      <ul>
+        <li><a href="#_helpers">1.1. Helpers</a></li>
+        <li><a href="#_quality_control">1.2. Quality Control</a></li>
+        <li><a href="#_development">1.3. Development</a></li>
+        <li><a href="#_operations">1.4. Operations</a></li>
+      </ul>
+    </li>
+    <li><a href="#_usage">2. Usage</a></li>
+    <li><a href="#_reference">3. Reference</a></li>
+  </ul>
+</nav>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        
+
+                         <div id="nextprev">
+<a href="/tools/bash/"><div id="prevart">« Previous<br>Bash</div></a>
+</div>
+<br>
+ <div style="clear:both" class=taglist>Related<br><a id="tag_makefile" href="https://hossein-lap.github.io/tags/makefile">Makefile</a> &middot; <a id="tag_build system" href="https://hossein-lap.github.io/tags/build-system">Build System</a></div>
+ </div>
+                </article>
+                <br>
+                <hr>
+                
+                <footer>
+                    <div class="footer">
+                        <div class='botbar'>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="https://hossein-lap.github.io/">tanren</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="/index.xml"> Subscribe via RSS for updates. </a>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </footer>
+                
+        </main>
+    </body>
+</html>

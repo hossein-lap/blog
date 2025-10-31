@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AsciiDoc(tor): Yo Dawg! | tanren&#8217;s blog</title>
+        <link rel="canonical" href="https://hossein-lap.github.io/">
+        <link rel='alternate' type='application/rss+xml' title="tanren RSS" href='/index.xml'>
+        <link rel='stylesheet' type='text/css' href='/fonts/fonts.css'>
+        <link rel='stylesheet' type='text/css' href='/css/style.css'>
+        <link rel='stylesheet' type='text/css' href='/css/syntax.css'>
+        <link rel='stylesheet' type='text/css' href='/css/theme.css'>
+        <script type="text/javascript" src="/fonts/fix-adoc.js"></script>
+        <link rel="icon" href="/favicon.ico">
+        <meta name="description" content="AsciiDoc is a markup language similar to markdown but vay more standardized
+and with more features/elements.
+">
+        <meta name="keywords" content="Writing, Documentation, AsciiDoc">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <div class="mainmain">
+                <div class="topbar">
+                    
+                    <nav>
+   
+   
+   
+
+   
+   
+   <div class='topbariten'>
+         <a href="/">
+            <span class=pre></span>
+            <span class=menuname>P J</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a class="menuactive" href="/programming/">
+            <span class=pre></span>
+            <span class=menuname>Programming</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="/tools/">
+            <span class=pre></span>
+            <span class=menuname>Tools</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="https://hossein-lap.github.io">
+            <span class=pre></span>
+            <span class=menuname>About</span>
+         </a>
+   </div>
+   
+</nav>
+
+                    </div>
+                <header>
+                    
+                    <div class="header">
+                        <div class="thetitle">
+                            AsciiDoc(tor): Yo Dawg!
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="thedate">
+                            April 2, 2024
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </header>
+                
+                <article>
+                    <div class="row">
+                        
+                        
+                        <div class="container">
+                            <div class="mainpad">
+                            <div class="scrollable">
+                                
+<div class="sect1">
+<h2 id="_intro">1. Intro</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Okay, let’s do it.</p>
+</div>
+<div class="listingblock">
+<div class="title">Testing <code>include::&lt;path&gt;[]</code> command</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">[source,config]
+----
+include::/home/hos/dev/hossein-lap/void-packages/etc/xbps.d/repos-remote.conf[]
+----</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Output</div>
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="config"><span style="color: #d0d0d0;background-color: #151515">Unresolved</span> <span style="color: #d0d0d0;background-color: #151515">directive</span> <span style="color: #d0d0d0;background-color: #151515">in</span> &lt;<span style="color: #d0d0d0;background-color: #151515">stdin</span>&gt; - <span style="color: #d0d0d0;background-color: #151515">include</span>::/<span style="color: #d0d0d0;background-color: #151515">home</span>/<span style="color: #d0d0d0;background-color: #151515">hos</span>/<span style="color: #d0d0d0;background-color: #151515">dev</span>/<span style="color: #d0d0d0;background-color: #151515">hossein</span>-<span style="color: #d0d0d0;background-color: #151515">lap</span>/<span style="color: #d0d0d0;background-color: #151515">void</span>-<span style="color: #d0d0d0;background-color: #151515">packages</span>/<span style="color: #d0d0d0;background-color: #151515">etc</span>/<span style="color: #d0d0d0;background-color: #151515">xbps</span>.<span style="color: #d0d0d0;background-color: #151515">d</span>/<span style="color: #d0d0d0;background-color: #151515">repos</span>-<span style="color: #d0d0d0;background-color: #151515">remote</span>.<span style="color: #d0d0d0;background-color: #151515">conf</span>[]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lists">2. Lists</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_unordered_lists">2.1. Unordered lists</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">* level 1
+** level 2
+*** level 3
+**** level 4
+***** level 5
+* level 1</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="ulist">
+<ul>
+<li>
+<p>level 1</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 2</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 3</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 4</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 5</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>level 1</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ordered_lists">2.2. Ordered lists</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">. level 1
+.. level 2
+... level 3
+.... level 4
+..... level 5
+. level 1</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>level 1</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>level 2</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>level 3</p>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p>level 4</p>
+<div class="olist upperroman">
+<ol class="upperroman" type="I">
+<li>
+<p>level 5</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>level 1</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_todo_lists">2.3. TODO lists</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">- [*] checked
+- [x] also checked
+- [ ] not checked
+- normal list item</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><i class="fa fa-check-square-o"></i> checked</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> also checked</p>
+</li>
+<li>
+<p><i class="fa fa-square-o"></i> not checked</p>
+</li>
+<li>
+<p>normal list item</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_separating_lists">2.4. Separating lists</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">. Apples
+. Oranges
+
+//-
+
+. Walnuts
+. Almonds</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Apples</p>
+</li>
+<li>
+<p>Oranges</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Walnuts</p>
+</li>
+<li>
+<p>Almonds</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_definitions">3. Definitions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_normal_definition_list">3.1. Normal definition list</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">first term:: definition of first term
+section term:: definition of second term</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">first term</dt>
+<dd>
+<p>definition of first term</p>
+</dd>
+<dt class="hdlist1">section term</dt>
+<dd>
+<p>definition of second term</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_horizontal_definition_list">3.2. Horizontal definition list</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">[horizontal]
+first term:: definition of first term
+section term:: definition of second term</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="hdlist">
+<table>
+<tbody><tr>
+<td class="hdlist1">
+first term
+</td>
+<td class="hdlist2">
+<p>definition of first term</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+section term
+</td>
+<td class="hdlist2">
+<p>definition of second term</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_multi_line_definition_list">3.3. Multi-line definition list</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">first term::
+definition of first term
+section term::
+definition of second term</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">first term</dt>
+<dd>
+<p>definition of first term</p>
+</dd>
+<dt class="hdlist1">section term</dt>
+<dd>
+<p>definition of second term</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_qa">3.4. Q&amp;A</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">[qanda]
+What is Asciidoctor?::
+An implementation of the AsciiDoc processor in Ruby.
+What is the answer to the Ultimate Question?:: 42</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="qlist qanda">
+<ol>
+<li>
+<p><em>What is Asciidoctor?</em></p>
+<p>An implementation of the AsciiDoc processor in Ruby.</p>
+</li>
+<li>
+<p><em>What is the answer to the Ultimate Question?</em></p>
+<p>42</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mixed">3.5. Mixed</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">Operating Systems::
+    Linux:::
+        . Fedora
+            * Desktop
+        . Ubuntu
+            * Desktop
+            * Server
+    BSD:::
+        . FreeBSD
+        . NetBSD
+Cloud Providers::
+    PaaS:::
+        . OpenShift
+        . CloudBees
+    IaaS:::
+        . Amazon EC2
+        . Rackspace</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Operating Systems</dt>
+<dd>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Linux</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fedora</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Desktop</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Ubuntu</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Desktop</p>
+</li>
+<li>
+<p>Server</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1">BSD</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>FreeBSD</p>
+</li>
+<li>
+<p>NetBSD</p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</dd>
+<dt class="hdlist1">Cloud Providers</dt>
+<dd>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">PaaS</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>OpenShift</p>
+</li>
+<li>
+<p>CloudBees</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1">IaaS</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Amazon EC2</p>
+</li>
+<li>
+<p>Rackspace</p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note that the indentation is optional
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_complex_content_in_outline_lists">3.6. Complex content in outline lists</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">* Every list item has at least one paragraph of content,
+  which may be wrapped, even using a hanging indent.
++
+Additional paragraphs or blocks are adjoined by putting
+a list continuation on a line adjacent to both blocks.
++
+list continuation:: a plus sign (`{plus}`) on a line by itself
+
+* A literal paragraph does not require a list continuation.
+
+ $ gem install asciidoctor
+
+* AsciiDoc lists may contain any complex content.
++
+[cols=&#34;2&#34;, options=&#34;header&#34;]
+|===
+|Application
+|Language
+|AsciiDoc
+|Python
+|Asciidoctor
+|Ruby
+|===</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Every list item has at least one paragraph of content,
+which may be wrapped, even using a hanging indent.</p>
+<div class="paragraph">
+<p>Additional paragraphs or blocks are adjoined by putting
+a list continuation on a line adjacent to both blocks.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">list continuation</dt>
+<dd>
+<p>a plus sign (<code>+</code>) on a line by itself</p>
+</dd>
+</dl>
+</div>
+</li>
+<li>
+<p>A literal paragraph does not require a list continuation.</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ gem install asciidoctor</pre>
+</div>
+</div>
+</li>
+<li>
+<p>AsciiDoc lists may contain any complex content.</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;"/>
+<col style="width: 50%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Application</th>
+<th class="tableblock halign-left valign-top">Language</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AsciiDoc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Asciidoctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ruby</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">4. Links</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_external">4.1. External</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">http://asciidoctor.org - automatic!
+
+http://asciidoctor.org[Asciidoctor]
+
+https://github.com/asciidoctor[Asciidoctor @ *GitHub*]</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="paragraph">
+<p><a href="http://asciidoctor.org" class="bare">http://asciidoctor.org</a> - automatic!</p>
+</div>
+<div class="paragraph">
+<p><a href="http://asciidoctor.org">Asciidoctor</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/asciidoctor">Asciidoctor @ <strong>GitHub</strong></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_relative">4.2. Relative</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">link:test.adoc[Docs]</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="paragraph">
+<p><a href="test.adoc">Docs</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_email_and_irc">4.3. Email and IRC</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">devel@discuss.arquillian.org
+
+mailto:devel@discuss.arquillian.org[Discuss Arquillian]
+
+mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
+
+irc://irc.freenode.org/#asciidoctor</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="paragraph">
+<p><a href="mailto:devel@discuss.arquillian.org">devel@discuss.arquillian.org</a></p>
+</div>
+<div class="paragraph">
+<p><a href="mailto:devel@discuss.arquillian.org">Discuss Arquillian</a></p>
+</div>
+<div class="paragraph">
+<p><a href="mailto:devel-join@discuss.arquillian.org?subject=Subscribe+me&amp;body=I+want+to+join%21">Subscribe</a></p>
+</div>
+<div class="paragraph">
+<p><a href="irc://irc.freenode.org/#asciidoctor" class="bare">irc://irc.freenode.org/#asciidoctor</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inline_anchors">4.4. Inline anchors</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">[[bookmark-a]]Inline anchors make arbitrary content referenceable.
+
+anchor:bookmark-b[]Use a cross reference to link to this location.</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="paragraph">
+<p><a id="bookmark-a"></a>Inline anchors make arbitrary content referenceable.</p>
+</div>
+<div class="paragraph">
+<p><a id="bookmark-b"></a>Use a cross reference to link to this location.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_internal_cross_references">4.5. Internal cross references</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">See &lt;&lt;paragraphs&gt;&gt; to learn how to write paragraphs.
+
+Learn how to organize the document into &lt;&lt;section-titles,sections&gt;&gt;.</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="paragraph">
+<p>See <a href="#paragraphs">[paragraphs]</a> to learn how to write paragraphs.</p>
+</div>
+<div class="paragraph">
+<p>Learn how to organize the document into <a href="#section-titles">sections</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_images">4.6. Images</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">image::/images/asciidoc/rose.png[]
+
+image::/images/asciidoc/rose.png[Rose]
+
+[[img-sunset]]
+
+image::/images/asciidoc/rose.png[caption=&#34;Figure 1: &#34;, title=&#34;A rose&#34;, alt=&#34;Rose&#34;, width=&#34;300&#34;, height=&#34;200&#34;, link=&#34;http://www.flickr.com/photos/javh/5448336655&#34;]
+
+image::http://asciidoctor.org/images/octocat.jpg[GitHub mascot]</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/asciidoc/rose.png" alt="rose"/>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/asciidoc/rose.png" alt="Rose"/>
+</div>
+</div>
+<div id="img-sunset" class="imageblock">
+<div class="content">
+<a class="image" href="http://www.flickr.com/photos/javh/5448336655"><img src="/images/asciidoc/rose.png" alt="Rose" width="300" height="200"/></a>
+</div>
+<div class="title">Figure 1: A rose</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://asciidoctor.org/images/octocat.jpg" alt="GitHub mascot"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_admonition_paragraph">5. Admonition paragraph</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_note">5.1. NOTE</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">NOTE: This is a NOTE!</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a NOTE!
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tip">5.2. TIP</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">TIP: This is a TIP!</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="admonitionblock tip">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+This is a TIP!
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_warning">5.3. WARNING</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">WARNING: This is a WARNING!</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="admonitionblock warning">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This is a WARNING!
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_caution">5.4. CAUTION</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">CAUTION: This is a CAUTION!</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="admonitionblock caution">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+This is a CAUTION!
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_important">5.5. IMPORTANT</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">IMPORTANT: This is a IMPORTANT!</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="admonitionblock important">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This is a IMPORTANT!
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_admonition_blocks">5.6. Admonition blocks</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">[NOTE]
+====
+This is an example of an admonition block.
+Unlike an admonition paragraph, it may contain any AsciiDoc content.
+The style can be any one of the admonition labels:
+
+* NOTE
+* TIP
+* WARNING
+* CAUTION
+* IMPORTANT
+====</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This is an example of an admonition block.
+Unlike an admonition paragraph, it may contain any AsciiDoc content.
+The style can be any one of the admonition labels:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>NOTE</p>
+</li>
+<li>
+<p>TIP</p>
+</li>
+<li>
+<p>WARNING</p>
+</li>
+<li>
+<p>CAUTION</p>
+</li>
+<li>
+<p>IMPORTANT</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_blocks">6. Blocks</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_listing_block">6.1. Listing block</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">-----
+This is a **_listing block_**
+-----</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="listingblock">
+<div class="content">
+<pre>This is a **_listing block_**</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_block">6.2. Example block</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">=====
+This is a **_example block_**
+=====</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>This is a <strong><em>example block</em></strong></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comment_block">6.3. Comment block</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">////
+This is a **_comment block_**
+////</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_literal_block">6.4. Literal block</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">....
+This is a **_literal block_**
+....</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="literalblock">
+<div class="content">
+<pre>This is a **_literal block_**</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pass_block">6.5. Pass block</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">++++
+== This is raw text
+++++</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+== This is raw text
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quoteverse_block">6.6. Quote/Verse block</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">____
+This is a very very simple quote
+____</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>This is a very very simple quote</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_blockqoutes">6.6.1. blockqoutes</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">.After landing the cloaked Klingon bird of prey in Golden Gate park:
+[quote,Captain James T. Kirk,Star Trek IV: The Voyage Home]
+Everybody remember where we parked.</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="quoteblock">
+<div class="title">After landing the cloaked Klingon bird of prey in Golden Gate park:</div>
+<blockquote>
+Everybody remember where we parked.
+</blockquote>
+<div class="attribution">
+— Captain James T. Kirk<br/>
+<cite>Star Trek IV: The Voyage Home</cite>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sidebar_block">6.7. Sidebar block</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">.Some Title
+****
+This is a Sidebar block -- I have no idea why it&#39;s called `sidebar`
+****</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Some Title</div>
+<div class="paragraph">
+<p>This is a Sidebar block — I have no idea why it’s called <code>sidebar</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_block_metadata">6.8. Block metadata</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="asciidoc">.Gettysburg Address
+[[gettysburg]]
+[quote, Abraham Lincoln, Soldiers&#39; National Cemetery Dedication]
+----
+Four score and seven years ago our fathers brought forth
+on this continent a new nation...
+Now we are engaged in a great civil war, testing whether
+that nation, or any nation so conceived and so dedicated,
+can long endure. ...
+----</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Output</div>
+<div id="gettysburg" class="listingblock">
+<div class="title">Gettysburg Address</div>
+<div class="content">
+<pre>Four score and seven years ago our fathers brought forth
+on this continent a new nation...
+Now we are engaged in a great civil war, testing whether
+that nation, or any nation so conceived and so dedicated,
+can long endure. ...</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_customization_wip">7. Customization (WIP)</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_render_wip">8. Render (WIP)</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+
+                            </div>
+                            </div>
+                            <div class="mainside">
+                                
+                                
+                                
+                                <h5>Table Of Content</h5>
+                                <div class="tableofcontents">
+                                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#_intro">1. Intro</a></li>
+    <li><a href="#_lists">2. Lists</a>
+      <ul>
+        <li><a href="#_unordered_lists">2.1. Unordered lists</a></li>
+        <li><a href="#_ordered_lists">2.2. Ordered lists</a></li>
+        <li><a href="#_todo_lists">2.3. TODO lists</a></li>
+        <li><a href="#_separating_lists">2.4. Separating lists</a></li>
+      </ul>
+    </li>
+    <li><a href="#_definitions">3. Definitions</a>
+      <ul>
+        <li><a href="#_normal_definition_list">3.1. Normal definition list</a></li>
+        <li><a href="#_horizontal_definition_list">3.2. Horizontal definition list</a></li>
+        <li><a href="#_multi_line_definition_list">3.3. Multi-line definition list</a></li>
+        <li><a href="#_qa">3.4. Q&amp;A</a></li>
+        <li><a href="#_mixed">3.5. Mixed</a></li>
+        <li><a href="#_complex_content_in_outline_lists">3.6. Complex content in outline lists</a></li>
+      </ul>
+    </li>
+    <li><a href="#_links">4. Links</a>
+      <ul>
+        <li><a href="#_external">4.1. External</a></li>
+        <li><a href="#_relative">4.2. Relative</a></li>
+        <li><a href="#_email_and_irc">4.3. Email and IRC</a></li>
+        <li><a href="#_inline_anchors">4.4. Inline anchors</a></li>
+        <li><a href="#_internal_cross_references">4.5. Internal cross references</a></li>
+        <li><a href="#_images">4.6. Images</a></li>
+      </ul>
+    </li>
+    <li><a href="#_admonition_paragraph">5. Admonition paragraph</a>
+      <ul>
+        <li><a href="#_note">5.1. NOTE</a></li>
+        <li><a href="#_tip">5.2. TIP</a></li>
+        <li><a href="#_warning">5.3. WARNING</a></li>
+        <li><a href="#_caution">5.4. CAUTION</a></li>
+        <li><a href="#_important">5.5. IMPORTANT</a></li>
+        <li><a href="#_admonition_blocks">5.6. Admonition blocks</a></li>
+      </ul>
+    </li>
+    <li><a href="#_blocks">6. Blocks</a>
+      <ul>
+        <li><a href="#_listing_block">6.1. Listing block</a></li>
+        <li><a href="#_example_block">6.2. Example block</a></li>
+        <li><a href="#_comment_block">6.3. Comment block</a></li>
+        <li><a href="#_literal_block">6.4. Literal block</a></li>
+        <li><a href="#_pass_block">6.5. Pass block</a></li>
+        <li><a href="#_quoteverse_block">6.6. Quote/Verse block</a></li>
+        <li><a href="#_sidebar_block">6.7. Sidebar block</a></li>
+        <li><a href="#_block_metadata">6.8. Block metadata</a></li>
+      </ul>
+    </li>
+    <li><a href="#_customization_wip">7. Customization (WIP)</a></li>
+    <li><a href="#_render_wip">8. Render (WIP)</a></li>
+  </ul>
+</nav>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        
+
+                         <div id="nextprev">
+<a href="/programming/elixir/"><div id="prevart">« Previous<br>Elixir</div></a>
+<a href="/programming/go/"><div id="nextart">Next »<br>Golang</div></a>
+</div>
+<br>
+ <div style="clear:both" class=taglist>Related<br><a id="tag_writing" href="https://hossein-lap.github.io/tags/writing">Writing</a> &middot; <a id="tag_documentation" href="https://hossein-lap.github.io/tags/documentation">Documentation</a> &middot; <a id="tag_asciidoc" href="https://hossein-lap.github.io/tags/asciidoc">AsciiDoc</a></div>
+ </div>
+                </article>
+                <br>
+                <hr>
+                
+                <footer>
+                    <div class="footer">
+                        <div class='botbar'>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="https://hossein-lap.github.io/">tanren</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="/index.xml"> Subscribe via RSS for updates. </a>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </footer>
+                
+        </main>
+    </body>
+</html>

@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lua | tanren&#8217;s blog</title>
+        <link rel="canonical" href="https://hossein-lap.github.io/">
+        <link rel='alternate' type='application/rss+xml' title="tanren RSS" href='/index.xml'>
+        <link rel='stylesheet' type='text/css' href='/fonts/fonts.css'>
+        <link rel='stylesheet' type='text/css' href='/css/style.css'>
+        <link rel='stylesheet' type='text/css' href='/css/syntax.css'>
+        <link rel='stylesheet' type='text/css' href='/css/theme.css'>
+        <script type="text/javascript" src="/fonts/fix-adoc.js"></script>
+        <link rel="icon" href="/favicon.ico">
+        <meta name="description" content="WIP: Lua is a powerful, fast, lightweight and embeddable programming
+language. It is used by many frameworks, games and other applications.
+">
+        <meta name="keywords" content="Lua, Embedded, Game, Plugin">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <div class="mainmain">
+                <div class="topbar">
+                    
+                    <nav>
+   
+   
+   
+
+   
+   
+   <div class='topbariten'>
+         <a href="/">
+            <span class=pre></span>
+            <span class=menuname>P J</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a class="menuactive" href="/programming/">
+            <span class=pre></span>
+            <span class=menuname>Programming</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="/tools/">
+            <span class=pre></span>
+            <span class=menuname>Tools</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="https://hossein-lap.github.io">
+            <span class=pre></span>
+            <span class=menuname>About</span>
+         </a>
+   </div>
+   
+</nav>
+
+                    </div>
+                <header>
+                    
+                    <div class="header">
+                        <div class="thetitle">
+                            Lua
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="thedate">
+                            April 2, 2024
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </header>
+                
+                <article>
+                    <div class="row">
+                        
+                        
+                        <div class="container">
+                            <div class="mainpad">
+                            <div class="scrollable">
+                                
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lua is a powerful, fast, lightweight and embeddable programming language. It is
+used by many frameworks, games and other applications. While it can be used by
+itself, it has been designed to be easy to embed in another application. It is
+implemented in ANSI C, a subset of C programming language that is very
+portable, which means it can run on many systems and many devices where the
+most other scripting languages would not be able to run.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>&#34;Lua&#34; (pronounced LOO-ah) means &#34;Moon&#34; in Portuguese. As such, it is neither an
+acronym nor an abbreviation, but a noun. Lua comes from two languages: DEL and
+Sol. DEL means &#34;Data Entry Language&#34;, While Sol means &#34;Simple object language&#34;
+and also means Sun in Portuguese.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>One of main advantages of Lua is its simplicity. Programming which is also
+called scripting in the case of programs that run inside an embedded
+applications, is the process of writing computer program. A programming
+language is a language used to give instructions to a computer through computer
+code that is contained in a computer program. A programming language consists
+of two things: a syntax, which is like grammar in English, and libraries, basic
+functions provided with the language. These libraries could be compared with
+vocabulary in English.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hello_world">1. Hello World!</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lua can either be used embedded in an application or by itself. The first
+example of Lua code in this book will be the basic and traditional hello world
+program.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>A &#34;Hello world&#34; program is a computer program that outputs &#34;Hello, world&#34; on a
+display device. Because it is typically one of the simplest programs possible
+in most programming languages, it is by tradition often used to illustrate to
+beginners the most basic syntax of a programming language, or to verify that a
+language or system is operating correctly.</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #90a959">&#34;Hello World!&#34;</span><span style="color: #d0d0d0">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The code above prints the text Hello, world! to the output. It does so by
+calling the print function with the string &#34;Hello, world!&#34; as an argument.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntax">2. Syntax</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Syntax of a programming language defines how statements and expressions must be
+written in that programming language, just like grammar defines how sentences
+and words must be written. Statements and expressions can be respectively
+compared to sentences and words.</p>
+</div>
+<div class="paragraph">
+<p>Lua is a dynamically typed language intended for use as an extension language or scripting language.</p>
+</div>
+<div class="paragraph">
+<p>Statements and expressions can be respectively compared to sentences and
+words. Expressions are pieces of code that have a value and that can be evaluated, while
+statements are pieces of code that can be executed and contain an instruction with one
+or many expressions to use that instruction with.</p>
+</div>
+<div class="paragraph">
+<p>For example, <code>3 + 5</code> is an expression and <code>variable = 3 + 5</code> is a statement
+that sets the value of variable to that expression.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #505050">-- Different types</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">x</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">10</span> <span style="color: #505050">-- number</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">name</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">&#34;Neo&#34;</span> <span style="color: #505050">-- string</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">is_alive</span> <span style="color: #d0d0d0">=</span> <span style="color: #d28445">false</span> <span style="color: #505050">-- boolean</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">=</span> <span style="color: #d28445">nil</span> <span style="color: #505050">-- no value or invalid value</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_obtaining_lua">3. Obtaining Lua</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lua can be obtained on the official Lua website,
+on the <a href="http://www.lua.org/download.html">download page</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basics">4. Basics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are using the stand-alone Lua interpreter, all you have to do
+to run your first program is to call the interpreter
+-usually named <code>lua</code> or <code>lua5.3</code>/<code>lua5.4</code>-
+with the name of the text file that contains your program.
+If you save the <em>Hello World</em> program in a file <code>hello.lua</code>,
+the following command should run it:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ lua hello.lua</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As a more complex example, the next program defines a function to compute
+the factorial of a given number, asks the user for a number,
+and prints its factorial:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #505050">-- defines a factorial function</span>
+<span style="color: #aa759f">function</span> <span style="color: #d0d0d0;background-color: #151515">fact</span> <span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">n</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #aa759f">if</span> <span style="color: #d0d0d0;background-color: #151515">n</span> <span style="color: #d0d0d0">==</span> <span style="color: #90a959">0</span> <span style="color: #aa759f">then</span>
+        <span style="color: #aa759f">return</span> <span style="color: #90a959">1</span>
+    <span style="color: #aa759f">else</span>
+        <span style="color: #aa759f">return</span> <span style="color: #d0d0d0;background-color: #151515">n</span> <span style="color: #d0d0d0">*</span> <span style="color: #d0d0d0;background-color: #151515">fact</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">n</span> <span style="color: #d0d0d0">-</span> <span style="color: #90a959">1</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #aa759f">end</span>
+<span style="color: #aa759f">end</span>
+
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #90a959">&#34;enter a number:&#34;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">io.read</span><span style="color: #d0d0d0">(</span><span style="color: #90a959">&#34;*n&#34;</span><span style="color: #d0d0d0">)</span>       <span style="color: #505050">-- reads a number</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">fact</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">a</span><span style="color: #d0d0d0">))</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_chuncks">5. Chuncks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We call each piece of code that Lua executes, such as a file or a single line
+in interactive mode, a <em>chunk</em>. A chunk is simply a sequence of commands
+(or statements).</p>
+</div>
+<div class="paragraph">
+<p>A chunk can be as simple as a single statement, such as in the &#34;Hello World&#34; example,
+or it can be composed of a mix of statements and function definitions
+(which are actually assignments, as we will see later), such as the factorial example.</p>
+</div>
+<div class="paragraph">
+<p>Instead of writing your program to a file, you can run the stand-alone interpreter
+in interactive mode. If you call <code>lua</code> without any arguments, you will get its prompt:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ lua
+Lua 5.4.4  Copyright (C) 1994-2022 Lua.org, PUC-Rio
+&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Thereafter, each command that you type (such as <code>print &#34;Hello World&#34;</code>)
+executes immediately after you enter it. To exit the interactive mode
+and the interpreter, just type the end-of-file control character
+(<code>ctrl-D</code> in POSIX, <code>ctrl-Z</code> in Windows), or call the function <code>os.exit</code>,
+from the Operating System library - you have to type <code>os.exit()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Starting in version 5.4, we can enter expressions directly in the interactive mode,
+and Lua will print their values:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ lua
+Lua 5.4.4  Copyright (C) 1994-2022 Lua.org, PUC-Rio
+&gt; math.pi / 4   --&gt; 0.78539816339745
+&gt; a = 15
+&gt; a ^ 2         --&gt; 225
+&gt; a + 2         --&gt; 17</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In older versions, we need to precede these expressions with an equals sign:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ lua5.2
+Lua 5.2.3  Copyright (C) 1994-2013 Lua.org, PUC-Rio
+&gt; a = 15
+&gt; = a ^ 2         --&gt; 225</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For compatibility, Lua 5.4 still accepts these equals signs.</p>
+</div>
+<div class="paragraph">
+<p>To run that code as a chunk (not in interactive mode), we must enclose
+the expressions inside calls to <code>print</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">math.pi</span> <span style="color: #d0d0d0">/</span> <span style="color: #90a959">4</span><span style="color: #d0d0d0">)</span>  <span style="color: #505050">--&gt; 0.78539816339745</span>
+<span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">15</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">^</span> <span style="color: #90a959">2</span><span style="color: #d0d0d0">)</span>        <span style="color: #505050">--&gt; 225</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">+</span> <span style="color: #90a959">2</span><span style="color: #d0d0d0">)</span>        <span style="color: #505050">--&gt; 17</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lua usually interprets each line that we type in interactive mode as a complete
+chunk or expression. However, if it detects that the line is not complete,
+it waits for more input, until it has a complete chunk. This way, we can enter a
+multi-line definition, such as the factorial function, directly in interactive mode.
+However, it is usually more convenient to put such definitions in a file and then
+call Lua to run the file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figs/intractive-multiline.png" alt="Multiline Code in Intractive Mode"/>
+</div>
+</div>
+<div class="paragraph">
+<p>We can use the <code>-i</code> option to instruct Lua to start an interactive session
+after running a given chunk:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ lua -i prog</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A command line like this one will run the chunk in the file <code>prog</code> and then
+prompt for interaction. This is especially useful for debugging and manual testing.</p>
+</div>
+<div class="paragraph">
+<p>Another way to run chunks is with the function <code>dofile</code>, which immediately executes
+a file. For instance, suppose we have a file <code>lib1.lua</code> with the following code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #aa759f">function</span> <span style="color: #d0d0d0;background-color: #151515">norm</span> <span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">x</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0;background-color: #151515">y</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #aa759f">return</span> <span style="color: #d0d0d0;background-color: #151515">math.sqrt</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">x</span><span style="color: #d0d0d0">^</span><span style="color: #90a959">2</span> <span style="color: #d0d0d0">+</span> <span style="color: #d0d0d0;background-color: #151515">y</span><span style="color: #d0d0d0">^</span><span style="color: #90a959">2</span><span style="color: #d0d0d0">)</span>
+<span style="color: #aa759f">end</span>
+
+<span style="color: #aa759f">function</span> <span style="color: #d0d0d0;background-color: #151515">twice</span> <span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">x</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #aa759f">return</span> <span style="color: #90a959">2</span><span style="color: #d0d0d0">.</span><span style="color: #90a959">0</span> <span style="color: #d0d0d0">*</span> <span style="color: #d0d0d0;background-color: #151515">x</span>
+<span style="color: #aa759f">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, in interactive mode, we can type this code:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; dofile(&#34;lib1.lua&#34;)    -- load our library
+&gt; n = norm(3.4, 1.0)
+&gt; twice(n)              --&gt; 7.0880180586677</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The function <code>dofile</code> is useful also when we are testing a piece of code. We can work
+with two windows: one is a text editor with our program (in a file <code>prog.lua</code>, say)
+and the other is a console running Lua in interactive mode. After saving a
+modification in our program, we execute <code>dofile(&#34;prog.lua&#34;)</code> in the Lua console to
+load the new code; then we can exercise the new code, calling its functions and
+printing the results.</p>
+</div>
+<div class="sect2">
+<h3 id="_some_lexical_conventions">5.1. Some Lexical Conventions</h3>
+<div class="paragraph">
+<p>Identifiers (or names) in Lua can be any string of letters, digits, and underscores,
+not beginning with a digit; for instance</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>i</code></p>
+</li>
+<li>
+<p><code>j</code></p>
+</li>
+<li>
+<p><code>i10</code></p>
+</li>
+<li>
+<p><code>_ij</code></p>
+</li>
+<li>
+<p><code>aSomewhatLongName</code></p>
+</li>
+<li>
+<p><code>_INPUT</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You should avoid identifiers starting with an underscore followed by one or more
+upper-case letters (e.g., <code>_VERSION</code>); they are reserved for special uses in Lua.
+Usually, I reserve the identifier <code>_</code> (a single underscore) for dummy variables.</p>
+</div>
+<div class="paragraph">
+<p>The following words are reserved; we cannot use them as identifiers:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #d0d0d0">and</span> <span style="color: #aa759f">end</span> <span style="color: #aa759f">if</span> <span style="color: #d0d0d0">or</span> <span style="color: #aa759f">until</span> <span style="color: #aa759f">break</span> <span style="color: #d28445">false</span> <span style="color: #aa759f">in</span> <span style="color: #aa759f">repeat</span> <span style="color: #aa759f">while</span> <span style="color: #aa759f">do</span> <span style="color: #aa759f">for</span> <span style="color: #d28445">local</span>
+<span style="color: #aa759f">return</span> <span style="color: #aa759f">else</span> <span style="color: #aa759f">function</span> <span style="color: #d0d0d0;background-color: #151515">nil</span> <span style="color: #aa759f">then</span> <span style="color: #aa759f">elseif</span> <span style="color: #d0d0d0;background-color: #151515">goto</span> <span style="color: #d0d0d0">not</span> <span style="color: #d28445">true</span></code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Lua is case-sensitive</div>
+<div class="paragraph">
+<p><code>and</code> is a reserved word, but <code>And</code> and <code>AND</code> are two different identifiers.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_comments">6. Comments</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A comment is a code annotation that is ignored by the programming language.
+Comments can be used to describe one or many lines of code, to document a program,
+to temporarily disable code, or for any other reason.</p>
+</div>
+<div class="paragraph">
+<p>They need to be prefixed by
+two hyphens to be recognized by Lua and they can be put either on their own line
+or at the end of another line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #90a959">&#34;This is normal code.&#34;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #505050">-- This is a comment</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #90a959">&#34;This is still normal code.&#34;</span><span style="color: #d0d0d0">)</span> <span style="color: #505050">-- Comment at the end of a line of code.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These comments are called short comments. It is also possible to create long comments,
+which start with a long bracket and can continue on many lines:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #90a959">&#34;This is normal code&#34;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #505050">--[[Line 1
+Line 2
+]]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Long brackets consist of two brackets in the middle of which any number of
+equality signs may be put. That number is called the level of the long bracket.
+Long brackets will continue until the next bracket of the same level, if there is one.</p>
+</div>
+<div class="paragraph">
+<p>A long bracket with no equal sign is called a long bracket of level 0.
+This approach makes it possible to use closing double brackets inside of
+long comments by adding equal signs in the middle of the two brackets.
+It is often useful to do this when using comments to disable blocks of code.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #505050">--[==[
+This is a comment that contains a closing long bracket of level 0 which is here:
+ ]]
+However, the closing double bracket doesn&#39;t make the comment end, because the
+  comment was opened with an opening long bracket of level 2, and only a closing
+  long bracket of level 2 can close it.
+]==]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the example above, the closing long bracket of level 0 (<code>]]</code>) does not close the comment,
+but the closing long bracket of level 2 (<code>]==]</code>) does.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Long comments can be more complex than that, as we will see in
+the section called &#34;Long Strings&#34;.</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_expressions">7. Expressions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Expressions are pieces of code that have a value and that can be
+evaluated. They cannot be executed directly (with the exception of function calls), and
+thus, a script that would contain only the following code, which consists of an expression,
+would be erroneous:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #90a959">3</span> <span style="color: #d0d0d0">+</span> <span style="color: #90a959">5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The code above is erroneous because all it contains is an expression.
+The computer cannot execute <code>3 + 5</code>, since that does not make sense.</p>
+</div>
+<div class="paragraph">
+<p>Code must be comprised of a sequence of statements. These statements can contain expressions
+which will be values the statement has to manipulate or use to execute the instruction.</p>
+</div>
+<div class="paragraph">
+<p>Some code examples in this chapter do not constitute valid code, because they consist of
+only expressions. In the next chapter, statements will be covered and it will be possible to
+start writing valid code.</p>
+</div>
+<div class="paragraph">
+<p>Lua needs no separator between consecutive statements, but we can use a semicolon if
+we wish. Line breaks play no role in Lua’s syntax; for instance, the following
+four chunks are all valid and equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">1</span>
+<span style="color: #d0d0d0;background-color: #151515">b</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">*</span> <span style="color: #90a959">2</span>
+
+<span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">1</span><span style="color: #d0d0d0">;</span>
+<span style="color: #d0d0d0;background-color: #151515">b</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">*</span> <span style="color: #90a959">2</span><span style="color: #d0d0d0">;</span>
+
+<span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">1</span><span style="color: #d0d0d0">;</span> <span style="color: #d0d0d0;background-color: #151515">b</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">*</span> <span style="color: #90a959">2</span>
+<span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">1</span> <span style="color: #d0d0d0;background-color: #151515">b</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">*</span> <span style="color: #90a959">2</span> <span style="color: #505050">-- ugly, but valid</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_global_variables">8. Global Variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Global variables do not need declarations; we simply use them. It is not an error
+to access a non-initialized variable; we just get the value nil as the result:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; b   --&gt; nil
+&gt; b = 10
+&gt; b   --&gt; 10</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If we assign nil to a global variable, Lua behaves as if we have never used the variable:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; b = nil
+&gt; b   --&gt; nil</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lua does not differentiate a non-initialized variable from one that we assigned nil.
+After the assignment, Lua can eventually reclaim the memory used by the variable.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types_and_values">9. Types and Values</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lua is a dynamically-typed language. There are no type definitions in the language;
+each value carries its own type.</p>
+</div>
+<div class="paragraph">
+<p>There are eight basic types in Lua:
+<em>nil</em>, <em>Boolean</em>, <em>number</em>, <em>string</em>, <em>userdata</em>, <em>function</em>, <em>thread</em>, and <em>table</em>.
+The function <code>type</code> gives the type name of any given value:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; type(nil)           --&gt; nil
+&gt; type(true)          --&gt; boolean
+&gt; type(10.4 * 3)      --&gt; number
+&gt; type(&#34;Hello world&#34;) --&gt; string
+&gt; type(io.stdin)      --&gt; userdata
+&gt; type(print)         --&gt; function
+&gt; type(type)          --&gt; function
+&gt; type({})            --&gt; table
+&gt; type(type(X))       --&gt; string</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The last line will result in “string” no matter the value of <code>X</code>,
+because the result of <code>type</code> is always a string.</p>
+</div>
+<div class="paragraph">
+<p>The userdata type allows arbitrary C data to be stored in Lua variables.
+It has no predefined operations in Lua, except assignment and equality test.
+Userdata are used to represent new types created by an application program or
+a library written in C; for instance, the standard I/O library uses them to
+represent open files. We will discuss more about userdata later,
+when we get to the C API.</p>
+</div>
+<div class="paragraph">
+<p>Variables have no predefined types; any variable can contain values of any type:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; type(a)          --&gt; nil    (&#39;a&#39; is not initialized)
+&gt; a = 10
+&gt; type(a)          --&gt; number
+&gt; a = &#34;a string!!&#34;
+&gt; type(a)          --&gt; string
+&gt; a = nil
+&gt; type(a)          --&gt; nil</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The list of data types for values are given below.</p>
+</div>
+<div class="hdlist">
+<table>
+<tbody><tr>
+<td class="hdlist1">
+Type
+</td>
+<td class="hdlist2">
+<p>Description</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>nil</code>
+</td>
+<td class="hdlist2">
+<p>Used to differentiate the value from having some data or no(nil) data.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>boolean</code>
+</td>
+<td class="hdlist2">
+<p>Includes true and false as values. Generally used for condition checking.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>number</code>
+</td>
+<td class="hdlist2">
+<p>Represents real(double precision floating point) numbers.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>string</code>
+</td>
+<td class="hdlist2">
+<p>Represents array of characters.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>function</code>
+</td>
+<td class="hdlist2">
+<p>Represents a method that is written in C or Lua.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>userdata</code>
+</td>
+<td class="hdlist2">
+<p>Represents arbitrary C data.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>thread</code>
+</td>
+<td class="hdlist2">
+<p>Represents independent threads of execution and it is used to implement coroutines.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>table</code>
+</td>
+<td class="hdlist2">
+<p>Represent ordinary arrays, symbol tables, sets, records, graphs,
+trees, etc., and implements associative arrays. It can hold any value (except nil).</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph">
+<p>Usually, when we use a single variable for different types, the result is messy code.
+However, sometimes the judicious use of this facility is helpful,
+for instance in the use of nil to differentiate a normal return
+value from an abnormal condition.</p>
+</div>
+<div class="paragraph">
+<p>By default, all the variables will point to nil until they are assigned a value
+or initialized.</p>
+</div>
+<div class="paragraph">
+<p>We will discuss now the simple types nil and Boolean.</p>
+</div>
+<div class="sect2">
+<h3 id="_nil">9.1. Nil</h3>
+<div class="paragraph">
+<p>Nil is a type with a single value, nil, whose main property is to be different
+from any other value. Lua uses nil as a kind of non-value, to represent the
+absence of a useful value. As we have seen, a global variable has a nil value
+by default, before its first assignment, and we can assign nil to a global
+variable to delete it.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_booleans">9.2. Booleans</h3>
+<div class="paragraph">
+<p>The Boolean type has two values, <code>false</code> and <code>true</code>, which represent the
+traditional Boolean values. However, Booleans do not hold a monopoly of
+condition values: in Lua, any value can represent a condition. Conditional
+tests (e.g., conditions in control structures) consider both the Boolean
+<code>false</code> and <code>nil</code> as false and anything else as true. In particular, Lua
+considers both zero and the empty string as <code>true</code> in conditional tests.</p>
+</div>
+<div class="paragraph">
+<p>Throughout this book, I will write &#34;false&#34; to mean any false value, that is,
+the Boolean <code>false</code> or nil. When I mean specifically the Boolean value, I will
+write &#34;false&#34;. The same holds for &#34;true&#34; and “true”.</p>
+</div>
+<div class="paragraph">
+<p>Lua supports a conventional set of logical operators: <code>and</code>, <code>or</code>, and <code>not</code>.
+Like control structures, all logical operators consider both the Boolean
+<code>false</code> and nil as false, and anything else as true. The result of the <code>and</code>
+operator is its first operand if that operand is false; otherwise, the result
+is its second operand.  The result of the <code>or</code> operator is its first operand if
+it is not false; otherwise, the result is its second operand:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; 4 and 5           --&gt; 5
+&gt; nil and 13        --&gt; nil
+&gt; false and 13      --&gt; false
+&gt; 0 or 5            --&gt; 0
+&gt; false or &#34;hi&#34;     --&gt; &#34;hi&#34;
+&gt; nil or false      --&gt; false</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Both <strong>and</strong> and <strong>or</strong> use short-circuit evaluation, that is, they evaluate
+their second operand only when necessary. Short-circuit evaluation ensures that
+expressions like (<code>i ~= 0 and a/i &gt; b</code>) do not cause run-time errors: Lua will
+not try to evaluate <code>a / i</code> when <code>i</code> is zero.</p>
+</div>
+<div class="paragraph">
+<p>A useful Lua idiom is <code>x = x or v</code>, which is equivalent to</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #aa759f">if</span> <span style="color: #d0d0d0">not</span> <span style="color: #d0d0d0;background-color: #151515">x</span> <span style="color: #aa759f">then</span> <span style="color: #d0d0d0;background-color: #151515">x</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">v</span> <span style="color: #aa759f">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That is, it sets <code>x</code> to a default value <code>v</code> when <code>x</code> is not set
+(provided that <code>x</code> is not set to <strong>false</strong>).</p>
+</div>
+<div class="paragraph">
+<p>Another useful idiom is <code>((a and b) or c)</code> or simply <code>(a and b or c)</code>
+(given that <code>and</code> has a higher precedence than <code>or</code>). It is equivalent to the C
+expression <code>a ? b : c</code>, provided that <code>b</code> is not false. For instance, we can select
+the maximum of two numbers <code>x</code> and <code>y</code> with the expression <code>(x &gt; y) and x or y</code>.
+When <code>x &gt; y</code>, the first expression of the <strong>and</strong> is true, so the <strong>and</strong> results
+in its second operand (<code>x</code>), which is always true (because it is a number),
+and then the <strong>or</strong> expression results in the value of its first operand, <code>x</code>.
+When <code>x &gt; y</code> is false, the <strong>and</strong> expression is false and so the <strong>or</strong> results
+in its second operand, <code>y</code>.</p>
+</div>
+<div class="paragraph">
+<p>The not operator always gives a Boolean value:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; not nil        --&gt; true
+&gt; not false      --&gt; true
+&gt; not 0          --&gt; false
+&gt; not not 1      --&gt; true
+&gt; not not nil    --&gt; false</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following operators are often used with boolean values,
+but can also be used with values of any data type:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;"/>
+<col style="width: 33.3333%;"/>
+<col style="width: 33.3334%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Operation</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Syntax</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Boolean negation</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>not a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If a is false or nil, returns true. Otherwise, returns false.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Logical conjunction</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a and b</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the first argument if it is false or nil. Otherwise, returns the second argument.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Logical disjunction</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a or b</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the first argument if it is neither false nor nil. Otherwise, returns the second argument.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Essentially, the <code>not</code> operator just negates the boolean value
+(makes it false if it is true and makes it true if it is false),
+the <code>and</code> operator returns true if both are true and false if not
+and the <code>or</code> operator returns true if either of arguments is true and false otherwise.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">is_alive</span> <span style="color: #d0d0d0">=</span> <span style="color: #d28445">true</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">is_alive</span><span style="color: #d0d0d0">)</span> <span style="color: #505050">-- true</span>
+
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">is_alive</span> <span style="color: #d0d0d0">=</span> <span style="color: #d28445">false</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">is_alive</span><span style="color: #d0d0d0">)</span> <span style="color: #505050">-- false</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_numbers">9.3. Numbers</h3>
+<div class="paragraph">
+<p>Numbers generally represent quantities, but they can be used for many other things. The
+number type in Lua works mostly in the same way as real numbers.</p>
+</div>
+<div class="paragraph">
+<p>Numbers can be constructed as integers, decimal numbers, decimal exponents or
+even in hexadecimal. Here are some valid numbers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>3</code></p>
+</li>
+<li>
+<p><code>3.0</code></p>
+</li>
+<li>
+<p><code>3.1416</code></p>
+</li>
+<li>
+<p><code>314.16e-2</code></p>
+</li>
+<li>
+<p><code>0.31416E1</code></p>
+</li>
+<li>
+<p><code>0xff</code></p>
+</li>
+<li>
+<p><code>0x56</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #505050">-- The Lua</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">1</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">b</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">2</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">c</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">a</span> <span style="color: #d0d0d0">+</span> <span style="color: #d0d0d0;background-color: #151515">b</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">c</span><span style="color: #d0d0d0">)</span> <span style="color: #505050">-- 3</span>
+
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">d</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">b</span> <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0;background-color: #151515">a</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">d</span><span style="color: #d0d0d0">)</span>
+
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">x</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">1</span> <span style="color: #d0d0d0">*</span> <span style="color: #90a959">3</span> <span style="color: #d0d0d0">*</span> <span style="color: #90a959">4</span> <span style="color: #505050">-- 12</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">x</span><span style="color: #d0d0d0">)</span>
+
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">y</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">(</span><span style="color: #90a959">1</span><span style="color: #d0d0d0">+</span><span style="color: #90a959">3</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">*</span> <span style="color: #90a959">2</span> <span style="color: #505050">-- 8</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">y</span><span style="color: #d0d0d0">)</span>
+
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #90a959">10</span> <span style="color: #d0d0d0">/</span> <span style="color: #90a959">2</span><span style="color: #d0d0d0">)</span> <span style="color: #505050">-- 5</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #90a959">2</span> <span style="color: #d0d0d0">^</span> <span style="color: #90a959">2</span><span style="color: #d0d0d0">)</span> <span style="color: #505050">-- 4</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #90a959">5</span> <span style="color: #d0d0d0">%</span> <span style="color: #90a959">2</span><span style="color: #d0d0d0">)</span> <span style="color: #505050">-- 1</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0">-</span><span style="color: #d0d0d0;background-color: #151515">b</span><span style="color: #d0d0d0">)</span> <span style="color: #505050">-- -2</span>
+
+<span style="color: #505050">-- Incerment</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">level</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">1</span>
+<span style="color: #d0d0d0;background-color: #151515">level</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0;background-color: #151515">level</span> <span style="color: #d0d0d0">+</span> <span style="color: #90a959">1</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">level</span><span style="color: #d0d0d0">)</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_arithmetic_operations">9.3.1. Arithmetic operations</h4>
+<div class="paragraph">
+<p>The operators for numbers in Lua are the following:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;"/>
+<col style="width: 25%;"/>
+<col style="width: 25%;"/>
+<col style="width: 25%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Operation</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Syntax</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Arithmetic negation</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Changes the sign of a and returns the value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-3.14159</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Addition</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a + b</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the sum of <code>a</code> and <code>b</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.2 + 3.6</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Subtraction</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a - b</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subtracts b from a and returns the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.2 + 3.6</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Multiplication</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a * b</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the product of a and b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.2 _ 1.5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Exponentiation</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a ^ b</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a to the power b, or the exponentiation of a by b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5 ˆ 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Division</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a / b</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Divides a by b and returns the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.4 / 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Modulus operation</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a % b</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the remainder of the division of a by b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5 % 3</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_integers">9.3.2. Integers</h4>
+<div class="paragraph">
+<p>A new subtype of numbers, integers, was added in Lua 5.3. Numbers can be either
+integers or floats.  Floats are similar to numbers as described above, while
+integers are numbers with
+no decimal part.</p>
+</div>
+<div class="paragraph">
+<p>Float division (<code>/</code>) and exponentiation always convert their operands to
+floats, while all other operators give integers if their two operands were
+integers.  In other cases, with the exception of the floor division operator
+(<code>//</code>) the result is a float.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_strings">9.4. Strings</h3>
+<div class="paragraph">
+<p>Strings are sequences of characters that can be used to represent text. They can be written
+in Lua by being contained in double quotes, single quotes or long brackets
+(it should be noted that comments and
+strings have nothing in common other than the fact they can both be delimited by long
+brackets, preceded by two hyphens in the case of comments).</p>
+</div>
+<div class="paragraph">
+<p>Strings that aren’t contained
+in long brackets will only continue for one line. Because of this, the only way to make a
+string that contains many lines without using long brackets is to use escape sequences. This
+is also the only way to insert single or double quotes in certain cases.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>&#39; &#39;</code></p>
+</li>
+<li>
+<p><code>&#34; &#34;</code></p>
+</li>
+<li>
+<p><code>[[ ]]</code></p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">phrase</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">[[My name is ]]</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">name</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">&#39;P J&#39;</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">phrase</span> <span style="color: #d0d0d0">..</span> <span style="color: #d0d0d0;background-color: #151515">name</span><span style="color: #d0d0d0">)</span> <span style="color: #505050">-- My name is P J</span>
+
+<span style="color: #505050">-- Strings and Numbers</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">age</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">21</span>
+<span style="color: #d28445">local</span> <span style="color: #d0d0d0;background-color: #151515">name</span> <span style="color: #d0d0d0">=</span> <span style="color: #90a959">&#34;Billy&#34;</span>
+<span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0;background-color: #151515">name</span> <span style="color: #d0d0d0">..</span> <span style="color: #90a959">&#34; is &#34;</span> <span style="color: #d0d0d0">..</span> <span style="color: #d0d0d0;background-color: #151515">age</span> <span style="color: #d0d0d0">..</span> <span style="color: #90a959">&#34; Years old&#34;</span><span style="color: #d0d0d0">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Escape sequence characters are used in string to change the normal
+interpretation of characters.</p>
+</div>
+<div class="paragraph">
+<p>For example, to print double inverted commas
+<code>(&#34;&#34;)</code>, we have to use <code>\&#34;</code> in the string.</p>
+</div>
+<div class="paragraph">
+<p>The escape sequence and its use is listed below in the table.</p>
+</div>
+<div class="hdlist">
+<table>
+<tbody><tr>
+<td class="hdlist1">
+<strong>Escape Sequence</strong>
+</td>
+<td class="hdlist2">
+<p><strong>Use</strong></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\a</code>
+</td>
+<td class="hdlist2">
+<p>Bell</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\b</code>
+</td>
+<td class="hdlist2">
+<p>Backspace</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\f</code>
+</td>
+<td class="hdlist2">
+<p>Formfeed</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\n</code>
+</td>
+<td class="hdlist2">
+<p>New line</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\r</code>
+</td>
+<td class="hdlist2">
+<p>Carriage return</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\t</code>
+</td>
+<td class="hdlist2">
+<p>Tab</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\v</code>
+</td>
+<td class="hdlist2">
+<p>Vertical tab</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\\</code>
+</td>
+<td class="hdlist2">
+<p>Backslash</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\&#34;</code>
+</td>
+<td class="hdlist2">
+<p>Double quotes</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\&#39;</code>
+</td>
+<td class="hdlist2">
+<p>Single quotes</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\[</code>
+</td>
+<td class="hdlist2">
+<p>Left square bracket</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\]</code>
+</td>
+<td class="hdlist2">
+<p>Right square bracket</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph">
+<p>It is possible to get the length of a string, as a number, by using the unary length operator
+(<code>#</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" style="color: #d0d0d0;background-color: #151515"><code data-lang="lua"><span style="color: #d0d0d0;background-color: #151515">print</span><span style="color: #d0d0d0">(</span><span style="color: #d0d0d0">#</span><span style="color: #d0d0d0">(</span><span style="color: #90a959">&#34;This is a string&#34;</span><span style="color: #d0d0d0">))</span> <span style="color: #505050">--&gt; 16</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_concatenation">9.4.1. Concatenation</h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>In <a href="https://en.wikipedia.org/wiki/formal%20language">formal language theory</a> and
+<a href="https://en.wikipedia.org/wiki/computer%20programming">computer programming</a>
+<em>string concatenation</em> is the operation of joining two character
+<a href="https://en.wikipedia.org/wiki/character%20string%20%28computer%20science%29">strings</a>
+end-to-end.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. &#34;snowball&#34;</div>
+<div class="content">
+<div class="paragraph">
+<p>The concatenation of &#34;snow&#34; and &#34;ball&#34;.</p>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_types">9.5. Other types</h3>
+<div class="paragraph">
+<p>The four basic types in Lua (numbers, booleans, nil and strings) have been described in
+the previous sections, but four types are missing:
+functions, tables, userdata and threads.</p>
+</div>
+<div class="hdlist">
+<table>
+<tbody><tr>
+<td class="hdlist1">
+Functions
+</td>
+<td class="hdlist2">
+<p>Pieces of code that can be called, receive values and return values back.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Tables
+</td>
+<td class="hdlist2">
+<p>Data structures that can be used for data manipulation.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Userdata
+</td>
+<td class="hdlist2">
+<p>Used internally by applications Lua is embedded in to allow
+Lua to communicate with that program through objects controlled by the
+application.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Threads
+</td>
+<td class="hdlist2">
+<p>Used by coroutines, which allow many functions to run at the <em>same time</em>.</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_literals">10. Literals</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+
+                            </div>
+                            </div>
+                            <div class="mainside">
+                                
+                                
+                                
+                                <h5>Table Of Content</h5>
+                                <div class="tableofcontents">
+                                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#_hello_world">1. Hello World!</a></li>
+    <li><a href="#_syntax">2. Syntax</a></li>
+    <li><a href="#_obtaining_lua">3. Obtaining Lua</a></li>
+    <li><a href="#_basics">4. Basics</a></li>
+    <li><a href="#_chuncks">5. Chuncks</a>
+      <ul>
+        <li><a href="#_some_lexical_conventions">5.1. Some Lexical Conventions</a></li>
+      </ul>
+    </li>
+    <li><a href="#_comments">6. Comments</a></li>
+    <li><a href="#_expressions">7. Expressions</a></li>
+    <li><a href="#_global_variables">8. Global Variables</a></li>
+    <li><a href="#_types_and_values">9. Types and Values</a>
+      <ul>
+        <li><a href="#_nil">9.1. Nil</a></li>
+        <li><a href="#_booleans">9.2. Booleans</a></li>
+        <li><a href="#_numbers">9.3. Numbers</a></li>
+        <li><a href="#_strings">9.4. Strings</a></li>
+        <li><a href="#_other_types">9.5. Other types</a></li>
+      </ul>
+    </li>
+    <li><a href="#_literals">10. Literals</a></li>
+  </ul>
+</nav>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        
+
+                         <div id="nextprev">
+<a href="/programming/go/"><div id="prevart">« Previous<br>Golang</div></a>
+<a href="/readme/"><div id="nextart">Next »<br></div></a>
+</div>
+<br>
+ <div style="clear:both" class=taglist>Related<br><a id="tag_lua" href="https://hossein-lap.github.io/tags/lua">Lua</a> &middot; <a id="tag_embedded" href="https://hossein-lap.github.io/tags/embedded">Embedded</a> &middot; <a id="tag_game" href="https://hossein-lap.github.io/tags/game">Game</a> &middot; <a id="tag_plugin" href="https://hossein-lap.github.io/tags/plugin">Plugin</a></div>
+ </div>
+                </article>
+                <br>
+                <hr>
+                
+                <footer>
+                    <div class="footer">
+                        <div class='botbar'>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="https://hossein-lap.github.io/">tanren</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="/index.xml"> Subscribe via RSS for updates. </a>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </footer>
+                
+        </main>
+    </body>
+</html>

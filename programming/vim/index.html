@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Vim | tanren&#8217;s blog</title>
+        <link rel="canonical" href="https://hossein-lap.github.io/">
+        <link rel='alternate' type='application/rss+xml' title="tanren RSS" href='/index.xml'>
+        <link rel='stylesheet' type='text/css' href='/fonts/fonts.css'>
+        <link rel='stylesheet' type='text/css' href='/css/style.css'>
+        <link rel='stylesheet' type='text/css' href='/css/syntax.css'>
+        <link rel='stylesheet' type='text/css' href='/css/theme.css'>
+        <script type="text/javascript" src="/fonts/fix-adoc.js"></script>
+        <link rel="icon" href="/favicon.ico">
+        <meta name="description" content="WIP: Vim the text editor.
+">
+        <meta name="keywords" content="Vim, vim-motions, config, vimscript">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <div class="mainmain">
+                <div class="topbar">
+                    
+                    <nav>
+   
+   
+   
+
+   
+   
+   <div class='topbariten'>
+         <a href="/">
+            <span class=pre></span>
+            <span class=menuname>P J</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a class="menuactive" href="/programming/">
+            <span class=pre></span>
+            <span class=menuname>Programming</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="/tools/">
+            <span class=pre></span>
+            <span class=menuname>Tools</span>
+         </a>
+   </div>
+   
+   <div class='topbariten'>
+         <a href="https://hossein-lap.github.io">
+            <span class=pre></span>
+            <span class=menuname>About</span>
+         </a>
+   </div>
+   
+</nav>
+
+                    </div>
+                <header>
+                    
+                    <div class="header">
+                        <div class="thetitle">
+                            Vim
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="thedate">
+                            July 14, 2024
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </header>
+                
+                <article>
+                    <div class="row">
+                        
+                        
+                        <div class="container">
+                            <div class="mainpad">
+                            <div class="scrollable">
+                                
+<div class="sect1">
+<h2 id="_simulating_vim_on_the_page">1. Simulating Vim on the Page</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>ctrl</code>-<code>s</code> is a common convention for representing chordal commands. It means
+&#34;Press the Control key and the <code>s</code> key at the same time.&#34; But this convention
+isn’t well suited to describing Vim’s modal command set.</p>
+</div>
+<div class="sect2">
+<h3 id="_playing_melodies">1.1. Playing Melodies</h3>
+<div class="paragraph">
+<p>In Normal mode, we compose commands by typing one or more keystrokes in
+sequence. There commands appear as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;"/>
+<col style="width: 50%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Notation</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>x</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>x</code> once</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dw</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In sequence, pres <code>d</code>, then <code>w</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dap</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In sequence, pres <code>d</code>, <code>a</code>, then <code>p</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Most of these sequences involve two or three keystrokes, but some are longer.
+Deciphering the meaning of Vim’s Normal mode command sequences can be
+challenging, but you’ll get better at it with practice.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_playing_chords">1.2. Playing Chords</h3>
+<div class="paragraph">
+<p>When you see a keystroke such as <code>&lt;C-p&gt;</code>, it doesn’t mean &#34;Press <code>&lt;</code>, then <code>C</code>,
+then <code>-</code>, and so on.&#34; The <code>&lt;C-p&gt;</code> notation is equivalent to <code>Ctrl</code>-<code>p</code>, which
+means &#34;Press the <code>Ctrl</code> and <code>p</code> keys at the same time&#34;
+Some of Vim’s commands are formed by combining chords and keystrokes in
+sequence, and this notation handles them well. Consider these examples:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;"/>
+<col style="width: 50%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Notation</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;C-n&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>&lt;Ctrl&gt;</code> and <code>n</code> at the same time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>g&lt;C-]&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>g</code>, followed by <code>&lt;Ctrl&gt;</code> and <code>]</code> at the same time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;C-r&gt;0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>&lt;Ctrl&gt;</code> and <code>r</code> at the same tile, then <code>0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;C-w&gt;&lt;C-=&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>&lt;Ctrl&gt;</code> and <code>w</code> at the same time, then <code>&lt;Ctrl&gt;</code> and <code>=</code> at the same time</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_placeholders">1.3. Placeholders</h3>
+<div class="paragraph">
+<p>Some commands must be followed by a particular kind of keystroke, while other
+command can be followed by any key on the keyboard. I use curly braces to
+denote the set of valid keystrokes that can follow a command.</p>
+</div>
+<div class="paragraph">
+<p>Here are some examples:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;"/>
+<col style="width: 50%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Notation</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f{char}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>f</code>, followed by any other character</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>`{a-z}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>`</code>, followed by any lowercase letter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m{a-zA-Z}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>m</code>, followed by any lowercase or upper case letter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d{motion}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>d</code>, followed by any motion command</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;C-r&gt;{register}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>&lt;Ctrl&gt;</code> and <code>r</code> at the same time, followed by the address of a
+  register</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_showing_special_keys">1.4. Showing Special Keys</h3>
+<div class="paragraph">
+<p>Some keys are called by name. This table shows a selection of them:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;"/>
+<col style="width: 50%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Notation</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;Esc&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press the Escape key</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;CR&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press the carriage return key (aka <code>&lt;Enter&gt;</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;Ctrl&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press the Control key</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;Tab&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press the Tab key</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;Shift&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press the Shift key</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;S-Tab&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press the <code>&lt;Shift&gt;</code> and <code>&lt;Tab&gt;</code> key at the same time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;Up&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press the up-arrow key</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;Down&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press the down-arrow key</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code> </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press the space bar</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Note that the space bar is represented as <code> </code>. This could be combined with the
+<code>f{char}</code> command to form <code>f </code>.</p>
+</div>
+</div>
+</div>
+</div>
+
+                            </div>
+                            </div>
+                            <div class="mainside">
+                                
+                                
+                                
+                                <h5>Table Of Content</h5>
+                                <div class="tableofcontents">
+                                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#_simulating_vim_on_the_page">1. Simulating Vim on the Page</a>
+      <ul>
+        <li><a href="#_playing_melodies">1.1. Playing Melodies</a></li>
+        <li><a href="#_playing_chords">1.2. Playing Chords</a></li>
+        <li><a href="#_placeholders">1.3. Placeholders</a></li>
+        <li><a href="#_showing_special_keys">1.4. Showing Special Keys</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        
+
+                         <div id="nextprev">
+<a href="/programming/grafana/"><div id="prevart">« Previous<br>Grafana</div></a>
+<a href="/programming/perl/perl/"><div id="nextart">Next »<br>Perl</div></a>
+</div>
+<br>
+ <div style="clear:both" class=taglist>Related<br><a id="tag_vim" href="https://hossein-lap.github.io/tags/vim">Vim</a> &middot; <a id="tag_vim-motions" href="https://hossein-lap.github.io/tags/vim-motions">Vim-Motions</a> &middot; <a id="tag_config" href="https://hossein-lap.github.io/tags/config">Config</a> &middot; <a id="tag_vimscript" href="https://hossein-lap.github.io/tags/vimscript">Vimscript</a></div>
+ </div>
+                </article>
+                <br>
+                <hr>
+                
+                <footer>
+                    <div class="footer">
+                        <div class='botbar'>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="https://hossein-lap.github.io/">tanren</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="/index.xml"> Subscribe via RSS for updates. </a>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </footer>
+                
+        </main>
+    </body>
+</html>
