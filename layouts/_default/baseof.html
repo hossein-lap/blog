@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
+    <head>
+        <title>{{ if not .IsHome }}{{ .Title | title }} | {{ end }}{{ .Site.Title }}&#8217;s blog</title>
+        <link rel="canonical" href="{{ .Site.BaseURL }}">
+        <link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='/blog/index.xml'>
+        {{ with .Site.Params.favicon }} <link rel="icon" href="{{ . }}"> {{ end }}
+        {{ range .Site.Params.custom_css }}
+            <link rel='stylesheet' type='text/css' href="{{ . }}">
+        {{ end -}}
+        {{ range .Site.Params.custom_js }}
+            <script type="text/javascript" src="{{ . }}"></script>
+        {{ end }}
+        <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+        {{ if isset .Params "tags" }}<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
+        {{ end -}}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <div class="mainmain">
+                <div class="topbar">
+                    {{ if .Site.Menus.main }}
+                    {{ partial "nav.html" . }}
+                    {{ end -}}
+                </div>
+                <header>
+                    {{ if .IsHome }}
+                    <div class="header">
+                        <div class="thetitle">
+                            {{ block "title" . }}{{ end }}
+                        </div>
+                        {{ if .Params.subtitle }}
+                        <div class="thesubtitle">
+                            {{ .Params.subtitle }}
+                        </div>
+                        {{ end }}
+                    </div>
+                    {{ else }}
+                    <div class="header">
+                        <div class="thetitle">
+                            {{ block "title" . }}{{ end }}
+                        </div>
+                        {{ if .Params.subtitle }}
+                        <div class="thesubtitle">
+                            {{ .Params.subtitle }}
+                        </div>
+                        {{ end }}
+                        {{ if "author" }}
+                        {{ block "author" . }}{{ end }}
+                        {{ else }}
+                        {{ with .Params.author }}
+                        <div class="theauthors">
+                            {{ delimit . ", " " and " }}
+                        </div>
+                        {{ end }}
+                        {{ end }}
+                        {{ if .Content }}
+                        {{ if .Date }}
+                        <div class="thedate">
+                            {{ .Date.Format "January 2, 2006" }}
+                        </div>
+                        {{end}}
+                        {{end}}
+                    </div>
+                    {{ end }}
+                </header>
+                <!-- main body -->
+                <article>
+                    <div class="row">
+                        {{ block "main" . }}
+                        {{ if .IsHome }}
+                        <div class="mainpad">
+                            {{ .Content }}
+                        </div>
+                        {{ else }}
+                        <div class="container">
+                            <div class="mainpad">
+                            <div class="scrollable">
+                                {{ .Content }}
+                            </div>
+                            </div>
+                            <div class="mainside">
+                                {{ if .Params.pdf }}
+                                <a href="{{ .Site.BaseURL }}{{ .Params.pdf }}">Get the PDF</a>
+                                {{ end }}
+                                {{ if .Params.toc }}
+                                {{ if .TableOfContents }}
+                                <h5>Table Of Content</h5>
+                                <div class="tableofcontents">
+                                    {{ .TableOfContents }}
+                                </div>
+                                {{ end }}
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                        {{ end }}
+
+                        {{ if .Param "nextprev" }} {{ partial "nextprev.html" . -}} {{ end -}}
+                        {{ if .Param "taglist" }} {{ partial "taglist.html" . }} {{ end -}}
+
+                    </div>
+                </article>
+                <br>
+                <hr>
+                {{ if .IsHome }}
+                {{ block "footer" . }}
+                <footer>
+                    <div class="footer">
+                        <div class='botbar'>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <a href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
+                                    </td>
+                                    {{- if .Param "email" }}
+                                    <td>
+                                        <a href='mailto://{{ .Param "email" }}'> E-Mail </a>
+                                    </td>
+                                    {{ end }}
+                                </tr>
+                                <tr>
+                                    {{- if .Param "showrss" }}
+                                    <td>
+                                        <a href="/blog/index.xml"> Subscribe via RSS for updates. </a>
+                                    </td>
+                                    {{ end }}
+                                    {{- if .Param "github" }}
+                                    <td>
+                                        <a href='https://github.com/{{ .Param "github" }}'> Github </a>
+                                    </td>
+                                    {{ end }}
+                                    {{- if .Param "gitlab" }}
+                                    <td>
+                                        <a href='https://gitlab.com/{{ .Param "gitlab" }}'> Gitlab </a>
+                                    </td>
+                                    {{ end }}
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </footer>
+                {{ end }} {{ else }}
+                <footer>
+                    <div class="footer">
+                        <div class='botbar'>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+                                    </td>
+                                    {{- if .Param "github" }}
+                                    <td>
+                                        <a href='https://github.com/{{ .Param "github" }}'> Github </a>
+                                    </td>
+                                    {{ end }}
+                                    {{- if .Param "gitlab" }}
+                                    <td>
+                                        <a href='https://gitlab.com/{{ .Param "gitlab" }}'> Gitlab </a>
+                                    </td>
+                                    {{ end }}
+                                </tr>
+                                <tr>
+                                    {{- if .Param "codeberg" }}
+                                    <td>
+                                        <a href='https://codeberg.com/{{ .Param "gitlab" }}'> Codeberg </a>
+                                    </td>
+                                    {{ end }}
+                                    {{- if .Param "email" }}
+                                    <td>
+                                        <a href='mailto://{{ .Param "gitlab" }}'> E-Mail </a>
+                                    </td>
+                                    {{ end }}
+                                    <td>
+                                        {{- if .Param "showrss" }}
+                                        <a href="/index.xml"> Subscribe via RSS for updates. </a>
+                                        {{ end }}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </footer>
+                {{ end }}
+        </main>
+    </body>
+</html>

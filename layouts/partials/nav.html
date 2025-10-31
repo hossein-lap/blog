@@ -1,0 +1,57 @@
+<nav>
+   {{- $sec := .Page.Section }}
+
+   {{- $sec := .Page.Section -}}
+   {{ $file := "" }}
+   {{ with .File }}
+   {{ $file = .TranslationBaseName }}
+   {{ end }}
+
+   {{ range.Site.Menus.main.ByWeight }}
+   {{ $base := path.Base .URL }}
+   <div class='topbariten'>
+         <a {{ if or ( eq $sec $base ) ( eq $file $base ) ( and (eq $sec "") ( eq $file "_index") (eq $base "/") ) }}class="menuactive" {{ end }}href="{{ .URL }}">
+            <span class=pre>{{ .Pre }}</span>
+            <span class=menuname>{{ .Name }}</span>
+         </a>
+   </div>
+      {{- end }}
+   <!--
+   <aside>
+      <ul>
+         {{ $currentPage := . }}
+         {{ range .Site.Menus.main }}
+            {{ if .HasChildren }}
+         <div class='topbar'>
+               <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                  <a href="#">
+                     {{ .Pre }}
+                     <span>{{ .Name }}</span>
+                  </a>
+               </li>
+         </div>
+         <div class='topbar'>
+               <ul class="sub-menu">
+                  {{ range .Children }}
+                     <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                        <a href="{{ .URL }}">{{ .Name }}</a>
+                     </li>
+                  {{ end }}
+               </ul>
+         </div>
+            {{ else }}
+         <div class='topbar'>
+               <li>
+                  <a href="{{ .URL }}">
+                     {{ .Pre }}
+                     <span>{{ .Name }}</span>
+                  </a>
+               </li>
+         </div>
+            {{ end }}
+         {{ end }}
+      </ul>
+   </aside>
+   </div>
+   -->
+</nav>

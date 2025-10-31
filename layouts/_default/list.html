@@ -1,0 +1,98 @@
+{{ define "title" -}}
+{{ .Title | title }}
+{{- end }}
+{{ define "main" -}}
+{{ .Content }}
+{{ if .IsHome }}
+{{- if .Data.Pages -}}
+
+    <div class="sitemap">
+        {{- range .Data.Pages -}}
+        <h2>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        {{ if .Title }}
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th></th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{- range .Pages }}
+                <tr>
+                    <td>
+                        <b>
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </b>
+                    </td>
+                    <td>
+                        {{- if .Param "datesinlist" }}
+                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                            {{ .Date.Format "2006 Jan 02" }}
+                        </time>
+                        {{ end -}}
+                    </td>
+                    <td>
+                        {{ if .Param "description" }}
+                        {{ .Param "description" }}
+                        {{ end }}
+                    </td>
+                    <td>
+                        <a href="{{ .RelPermalink }}">Read More</a>
+                    </td>
+                </tr>
+                {{- end }}
+            </tbody>
+        {{- end -}}
+        </table>
+        {{ end }}
+    </div>
+
+{{- end -}} {{ else }}
+
+    <h2> Posts </h2>
+    <div class="sitemap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th></th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{- range .Pages }}
+                <tr>
+                    <td>
+                        <b>
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </b>
+                    </td>
+                    <td>
+                        {{- if .Param "datesinlist" }}
+                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                            {{ .Date.Format "2006 Jan 02" }}
+                        </time>
+                        {{ end -}}
+                    </td>
+                    <td>
+                        {{ if .Param "description" }}
+                        {{ .Param "description" }}
+                        {{ end }}
+                    </td>
+                    <td>
+                        <a href="{{ .RelPermalink }}">Read More</a>
+                    </td>
+                </tr>
+                {{- end }}
+            </tbody>
+        </table>
+    </div>
+
+{{ end }}
+{{- end }}

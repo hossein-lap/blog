@@ -27,9 +27,13 @@ params:
   taglist: true
   showrss: true
 
+  custom_js:
+    - "/blog/fonts/fix-adoc.js"
+
   custom_css:
     - "/blog/fonts/fonts.css"
     - "/blog/css/syntax.css"
+    - "/blog/css/theme.css"
     - "/blog/css/style.css"
 
 # markup:
@@ -55,12 +59,12 @@ params:
 # Top Menu Example
 menu:
   main:
-    - Name: "P J"
+    - Name: "Home"
       URL: "/"
       weight: 1
     - Name: "Resume"
       URL: "https://hossein-lap.github.io"
-      weight: 99
+      weight: 1
     # - Name: "Progamming"
     #   URL: "/programming"
     #   weight: 1
