@@ -1,21 +1,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 	<title>tanren</title>
-	<link>https://hossein-lap.github.io/tags/build-system/</link>
+	<link>https://hossein-lap.github.io/blog/tags/build-system/</link>
 	<description>Recent content in Build System on tanren</description>
 	<generator>Hugo -- gohugo.io</generator>
 	<language>en-us</language>
 	<lastBuildDate>Tue, 08 Oct 2024 09:41:28 +0330</lastBuildDate>
     
-        <atom:link href="https://hossein-lap.github.io/tags/build-system/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://hossein-lap.github.io/blog/tags/build-system/index.xml" rel="self" type="application/rss+xml" />
 	
 	
 	<item>
 		<title>Makefile</title>
-		<link>https://hossein-lap.github.io/tools/makefile/</link>
+		<link>https://hossein-lap.github.io/blog/tools/makefile/</link>
 		<pubDate>Tue, 08 Oct 2024 09:41:28 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/tools/makefile/</guid>
+		<guid>https://hossein-lap.github.io/blog/tools/makefile/</guid>
 		<description>
 &lt;div id=&#34;preamble&#34;&gt;
 &lt;div class=&#34;sectionbody&#34;&gt;
@@ -342,10 +342,10 @@ target) then you’ll get a description of the available targets.&lt;/p&gt;
 	
 	<item>
 		<title>Bash</title>
-		<link>https://hossein-lap.github.io/tools/bash/</link>
+		<link>https://hossein-lap.github.io/blog/tools/bash/</link>
 		<pubDate>Mon, 07 Oct 2024 15:10:23 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/tools/bash/</guid>
+		<guid>https://hossein-lap.github.io/blog/tools/bash/</guid>
 		<description>
 &lt;div class=&#34;sect1&#34;&gt;
 &lt;h2 id=&#34;_add_colors&#34;&gt;1. Add Colors&lt;/h2&gt;
@@ -382,10 +382,10 @@ check&lt;/code&gt;&lt;/pre&gt;
 	
 	<item>
 		<title>Git</title>
-		<link>https://hossein-lap.github.io/programming/git/</link>
+		<link>https://hossein-lap.github.io/blog/programming/git/</link>
 		<pubDate>Thu, 26 Sep 2024 09:54:32 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/programming/git/</guid>
+		<guid>https://hossein-lap.github.io/blog/programming/git/</guid>
 		<description>
 &lt;div class=&#34;sect1&#34;&gt;
 &lt;h2 id=&#34;_init&#34;&gt;1. init&lt;/h2&gt;
@@ -1538,10 +1538,10 @@ git fetch&lt;/code&gt;&lt;/pre&gt;
 	
 	<item>
 		<title>Docker</title>
-		<link>https://hossein-lap.github.io/programming/docker/</link>
+		<link>https://hossein-lap.github.io/blog/programming/docker/</link>
 		<pubDate>Sat, 14 Sep 2024 15:53:26 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/programming/docker/</guid>
+		<guid>https://hossein-lap.github.io/blog/programming/docker/</guid>
 		<description>
 &lt;div class=&#34;sect1&#34;&gt;
 &lt;h2 id=&#34;_intro&#34;&gt;1. Intro&lt;/h2&gt;
@@ -1587,7 +1587,7 @@ maintenance.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;imageblock&#34;&gt;
 &lt;div class=&#34;content&#34;&gt;
-&lt;img src=&#34;https://hossein-lap.github.io/images/notes/docker/vm-vs-container.png&#34; alt=&#34;vm vs container&#34;/&gt;
+&lt;img src=&#34;https://hossein-lap.github.io/blog/images/notes/docker/vm-vs-container.png&#34; alt=&#34;vm vs container&#34;/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1819,10 +1819,10 @@ test                   latest            1825da98372a   6 minutes ago   95.4MB&l
 	
 	<item>
 		<title>Perl</title>
-		<link>https://hossein-lap.github.io/programming/perl/perl/</link>
+		<link>https://hossein-lap.github.io/blog/programming/perl/perl/</link>
 		<pubDate>Wed, 11 Sep 2024 15:04:10 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/programming/perl/perl/</guid>
+		<guid>https://hossein-lap.github.io/blog/programming/perl/perl/</guid>
 		<description>
 &lt;div id=&#34;preamble&#34;&gt;
 &lt;div class=&#34;sectionbody&#34;&gt;
@@ -4681,10 +4681,10 @@ execute repeatedly based on a condition like the above example.&lt;/p&gt;
 	
 	<item>
 		<title>Vim</title>
-		<link>https://hossein-lap.github.io/programming/vim/</link>
+		<link>https://hossein-lap.github.io/blog/programming/vim/</link>
 		<pubDate>Sun, 14 Jul 2024 14:42:49 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/programming/vim/</guid>
+		<guid>https://hossein-lap.github.io/blog/programming/vim/</guid>
 		<description>
 &lt;div class=&#34;sect1&#34;&gt;
 &lt;h2 id=&#34;_simulating_vim_on_the_page&#34;&gt;1. Simulating Vim on the Page&lt;/h2&gt;
@@ -4885,10 +4885,10 @@ denote the set of valid keystrokes that can follow a command.&lt;/p&gt;
 	
 	<item>
 		<title>Grafana</title>
-		<link>https://hossein-lap.github.io/programming/grafana/</link>
+		<link>https://hossein-lap.github.io/blog/programming/grafana/</link>
 		<pubDate>Sat, 06 Jul 2024 13:24:36 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/programming/grafana/</guid>
+		<guid>https://hossein-lap.github.io/blog/programming/grafana/</guid>
 		<description>
 &lt;div id=&#34;preamble&#34;&gt;
 &lt;div class=&#34;sectionbody&#34;&gt;
@@ -5569,10 +5569,10 @@ usual.&lt;/p&gt;
 	
 	<item>
 		<title>Accessing K8S pods</title>
-		<link>https://hossein-lap.github.io/tools/k8s-ingress-loadbalancer/</link>
+		<link>https://hossein-lap.github.io/blog/tools/k8s-ingress-loadbalancer/</link>
 		<pubDate>Fri, 31 May 2024 18:50:32 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/tools/k8s-ingress-loadbalancer/</guid>
+		<guid>https://hossein-lap.github.io/blog/tools/k8s-ingress-loadbalancer/</guid>
 		<description>
 &lt;div id=&#34;preamble&#34;&gt;
 &lt;div class=&#34;sectionbody&#34;&gt;
@@ -5592,7 +5592,7 @@ usual.&lt;/p&gt;
 &lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://hossein-lap.github.io/pdfs/notes/k8s-ingress-loadbalancer.pdf&#34;&gt;Download this note as a PDF&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hossein-lap.github.io/blog/pdfs/notes/k8s-ingress-loadbalancer.pdf&#34;&gt;Download this note as a PDF&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6447,10 +6447,10 @@ the pods.&lt;/p&gt;
 	
 	<item>
 		<title>Webserver</title>
-		<link>https://hossein-lap.github.io/tools/webserver/</link>
+		<link>https://hossein-lap.github.io/blog/tools/webserver/</link>
 		<pubDate>Fri, 31 May 2024 16:47:17 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/tools/webserver/</guid>
+		<guid>https://hossein-lap.github.io/blog/tools/webserver/</guid>
 		<description>
 &lt;div id=&#34;preamble&#34;&gt;
 &lt;div class=&#34;sectionbody&#34;&gt;
@@ -6949,10 +6949,10 @@ timestamp format.&lt;/p&gt;
 	
 	<item>
 		<title></title>
-		<link>https://hossein-lap.github.io/readme/</link>
+		<link>https://hossein-lap.github.io/blog/readme/</link>
 		<pubDate>Sun, 26 May 2024 22:08:49 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/readme/</guid>
+		<guid>https://hossein-lap.github.io/blog/readme/</guid>
 		<description>&lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;Welcome to my blog. I’m Hossein and I’ll be posting myown notes, ideas,
 programs. A Programmer / DevOps Engineer with passions about open-source
@@ -7015,10 +7015,10 @@ software and trees.&lt;/p&gt;
 	
 	<item>
 		<title>Lua</title>
-		<link>https://hossein-lap.github.io/programming/lua/lua/</link>
+		<link>https://hossein-lap.github.io/blog/programming/lua/lua/</link>
 		<pubDate>Tue, 02 Apr 2024 22:30:09 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/programming/lua/lua/</guid>
+		<guid>https://hossein-lap.github.io/blog/programming/lua/lua/</guid>
 		<description>
 &lt;div id=&#34;preamble&#34;&gt;
 &lt;div class=&#34;sectionbody&#34;&gt;
@@ -8163,10 +8163,10 @@ Threads
 	
 	<item>
 		<title>Golang</title>
-		<link>https://hossein-lap.github.io/programming/go/</link>
+		<link>https://hossein-lap.github.io/blog/programming/go/</link>
 		<pubDate>Tue, 02 Apr 2024 22:30:03 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/programming/go/</guid>
+		<guid>https://hossein-lap.github.io/blog/programming/go/</guid>
 		<description>
 &lt;div id=&#34;preamble&#34;&gt;
 &lt;div class=&#34;sectionbody&#34;&gt;
@@ -8206,10 +8206,10 @@ Threads
 	
 	<item>
 		<title>AsciiDoc(tor): Yo Dawg!</title>
-		<link>https://hossein-lap.github.io/programming/asciidoc/</link>
+		<link>https://hossein-lap.github.io/blog/programming/asciidoc/</link>
 		<pubDate>Tue, 02 Apr 2024 22:09:44 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/programming/asciidoc/</guid>
+		<guid>https://hossein-lap.github.io/blog/programming/asciidoc/</guid>
 		<description>
 &lt;div class=&#34;sect1&#34;&gt;
 &lt;h2 id=&#34;_intro&#34;&gt;1. Intro&lt;/h2&gt;
@@ -8898,17 +8898,17 @@ image::http://asciidoctor.org/images/octocat.jpg[GitHub mascot]&lt;/code&gt;&lt;
 &lt;div class=&#34;title&#34;&gt;Output&lt;/div&gt;
 &lt;div class=&#34;imageblock&#34;&gt;
 &lt;div class=&#34;content&#34;&gt;
-&lt;img src=&#34;https://hossein-lap.github.io/images/asciidoc/rose.png&#34; alt=&#34;rose&#34;/&gt;
+&lt;img src=&#34;https://hossein-lap.github.io/blog/images/asciidoc/rose.png&#34; alt=&#34;rose&#34;/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&#34;imageblock&#34;&gt;
 &lt;div class=&#34;content&#34;&gt;
-&lt;img src=&#34;https://hossein-lap.github.io/images/asciidoc/rose.png&#34; alt=&#34;Rose&#34;/&gt;
+&lt;img src=&#34;https://hossein-lap.github.io/blog/images/asciidoc/rose.png&#34; alt=&#34;Rose&#34;/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;img-sunset&#34; class=&#34;imageblock&#34;&gt;
 &lt;div class=&#34;content&#34;&gt;
-&lt;a class=&#34;image&#34; href=&#34;http://www.flickr.com/photos/javh/5448336655&#34;&gt;&lt;img src=&#34;https://hossein-lap.github.io/images/asciidoc/rose.png&#34; alt=&#34;Rose&#34; width=&#34;300&#34; height=&#34;200&#34;/&gt;&lt;/a&gt;
+&lt;a class=&#34;image&#34; href=&#34;http://www.flickr.com/photos/javh/5448336655&#34;&gt;&lt;img src=&#34;https://hossein-lap.github.io/blog/images/asciidoc/rose.png&#34; alt=&#34;Rose&#34; width=&#34;300&#34; height=&#34;200&#34;/&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div class=&#34;title&#34;&gt;Figure 1: A rose&lt;/div&gt;
 &lt;/div&gt;
@@ -9330,10 +9330,10 @@ can long endure. ...&lt;/pre&gt;
 	
 	<item>
 		<title>Elixir</title>
-		<link>https://hossein-lap.github.io/programming/elixir/</link>
+		<link>https://hossein-lap.github.io/blog/programming/elixir/</link>
 		<pubDate>Tue, 02 Apr 2024 22:09:44 +0330</pubDate>
 		
-		<guid>https://hossein-lap.github.io/programming/elixir/</guid>
+		<guid>https://hossein-lap.github.io/blog/programming/elixir/</guid>
 		<description>&lt;div id=&#34;preamble&#34;&gt;
 &lt;div class=&#34;sectionbody&#34;&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
