@@ -1,16 +1,17 @@
-baseURL: "https://hossein-lap.github.io"
+baseURL: "https://hossein-lap.github.io/blog"
 theme: "allgray"
 # theme: "hugo-ficurinia"
-title: "primejade"
+title: "tanren"
 languageCode: "en-us"
 defaultContentLanguage: "en"
 
 
 params:
   author: "primejade"
+  # subtitle: "Tanren"
   # "relatedtext" is the text that appears above the tag list at the bottom of pages.
   relatedtext: "Related"
-  favicon: "/favicon.ico"
+  favicon: "/blog/favicon.ico"
 
   # github: hossein-lap
   # gitlab: primejade
@@ -27,9 +28,9 @@ params:
   showrss: true
 
   custom_css:
-    - "/fonts/fonts.css"
-    - "/css/syntax.css"
-    - "/css/style.css"
+    - "/blog/fonts/fonts.css"
+    - "/blog/css/syntax.css"
+    - "/blog/css/style.css"
 
 # markup:
 #   goldmark:
@@ -57,6 +58,9 @@ menu:
     - Name: "P J"
       URL: "/"
       weight: 1
+    - Name: "Resume"
+      URL: "https://hossein-lap.github.io"
+      weight: 99
     # - Name: "Progamming"
     #   URL: "/programming"
     #   weight: 1
