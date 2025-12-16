@@ -1,0 +1,24 @@
+site:
+  title: Hos Notes
+  start_page: home-page::index.adoc
+content:
+  sources:
+  - url: https://github.com/hossein-lap/note-base.git
+    branches: devel
+    start_path: docs
+  - url: https://github.com/hossein-lap/note-perl.git
+    branches: devel
+    start_path: docs
+  # - url: https://github.com/hossein-lap/note-golang.git
+  #   branches: devel
+  #   start_path: docs
+  # - url: https://github.com/hossein-lap/note-lua.git
+  #   branches: devel
+  #   start_path: docs
+  # - url: https://github.com/hossein-lap/note-shell.git
+  #   branches: devel
+  #   start_path: docs
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
