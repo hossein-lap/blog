@@ -9,9 +9,9 @@ content:
   - url: https://github.com/hossein-lap/note-perl.git
     branches: devel
     start_path: docs
-  # - url: https://github.com/hossein-lap/note-golang.git
-  #   branches: devel
-  #   start_path: docs
+  - url: https://github.com/hossein-lap/note-golang.git
+    branches: devel
+    start_path: docs
   # - url: https://github.com/hossein-lap/note-lua.git
   #   branches: devel
   #   start_path: docs
