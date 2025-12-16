@@ -1,6 +1,6 @@
 site:
   title: Hos Notes
-  start_page: home-page::index.adoc
+  start_page: perl-programming::index.adoc
 content:
   sources:
   - url: https://github.com/hossein-lap/note-base.git
@@ -10,6 +10,9 @@ content:
     branches: devel
     start_path: docs
   - url: https://github.com/hossein-lap/note-golang.git
+    branches: devel
+    start_path: docs
+  - url: https://github.com/hossein-lap/note-git.git
     branches: devel
     start_path: docs
   # - url: https://github.com/hossein-lap/note-lua.git

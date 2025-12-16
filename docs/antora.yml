@@ -2,5 +2,5 @@
 name: home-page
 version: ~
 title: Home Page
-nav:
-- modules/ROOT/nav.adoc
+# nav:
+# - modules/ROOT/nav.adoc
