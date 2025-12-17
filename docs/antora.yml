@@ -1,6 +1,6 @@
 
 name: hos-docs
-version: 9.9.9
+version: 0.1.0
 title: Hos
 start_page: index.adoc
 nav:
