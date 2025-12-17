@@ -2,5 +2,6 @@
 name: hos-docs
 version: ~
 title: Hos
+start_page: index.adoc
 nav:
 - modules/ROOT/nav.adoc
