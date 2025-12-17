@@ -1,7 +1,7 @@
 
 name: hos-docs
 version: 0.1.0
-title: Hos
+title: Blog
 start_page: index.adoc
 nav:
 - modules/ROOT/nav.adoc

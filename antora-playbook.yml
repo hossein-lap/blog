@@ -1,6 +1,8 @@
 site:
   title: Hos Notes
   start_page: hos-docs::index.adoc
+  url: https://primejade.github.io/blog
+
 content:
   sources:
   - url: https://github.com/hossein-lap/note-base.git
@@ -25,7 +27,25 @@ content:
   # - url: https://github.com/hossein-lap/note-shell.git
   #   branches: devel
   #   start_path: docs
+
+runtime:
+  cache_dir: ./cache/antora
+
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
     snapshot: true
+
+output:
+  clean: true
+  dir: ./build
+
+asciidoc: 
+  attributes: 
+    icons: font
+    icon-set: fi
+    sectnums: true
+    toc: false
+    source-highlighter: highlight.js
+    # highlightjs-theme: tomorrow-night
+    # pygments-style: solarized-light   skip-front-matter: true
