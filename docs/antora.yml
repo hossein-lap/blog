@@ -1,6 +1,6 @@
 
-name: home-page
+name: hos-docs
 version: ~
-title: Home Page
-# nav:
-# - modules/ROOT/nav.adoc
+title: Hos
+nav:
+- modules/ROOT/nav.adoc
