@@ -1,6 +1,6 @@
 site:
   title: Hos Notes
-  start_page: hos-docs::index.adoc
+  start_page: note-base::index.adoc
   url: https://hossein-lap.github.io
   # homeUrl: &home_url /index.html
 
