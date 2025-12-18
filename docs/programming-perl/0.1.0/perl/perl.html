@@ -1,0 +1,3230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Perl | Hos Notes</title>
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="canonical" href="https://hossein-lap.github.io/programming-perl/0.1.0/perl/perl.html">
+    <meta property="og:url" content="https://hossein-lap.github.io/programming-perl/0.1.0/perl/perl.html">
+    <meta property="og:description" content="A documentation page for Perl Programming Language.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Perl Programming Language - Perl">
+    <meta property="og:image" content="https://hossein-lap.github.io/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <meta name="page-spec" content="programming-perl::perl/perl.adoc">
+    <link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+    <!-- Put the logo here -->
+    <a class="navbar-item logo" title="Hos Notes" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">
+        <img src="../../../_/img/logo.jpg" alt="Hos Notes" width="48">
+      </a>
+      <a class="navbar-item title" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">Hos Notes</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Languages</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">Programming</div>
+              <a class="navbar-item" href="../../../programming-go/0.1.0/index.html">
+                Go <small>Tooling</small>
+              </a>
+              <a class="navbar-item" href="#">
+                Lua <small>Plugable</small>
+              </a>
+              <a class="navbar-item" href="../index.html">
+                Perl <small>Scripting</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Markup</div>
+              <a class="navbar-item" href="#">
+                Asciidoc <small></small>
+              </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Tools</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">CLI Tooling</div>
+              <a class="navbar-item" href="../../../tool-git/0.1.0/index.html">
+                Git <small>Version Control</small>
+              </a>
+            <hr class="navbar-divider">
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <div class="navbar-link">section</div> -->
+        <!--   <div class="navbar-dropdown"> -->
+        <!--     <div class="navbar-item">subsection</div> -->
+        <!--       <a class="navbar-item" href="../../../tool-git/0.1.0/index.html"> -->
+        <!--         itemize <small>item</small> -->
+        <!--       </a> -->
+        <!--     <hr class="navbar-divider"> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Info</div>
+          <div class="navbar-dropdown is-right">
+            <div class="navbar-item">Contact</div>
+              <a class="navbar-item" href="mailto:hosteam01@gmail.com">
+                E-mail <small>hosteam01@gmail.com</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Social</div>
+              <a class="navbar-item" href="https://github.com/hossein-lap">
+                Github <small>hossein-lap</small>
+              </a>
+              <a class="navbar-item" href="https://gitlab.com/primejade">
+                Gitlab <small>primejade</small>
+              </a>
+              <a class="navbar-item" href="https://linkedin.com/in/hossein-esmail">
+                Linked-in <small>hossein-esmail</small>
+              </a>
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <a class="navbar-item" href="#" data-title="Support"> -->
+        <!--     <span class="icon"><img src="../../../_/img/octicons-24.svg#view-comment-discussion"></span> -->
+        <!--   </a> -->
+        <!--   <div class="navbar-dropdown is-right"> -->
+            <!-- <a class="navbar-item has-icon" href="https://chat.asciidoctor.org" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-comment-discussion"></span> -->
+            <!--   <span>Chat</span> -->
+            <!-- </a> -->
+            <!-- <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-linked-in"></span> -->
+            <!--   <span>E-Mail</span> -->
+            <!-- </a> -->
+        <!--     <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mail"></span> -->
+        <!--       <span>E-Mail</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mark-github"></span> -->
+        <!--       <span>Github</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mark-gitlab"></span> -->
+        <!--       <span>Gitlap</span> -->
+        <!--     </a> -->
+            <!-- <a class="navbar-item has-icon" href="https://twitter.com/asciidoctor" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-hash"></span> -->
+            <!--   <span>Tweets</span> -->
+            <!-- </a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Perl Programming Language</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="syntax/index.html">Basic Syntax</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-00-introduction.html">Syntax :: Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-01-variables.html">Syntax :: Variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-02-numbers.html">Syntax :: Numbers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-03-strings.html">Syntax :: Strings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-04-operators.html">Syntax :: Operators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-05-list.html">Syntax :: list</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-06-array.html">Syntax :: array</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-07-hash.html">Syntax :: hash</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-08-if.html">Syntax :: if</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-09-unless.html">Syntax :: unless</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-10-given.html">Syntax :: given</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-11-for.html">Syntax :: for</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-12-while.html">Syntax :: while</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-13-do-while.html">Syntax :: do-while</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-14-until.html">Syntax :: until</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-15-next.html">Syntax :: next</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-16-last.html">Syntax :: last</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-17-reference.html">Syntax :: Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-18-subroutine.html">Syntax :: Subroutine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-19-module.html">Syntax :: Module</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-20-oop.html">Syntax :: OOP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-21-dbi.html">Syntax :: DBI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-22-sort.html">Syntax :: sort</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-23-open-file.html">Syntax :: Open File</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-24-read-file.html">Syntax :: Read File</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-25-write-file.html">Syntax :: Write to File</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax/syntax-26-file-test-ops.html">Syntax :: File Test Operations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="helpers/index.html">Helpers</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Perl Programming Language</span>
+    <span class="version">0.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../note-base/0.1.0/index.html">Blog</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../note-base/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tool-git/0.1.0/index.html">Git Version Control System</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tool-git/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../programming-go/0.1.0/index.html">Go Programming Language</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../programming-go/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Perl Programming Language</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../note-base/0.1.0/index.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Perl Programming Language</a></li>
+    <li><a href="perl.html" class="discrete">Perl</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/hossein-lap/note-perl/edit/devel/docs/modules/ROOT/pages/perl/perl.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc programming-perl">
+<h1 class="page">Perl</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl programming language tutorial</p>
+</div>
+<div class="listingblock">
+<div class="title">Hello World!</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/bin/perl
+use warnings;
+print("Hello world!\n");</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>use warnings;</code> is called <em>pragma</em> in Perl. This pragma instructs Perl to turn
+on additional warning reporting.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_perl_syntax"><a class="anchor" href="#_perl_syntax"></a>1. Perl Syntax</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Basic <strong>Perl syntax</strong> to get started with Perl language quickly including
+variables, expressions, statements, block, comments, whitespaces, and keywords.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_values_and_variables"><a class="anchor" href="#_values_and_variables"></a>1.1. Values and Variables</h3>
+<div class="paragraph">
+<p>You develop Perl programs to manipulate some kinds of data. The data can be
+either <a href="#_perl_numbers">numbers</a>, <a href="#_perl_strings">strings</a>, or more
+complex such as a <a href="#_perl_list">list</a>. Data is held as value.</p>
+</div>
+<div class="listingblock">
+<div class="title">Some values</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">10
+20.2
+"Perl Syntax"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To hold a piece of data, you need <strong>variables</strong>. You use a variable to store a
+value. And through the name of the variable, you can process the value.</p>
+</div>
+<div class="paragraph">
+<p>The following illustrates some variables in Perl:</p>
+</div>
+<div class="listingblock">
+<div class="title">Define variables</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">$x = 10;
+$y = 20;
+$s = "Perl string";</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We have two integer variables (<code>$x</code> and <code>$y</code>) and one string variable (<code>$s</code>).
+For more information on Perl variables, check it out the
+<a href="#_perl_variables">Perl variables</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expressions"><a class="anchor" href="#_expressions"></a>1.2. Expressions</h3>
+<div class="paragraph">
+<p>In Perl, an expression is anything that returns a value.</p>
+</div>
+<div class="paragraph">
+<p>The expression can be used in a larger expression or a statement. The expression can be a literal
+<a href="#_perl_numbers">number</a>, complex expression with
+<a href="#_perl_operators">operators</a>, or a
+<a href="#_perl_subroutine">function (aka subroutine)</a>, call.</p>
+</div>
+<div class="paragraph">
+<p>For example, 3 is an expression that returns a value of 3. The <code>$a + $b</code> is an
+expression that returns the sum of two variables: <code>$a</code> and <code>$b</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_statements"><a class="anchor" href="#_statements"></a>1.3. Statements</h3>
+<div class="paragraph">
+<p>A statement is made up of expressions. A statement is executed by Perl at run-time.</p>
+</div>
+<div class="paragraph">
+<p>Each Perl statement must end with a semicolon (<code>;</code>). The following example
+shows the statements in Perl:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">$c = $a + $b;
+print($c);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_blocks"><a class="anchor" href="#_blocks"></a>1.4. Blocks</h3>
+<div class="paragraph">
+<p>A block is made up of statements wrapped in curly braces <code>{}</code>. You use blocks
+to organize statements in the program.</p>
+</div>
+<div class="paragraph">
+<p>The following example illustrates a block in Perl:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">{
+	$a = 1;
+	$a = $a + 1;
+	print($a);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Any variable declared inside a block has its own scope.</p>
+</div>
+<div class="paragraph">
+<p>It means the variables declared inside a block only last as long as the block
+is executed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comments"><a class="anchor" href="#_comments"></a>1.5. Comments</h3>
+<div class="paragraph">
+<p>In Perl, a comment begins with a hash (<code>#</code>) character. Perl interpreter ignores
+comments at both compile-time and runtime.</p>
+</div>
+<div class="paragraph">
+<p>Typically, you use comments to document the logic of your code. The code tells
+you what it does however comments provides information on why the code does so.</p>
+</div>
+<div class="paragraph">
+<p>Comments are very important and useful to you as a programmer in order to
+understand the code later. They’re also useful to other programmers who will
+read and maintain your programs in the future.</p>
+</div>
+<div class="paragraph">
+<p>Let’s take a look at the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">$salary = $salary + 1.05;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>What the code does is to increase the value of the variable <code>$salary</code> 5%.
+However, why it does so was not documented.</p>
+</div>
+<div class="paragraph">
+<p>Therefore the following code with comment is much clearer.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl"># increase salary %5 for employees who achieve KPI
+$salary = $salary + 1.05;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl also allows you to place a comment on the same line as the statement. See
+the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">$counter = 0; # reset the counter</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is important to use comments properly to make your code easier to
+understand.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_whitespace"><a class="anchor" href="#_whitespace"></a>1.6. Whitespace</h3>
+<div class="paragraph">
+<p>Whitespaces are spaces, tabs, and newlines. Perl is very flexible in terms of
+whitespaces usages. Consider the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">$x = 20;
+$y=20;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Both lines of code work perfectly. We surrounded the assignment operator (<code>=</code>)
+with whitespace in the first statement, but not in the second one.</p>
+</div>
+<div class="paragraph">
+<p>Perl really doesn’t care about the whitespace. However, it is a good practice
+to use whitespace to make the code more readable.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_keywords"><a class="anchor" href="#_keywords"></a>1.7. Keywords</h3>
+<div class="paragraph">
+<p>Perl has a set of keywords that have special meanings to its language.</p>
+</div>
+<div class="paragraph">
+<p>Perl keywords fall into some categories such as built-in function and control
+keywords.</p>
+</div>
+<div class="paragraph">
+<p>You should always avoid using keywords to name variables, functions,
+<a href="#_perl_modules">modules</a>, and other objects. Check it
+out the <a href="http://learn.perl.org/docs/keywords.html">Perl keywords</a>.</p>
+</div>
+<div class="paragraph">
+<p>Sometimes, it is fine to use a variable name such as <code>$print</code>, which is similar
+to the built-in <code>print()</code> function. However, this may lead to confusion. In
+addition, if the program has an issue, it’s more difficult to troubleshoot.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_perl_variables"><a class="anchor" href="#_perl_variables"></a>2. Perl Variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To manipulate data in your program, you use variables.</p>
+</div>
+<div class="paragraph">
+<p>Perl provides three types of variables: scalars, lists, and hashes to help you
+manipulate the corresponding data types including scalars, lists, and hashes.</p>
+</div>
+<div class="paragraph">
+<p>We&#8217;ll focus on the scalar variable in this section.</p>
+</div>
+<div class="sect2">
+<h3 id="_naming_variables"><a class="anchor" href="#_naming_variables"></a>2.1. Naming variables</h3>
+<div class="paragraph">
+<p>You use scalar variables to manipulate scalar data such as
+<a href="#_perl_numbers">numbers</a> and <a href="#_perl_strings">strings</a>,</p>
+</div>
+<div class="paragraph">
+<p>A scalar variable starts with a dollar sign (<code>$</code>), followed by a letter or
+underscore, after that, any combination of numbers, letters, and underscores.
+The name of a variable can be up to 255 characters.</p>
+</div>
+<div class="paragraph">
+<p>Perl is case-sensitive. The <code>$variable</code> and <code>$Variable</code> are different variables.</p>
+</div>
+<div class="paragraph">
+<p>Perl uses the dollar sign (<code>$</code>) as a prefix for the scalar variables because of
+the <code>$</code> looks like the character S in the scalar. You can use this tip to
+remember when you want to declare a scalar variable.</p>
+</div>
+<div class="listingblock">
+<div class="title">Valid variables:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">$gate = 10;
+$_port = 20;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Invalid variables:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">$4whatever = 20; # no letter or underscore found after dollar sign ($)
+$email-address = "zen@example.com"; # special character (-) found
+$home url = "http://localhost/perltutorial"; # space is not allowed</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_declaring_variables"><a class="anchor" href="#_declaring_variables"></a>2.2. Declaring variables</h3>
+<div class="paragraph">
+<p>Perl doesn’t require you to declare a variable before using it.</p>
+</div>
+<div class="paragraph">
+<p>For example, you can introduce a variable in your program and use it right away
+as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">$a = 10;
+$b = 20;
+$c = $a + $b;
+print($c);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In some cases, using a variable without declaring it explicitly may lead to
+problems. Let’s take a look at the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">$color = 'red';
+print "Your favorite color is " . $colour . "\n";</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The expected output was <code>Your favorite color is red</code>.</p>
+</div>
+<div class="paragraph">
+<p>However, in this case, you got <code>Your favorite color is</code>, because the <code>$color</code>
+and <code>$colour</code> are different variables. The mistake was made because of the
+<em>different variable names</em>.</p>
+</div>
+<div class="paragraph">
+<p>To prevent such cases, Perl provides a <em>pragma</em> called <code>strict</code> that requires you
+to declare variable explicitly before using it.</p>
+</div>
+<div class="paragraph">
+<p>In this case, if you use the <code>my</code> keyword to declare a variable and try to run
+the script, Perl will issue an error message indicating that a compilation
+error occurred due to the <code>$colour</code> variable must be declared explicitly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use strict;
+my $color = 'red';
+print "Your favorite color is " . $colour . "\n"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A variable declared with the <code>my</code> keyword is a <em>lexically scoped</em> variable.</p>
+</div>
+<div class="paragraph">
+<p>It means the variable is only accessible inside the enclosing block or all
+blocks nested inside the enclosing block. In other words, the variable is local
+to the enclosing block.</p>
+</div>
+<div class="paragraph">
+<p>Now, you’ll learn a very important concept in programming called variable
+scopes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_perl_variable_scopes"><a class="anchor" href="#_perl_variable_scopes"></a>2.3. Perl variable scopes</h3>
+<div class="paragraph">
+<p>Let’s take a look at the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+$color = 'red';
+print("my favorite #1 color is " . $color . "\n");
+# another block
+{
+	my $color = 'blue';
+	print("my favorite #2 color is " . $color . "\n");
+}
+# for checking
+print("my favorite #1 color is " . $color . "\n");</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">In the example above</div>
+<div class="ulist">
+<ul>
+<li>
+<p>First, declared a global variable named <code>$color</code></p>
+</li>
+<li>
+<p>Then, displayed the favorite color by referring to the <code>$color</code> variable. As
+expected, we get the red color in this case</p>
+</li>
+<li>
+<p>Next, created a new block and declared a variable with the same name <code>$color</code>
+using the <code>my</code> keyword. The <code>$color</code> variable is lexical. It is a local
+variable and only visible inside the enclosing block</p>
+</li>
+<li>
+<p>After that, inside the block, we displayed the favorite color and we got the
+<code>blue</code> color. The local variable takes priority in this case</p>
+</li>
+<li>
+<p>Finally, following the block, we referred to the <code>$color</code> variable and Perl
+referred to the <code>$color</code> global variable</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to declare global variables that are visible throughout your
+program or from external packages, you can use <code>our</code> keyword as shown in the
+following code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">our $color = 'red';</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_perl_variable_interpolation"><a class="anchor" href="#_perl_variable_interpolation"></a>2.4. Perl variable interpolation</h3>
+<div class="paragraph">
+<p>Perl interpolates variables in double-quoted strings. It means if you place a
+variable inside a double-quoted string, you’ll get the value of the variable
+instead of its name.</p>
+</div>
+<div class="paragraph">
+<p>Let’s take a look at the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use strict;
+use warnings;
+
+my $amount = 20;
+my $s = "The amount is $amount\n";
+print($s);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl interpolates the value of <code>$amount</code> into the string which is 20.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Perl only interpolates scalar variables and
+<a href="#_perl_array">array</a>, not <a href="#_perl_hash">hashes</a>. In addition, the
+interpolation is only applied to the double-quoted string, but not the
+single-quoted string</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_perl_numbers"><a class="anchor" href="#_perl_numbers"></a>3. Perl Numbers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl has two kinds of numbers: integer and floating-point numbers.</p>
+</div>
+<div class="sect2">
+<h3 id="_perl_integers"><a class="anchor" href="#_perl_integers"></a>3.1. Perl integers</h3>
+<div class="paragraph">
+<p>Integers are whole numbers that have no digits after the decimal points i.e
+<code>10</code>, <code>-20</code> or <code>100</code>.</p>
+</div>
+<div class="paragraph">
+<p>In Perl, integers are often expressed as decimal integers, base 10. The
+following illustrates some integer numbers:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+$x = 20;
+$y = 100;
+$z = -200;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the integer number is big, you often use a comma as a separator to make it
+easier to read e.g., 123,763,213.</p>
+</div>
+<div class="paragraph">
+<p>However, Perl already uses a comma (<code>,</code>) as a separator in the list so for
+integer numbers Perl uses an underscore character (<code>_</code>) instead. In this case,
+<code>123,763,213</code> is written in Perl as <code>123_763_213</code>.</p>
+</div>
+<div class="paragraph">
+<p>Take a look at the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 123_763_213;
+print($a, "\n"); # 123763213</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the output of the example above, Perl uses no comma or underscore as the
+separator.</p>
+</div>
+<div class="paragraph">
+<p>Besides the decimal format, Perl also supports other formats including binary,
+octal, and hexadecimal.</p>
+</div>
+<div class="paragraph">
+<p>The following table shows you prefixes for formatting with binary, octal, and
+hexadecimal integers.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Number</th>
+<th class="tableblock halign-left valign-top">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0b123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary integer using a prefix of 0b</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0255</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Octal integer using a prefix of 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xABC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hexadecimal integer using a prefix of 0x</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>All the following integer numbers are 12 in Perl:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>12
+0b1100
+014
+0xC</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_perl_floating_point_numbers"><a class="anchor" href="#_perl_floating_point_numbers"></a>3.2. Perl floating-point numbers</h3>
+<div class="paragraph">
+<p>You use floating-point numbers to store real numbers. Perl represents
+floating-point numbers in two forms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Fixed point</strong>: the decimal point is fixed in the number to denote fractional
+part starts e.g., <code>100.25</code></p>
+</li>
+<li>
+<p><strong>Scientific</strong>: consists of a significand with the actual number value and an
+exponent representing the power of 10 that the significand is multiplied by,
+for example, <code>+1.0025e2</code> or  <code>-1.0025E2</code> is <code>100.25.</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The floating-point number holds 8 bytes, with 11 bits reserved for the exponent
+and 53 bits for significand.</p>
+</div>
+<div class="paragraph">
+<p>The range of floating-point numbers is essentially determined by the standard C
+library of the underlying platform where Perl is running.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_perl_strings"><a class="anchor" href="#_perl_strings"></a>4. Perl Strings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl&#8217;s built-in string functions to manipulate strings.</p>
+</div>
+<div class="sect2">
+<h3 id="_introduction_to_perl_strings"><a class="anchor" href="#_introduction_to_perl_strings"></a>4.1. Introduction to Perl strings</h3>
+<div class="paragraph">
+<p>In Perl, a string is a sequence of characters surrounded by some kind of
+quotation marks. A string can contain ASCII, UNICODE, and escape sequences
+characters such as <code>\n</code>.</p>
+</div>
+<div class="paragraph">
+<p>A Perl string has a length that depends on the amount of memory in your system,
+which is theoretically unlimited.</p>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates single and double-quoted strings.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $s1 = "string with doubled-quotes";
+my $s2 = 'string with single quote';</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is important to remember that the double-quoted string replaces variables
+inside it by their values, while the single-quoted string treats them as text.
+This is known as variable interpolation in Perl.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_perl_string_alternative_delimiters"><a class="anchor" href="#_perl_string_alternative_delimiters"></a>4.2. Perl string alternative delimiters</h3>
+<div class="paragraph">
+<p>Besides the single and double quotes, Perl also allows you to use quote-like
+operators such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>q//</code> acts like a single-quoted string.</p>
+</li>
+<li>
+<p>The <code>qq//</code> acts like double-quoted string</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can choose any non-alphabetic and non-numeric characters as the delimiters,
+not only just characters <code>//</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $s= q/"Are you learning Perl String today?" We asked./;
+print($s ,"\n");
+
+my $name = 'Jack';
+my $s2 = qq/"Are you learning Perl String today?"$name asked./;
+print($s2 ,"\n");</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">How it works</div>
+<ul>
+<li>
+<p>First, defined a single-quoted string variable with the quote-like operator
+<code>q/</code>. The string  <code>$s</code> ends with <code>/</code></p>
+</li>
+<li>
+<p>Second, defined a double-quoted string with the quote-like operator <code>qq/</code>. In
+this case, we used the <code>$name</code> variable inside a string and it is replaced by
+its value, <code>Jack</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates string with the <code>^</code> delimiter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $s = q^A string with different delimiter ^;
+print($s,"\n");</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_perl_string_functions"><a class="anchor" href="#_perl_string_functions"></a>4.3. Perl string functions</h3>
+<div class="paragraph">
+<p>Perl provides a set of functions that allow you to manipulate strings
+effectively. We cover the most commonly used string functions in the following
+section for your reference.</p>
+</div>
+<div class="paragraph">
+<div class="title">Perl string length</div>
+<p>To find the number of characters in a string, you use the <code>length()</code> function.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $s = "This is a string\n";
+print(length($s),"\n"); #17</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Changing cases of string</div>
+<p>To change the cases of a string you use a pair of functions <code>lc()</code> and <code>uc()</code>
+that returns the lowercase and uppercase versions of a string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $s = "Change cases of a string\n";
+print("To upper case:\n");
+print(uc($s),"\n");
+
+print("To lower case:\n");
+print(lc($s),"\n");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Search for a substring inside a string</div>
+<p>To search for a substring inside a string, you use <code>index()</code> and <code>rindex()</code>
+functions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>index()</code> function searches for a substring inside a string from a
+specified position and returns the position of the first occurrence of the
+substring in the searched string. If the position is omitted, it searches
+from the beginning of the string.</p>
+</li>
+<li>
+<p>The <code>rindex()</code> function works like the <code>index()</code> function except it searches
+from the end of the string instead of from the beginning.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates how to use the <code>index()</code> and <code>rindex()</code>
+functions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $s = "Learning Perl is easy\n";
+my $sub = "Perl";
+my $p = index($s,$sub); # rindex($s,$sub);
+print(qq\The substring "$sub" found at position "$p" in string "$s"\,"\n");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Get or modify substring inside a string</div>
+<p>To extract a substring out of a string, you use the <code>substr()</code> function.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+# extract substring
+my $s = "Green is my favorite color";
+my $color  = substr($s, 0, 5);      # Green
+my $end    = substr($s, -5);        # color
+
+print($end,":",$color,"\n");
+
+# replace substring
+substr($s, 0, 5, "Red"); #Red is my favorite color
+print($s,"\n");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Other useful Perl string functions</div>
+<p>The following table illustrates other useful Perl string functions with their
+descriptions:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chr</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return ASCII or UNICODE character of a number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>crypt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Encrypts passwords in one way fashion</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Converts a hexadecimal string to the corresponding value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>index</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Searches for a substring inside a string returns position where the first occurrence of the substring found</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a lowercase version of the string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>length</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the number of characters of a string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oct</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Converts a string to an octal number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ord</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the numeric value of the first character of a string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>q/string/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates single-quoted strings</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>qq/string/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates double-quoted strings</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>reverse</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reverses a string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rindex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Searches for a substring from right to left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sprintf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Formats string to be used with print()</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>substr</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gets or modifies a substring in a string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the uppercase version of the string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_perl_operator"><a class="anchor" href="#_perl_operator"></a>5. Perl Operator</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl operators including numeric operators, string operators, and logical operators.</p>
+</div>
+<div class="sect2">
+<h3 id="_numeric_operators"><a class="anchor" href="#_numeric_operators"></a>5.1. Numeric operators</h3>
+<div class="paragraph">
+<p>Perl provides numeric operators to help you operate on numbers including
+arithmetic, Boolean and bitwise operations. Let’s examine the different kinds
+of operators in more detail.</p>
+</div>
+<div class="paragraph">
+<div class="title">Arithmetic operators</div>
+<p>Perl arithmetic operators deal with basic math such as adding, subtracting,
+multiplying, diving, etc. To add (<code>+</code>) or subtract (<code>-</code>) numbers, you would do
+something as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 10 + 20, "\n"; # 30
+print 20 - 10, "\n"; # 10</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To multiply or divide numbers, you use divide (<code>/</code>) and multiply (<code>*</code>) operators as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 10 * 20, "\n"; # 200
+print 20 / 10, "\n"; # 2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you combine adding, subtracting, multiplying, and dividing operators
+together, Perl will perform the calculation in an order, which is known as
+operator precedence.</p>
+</div>
+<div class="paragraph">
+<p>The multiply and divide operators have higher precedence than add and subtract
+operators, therefore, Perl performs multiplying and dividing before adding and
+subtracting. See the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">print 10 + 20/2 - 5 * 2 , "\n"; # 10</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl performs 20/2 and 5*2 first, therefore you will get 10 + 10 – 10 = 10.</p>
+</div>
+<div class="paragraph">
+<p>You can use brackets <code>()</code> to force Perl to perform calculations based on the
+precedence you want as shown in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">print (((10 + 20) / 2 - 5) * 2); # 20;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To raise one number to the power of another number, you use the exponentiation
+operator.</p>
+</div>
+<div class="listingblock">
+<div class="title">Exponentiation operators:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 2**3, "\n"; # = 2 * 2 * 2 = 8.
+print 3**4, "\n"; # = 3 * 3 * 3 * 3 = 81.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To get the remainder of the division of one number by another, you use the modulo operator (<code>%</code>).</p>
+</div>
+<div class="paragraph">
+<p>It is handy to use the modulo operator (<code>%</code>) to check if a number is odd or even
+by dividing it by 2 to get the remainder. If the remainder is zero, the number
+is even, otherwise, the number is odd. See the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 4 % 2, "\n"; # 0 even
+print 5 % 2, "\n"; # 1 odd</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Bitwise Operators</div>
+<p>Bitwise operators allow you to operate on numbers one bit at a time. Think of a
+number as a series of bits e.g., <code>125</code> can be represented in binary form as
+<code>1111101</code>. Perl provides all basic bitwise operators including and (<code>&amp;</code>), or
+(<code>|</code>), exclusive or (<code>^</code>) , not (<code>~</code>) operators, shift right (<code>&gt;&gt;</code>), and shift
+left (<code>&lt;&lt;</code>) operators.</p>
+</div>
+<div class="paragraph">
+<p>The bitwise operators perform from right to left. In other words, bitwise
+operators perform from the rightmost bit to the leftmost bit.</p>
+</div>
+<div class="listingblock">
+<div class="title">Bitwise operations</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $a = 0b0101; # 5
+my $b = 0b0011; # 3
+
+my $c = $a &amp; $b; # 0001 or 1
+print $c, "\n";
+
+$c = $a | $b; # 0111 or 7
+print $c, "\n";
+
+$c = $a ^ $b; # 0110 or 6
+print $c, "\n";
+
+$c = ~$a; # 11111111111111111111111111111010 (64bits computer) or 4294967290
+print $c, "\n";
+
+$c = $a &gt;&gt; 1; # 0101 shift right 1 bit, 010 or 2
+print $c, "\n";
+
+$c = $a &lt;&lt; 1; # 0101 shift left 1 bit, 1010 or 10
+print $c, "\n";</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Comparison operators for numbers</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Equality</th>
+<th class="tableblock halign-left valign-top">Operators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>==</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not Equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>!=</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comparison</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&#8658;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than or equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&#8656;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than or equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;=</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>All the operators in the table above are obvious except the number comparison
+operator <code>&lt;&#8658;</code> which is also known as spaceship operator.</p>
+</div>
+<div class="paragraph">
+<p>The number comparison operator is often used in sorting numbers. See the code
+below:</p>
+</div>
+$a <=> $b
+<div class="ulist">
+<ul>
+<li>
+<p><strong>1</strong> if <code>$a</code> is greater than <code>$b</code></p>
+</li>
+<li>
+<p><strong>0</strong> if <code>$a</code> and <code>$b</code> are equal</p>
+</li>
+<li>
+<p><strong>-1</strong> if <code>$a</code> is lower than <code>$b</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $a = 10;
+my $b = 20;
+
+print $a &lt;=&gt; $b, "\n";
+
+$b = 10;
+print $a &lt;=&gt; $b, "\n";
+
+$b = 5;
+print $a &lt;=&gt; $b, "\n";</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_string_operators"><a class="anchor" href="#_string_operators"></a>5.2. String operators</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Comparison operators</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Equality</th>
+<th class="tableblock halign-left valign-top">Operators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eq</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not Equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ne</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comparison</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cmp</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lt</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gt</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than or equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>le</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than or equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ge</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<div class="title">Concatenation operators</div>
+<p>Perl provides the concatenation (<code>.</code>) and repetition (<code>x</code>) operators that allow
+you to manipulate strings</p>
+</div>
+<div class="listingblock">
+<div class="title">Concatenation operator (<code>.</code>)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">print "This is" . " concatenation operator" . "\n";</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Repetition operators (<code>x</code>)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">print "a message " x 4, "\n";</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">The chomp() operator</div>
+<p>The <code>chomp()</code> operator (or function) removes the last character in a string and
+returns a number of characters that were removed. The <code>chomp()</code> operator is
+very useful when dealing with the user’s input because it helps you remove the
+new line character \n from the string that the user entered.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $s;
+chomp($s = &lt;STDIN&gt;);
+print $s;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>&lt;STDIN&gt;</code> is used to get input from users.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logical_operators"><a class="anchor" href="#_logical_operators"></a>5.3. Logical operators</h3>
+<div class="paragraph">
+<p>Logical operators are often used in control statements such as
+<a href="#_perl_if_Statement">if</a>, <a href="#_perl_while_Loop">while</a>,
+<a href="#_perl_given">given</a>, etc., to control the flow of the program. The
+following are logical operators in Perl:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>$a &amp;&amp; $b</code> performs the logic <code>AND</code> of two variables or expressions. The
+logical <code>&amp;&amp;</code> operator checks if both variables or expressions are true.</p>
+</li>
+<li>
+<p><code>$a || $b</code> performs the logic <code>OR</code> of two variables or expressions. The
+logical <code>||</code> operator checks whether a variable or expression is true.</p>
+</li>
+<li>
+<p><code>!$a</code> performs the logic <code>NOT</code> of the variable or expression. The logic <code>!</code>
+operator inverts the value of the following variable or expression. In the
+other words, it converts <code>true</code> to <code>false</code> or <code>false</code> to <code>true</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_perl_list"><a class="anchor" href="#_perl_list"></a>6. Perl List</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl list and how to manipulate list elements using various techniques such as
+list slicing, ranging and qw() function.</p>
+</div>
+<div class="paragraph">
+<p>A Perl list is a sequence of <a href="#_perl_variables">scalar</a>
+values. You use parenthesis and comma operators to construct a list. Each value
+is the list is called list element. List elements are indexed and ordered. You
+can refer to each element by its position.</p>
+</div>
+<div class="sect2">
+<h3 id="_simple_perl_list"><a class="anchor" href="#_simple_perl_list"></a>6.1. Simple Perl list</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">();
+(10,20,30);
+("this", "is", "a","list");</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">In the example above:</div>
+<ul>
+<li>
+<p>The first list <code>()</code> is an empty list.</p>
+</li>
+<li>
+<p>The second list <code>(10,20,30)</code> is a list of integers.</p>
+</li>
+<li>
+<p>The third list <code>("this", "is", "a","list")</code> is a list of strings.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each element in the list is separated by a comma <code>(,)</code>. The print` operator is
+a list operator. So let’s display our lists above with the <code>print</code> operator to
+see how it works:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print(()); # display nothing
+print("\n");
+print(10,20,30); # display 102030
+print("\n");
+print("this", "is", "a","list"); # display: thisisalist
+print("\n");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We passed several lists to the <code>print</code> operator to display their elements. All
+the lists that we have seen so far contain an element with the same data type.
+These lists are called simple lists.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_complex_perl_list"><a class="anchor" href="#_complex_perl_list"></a>6.2. Complex Perl list</h3>
+<div class="paragraph">
+<p>A Perl list may contain elements that have different data types. This kind of
+list is called a complex list. Let’s take a look at the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $x = 10;
+my $s = "a string";
+print("complex list", $x , $s ,"\n");</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_qw_function"><a class="anchor" href="#_using_qw_function"></a>6.3. Using qw function</h3>
+<div class="paragraph">
+<p>Perl provides the <code>qw()</code> function that allows you to get a list by extracting
+words out of a string using the space as a delimiter. The <code>qw</code> stands for quote
+word. The two lists below are the same:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print('red','green','blue'); # redgreenblue
+print("\n");
+
+print(qw(red green blue)); # redgreenblue
+print("\n");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Similar to the <code>q/</code> and <code>q//</code> operators, you can use any non-alphanumeric
+character as a delimiter. The following lists are the same:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">qw\this is a list\;
+qw{this is a list};
+qw[this is a list];</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flattening_list"><a class="anchor" href="#_flattening_list"></a>6.4. Flattening list</h3>
+<div class="paragraph">
+<p>If you put a list, called an internal list, inside another list, Perl
+automatically flattens the internal list. The following lists are the same:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">(2,3,4,(5,6))
+(2,3,4,5,6)
+((2,3,4),5,6)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_accessing_list_element"><a class="anchor" href="#_accessing_list_element"></a>6.5. Accessing list element</h3>
+<div class="paragraph">
+<p>You can access elements of a list by using the zero-based index. To access the
+n<sup>th</sup> element, you put (n – 1) index inside square brackets.</p>
+</div>
+<div class="listingblock">
+<div class="title">Let’s take a look at the following example:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print(
+     (1,2,3)[0] # 1 first element
+);
+print "\n"; # new line
+
+print(
+     (1,2,3)[2] # 3 third element
+);
+print "\n"; # new line</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To get multiple elements of a list at a time, you can put a list inside square
+brackets. This feature is called list slice. You can omit the parenthesis of
+the list inside the square bracket.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">(1,2,3,4,5)[0,2,3] # (1,3,4)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above code returns a list of three elements <code>(1, 3, 4)</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ranges"><a class="anchor" href="#_ranges"></a>6.6. Ranges</h3>
+<div class="paragraph">
+<p>Perl allows you to build a list based on a range of numbers or characters e.g.,
+a list of numbers from 1 to 100, a list of characters from a to z. The
+following example defines two lists:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">(1..100)
+(a..z)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_array"><a class="anchor" href="#_array"></a>7. Array</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl array and how to use arrays effectively in your program and techniques to
+manipulate array’s elements.</p>
+</div>
+<div class="paragraph">
+<p>A
+<a href="#_perl_list">list</a>
+is immutable so you cannot change it directly. In order to change a
+list, you need to store it in an array
+<a href="#_perl_variables">variable</a>.</p>
+</div>
+<div class="paragraph">
+<p>By definition, an array is a variable that provides dynamic storage for a list.</p>
+</div>
+<div class="paragraph">
+<p>In Perl, the terms array and
+<a href="#_perl_list">list</a>
+are used interchangeably, but you have to
+note an important difference: a list is immutable whereas an array is mutable.
+In other words, you can modify the array’s elements, grow or shrink the array,
+but not a list.</p>
+</div>
+<div class="paragraph">
+<p>A
+<a href="#_perl_variables">scalar variable</a>
+begins with the dollar sign (<code>$</code>), however, an array variable begins with an
+at-sign (<code>@</code>).</p>
+</div>
+<div class="listingblock">
+<div class="title">How to declare an array variable</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
+print("@days", "\n");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>$</code> sign looks like <code>S</code> in the word scalar. And <code>@</code> looks like <code>a</code> in the
+word array, which is a simple trick to remember what type of variables you are
+working with.</p>
+</div>
+<div class="sect2">
+<h3 id="_accessing_perl_array_elements"><a class="anchor" href="#_accessing_perl_array_elements"></a>7.1. Accessing Perl array elements</h3>
+<div class="paragraph">
+<p>Like a list, you can access array elements using square brackets <code>[]</code> and indices.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
+print($days[0]);
+
+print("\n");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you take a look at the code carefully, you will see that we used <code>$days[0]</code>
+instead of <code>@days[0]</code>.</p>
+</div>
+<div class="paragraph">
+<p>This is because an array element is a scalar, you have to use the scalar prefix
+(<code>$</code>). In Perl, the rule is that the prefix represents what you want to get,
+not what you’ve got.</p>
+</div>
+<div class="paragraph">
+<p>Perl also allows you to access array elements using negative indices. Perl
+returns an element referred to by a negative index from the end of the array.
+For example, <code>$days[-1]</code> returns the last element of the array <code>@days</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can access multiple array elements at a time using the same technique as
+the list slice.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
+my @weekend = @days[-2..-1]; # SatSun
+
+print(“@weekend”);
+print("\n");</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_counting_perl_array_elements"><a class="anchor" href="#_counting_perl_array_elements"></a>7.2. Counting Perl array elements</h3>
+<div class="paragraph">
+<p>If you treat an array as a scalar, you will get the number of elements in the
+array.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $count = @days;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This code causes an error in case you don’t really want to count it but
+accidentally assign an array to a scalar. To be safe, use the <code>scalar()</code>
+function.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
+my $count = scalar @days;
+print($count, "\n");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The operator <code>$#</code> returns the highest index of an array.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
+my $last = $#days;
+print($last, "\n"); #" 6</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modifying_perl_array_elements"><a class="anchor" href="#_modifying_perl_array_elements"></a>7.3. Modifying Perl array elements</h3>
+<div class="paragraph">
+<p>To change the value of an element, you access the element using the index and
+assign it a new value. Perl also allows you to change the values of multiple
+elements at a time.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
+
+$days[0] = 'Monday';
+
+@days[1..6] = qw(Tuesday Wednesday Thursday Friday Saturday Sunday);
+
+print("@days","\n");</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_perl_array_operations"><a class="anchor" href="#_perl_array_operations"></a>7.4. Perl array operations</h3>
+<div class="paragraph">
+<p>Perl provides several useful functions and operators to help you manipulate
+arrays effectively. We will cover the most important ones in the following
+sections.</p>
+</div>
+<div class="paragraph">
+<div class="title">Perl array as a stack with push() and pop() functions</div>
+<p>Both functions treat an array as a stack. A stack works based on the last in
+first out (LIFO) philosophy. It works exactly the same as a stack of books. The
+<code>push()</code> function appends one or more elements to the end of the array, while
+the <code>pop()</code> function removes the last element from the end of the array.</p>
+</div>
+<div class="listingblock">
+<div class="title">How to use <code>push()</code> and <code>pop()</code> functions</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @stack = (); # empty array
+
+print("push 1 to array\n");
+
+push(@stack,1);
+
+print("push 2 to array\n");
+push(@stack,2);
+
+print("push 3 to array\n");
+push(@stack,3);
+
+print(“@stack”, "\n");
+
+my $elem = pop(@stack);
+print("element: $elem\n");
+
+$elem = pop(@stack);
+print("element: $elem\n");
+
+$elem = pop(@stack);
+print("element: $elem\n");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Perl array as a queue with <code>unshift()</code> and <code>pop()</code> functions</div>
+<p>If the <code>push()</code> and pop()` treat an array as a stack, the <code>unshift()</code> and
+<code>pop()</code> functions treat an array as a queue. A queue works based on the first
+in first out (FIFO) philosophy. It works like a queue of visitors. The
+<code>unshift()</code> function adds one or more elements to the front of the array, while
+the <code>pop()</code> function removes the last element of the array.</p>
+</div>
+<div class="listingblock">
+<div class="title">How to use <code>unshift()</code> and <code>pop()</code> functions</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @queue = (); # empty queue
+
+print("enqueue 1 to array\n");
+unshift(@queue,1);
+
+print("enqueue 2 to array\n");
+unshift(@queue,2);
+
+printf("enqueue 3 to array\n");
+unshift(@queue,3);
+
+print("@queue", "\n"); # 3 2 1
+
+my $elem = pop(@queue);
+print("element: $elem\n");
+
+$elem = pop(@queue);
+print("element: $elem\n");
+
+$elem = pop(@queue);
+print("element: $elem\n");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Sorting Perl arrays</div>
+<p>Perl provides the <code>sort()</code> function that allows you to sort an array in
+alphabetical or numerical order.</p>
+</div>
+<div class="listingblock">
+<div class="title">Sorting an array of strings alphabetically</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @fruits = qw(oranges apples mango cucumber);
+my @sorted = sort @fruits;
+
+print("@sorted","\n"); # apples cucumber mango oranges</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>sort()</code> function also accepts a block of code that allows you to change
+the sort algorithm. If you want to sort an array in numerical order, you need
+to change the default sorting algorithm.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+my @a = qw(3 2 1 4 7 6);
+print("unsorted: ", "@a", "\n"); # unsorted: 3 2 1 4 7 6
+@a = sort {$a &lt;=&gt; $b} @a;
+print("sorted:", "@a", "\n"); # sorted: 1 2 3 4 6 7</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">In the example above:</div>
+<ul>
+<li>
+<p>First, we had an unsorted array <code>@a</code>, and we displayed the <code>@a</code> array to make
+sure that it is unsorted.</p>
+</li>
+<li>
+<p>Second, we used the <code>sort()</code> function to sort the <code>@a</code> array. We passed a
+block of code <code>{$a &lt;&#8658;$b}</code> and the <code>@a</code> array to the sort function. The <code>$a</code>
+and <code>$b</code> are global variables defined by the <code>sort()</code> function for sorting.
+The operator <code>&lt;&#8658;</code> is used to compare two numbers. The code block <code>{$a &lt;&#8658;
+$b}</code> returns -1 if <code>$a</code> &lt; <code>$b</code>, 0 if <code>$a</code> = <code>$b</code>, and 1 if <code>$a</code> &gt; <code>$b</code>.</p>
+</li>
+<li>
+<p>Third, we displayed the elements of the sorted array @a.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information on the <code>sort()</code> function, check out the
+Perl sort function <a href="#_perl_sort">Perl sort function</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hash"><a class="anchor" href="#_hash"></a>8. Hash</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Another compound data type called Perl hash and how to manipulate hash elements
+effectively.</p>
+</div>
+<div class="paragraph">
+<p>A Perl hash is defined by key-value pairs. Perl stores elements of a hash in
+such an optimal way that you can look up its values based on keys very fast.</p>
+</div>
+<div class="paragraph">
+<p>With the array, you use indices to access its elements. However, you must use
+descriptive keys to access hash element. A hash is sometimes referred to as an
+associative array.</p>
+</div>
+<div class="paragraph">
+<p>Like a scalar or an array variable, a hash variable has its own prefix. A hash
+variable must begin with a percent sign (<code>%</code>). The prefix <code>%</code> looks like
+key/value pair so remember this trick to name the hash variables.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">%data = ('John Paul', 45, 'Lisa', 30, 'Kumar', 40);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl provides the <code>&#8658;</code> operator as an alternative to a comma (<code>,</code>). It helps
+differentiate between keys and values and makes the code more elegant.</p>
+</div>
+<div class="paragraph">
+<p>When you see the <code>&#8658;</code> operator, you know that you are dealing with a hash, not
+a list or an array.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my %countries =  ( England =&gt; 'English',
+                   France  =&gt; 'French',
+                   Spain   =&gt; 'Spanish',
+                   China   =&gt; 'Chinese',
+                   Germany =&gt; 'German');</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl requires the keys of a hash to be strings, meanwhile, the values can be
+any scalars. If you use non-string values as the keys, you may get an
+unexpected result.</p>
+</div>
+<div class="paragraph">
+<p>In addition, a hash key must be unique. If you try to add a new key-value pair
+with the key that already exists, <strong>the value of the existing key will be
+over-written</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can omit the quotation in the keys of the hash.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hash_operations"><a class="anchor" href="#_hash_operations"></a>8.1. Hash Operations</h3>
+<div class="paragraph">
+<p>The most commonly used operation in the hash.</p>
+</div>
+<div class="paragraph">
+<div class="title">Look up Perl hash values</div>
+<p>Use a hash key inside curly brackets <code>{}</code> to look up a hash value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+# defines country =&gt; language hash
+my %langs = ( England =&gt; 'English',
+              France =&gt; 'French',
+              Spain =&gt; 'Spanish',
+              China =&gt; 'Chinese',
+              Germany =&gt; 'German');
+# get language of England
+my $lang = $langs{'England'}; # English
+print($lang,"\n");</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Add new element</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">$langs{'Italy'} = 'Italian';</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Remove a single key/value pair</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">delete $langs{'China'};</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Modify hash elements</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl"># add new key value pair
+$langs{'India'} = 'Many languages';
+# modify official language of India
+$langs{'India'} = 'Hindi'; #</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Loop over Perl hash elements</div>
+<p>Perl provides the <code>keys()</code> function that allows you to get a list of keys in
+scalars. You can use the <code>keys()</code> function in a <code>for</code> loop statement to iterate
+the hash elements:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+# defines country =&gt; language hash
+my %langs = ( England =&gt; 'English',
+              France  =&gt; 'French',
+              Spain   =&gt; 'Spanish',
+              China   =&gt; 'Chinese',
+              Germany =&gt; 'German');
+
+for (keys %langs) {
+    print("Official Language of $_ is $langs{$_}\n");
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>keys()</code> function returns a list of hash keys. The <code>for</code> loop visits each
+key and assigns it to a special variable <code>$<em></code>. Inside the loop, we access the
+value of a hash element via its key as <code>$langs{$</em>}</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_if_statement"><a class="anchor" href="#_if_statement"></a>9. <strong><em>if</em></strong> Statement</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl <code>if</code> statement allows you to control the execution of your code based on
+conditions. The simplest form of the <code>if</code> statement is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">if (expression);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this form, you can put the <code>if</code> statement after another statement. Let’s
+take a look at the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 1;
+print("Welcome to Perl if tutorial\n") if ($a == 1);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The message is only displayed if the expression <code>$a == 1</code> evaluates to <code>true</code>.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">How Perl defines <strong><em>true</em></strong> and <strong><em>false</em></strong>?</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Both number 0 and string “0” are <code>false</code>.</p>
+</li>
+<li>
+<p>The <code>undefined</code> value is <code>false</code>.</p>
+</li>
+<li>
+<p>The empty list <code>()</code> is <code>false</code>.</p>
+</li>
+<li>
+<p>The empty string <code>""</code> is <code>false</code>.</p>
+</li>
+<li>
+<p>Everything else is <code>true</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Execute multiple statements based on a condition</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">if (expression) {
+   statement;
+   statement;
+   ...
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The curly braces <code>{}</code> are required even if you have a single statement to
+execute</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>if..else</em></strong> Statement</div>
+<p>Perl provides the <code>if else</code> statement that allows you to execute a code block
+if the expression evaluates to <code>true</code>, otherwise, the code block inside the
+<code>else</code> branch will execute.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">if (expression) {
+   // if code block;
+} else {
+   // else code block;
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 1;
+my $b = 2;
+if ($a == $b) {
+    print("a and b are equal\n");
+} else {
+    print("a and b are not equal\n");
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The code block in the else branch will execute because $a and $b are not equal.</p>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>if..elsif</em></strong> statement</div>
+<p>In some cases, you want to test more than one condition:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If <code>$a</code> and <code>$b</code> are equal, then do this.</p>
+</li>
+<li>
+<p>If <code>$a</code> is greater than <code>$b</code> then do that.</p>
+</li>
+<li>
+<p>Otherwise, do something else.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl provides the if elsif statement for checking multiple conditions and
+executing the corresponding code block:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">if (expression) {
+    ...
+} elsif (expression2) {
+    ...
+} elsif (expression3) {
+    ...
+} else {
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_simple_program"><a class="anchor" href="#_a_simple_program"></a>10. A Simple Program</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We are going to apply what we have learned so far to create a simple program
+called currency converter.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We will use a hash to store the exchange rates.</p>
+</li>
+<li>
+<p>To get the inputs from users via the command line, we will use <code>&lt;STDIN&gt;</code>. We
+use the <code>chomp()</code> function to remove the newline character (\n) from the
+user’s inputs.</p>
+</li>
+<li>
+<p>We convert the amount from local currency to foreign currency if the
+currencies are supported.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my ($l_curr, $f_curr, $l_amount, $f_amount);
+
+my %rates = (
+     USD =&gt; 1,
+     YPY =&gt; 82.25,
+     EUR =&gt; 0.78,
+     GBP =&gt; 0.62,
+     CNY =&gt; 6.23
+);
+
+# print supported currencies
+print("Supported currency:\n");
+for (keys %rates) {
+	print(uc($_),"\n");
+}
+
+# get inputs from users:
+print("Enter local currency:\n");
+$l_curr = &lt;STDIN&gt;;
+
+print("Enter foreign currency:\n");
+$f_curr = &lt;STDIN&gt;;
+
+print("Enter amount:\n");
+$l_amount = &lt;STDIN&gt;;
+
+chomp($l_curr,$f_curr,$l_amount);
+
+# check user's inputs.
+if (not exists $rates{$l_curr}) {
+     print("Local currency is not supported\n");
+} elsif (not exists $rates{$f_curr}) {
+     print("Foreign currency is not supported\n");
+} else {
+     # convert from local currency to foreign currency
+     $f_amount = ($rates{$f_curr} / $rates{$l_curr}) * $l_amount;
+
+     # print out the result
+     print("$l_amount $l_curr = $f_amount $f_curr","\n");
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_unless_statement"><a class="anchor" href="#_unless_statement"></a>11. <strong><em>unless</em></strong> Statement</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before discussing the unless statement, let’s revisit Perl’s philosophy:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>There is more than one way to do it.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Perl always provides you with an alternative way to achieve what you need to do.
+In programming, you often hear something like this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If it’s not true, then do this (use <code>if</code> not statement).</p>
+</li>
+<li>
+<p>or unless it’s true, then do this (use <code>unless</code> statement).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The effect is the same but the philosophy is different. That’s why Perl
+invented the <code>unless</code> statement to increase the readability of code when you
+use it properly.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>the Perl <code>unless</code> statement is equivalent to the <code>if not</code> statement</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title"><strong><em>unless</em></strong> statement</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">statement unless (condition);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl executes the statement from right to left, if the condition is <code>false</code>,
+Perl executes the statement that precedes the <code>unless</code>. If the condition is
+<code>true</code>, Perl skips the statement.</p>
+</div>
+<div class="paragraph">
+<p>If you have more than one statement to execute, you can use the following form
+of the Perl unless statement:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">unless (condition) {
+    // code block
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>condition</code> evaluates to <code>false</code>, Perl executes the code block,
+otherwise, it skips the code block.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 10;
+
+unless($a &lt;= 0){
+    print("a is greater than 0\n")
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>unless..else</em></strong> statement</div>
+<p>Sometimes you want to say unless the condition is <code>true</code>, then do this,
+otherwise do that.</p>
+</div>
+<div class="paragraph">
+<p>This is where the <code>unless&#8230;&#8203;else</code> statement comes into play. See the following
+<code>unless else</code> statement:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">unless (condition) {
+    // unless code block
+} else {
+    // else code block
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the condition is <code>false</code>, Perl will execute the <code>unless</code> code block,
+otherwise, Perl will execute the <code>else</code> code block.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 10;
+unless ($a &gt;= 0) {
+    print("a is less than 0\n");
+} else {
+    print("a is greater than or equal 0\n");
+}</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>a is greater than or equal 0</pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>unless..elsif..else</em></strong> statement</div>
+<p>If you have more than one condition for checking with the <code>unless</code> statement,
+you can use the <code>unless elsif else</code> statement as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">unless (condition_1) {
+    // unless code block
+} elsif (condition_2) {
+    // elsif code block
+} else {
+    // else code block
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can have many <code>elsif</code> clauses in the <code>unless elsif</code> statement.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 1;
+
+unless ($a &gt; 0) {
+    print("a is less than 0\n");
+} elsif ($a == 0) {
+    print("a is 0\n");
+} else {
+    print("a is greater than 0\n");
+}</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title"><strong><em>unless</em></strong> statement guidelines</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>You should use the <code>unless</code> statement with a simple condition to improve the
+code readability, especially when used as a postfix after another statement
+like the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 1;
+print("unless used with a very simple condition ONLY.\n") unless($a &lt; 0);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>You should avoid using the <code>unless</code> statement when the condition is complex and
+requires <code>else</code> and/or <code>elsif</code> clauses.</p>
+</div>
+<div class="paragraph">
+<p>If you take a look at the following code, it is difficult to interpret the
+meaning of the condition.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 1;
+my $b = 10;
+my $c = 20;
+unless ($a &lt; 0 &amp;&amp; $b == 10 &amp;&amp; $c &gt; 0) {
+    print("unless used with a very complex condition\n");
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_given_statement"><a class="anchor" href="#_given_statement"></a>12. <strong><em>given</em></strong> Statement</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl <code>given</code> statement, is similar to the switch case statement in other
+languages.</p>
+</div>
+<div class="paragraph">
+<p>The <code>given</code> statement works like a series of if statements that allow you to
+match an expression or variable against different values, depending on the
+matched value, Perl will execute statements in the corresponding <code>when</code> clause.</p>
+</div>
+<div class="paragraph">
+<div class="title">Pragma for using given statement</div>
+<p>Perl introduced the <code>given</code> statement since version 5.10. In order to use the
+Perl <code>given</code> statement, you must use the following pragma:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">use v5.10;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or use the following pragma:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">use feature "switch";</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Perl <strong><em>given</em></strong> Syntax</div>
+<p>There are several new keywords introduced along with the <code>given</code> such as:
+<code>when</code>, <code>break</code> and <code>continue</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">given (expr) {
+     when (expr1) { statement; }
+     when (expr1) { statement; }
+     when (expr1) { statement; }
+     ...
+}</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title"><strong><em>given</em></strong> statement in greater detail</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Both given and <code>when</code> accept arguments in a scalar context.</p>
+</li>
+<li>
+<p>The type of argument you pass to the <code>given</code> clause determines the kind of
+pattern matching that Perl will use to perform matching. If the argument
+appears to be a <code>Boolean</code> expression, Perl evaluates it directly. Otherwise,
+Perl will use the smart match operator to evaluate the argument, something
+like <code>$_ ~~ expr</code></p>
+</li>
+<li>
+<p>To break out a <code>when</code> block, you use the <code>break</code> statement. Perl uses <code>break</code>
+statement implicitly for all <code>when</code> blocks so you don’t have to explicitly
+specify it.</p>
+</li>
+<li>
+<p>To fall through from one case to the next, you use the <code>continue</code> statement.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>From version 5.12 you can use <code>when</code> as a statement modifier.</p>
+</li>
+<li>
+<p>From version 5.14, the <code>given</code> statement returns the last evaluated
+expression if no condition is <code>true</code> or the last evaluated expression of the
+<code>default</code> clause. The <code>given</code> statement also returns an empty list when the
+break statement is encountered or no condition is matched.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>given</em></strong> statement examples</div>
+<p>The following program asks the user to input an RGB (red, green, blue) color and returns its color code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">use v5.10; # at least for Perl 5.10
+#use feature "switch";
+use warnings;
+use strict;
+
+my $color;
+my $code;
+
+print("Please enter a RGB color to get its code:\n");
+$color = &lt;STDIN&gt;;
+chomp($color);
+$color = uc($color);
+
+given($color){
+    when ('RED') {  $code = '#FF0000'; }
+    when ('GREEN') {  $code = '#00FF00'; }
+    when ('BLUE') {  $code = '#0000FF'; }
+    default {
+        $code = '';
+    }
+}
+if ($code ne '') {
+    print("code of $color is $code \n");
+} else {
+    print("$color is not RGB color\n");
+}</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">How program works</div>
+<div class="ulist">
+<ul>
+<li>
+<p>First, we declared the <code>pragma use v5.10;</code> in order to use the <code>given</code>
+statement.</p>
+</li>
+<li>
+<p>Second, we asked the user for a color, we removed the newline by using the
+<code>chomp()</code> function and made the input color upper case so that whatever
+format of color the user entered is accepted e.g., Red, rEd or RED is the red
+color.</p>
+</li>
+<li>
+<p>Third, we used the <code>given</code> statement to check. If no color is found, then we
+set the color code to blank in the default clause. Based on the user’s input,
+we got the corresponding color code and display it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>From Perl version 5.12, you can use the <code>when</code> statement as a statement
+modifier like the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">given ($color) {
+    $code = '#FF0000' when 'RED';
+    $code = '#00FF00' when 'GREEN';
+    $code = '#0000FF' when 'BLUE';
+    default { $code = ''; }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition, the given statement returns a value that is the result of the last
+expression.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">print do {
+    given ($color) {
+        "#FF0000\n" when 'RED';
+        "#00FF00\n" when 'GREEN';
+        "#0000FF\n" when 'BLUE';
+        default { ''; }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>More complex example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">use v5.12;
+use strict;
+use warnings;
+
+print 'Enter something: ';
+chomp( my $input = &lt;&gt; );
+
+print do {
+    given ($input) {
+        "The input has numbers\n"  when /\d/;
+        "The input has letters\n"  when /[a-zA-Z]/;
+        default { "The input has neither number nor letter\n"; }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">How the program works</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The program asks the user to enter anything that can be numbers, letters, or
+both.</p>
+</li>
+<li>
+<p>In the <code>when</code> clause, we used a very special expression that is known as a
+regular expression. The <code>/\d/</code> matches any string that contains only numbers,
+The <code>/[a-zA-Z]/</code> expression matches the string that contains only letters. In
+this case, the <code>given</code> statement can do more advanced matches.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_for_loop"><a class="anchor" href="#_for_loop"></a>13. <strong><em>for</em></strong> Loop</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl for loop statement to loop over elements of a list.</p>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>for</em></strong> and <strong><em>foreach</em></strong> statements</div>
+<p>The Perl <code>for</code> loop statement allows you to loop over elements of a list. In
+each iteration, you can process each element of the list separately. This is
+why the <code>for</code> loop statement is sometimes referred to as <code>foreach</code> loop.</p>
+</div>
+<div class="paragraph">
+<p>In Perl, the <code>for</code> and <code>foreach</code> loop are interchangeable, therefore, you can
+use the <code>foreach</code> keyword in where you use the <code>for</code> keyword.</p>
+</div>
+<div class="listingblock">
+<div class="title">Loop over elements of an array</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @a = (1..9);
+for (@a) {
+    print("$_","\n");
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">How it works</div>
+<ul>
+<li>
+<p>First, we defined an array of 9 integers <code>@a</code></p>
+</li>
+<li>
+<p>Second, we used <code>for</code> loop statement to loop over elements of the <code>@a</code> array.</p>
+</li>
+<li>
+<p>Third, inside the loop, we displayed element’s value using default variable
+<code>$_</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you replace the <code>for</code> keyword by the <code>foreach</code> keyword in the above example,
+it works the same.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @a = (1..9);
+foreach (@a) {
+    print("$_","\n");
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>for</em></strong> loop iterator</div>
+<p>If we don’t supply an explicit iterator to the loop, Perl will use a special
+variable called default variable with the name <code>$_</code> as the iterator. In each
+iteration, Perl assigns each element of the array <code>@a</code> to the default variable
+<code>$_</code>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Explicit Perl for loop iterator</div>
+<p>If you want to specify an explicit iterator for the loop, you can declare it in
+the <code>for</code> loop statement as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @a = (1..9);
+for my $i (@a) {
+    print("$i","\n");
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>$i</code> is the iterator of the <code>for</code> loop in this example. In each iteration, Perl
+assigns the corresponding element of the array to the <code>$i</code> iterator. Notice
+that the <code>$i</code> variable exists only during the execution of the loop.</p>
+</div>
+<div class="paragraph">
+<p>If you declare an iterator before entering the loop, Perl will restore its
+original value after the loop is terminated. Take a look at the following
+example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @a = (1..9);
+my $i = 20;
+
+for $i (@a) {
+    print("$i","\n");
+}
+
+print('iterator $i is ',"$i","\n"); # 20</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">How it works</div>
+<ul>
+<li>
+<p>First, we declared variable <code>$i</code> before the loop and initialized its value to
+<code>20</code>.</p>
+</li>
+<li>
+<p>Second, we used a variable <code>$i</code> as the iterator; its value changes in each
+iteration of the loop.</p>
+</li>
+<li>
+<p>Third, after the loop, we displayed the value of <code>$i</code>. Perl restored its
+original value, which is <code>20</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Perl for loop iterator: value or alias</div>
+<p>In each iteration of the loop, Perl creates an alias instead of a value. In
+other words, if you make any changes to the iterator, the changes also reflect
+in the elements of the array. See the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @b = (1..5);
+
+print("Before the loop: @b \n");
+
+for (@b) {
+    $_ = $_ * 2;
+}
+
+print("After the loop: @b \n");</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">How it works</div>
+<ul>
+<li>
+<p>First, we declared an array <code>@b</code> with 5 elements from 1 to 5. We displayed
+the array <code>@b</code> elements using <code>print</code> function</p>
+</li>
+<li>
+<p>Second, we iterated elements of the array. We multiplied each element with
+<code>2</code> through the iterator <code>$_</code></p>
+</li>
+<li>
+<p>Third, outside of the loop, we displayed the elements of the array again</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">C-style <strong><em>for</em></strong> loop</div>
+<p>Perl also supports for loop in C-style. However, it is not a good practice to
+use the C-style for loop because to code will become less readable.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">for (initialization; test; step) {
+    // code block;
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">There are three control parts:</div>
+<ul>
+<li>
+<p>Initialization. Perl executes the initialization once when the loop is
+entered. We often use initialization to initialize a loop counter variable.</p>
+</li>
+<li>
+<p>Test. Perl evaluates the <code>test</code> expression at the beginning of each iteration
+and executes the code block inside the loop body as long as the test
+expression evaluates to false.</p>
+</li>
+<li>
+<p>Step. Perl executes <code>step</code> at the end of each iteration. You often use the
+step to modify the loop counter.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">C-style for loop:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @c = (1..6);
+for (my $i = 0; $i &lt;= $#c; $i++) {
+    print("$c[$i] \n");
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is much more readable if you Perl’s for loop style</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @c = (1..6);
+for (@c) {
+    print("$_ \n");
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_while_loop_statement"><a class="anchor" href="#_while_loop_statement"></a>14. <strong><em>while</em></strong> loop statement</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl <code>while</code> loop statement executes a code block repeatedly as long as the
+test condition remains <code>true</code>. The test condition is checked at the beginning
+of each iteration.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">while (condition) {
+    # code block
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>condition</code> evaluates to <code>true</code>, the code block inside <code>while</code> loop
+executes.</p>
+</div>
+<div class="paragraph">
+<p>At the beginning of each iteration, the <code>condition</code> is reevaluated. The loop is
+terminated if the <code>condition</code> evaluates to <code>false</code>.</p>
+</div>
+<div class="paragraph">
+<p>At some point in the loop, you have to change some variables that make the
+condition <code>false</code> to stop the loop. Otherwise, you will have an indefinite loop
+that makes your program execute until the stack overflow error occurs.</p>
+</div>
+<div class="paragraph">
+<p>The <code>while</code> loop statement has an optional block: <code>continue</code>, which executes
+after each current iteration. In practice, the <code>continue</code> block is rarely used.</p>
+</div>
+<div class="paragraph">
+<p>If you want to execute a code block as long as the condition is <code>false</code>, you
+can use <code>until</code> statement.</p>
+</div>
+<div class="paragraph">
+<p>In case you want to check the condition at the end of each iteration, you use
+the <code>do&#8230;&#8203;while</code> or <code>do&#8230;&#8203;until</code> statement instead.</p>
+</div>
+<div class="paragraph">
+<p>To control the loop, you use the <code>next</code> and <code>last</code> statements.</p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p>Happy New Year Count Down program</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/env perl
+use warnings;
+use strict;
+
+my $counter = 10;
+
+while ($counter &gt; 0) {
+    print("$counter\n");
+    $counter--; # count down
+    sleep(1);   # pause program for 1 second
+    if ($counter == 0) {
+        print("Happy New Year!\n");
+    }
+}</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Let’s examine the code above in more detail</div>
+<div class="ulist">
+<ul>
+<li>
+<p>First, declare a <code>$counter</code> variable and set its value to <code>10</code>.</p>
+</li>
+<li>
+<p>Next, put a condition to make sure that the value of <code>$counter</code> is greater
+than zero before entering into the loop.</p>
+</li>
+<li>
+<p>Then, displayed the <code>$counter</code> and decreased its current value of one. We
+used the <code>sleep()</code> function to pause the program for a second in each
+iteration.</p>
+</li>
+<li>
+<p>After that, use the <em>if statement</em> to check if <code>$counter</code> is zero to print
+the “Happy New Year” message. The code block inside the loop executes 10
+times before the <code>$counter</code> is set to zero.</p>
+</li>
+<li>
+<p>Finally, after each iteration, the <code>$counter</code> decreases, and its value is set
+to zero at the 10th iteration. Perl terminated the loop.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>while loop</em></strong> with diamond operator <strong><code>&lt;&gt;</code></strong></div>
+<p>You often use the while loop statement with the diamond operator <code>&lt;&gt;</code> to get
+the user’s input from the command line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $num;
+my @numbers = ();
+
+print "Enter numbers, each per line :\n";
+print "ctrl-z (windows) or ctrl-d(Linux) to exit\n&gt;";
+
+while(my $input = &lt;&gt;) {
+    print("&gt;");
+    chomp $input;
+    $num = int($input);
+    push(@numbers, $num);
+}
+
+print "You entered: @numbers\n";</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">How it works</div>
+<ul>
+<li>
+<p>First, assign the user’s input to the <code>$input</code> variable using the diamond
+operator (<code>&lt;&gt;</code>). Because it doesn’t specify any filehandle for the diamond
+operator, Perl checks the special array <code>@ARGV</code>, which is empty in this case,
+hence instructs the diamond operator to read from <code>STDIN</code> i.e., from the
+keyboard.</p>
+</li>
+<li>
+<p>Second, remove the newline character from the <code>$input</code> variable using the
+<code>chomp()</code> function and convert <code>$input</code> to an integer.</p>
+</li>
+<li>
+<p>Third, add the integer into the <code>@number</code> array.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>while loop</em></strong> statement modifier</div>
+<p>let’s take a look at the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $i = 5;
+print($i--,"\n") while ($i &gt; 0);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>while</code> loop statement is placed after another statement.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Perl evaluates the statements from right to left</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>It means that Perl evaluates the condition in the <code>while</code> statement at the
+beginning of each iteration.</p>
+</div>
+<div class="paragraph">
+<p>You use the <code>while</code> loop statement modifier only if you have one statement to
+execute repeatedly based on a condition like the above example.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://asciidoctor.org" target="_blank" rel="noopener"><img src="../../../_/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
+      <figcaption class="footer-brand-name"><a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <!--
+      <li><a href="https://asciidoctor.org" target="_blank" rel="noopener">Home</a></li>
+      -->
+      <li><a href="https://hossein-lap.github.io">Docs</a></li>
+      <li><a href="https://chat.asciidoctor.org" target="_blank" rel="noopener">Chat</a></li>
+      <li><a href="https://github.com/asciidoctor" target="_blank" rel="noopener">Source</a></li>
+      <li><a href="https://discuss.asciidoctor.org" target="_blank" rel="noopener">List (archive)</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/asciidoctor" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@asciidoctor</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2025 Dan Allen, Sarah White, and individual Asciidoctor contributors. Except where noted, the content is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.</p>
+    <!-- <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p> -->
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Thanks to our <a href="https://asciidoctor.org/supporters/" target="_blank" rel="noopener">backers</a> and <a href="https://asciidoctor.org/contributors/" target="_blank" rel="noopener">contributors</a> for helping to make this project possible. Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://zulip.com" title="Chat powered by Zulip" target="_blank" rel="noopener"><img src="../../../_/img/zulip-logo.svg" alt="Zulip logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="../../../_/img/netlify-logo.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in <a href="https://asciidoc.org" target="_blank" rel="noopener">AsciiDoc</a>.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>git worktree and bare repos | Hos Notes</title>
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="canonical" href="https://hossein-lap.github.io/tool-git/0.1.0/git/worktrees.html">
+    <meta property="og:url" content="https://hossein-lap.github.io/tool-git/0.1.0/git/worktrees.html">
+    <meta property="og:description" content="A documentation page for Git Version Control System.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Git Version Control System - git worktree and bare repos">
+    <meta property="og:image" content="https://hossein-lap.github.io/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <meta name="page-spec" content="tool-git::git/worktrees.adoc">
+    <link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+    <!-- Put the logo here -->
+    <a class="navbar-item logo" title="Hos Notes" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">
+        <img src="../../../_/img/logo.jpg" alt="Hos Notes" width="48">
+      </a>
+      <a class="navbar-item title" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">Hos Notes</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Languages</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">Programming</div>
+              <a class="navbar-item" href="../../../programming-go/0.1.0/index.html">
+                Go <small>Tooling</small>
+              </a>
+              <a class="navbar-item" href="#">
+                Lua <small>Plugable</small>
+              </a>
+              <a class="navbar-item" href="../../../programming-perl/0.1.0/index.html">
+                Perl <small>Scripting</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Markup</div>
+              <a class="navbar-item" href="#">
+                Asciidoc <small></small>
+              </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Tools</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">CLI Tooling</div>
+              <a class="navbar-item" href="../index.html">
+                Git <small>Version Control</small>
+              </a>
+            <hr class="navbar-divider">
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <div class="navbar-link">section</div> -->
+        <!--   <div class="navbar-dropdown"> -->
+        <!--     <div class="navbar-item">subsection</div> -->
+        <!--       <a class="navbar-item" href="../index.html"> -->
+        <!--         itemize <small>item</small> -->
+        <!--       </a> -->
+        <!--     <hr class="navbar-divider"> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Info</div>
+          <div class="navbar-dropdown is-right">
+            <div class="navbar-item">Contact</div>
+              <a class="navbar-item" href="mailto:hosteam01@gmail.com">
+                E-mail <small>hosteam01@gmail.com</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Social</div>
+              <a class="navbar-item" href="https://github.com/hossein-lap">
+                Github <small>hossein-lap</small>
+              </a>
+              <a class="navbar-item" href="https://gitlab.com/primejade">
+                Gitlab <small>primejade</small>
+              </a>
+              <a class="navbar-item" href="https://linkedin.com/in/hossein-esmail">
+                Linked-in <small>hossein-esmail</small>
+              </a>
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <a class="navbar-item" href="#" data-title="Support"> -->
+        <!--     <span class="icon"><img src="../../../_/img/octicons-24.svg#view-comment-discussion"></span> -->
+        <!--   </a> -->
+        <!--   <div class="navbar-dropdown is-right"> -->
+            <!-- <a class="navbar-item has-icon" href="https://chat.asciidoctor.org" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-comment-discussion"></span> -->
+            <!--   <span>Chat</span> -->
+            <!-- </a> -->
+            <!-- <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-linked-in"></span> -->
+            <!--   <span>E-Mail</span> -->
+            <!-- </a> -->
+        <!--     <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mail"></span> -->
+        <!--       <span>E-Mail</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mark-github"></span> -->
+        <!--       <span>Github</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mark-gitlab"></span> -->
+        <!--       <span>Gitlap</span> -->
+        <!--     </a> -->
+            <!-- <a class="navbar-item has-icon" href="https://twitter.com/asciidoctor" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-hash"></span> -->
+            <!--   <span>Tweets</span> -->
+            <!-- </a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Git Version Control System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="basic.html">Basic Usage</a>
+  </li>
+  <li class="nav-item is-current-url" data-depth="1">
+    <a class="nav-link" href="worktrees.html">Bare repo and Worktrees</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Git Version Control System</span>
+    <span class="version">0.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../note-base/0.1.0/index.html">Blog</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../note-base/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Git Version Control System</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../programming-go/0.1.0/index.html">Go Programming Language</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../programming-go/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../programming-perl/0.1.0/index.html">Perl Programming Language</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../programming-perl/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../note-base/0.1.0/index.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Git Version Control System</a></li>
+    <li><a href="worktrees.html">Bare repo and Worktrees</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/hossein-lap/note-git/edit/devel/docs/modules/ROOT/pages/git/worktrees.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc tool-git">
+<h1 class="page">git worktree and bare repos</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section is a very advanced topic and is unique approach to solving some
+problems like changing branches and checking them out at the same time.</p>
+</div>
+<div class="paragraph">
+<p>In this approach, every branch is a separated directory. To changes branches
+you need to change your current <strong>working directory</strong> (e.g
+<code>cd ../&lt;branch-name&gt;</code>).</p>
+</div>
+<div class="listingblock">
+<div class="title">Clone bare repo</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone --bare git@github.com:hossein-lap/blog.git blog.git</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Create worktree</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git worktree add &lt;branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">With new branch</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git worktree add -b &lt;new-branch-name&gt; &lt;new-directory-name&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Remove worktree</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git worktree remove &lt;branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cloning a repository bare, requires to add the <code>.git</code> at the end of URL.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You still can change (mess things up if you will) other branches while you are
+on a different branch. Be careful with that.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_wrapper_script"><a class="anchor" href="#_wrapper_script"></a>1. Wrapper script</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bash_version"><a class="anchor" href="#_bash_version"></a>1.1. Bash version</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/usr/bin/env bash
+set -e
+
+# help function
+prompt=$(echo ${0} | awk -F '/' '{print $NF;}')
+help() {
+cat &lt;&lt; EOF
+${prompt}: setup git worktree and bare repo
+
+usage: [-h] [-u url] [-d directory] [-a extra_args]
+
+   • arguemts:
+       -u --url      repo url (ssh)
+       -d --dir      directory name
+       -a --args     extra args (to pass to the git)
+       -h --help     print this message
+
+   • example:
+       ${prompt} -u gitlab.com:hos-workflow/scripts -d test.git -a '--depth 1'
+
+   • running without any arguments will show this message
+EOF
+}
+
+# argument parsing
+while [ "${#}" -gt 0 ]; do
+    case ${1} in
+        -u|--url)
+            input="${2}"
+            shift
+            ;;
+        -d|--directory)
+            output="${2}"
+            shift
+            ;;
+        -h|--help)
+            help
+            exit 0
+            ;;
+        -a|--args)
+            args="${args} ${2}"
+            shift
+            ;;
+        *)
+            echo "Unknown parameter passed: ${1}"
+            exit 1
+            ;;
+    esac
+    shift
+done
+
+# checking args
+if [ -z "${input}" ]; then
+    printf '%s\n\n' "No url is specified" 1&gt;&amp;2
+    help
+    exit 1
+fi
+
+if [ -z "${output}" ]; then
+    printf \
+        "No directory name is specified, " \
+        "Using default directory name..\n" \
+        1&gt;&amp;2
+    output="$(echo ${input} | awk -F '/' '{print $NF;}')"
+fi
+
+# start
+git clone ${args} --bare git@${input} ${output}
+cd ${output}
+mkdir .bare
+mv * .bare
+echo "gitdir: ./.bare" &gt; .git
+
+check_branch=$(git --no-pager branch | grep -v '*\|+' | awk '{print $1;}' | wc -l)
+
+if [ "${check_branch}" -gt 0 ]; then
+    for i in $(git --no-pager branch | sed 's/^[*+]/ /' | awk '{print $1;}'); do
+        git worktree add "${i}" "${i}"
+    done
+else
+	i=$(git --no-pager branch | awk '{print $NF;}')
+    git worktree add "${i}" "${i}"
+fi
+
+# git config remote.origin.url "git@${input}"
+git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+git fetch</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_perl_version"><a class="anchor" href="#_perl_version"></a>1.2. Perl version</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use Getopt::Long;
+use File::Basename;
+use Cwd;
+use File::Copy 'move';
+
+# variables
+my $input = '';
+my $output = '';
+my $args = '';
+my $sshkey = '';
+my $command_mv = 0;
+my $help = 0;
+my $prompt = basename($0);
+
+# help function
+sub print_help {
+    print &lt;&lt;"EOF";
+$prompt: setup git worktree and bare repo
+
+usage: [-h] [-u url] [-d directory] [-a extra_args]
+
+   • arguments:
+       -u --url      repo url (ssh)
+       -d --dir      directory name
+       -a --args     extra args (to pass to the git)
+       -h --help     print this message
+
+   • commands:
+       mv            move a bare repo with its activated worktrees
+
+   • example:
+       $prompt -u gitlab.com:hos-workflow/scripts -d test.git -a '--depth 1'
+
+   • running without any arguments will show this message
+EOF
+}
+
+# argument parsing
+GetOptions(
+    'u|url=s'      =&gt; \$input,
+    'd|dir=s'      =&gt; \$output,
+    'a|args=s'     =&gt; \$args,
+    'k|sshkey=s'   =&gt; \$sshkey,
+    'h|help'       =&gt; \$help,
+    'mv'           =&gt; \$command_mv,  # WIP
+) or die "Error in command line arguments. Use -h for help.\n";
+
+# # WIP {{{
+# # get list of directories
+# sub dirlist {
+#     my $path = $_[0];
+#     $path =~ s,/$,,;
+#     # print("dirlist: $path\n");
+#     # system("ls $path");
+#     die "Please specify which directory to search" unless -d $path;
+#     my @dirs;
+#     opendir (my $dir, $path);
+#     while (my $entry = readdir $dir) {
+#         next unless -d $path . '/' . $entry;
+#         next if $entry eq '.' or $entry eq '..';
+#         # print "\tdirlist: $entry\n";
+#         unless ($entry =~ /^.bare/) {
+#             push(@dirs, $entry)
+#         }
+#     }
+#     return @dirs;
+#     closedir $dir;
+# }
+#
+# sub fixgitdir {
+#     my $path_read = $_[0];
+#     my $path_write = $_[1];
+#     # my $base_read = $_[2];
+#     # my $base_write = $_[3];
+#     my $source = dirname($_[2]);
+#     my $dest = dirname($_[3]);
+#     open(INFO, '&lt;' . $path_read) or die "Error opening $path_read: $!\n";
+#     open(OUT, '&gt;' . $path_write) or die "Error writing $path_write $!\n";
+#
+#     # print("$path_read -&gt; $path_write\n");
+#
+#     foreach my $line (&lt;INFO&gt;) {
+#
+#         # chomp($line);
+#
+#         # # print("i:        $path_read\n");
+#         # # print("  $line\n");
+#         # print("$line\n");
+#         # $line =~ s,$source,$dest,g;
+#         # print("$line\n");
+#         # # print("o:        $path_write\n");
+#         # # print("  $line\n");
+#
+#         print(OUT "$line");
+#
+#         # print("I: gitdir: $source\n");
+#         # print("O: gitdir: $dest\n");
+#
+#     }
+#     close(INFO);
+#     close(OUT);
+# }
+# # }}}
+
+# start
+
+# help flag has highest priority
+if ($help || !$input) {
+    print_help();
+    exit($help ? 0 : 1);
+}
+
+# WIP {{{
+if ($command_mv) {
+    my $file_source = $ARGV[0];
+    my $file_dest = $ARGV[1];
+    $file_dest =~ s,/$,,;
+    $file_source =~ s,/$,,;
+    my $file_source_base = basename($file_source);
+    my $file_dest_base = basename($file_dest);
+    my $file_source_dir = dirname($file_source);
+    my $file_dest_dir = dirname($file_dest);
+    my $file_name = basename($file_source);
+
+    # move($file_source, $file_dest) or die("Cannot move $file_source to $file_dest\n");
+
+    # # this is working as intended, just implement the thing
+    # # check if the basenames are the same or not
+    # if ($file_source_base eq $file_dest_base) {
+    #     print("dirname is included\n");
+    # } else {
+    #     print("dirname is NOT included\n");
+    # }
+
+    my $file_dest_dir_bare = $file_dest."/.bare/worktrees";
+    # my $file_dest_dir_worktree = $file_dest."/.bare/worktrees";
+
+    # print("$file_dest_dir_bare\n");
+    # print("$file_dest_dir_worktree\n");
+
+    # print("[baredir]\n");
+    # my @dirs_bare = dirlist($file_dest_dir_bare);
+    # foreach my $dir (@dirs_bare) {
+    #     my $branch_name = "$file_dest_dir_bare/$dir";
+    #     print("$branch_name\n");
+    #     system("cat $branch_name/gitdir");
+    #     # fixgitdir("$branch_name/gitdir", $file_source, $file_dest);
+    # }
+    # print("=========\n");
+
+    # print("\n");
+
+    # my $file_dest_dir_worktree = $file_dest."/.bare/worktrees";
+
+    print("[worktrees]\n");
+    my @dirs_worktree = dirlist($file_dest);
+    for my $dir (@dirs_worktree) {
+        my $branch_read = "$file_source/$dir";
+        my $branch_write = "$file_dest/$dir";
+        my $expand = ".git";
+    print("=========\n");
+    print("=========\n");
+    print("=========\n");
+        print("dir: $dir\n");
+        print("fsr: $file_source\n");
+        print("fds: $file_dest\n");
+        print("brr: $branch_read\n");
+        print("brw: $branch_write\n");
+        print("exp: $expand\n");
+    print("=========\n");
+    print("=========\n");
+    print("=========\n");
+        # fixgitdir("$branch_read/$expand", "$branch_write/$expand", $file_source, $file_dest);
+    }
+    print("=========\n");
+
+    print("[basedir]\n");
+    my @dirs_bare = dirlist($file_dest."/.bare/worktrees");
+    for my $dir (@dirs_bare) {
+        my $expand = ".bare/worktrees";
+        my $branch_read = "$file_source/$expand/$dir/gitdir";
+        my $branch_write = "$file_dest/$expand/$dir/gitdir";
+        fixgitdir("$branch_read", "$branch_write", $file_source, $file_dest);
+    }
+    print("=========\n");
+
+    # my @dirs_bare = dirlist($file_dest_dir_worktree);
+    # foreach my $dir (@dirs_bare) {
+    #     my $branch_name = "$file_dest_dir_worktree/$dir\n";
+    #     print("$branch_name");
+    # }
+
+    exit 0;
+}
+# }}}
+
+# checking args
+if ($input =~ /https:/) {
+    my @_tmp = split("/", $input, 4);
+    $input = "git\@$_tmp[2]:$_tmp[3]";
+}
+
+unless ($input =~ /git@/) {
+    $input = 'git@'.$input;
+}
+
+unless ($output) {
+    print("No directory name is specified, Using default directory name, ");
+    ($output) = $input =~ m{([^/]+)$};
+}
+
+my $ssh_prefix = $sshkey ? "GIT_SSH_COMMAND='ssh -i $sshkey'" : '';
+my $clone_cmd = "$ssh_prefix git clone $args --bare $input $output";
+system($clone_cmd) == 0 or die "Failed to clone repository\n";
+system("cd $output; git config core.sshCommand 'ssh -i $ssh_prefix'; cd -") if $ssh_prefix;
+
+chdir $output or die "Cannot change directory to $output: $!\n";
+mkdir ".bare" or die "Cannot create .bare directory: $!\n";
+system("mv * .bare") == 0 or die "Failed to move contents to .bare\n";
+open my $gitfile, '&gt;', '.git' or die "Cannot open .git file: $!\n";
+print $gitfile "gitdir: ./.bare\n";
+close $gitfile;
+
+my @branches = `git --no-pager branch`;
+chomp @branches;
+# @branches = grep { $_ !~ /^[*+]/ } @branches;
+@branches = map { s/^\**\s*//r } @branches;
+
+if (@branches) {
+    foreach my $branch (@branches) {
+        # print("\$ git worktree add '$branch' '$branch'\n");
+        system("git worktree add '$branch' '$branch'") == 0 or warn "Failed to add worktree for $branch\n";
+    }
+}
+
+# system("git config remote.origin.url 'git@${input}'") == 0 or warn "Failed to set origin url\n";
+system("git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'") == 0 or warn "Failed to set fetch config\n";
+system("git fetch") == 0 or warn "Failed to fetch from remote\n";</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This is the old version of my <code>gbr</code> wrapper script. I&#8217;ve been adding and
+removing features. You can take a look at the current state of the script in
+github
+<a href="https://github.com/hossein-lap/git-worktree">hossein-lap/git-worktree</a> if
+you are interested.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://asciidoctor.org" target="_blank" rel="noopener"><img src="../../../_/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
+      <figcaption class="footer-brand-name"><a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <!--
+      <li><a href="https://asciidoctor.org" target="_blank" rel="noopener">Home</a></li>
+      -->
+      <li><a href="https://hossein-lap.github.io">Docs</a></li>
+      <li><a href="https://chat.asciidoctor.org" target="_blank" rel="noopener">Chat</a></li>
+      <li><a href="https://github.com/asciidoctor" target="_blank" rel="noopener">Source</a></li>
+      <li><a href="https://discuss.asciidoctor.org" target="_blank" rel="noopener">List (archive)</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/asciidoctor" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@asciidoctor</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2025 Dan Allen, Sarah White, and individual Asciidoctor contributors. Except where noted, the content is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.</p>
+    <!-- <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p> -->
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Thanks to our <a href="https://asciidoctor.org/supporters/" target="_blank" rel="noopener">backers</a> and <a href="https://asciidoctor.org/contributors/" target="_blank" rel="noopener">contributors</a> for helping to make this project possible. Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://zulip.com" title="Chat powered by Zulip" target="_blank" rel="noopener"><img src="../../../_/img/zulip-logo.svg" alt="Zulip logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="../../../_/img/netlify-logo.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in <a href="https://asciidoc.org" target="_blank" rel="noopener">AsciiDoc</a>.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

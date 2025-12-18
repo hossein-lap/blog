@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Golang stdlib - Webserver | Hos Notes</title>
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="canonical" href="https://hossein-lap.github.io/programming-go/0.1.0/golang/webserver.html">
+    <meta property="og:url" content="https://hossein-lap.github.io/programming-go/0.1.0/golang/webserver.html">
+    <meta property="og:description" content="A documentation page for Go Programming Language.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Go Programming Language - Golang stdlib - Webserver">
+    <meta property="og:image" content="https://hossein-lap.github.io/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <meta name="page-spec" content="programming-go::golang/webserver.adoc">
+    <link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+    <!-- Put the logo here -->
+    <a class="navbar-item logo" title="Hos Notes" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">
+        <img src="../../../_/img/logo.jpg" alt="Hos Notes" width="48">
+      </a>
+      <a class="navbar-item title" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">Hos Notes</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Languages</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">Programming</div>
+              <a class="navbar-item" href="../index.html">
+                Go <small>Tooling</small>
+              </a>
+              <a class="navbar-item" href="#">
+                Lua <small>Plugable</small>
+              </a>
+              <a class="navbar-item" href="../../../programming-perl/0.1.0/index.html">
+                Perl <small>Scripting</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Markup</div>
+              <a class="navbar-item" href="#">
+                Asciidoc <small></small>
+              </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Tools</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">CLI Tooling</div>
+              <a class="navbar-item" href="../../../tool-git/0.1.0/index.html">
+                Git <small>Version Control</small>
+              </a>
+            <hr class="navbar-divider">
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <div class="navbar-link">section</div> -->
+        <!--   <div class="navbar-dropdown"> -->
+        <!--     <div class="navbar-item">subsection</div> -->
+        <!--       <a class="navbar-item" href="../../../tool-git/0.1.0/index.html"> -->
+        <!--         itemize <small>item</small> -->
+        <!--       </a> -->
+        <!--     <hr class="navbar-divider"> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Info</div>
+          <div class="navbar-dropdown is-right">
+            <div class="navbar-item">Contact</div>
+              <a class="navbar-item" href="mailto:hosteam01@gmail.com">
+                E-mail <small>hosteam01@gmail.com</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Social</div>
+              <a class="navbar-item" href="https://github.com/hossein-lap">
+                Github <small>hossein-lap</small>
+              </a>
+              <a class="navbar-item" href="https://gitlab.com/primejade">
+                Gitlab <small>primejade</small>
+              </a>
+              <a class="navbar-item" href="https://linkedin.com/in/hossein-esmail">
+                Linked-in <small>hossein-esmail</small>
+              </a>
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <a class="navbar-item" href="#" data-title="Support"> -->
+        <!--     <span class="icon"><img src="../../../_/img/octicons-24.svg#view-comment-discussion"></span> -->
+        <!--   </a> -->
+        <!--   <div class="navbar-dropdown is-right"> -->
+            <!-- <a class="navbar-item has-icon" href="https://chat.asciidoctor.org" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-comment-discussion"></span> -->
+            <!--   <span>Chat</span> -->
+            <!-- </a> -->
+            <!-- <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-linked-in"></span> -->
+            <!--   <span>E-Mail</span> -->
+            <!-- </a> -->
+        <!--     <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mail"></span> -->
+        <!--       <span>E-Mail</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mark-github"></span> -->
+        <!--       <span>Github</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mark-gitlab"></span> -->
+        <!--       <span>Gitlap</span> -->
+        <!--     </a> -->
+            <!-- <a class="navbar-item has-icon" href="https://twitter.com/asciidoctor" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-hash"></span> -->
+            <!--   <span>Tweets</span> -->
+            <!-- </a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Go Programming Language</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="k8s-ingress-loadbalancer.html">K8S Ingress LoadBalancer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="go.html">Basic Syntax</a>
+  </li>
+  <li class="nav-item is-current-url" data-depth="1">
+    <a class="nav-link" href="webserver.html">Webserver</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Go Programming Language</span>
+    <span class="version">0.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../note-base/0.1.0/index.html">Blog</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../note-base/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tool-git/0.1.0/index.html">Git Version Control System</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tool-git/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Go Programming Language</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../programming-perl/0.1.0/index.html">Perl Programming Language</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../programming-perl/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../note-base/0.1.0/index.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Go Programming Language</a></li>
+    <li><a href="webserver.html">Webserver</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/hossein-lap/note-golang/edit/devel/docs/modules/ROOT/pages/golang/webserver.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc programming-go">
+<h1 class="page">Golang stdlib - Webserver</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This is some note, nothing serious.
+<strong>DO NOT</strong> cite from this article.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>We need <code>"net/http"</code> module to create webserver and listen to the specified port.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">import (
+    "net/http"
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>we also might need these modules as well:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"encoding/json"</code> too for parsing JSON data</p>
+</li>
+<li>
+<p><code>"database/sql"</code> and <code>"github.com/go-sql-driver/mysql"</code> to handle (my)sql/mariadb part</p>
+</li>
+<li>
+<p><code>"github.com/redi/go-redis/v9"</code> to handle redis-cache</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We need a request handler struct for the http server to be able to work.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">type RequestHandler struct {}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And now we define the http server. it needs a <code>ServeHTTP()</code> function and paths
+that needs to be handled (HTTP requests goes to the specified paths)</p>
+</div>
+<div class="listingblock">
+<div class="title">main funcion</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func main() {
+    mux := http.NewServeMx()
+    mux.Handle("/path1", &amp;RequestHandler{})
+    mux.Handle("/path1/", &amp;RequestHandler{})
+    mux.Handle("/path2", &amp;RequestHandler{})
+    mux.Handle("/path2/", &amp;RequestHandler{})
+    /* continue */
+    http.ListenAndServe(":8080", mux)
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">serve function</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func (h *RequestHandler) ServeHTTP(w http.ResponseWriter, r *http.Requset) {
+    request_type := r.Method
+    tmp := strings.SplitN(r.URL.String(), "/", 3)
+    section := tmp[1] // path
+    key := tmp[2] // add data after the path
+    params := r.URL.Query()
+    value := params.Get(key)
+    body, err := io.ReadAll(r.Body) // values from curl's `--data` flag (spected to be JSON)
+    /* continue */
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_redis_handler"><a class="anchor" href="#_redis_handler"></a>1. Redis Handler</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func cache_handler() {
+    client := redis.NewClient(&amp;redis.Options{
+        Addr: "localhost:6349"
+        Password: "" // No password, to get it from env variables use: `os.Getenv("ENV")`
+        DB: 0 // default db
+    })
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mysql_handler"><a class="anchor" href="#_mysql_handler"></a>2. MySQL Handler</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func database_handler() {
+    sql_url := "root@localhost:3360"
+    db, err := sql.Open("mysql", sql_url)
+    if err != nil {
+        pandic(err.Error())
+    }
+    defer db.Close()
+    /* continue */
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_json_parser_unmarshal"><a class="anchor" href="#_json_parser_unmarshal"></a>3. JSON Parser - Unmarshal</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">type Movie struct {
+    Name string `json:"name"`
+    Publisher string `json:"publisher"`
+    Year int `json:"year"`
+}
+
+func HandleMovie() {
+    // var target map[string]any /* not optimal */
+    var movie Movie
+
+    input := `{
+        "name": "Jocker",
+        "publisher": "WB",
+        "year": 2019
+    }`
+
+    // err := json.Unmarshal([]byte(input), &amp;target) /* not optimal */
+    err := json.Unmarshal([]byte(input), &amp;movie) /* not optimal */
+    if err != nil {
+        log.Fatalf("Unable to marshal JSON due to %s", err)
+    }
+
+    /* not optimal */
+    // for k, v := range target {
+    //    fmt.Printf("k: %s, v: %v\n", k, v)
+    // }
+    fmt.Printf(
+        "Name: %s, Publisher: %s, Year: %d\n",
+        movie.Name, movie.Publisher, movie.Year,
+    )
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_complex_json"><a class="anchor" href="#_complex_json"></a>3.1. Complex JSON</h3>
+<div class="listingblock">
+<div class="title"><code>assets/complex.json</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "name": "James Peterson",
+  "age": 37,
+  "address": {
+    "line1": "Block 78 Woodgrove Avenue 5",
+    "line2": "Unit #05-111",
+    "postal": "654378"
+  },
+  "pets": [
+    {
+      "name": "Lex",
+      "kind": "Dog",
+      "age": 4,
+      "color": "Gray"
+    },
+    {
+      "name": "Faye",
+      "kind": "Cat",
+      "age": 6,
+      "color": "Orange"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><code>examples/complex_json/main.go</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">type (
+    FullPerson struct {
+        Address Address
+        Name    string
+        Pets    []Pet
+        Age     int
+    }
+
+    Pet struct {
+        Name  string
+        Kind  string
+        Color string
+        Age   int
+    }
+
+    Address struct {
+        Line1  string
+        Line2  string
+        Postal string
+    }
+)
+
+
+func main() {
+    b, err := os.ReadFile("assets/complex.json")
+    if err != nil {
+        log.Fatalf("Unable to read file due to %s\n", err)
+    }
+
+    var person FullPerson
+
+    err = json.Unmarshal(b, &amp;person)
+    if err != nil {
+        log.Fatalf("Unable to marshal JSON due to %s", err)
+    }
+
+    litter.Dump(person)
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_common_pitfalls_with_json_unmarshalling_in_go"><a class="anchor" href="#_common_pitfalls_with_json_unmarshalling_in_go"></a>3.2. Common pitfalls with JSON unmarshalling in Go</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Extra fields are omitted in the target struct</p>
+</li>
+<li>
+<p>Missing fields fallback to zero values</p>
+</li>
+<li>
+<p>Unmarshalling is case insensitive</p>
+</li>
+<li>
+<p>Field names must match JSON keys exactly</p>
+</li>
+<li>
+<p>Type aliases are preserved</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_json_parser_marshal"><a class="anchor" href="#_json_parser_marshal"></a>4. JSON Parser - Marshal</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>json.Marshal()</code> method does the opposite of <code>Unmarshal()</code> by converting
+a given data structure into a JSON.</p>
+</div>
+<div class="listingblock">
+<div class="title">examples/basic_marshal/main.go</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func marshal(in any) []byte {
+    out, err := json.Marshal(in)
+
+    if err != nil {
+        log.Fatalf("Unable to marshal due to %s\n", err)
+    }
+
+    return out
+}
+
+func main() {
+    first := marshal(14)
+    second := marshal("Hello world")
+    third := marshal([]float32{1.66, 6.86, 10.1})
+    fourth := marshal(map[string]int{"num": 15, "other": 17})
+    fmt.Printf(
+        "first: %s\nsecond: %s\nthird: %s\nfourth: %s\n",
+        first,
+        second,
+        third,
+        fourth,
+    )
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_structs"><a class="anchor" href="#_structs"></a>4.1. structs</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func main() {
+    p := Person{
+        Name:  "John Jones",
+        Age:   26,
+        Email: "johnjones@email.com",
+        Phone: "89910119",
+        Hobbies: []string{
+            "Swimming",
+            "Badminton",
+        },
+    }
+
+    b, err := json.Marshal(p)
+    if err != nil {
+        log.Fatalf("Unable to marshal due to %s\n", err)
+    }
+
+    fmt.Println(string(b))
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you wish to format the JSON object, you can use the <code>MarshalIndent()</code> method
+which performs the same function as <code>Marshal()</code> but applies some indentation to
+format the output.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_customizing_json_field_names_with_struct_tags"><a class="anchor" href="#_customizing_json_field_names_with_struct_tags"></a>4.2. Customizing JSON field names with struct tags</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">type Dog struct {
+    Breed         string
+    Name          string
+    FavoriteTreat string
+    Age           int
+}
+
+var dog = Dog{
+  Breed: "Golden Retriever",
+  Age: 8,
+  Name: "Paws",
+  FavoriteTreat: "Kibble",
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">type Dog struct {
+    Breed         string `json:"breed"`
+    Name          string `json:"name"`
+    FavoriteTreat string `json:"favorite_treat"`
+    Age           int    `json:"age"`
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func main() {
+    input := `{
+      "name": "Coffee",
+      "breed": "Toy Poodle",
+      "age": 5,
+      "favorite_treat": "Kibble"
+    }`
+
+    var coffee Dog
+
+    err := json.Unmarshal([]byte(input), &amp;coffee)
+    if err != nil {
+        log.Fatalf("Unable to marshal JSON due to %s", err)
+    }
+
+    litter.Dump(coffee)
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_uses_of_struct_tags"><a class="anchor" href="#_other_uses_of_struct_tags"></a>4.3. Other uses of struct tags</h3>
+<div class="listingblock">
+<div class="title">Omit an empty field (one with its zero value in Go)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">type User struct {
+    Username string   `json:"username"`
+    Password string   `json:"-"`
+
+    Email    string   `json:"email"`
+    Hobbies  []string `json:"hobbies,omitempty"`
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_validating_json_data"><a class="anchor" href="#_validating_json_data"></a>5. Validating JSON data</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func main() {
+    good := `{"name": "John Doe"}`
+    bad := `{name: "John Doe"}`
+
+    fmt.Println(json.Valid([]byte(good)))
+    fmt.Println(json.Valid([]byte(bad)))
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_defining_custom_behavior_marshal_unmarshal_data"><a class="anchor" href="#_defining_custom_behavior_marshal_unmarshal_data"></a>6. Defining custom behavior - Marshal / Unmarshal data</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Go, you can define custom behavior for marshalling data by implementing the
+<code>json.Marshaler</code> interface. This interface defines a single method,
+<code>MarshalJSON()</code> which takes no arguments and returns a byte slice and an
+error.</p>
+</div>
+<div class="paragraph">
+<p>To implement the <code>json.Marshaler</code> interface, you need to define a new type that
+wraps the original type you want to marshal. This new type should have a method
+named <code>MarshalJSON()</code> that returns a byte slice and an error.</p>
+</div>
+<div class="listingblock">
+<div class="title">examples/custom_timestamp/main.go</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">type (
+    CustomTime struct {
+        time.Time
+    }
+
+    Baby struct {
+        BirthDate CustomTime `json:"birth_date"`
+        Name      string    `json:"name"`
+        Gender    string    `json:"gender"`
+    }
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above snippet, we defined a new <code>CustomTime</code> type that wraps a
+<code>time.Time</code> value. In is subsequently used in the <code>Baby</code> struct as the type of
+the <code>BirthDate</code> value.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example that marshals a value of type <code>Baby</code> below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func main() {
+    baby := Baby{
+        Name:   "johnny",
+        Gender: "male",
+        BirthDate: CustomTime{
+            time.Date(2023, 1, 1, 12, 0, 0, 0, time.Now().Location()),
+        },
+    }
+
+    b, err := json.Marshal(baby)
+    if err != nil {
+        log.Fatalf("Unable to marshal due to %s\n", err)
+    }
+
+    fmt.Println(string(b))
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice how the <code>birth_date</code> presented in the RFC 3339 format. You can now
+define the custom marshalling behavior that will return a different format for
+<code>CustomTime</code> values (such as <code>DD-MM-YYYY</code>) instead of the default RFC 3339
+timestamp format.</p>
+</div>
+<div class="paragraph">
+<p>You only need to define a <code>MarshalJSON()</code> method for the type as shown below:</p>
+</div>
+<div class="listingblock">
+<div class="title">examples/custom_timestamp/main.go</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func (ct CustomTime) MarshalJSON() ([]byte, error) {
+    return []byte(fmt.Sprintf(`%q`, ct.Time.Format("02-01-2006"))), nil
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://asciidoctor.org" target="_blank" rel="noopener"><img src="../../../_/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
+      <figcaption class="footer-brand-name"><a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <!--
+      <li><a href="https://asciidoctor.org" target="_blank" rel="noopener">Home</a></li>
+      -->
+      <li><a href="https://hossein-lap.github.io">Docs</a></li>
+      <li><a href="https://chat.asciidoctor.org" target="_blank" rel="noopener">Chat</a></li>
+      <li><a href="https://github.com/asciidoctor" target="_blank" rel="noopener">Source</a></li>
+      <li><a href="https://discuss.asciidoctor.org" target="_blank" rel="noopener">List (archive)</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/asciidoctor" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@asciidoctor</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2025 Dan Allen, Sarah White, and individual Asciidoctor contributors. Except where noted, the content is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.</p>
+    <!-- <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p> -->
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Thanks to our <a href="https://asciidoctor.org/supporters/" target="_blank" rel="noopener">backers</a> and <a href="https://asciidoctor.org/contributors/" target="_blank" rel="noopener">contributors</a> for helping to make this project possible. Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://zulip.com" title="Chat powered by Zulip" target="_blank" rel="noopener"><img src="../../../_/img/zulip-logo.svg" alt="Zulip logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="../../../_/img/netlify-logo.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in <a href="https://asciidoc.org" target="_blank" rel="noopener">AsciiDoc</a>.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

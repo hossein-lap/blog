@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Perl Operator | Hos Notes</title>
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="canonical" href="https://hossein-lap.github.io/programming-perl/0.1.0/perl/syntax/syntax-04-operators.html">
+    <meta property="og:url" content="https://hossein-lap.github.io/programming-perl/0.1.0/perl/syntax/syntax-04-operators.html">
+    <meta property="og:description" content="A documentation page for Perl Programming Language.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Perl Programming Language - Perl Operator">
+    <meta property="og:image" content="https://hossein-lap.github.io/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <meta name="page-spec" content="programming-perl::perl/syntax/syntax-04-operators.adoc">
+    <link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+    <!-- Put the logo here -->
+    <a class="navbar-item logo" title="Hos Notes" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">
+        <img src="../../../../_/img/logo.jpg" alt="Hos Notes" width="48">
+      </a>
+      <a class="navbar-item title" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">Hos Notes</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Languages</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">Programming</div>
+              <a class="navbar-item" href="../../../../programming-go/0.1.0/index.html">
+                Go <small>Tooling</small>
+              </a>
+              <a class="navbar-item" href="#">
+                Lua <small>Plugable</small>
+              </a>
+              <a class="navbar-item" href="../../index.html">
+                Perl <small>Scripting</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Markup</div>
+              <a class="navbar-item" href="#">
+                Asciidoc <small></small>
+              </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Tools</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">CLI Tooling</div>
+              <a class="navbar-item" href="../../../../tool-git/0.1.0/index.html">
+                Git <small>Version Control</small>
+              </a>
+            <hr class="navbar-divider">
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <div class="navbar-link">section</div> -->
+        <!--   <div class="navbar-dropdown"> -->
+        <!--     <div class="navbar-item">subsection</div> -->
+        <!--       <a class="navbar-item" href="../../../../tool-git/0.1.0/index.html"> -->
+        <!--         itemize <small>item</small> -->
+        <!--       </a> -->
+        <!--     <hr class="navbar-divider"> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Info</div>
+          <div class="navbar-dropdown is-right">
+            <div class="navbar-item">Contact</div>
+              <a class="navbar-item" href="mailto:hosteam01@gmail.com">
+                E-mail <small>hosteam01@gmail.com</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Social</div>
+              <a class="navbar-item" href="https://github.com/hossein-lap">
+                Github <small>hossein-lap</small>
+              </a>
+              <a class="navbar-item" href="https://gitlab.com/primejade">
+                Gitlab <small>primejade</small>
+              </a>
+              <a class="navbar-item" href="https://linkedin.com/in/hossein-esmail">
+                Linked-in <small>hossein-esmail</small>
+              </a>
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <a class="navbar-item" href="#" data-title="Support"> -->
+        <!--     <span class="icon"><img src="../../../../_/img/octicons-24.svg#view-comment-discussion"></span> -->
+        <!--   </a> -->
+        <!--   <div class="navbar-dropdown is-right"> -->
+            <!-- <a class="navbar-item has-icon" href="https://chat.asciidoctor.org" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-comment-discussion"></span> -->
+            <!--   <span>Chat</span> -->
+            <!-- </a> -->
+            <!-- <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-linked-in"></span> -->
+            <!--   <span>E-Mail</span> -->
+            <!-- </a> -->
+        <!--     <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-mail"></span> -->
+        <!--       <span>E-Mail</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-mark-github"></span> -->
+        <!--       <span>Github</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-mark-gitlab"></span> -->
+        <!--       <span>Gitlap</span> -->
+        <!--     </a> -->
+            <!-- <a class="navbar-item has-icon" href="https://twitter.com/asciidoctor" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-hash"></span> -->
+            <!--   <span>Tweets</span> -->
+            <!-- </a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Perl Programming Language</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Basic Syntax</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-00-introduction.html">Syntax :: Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-01-variables.html">Syntax :: Variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-02-numbers.html">Syntax :: Numbers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-03-strings.html">Syntax :: Strings</a>
+  </li>
+  <li class="nav-item is-current-url" data-depth="2">
+    <a class="nav-link" href="syntax-04-operators.html">Syntax :: Operators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-05-list.html">Syntax :: list</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-06-array.html">Syntax :: array</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-07-hash.html">Syntax :: hash</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-08-if.html">Syntax :: if</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-09-unless.html">Syntax :: unless</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-10-given.html">Syntax :: given</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-11-for.html">Syntax :: for</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-12-while.html">Syntax :: while</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-13-do-while.html">Syntax :: do-while</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-14-until.html">Syntax :: until</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-15-next.html">Syntax :: next</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-16-last.html">Syntax :: last</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-17-reference.html">Syntax :: Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-18-subroutine.html">Syntax :: Subroutine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-19-module.html">Syntax :: Module</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-20-oop.html">Syntax :: OOP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-21-dbi.html">Syntax :: DBI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-22-sort.html">Syntax :: sort</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-23-open-file.html">Syntax :: Open File</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-24-read-file.html">Syntax :: Read File</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-25-write-file.html">Syntax :: Write to File</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-26-file-test-ops.html">Syntax :: File Test Operations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../helpers/index.html">Helpers</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Perl Programming Language</span>
+    <span class="version">0.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../../note-base/0.1.0/index.html">Blog</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../note-base/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../tool-git/0.1.0/index.html">Git Version Control System</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../tool-git/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../programming-go/0.1.0/index.html">Go Programming Language</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../programming-go/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Perl Programming Language</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../note-base/0.1.0/index.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Perl Programming Language</a></li>
+    <li><a href="index.html">Basic Syntax</a></li>
+    <li><a href="syntax-04-operators.html">Syntax :: Operators</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/hossein-lap/note-perl/edit/devel/docs/modules/ROOT/pages/perl/syntax/syntax-04-operators.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc programming-perl">
+<h1 class="page">Perl Operator</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl operators including numeric operators, string operators, and logical operators.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_numeric_operators"><a class="anchor" href="#_numeric_operators"></a>1. Numeric operators</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl provides numeric operators to help you operate on numbers including
+arithmetic, Boolean and bitwise operations. Let’s examine the different kinds
+of operators in more detail.</p>
+</div>
+<div class="paragraph">
+<div class="title">Arithmetic operators</div>
+<p>Perl arithmetic operators deal with basic math such as adding, subtracting,
+multiplying, diving, etc. To add (<code>+</code>) or subtract (<code>-</code>) numbers, you would do
+something as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 10 + 20, "\n"; # 30
+print 20 - 10, "\n"; # 10</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To multiply or divide numbers, you use divide (<code>/</code>) and multiply (<code>*</code>) operators as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 10 * 20, "\n"; # 200
+print 20 / 10, "\n"; # 2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you combine adding, subtracting, multiplying, and dividing operators
+together, Perl will perform the calculation in an order, which is known as
+operator precedence.</p>
+</div>
+<div class="paragraph">
+<p>The multiply and divide operators have higher precedence than add and subtract
+operators, therefore, Perl performs multiplying and dividing before adding and
+subtracting. See the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">print 10 + 20/2 - 5 * 2 , "\n"; # 10</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl performs 20/2 and 5*2 first, therefore you will get 10 + 10 – 10 = 10.</p>
+</div>
+<div class="paragraph">
+<p>You can use brackets <code>()</code> to force Perl to perform calculations based on the
+precedence you want as shown in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">print (((10 + 20) / 2 - 5) * 2); # 20;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To raise one number to the power of another number, you use the exponentiation
+operator.</p>
+</div>
+<div class="listingblock">
+<div class="title">Exponentiation operators:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 2**3, "\n"; # = 2 * 2 * 2 = 8.
+print 3**4, "\n"; # = 3 * 3 * 3 * 3 = 81.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To get the remainder of the division of one number by another, you use the modulo operator (<code>%</code>).</p>
+</div>
+<div class="paragraph">
+<p>It is handy to use the modulo operator (<code>%</code>) to check if a number is odd or even
+by dividing it by 2 to get the remainder. If the remainder is zero, the number
+is even, otherwise, the number is odd. See the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+print 4 % 2, "\n"; # 0 even
+print 5 % 2, "\n"; # 1 odd</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Bitwise Operators</div>
+<p>Bitwise operators allow you to operate on numbers one bit at a time. Think of a
+number as a series of bits e.g., <code>125</code> can be represented in binary form as
+<code>1111101</code>. Perl provides all basic bitwise operators including and (<code>&amp;</code>), or
+(<code>|</code>), exclusive or (<code>^</code>) , not (<code>~</code>) operators, shift right (<code>&gt;&gt;</code>), and shift
+left (<code>&lt;&lt;</code>) operators.</p>
+</div>
+<div class="paragraph">
+<p>The bitwise operators perform from right to left. In other words, bitwise
+operators perform from the rightmost bit to the leftmost bit.</p>
+</div>
+<div class="listingblock">
+<div class="title">Bitwise operations</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $a = 0b0101; # 5
+my $b = 0b0011; # 3
+
+my $c = $a &amp; $b; # 0001 or 1
+print $c, "\n";
+
+$c = $a | $b; # 0111 or 7
+print $c, "\n";
+
+$c = $a ^ $b; # 0110 or 6
+print $c, "\n";
+
+$c = ~$a; # 11111111111111111111111111111010 (64bits computer) or 4294967290
+print $c, "\n";
+
+$c = $a &gt;&gt; 1; # 0101 shift right 1 bit, 010 or 2
+print $c, "\n";
+
+$c = $a &lt;&lt; 1; # 0101 shift left 1 bit, 1010 or 10
+print $c, "\n";</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Comparison operators for numbers</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Equality</th>
+<th class="tableblock halign-left valign-top">Operators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>==</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not Equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>!=</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comparison</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&#8658;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than or equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&#8656;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than or equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;=</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>All the operators in the table above are obvious except the number comparison
+operator <code>&lt;&#8658;</code> which is also known as spaceship operator.</p>
+</div>
+<div class="paragraph">
+<p>The number comparison operator is often used in sorting numbers. See the code
+below:</p>
+</div>
+$a <=> $b
+<div class="ulist">
+<ul>
+<li>
+<p><strong>1</strong> if <code>$a</code> is greater than <code>$b</code></p>
+</li>
+<li>
+<p><strong>0</strong> if <code>$a</code> and <code>$b</code> are equal</p>
+</li>
+<li>
+<p><strong>-1</strong> if <code>$a</code> is lower than <code>$b</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $a = 10;
+my $b = 20;
+
+print $a &lt;=&gt; $b, "\n";
+
+$b = 10;
+print $a &lt;=&gt; $b, "\n";
+
+$b = 5;
+print $a &lt;=&gt; $b, "\n";</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_string_operators"><a class="anchor" href="#_string_operators"></a>2. String operators</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Comparison operators</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Equality</th>
+<th class="tableblock halign-left valign-top">Operators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eq</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not Equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ne</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comparison</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cmp</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lt</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gt</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than or equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>le</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than or equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ge</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<div class="title">Concatenation operators</div>
+<p>Perl provides the concatenation (<code>.</code>) and repetition (<code>x</code>) operators that allow
+you to manipulate strings</p>
+</div>
+<div class="listingblock">
+<div class="title">Concatenation operator (<code>.</code>)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">print "This is" . " concatenation operator" . "\n";</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Repetition operators (<code>x</code>)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">print "a message " x 4, "\n";</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">The chomp() operator</div>
+<p>The <code>chomp()</code> operator (or function) removes the last character in a string and
+returns a number of characters that were removed. The <code>chomp()</code> operator is
+very useful when dealing with the user’s input because it helps you remove the
+new line character \n from the string that the user entered.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $s;
+chomp($s = &lt;STDIN&gt;);
+print $s;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>&lt;STDIN&gt;</code> is used to get input from users.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_logical_operators"><a class="anchor" href="#_logical_operators"></a>3. Logical operators</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Logical operators are often used in control statements such as
+<a href="syntax-08-if.html" class="xref page">if</a>,
+<a href="syntax-12-while.html" class="xref page">while</a>,
+<a href="syntax-10-given.html" class="xref page">given</a>,
+etc., to control the flow of the program. The following are logical operators in Perl:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>$a &amp;&amp; $b</code> performs the logic <code>AND</code> of two variables or expressions. The
+logical <code>&amp;&amp;</code> operator checks if both variables or expressions are true.</p>
+</li>
+<li>
+<p><code>$a || $b</code> performs the logic <code>OR</code> of two variables or expressions. The
+logical <code>||</code> operator checks whether a variable or expression is true.</p>
+</li>
+<li>
+<p><code>!$a</code> performs the logic <code>NOT</code> of the variable or expression. The logic <code>!</code>
+operator inverts the value of the following variable or expression. In the
+other words, it converts <code>true</code> to <code>false</code> or <code>false</code> to <code>true</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://asciidoctor.org" target="_blank" rel="noopener"><img src="../../../../_/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
+      <figcaption class="footer-brand-name"><a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <!--
+      <li><a href="https://asciidoctor.org" target="_blank" rel="noopener">Home</a></li>
+      -->
+      <li><a href="https://hossein-lap.github.io">Docs</a></li>
+      <li><a href="https://chat.asciidoctor.org" target="_blank" rel="noopener">Chat</a></li>
+      <li><a href="https://github.com/asciidoctor" target="_blank" rel="noopener">Source</a></li>
+      <li><a href="https://discuss.asciidoctor.org" target="_blank" rel="noopener">List (archive)</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/asciidoctor" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@asciidoctor</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2025 Dan Allen, Sarah White, and individual Asciidoctor contributors. Except where noted, the content is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.</p>
+    <!-- <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p> -->
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Thanks to our <a href="https://asciidoctor.org/supporters/" target="_blank" rel="noopener">backers</a> and <a href="https://asciidoctor.org/contributors/" target="_blank" rel="noopener">contributors</a> for helping to make this project possible. Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://zulip.com" title="Chat powered by Zulip" target="_blank" rel="noopener"><img src="../../../../_/img/zulip-logo.svg" alt="Zulip logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="../../../../_/img/netlify-logo.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in <a href="https://asciidoc.org" target="_blank" rel="noopener">AsciiDoc</a>.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/tabs.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

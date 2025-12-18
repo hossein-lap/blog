@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>unless Statement | Hos Notes</title>
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="canonical" href="https://hossein-lap.github.io/programming-perl/0.1.0/perl/syntax/syntax-09-unless.html">
+    <meta property="og:url" content="https://hossein-lap.github.io/programming-perl/0.1.0/perl/syntax/syntax-09-unless.html">
+    <meta property="og:description" content="A documentation page for Perl Programming Language.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Perl Programming Language - unless Statement">
+    <meta property="og:image" content="https://hossein-lap.github.io/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <meta name="page-spec" content="programming-perl::perl/syntax/syntax-09-unless.adoc">
+    <link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+    <!-- Put the logo here -->
+    <a class="navbar-item logo" title="Hos Notes" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">
+        <img src="../../../../_/img/logo.jpg" alt="Hos Notes" width="48">
+      </a>
+      <a class="navbar-item title" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">Hos Notes</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Languages</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">Programming</div>
+              <a class="navbar-item" href="../../../../programming-go/0.1.0/index.html">
+                Go <small>Tooling</small>
+              </a>
+              <a class="navbar-item" href="#">
+                Lua <small>Plugable</small>
+              </a>
+              <a class="navbar-item" href="../../index.html">
+                Perl <small>Scripting</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Markup</div>
+              <a class="navbar-item" href="#">
+                Asciidoc <small></small>
+              </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Tools</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">CLI Tooling</div>
+              <a class="navbar-item" href="../../../../tool-git/0.1.0/index.html">
+                Git <small>Version Control</small>
+              </a>
+            <hr class="navbar-divider">
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <div class="navbar-link">section</div> -->
+        <!--   <div class="navbar-dropdown"> -->
+        <!--     <div class="navbar-item">subsection</div> -->
+        <!--       <a class="navbar-item" href="../../../../tool-git/0.1.0/index.html"> -->
+        <!--         itemize <small>item</small> -->
+        <!--       </a> -->
+        <!--     <hr class="navbar-divider"> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Info</div>
+          <div class="navbar-dropdown is-right">
+            <div class="navbar-item">Contact</div>
+              <a class="navbar-item" href="mailto:hosteam01@gmail.com">
+                E-mail <small>hosteam01@gmail.com</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Social</div>
+              <a class="navbar-item" href="https://github.com/hossein-lap">
+                Github <small>hossein-lap</small>
+              </a>
+              <a class="navbar-item" href="https://gitlab.com/primejade">
+                Gitlab <small>primejade</small>
+              </a>
+              <a class="navbar-item" href="https://linkedin.com/in/hossein-esmail">
+                Linked-in <small>hossein-esmail</small>
+              </a>
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <a class="navbar-item" href="#" data-title="Support"> -->
+        <!--     <span class="icon"><img src="../../../../_/img/octicons-24.svg#view-comment-discussion"></span> -->
+        <!--   </a> -->
+        <!--   <div class="navbar-dropdown is-right"> -->
+            <!-- <a class="navbar-item has-icon" href="https://chat.asciidoctor.org" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-comment-discussion"></span> -->
+            <!--   <span>Chat</span> -->
+            <!-- </a> -->
+            <!-- <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-linked-in"></span> -->
+            <!--   <span>E-Mail</span> -->
+            <!-- </a> -->
+        <!--     <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-mail"></span> -->
+        <!--       <span>E-Mail</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-mark-github"></span> -->
+        <!--       <span>Github</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-mark-gitlab"></span> -->
+        <!--       <span>Gitlap</span> -->
+        <!--     </a> -->
+            <!-- <a class="navbar-item has-icon" href="https://twitter.com/asciidoctor" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../../_/img/octicons-16.svg#view-hash"></span> -->
+            <!--   <span>Tweets</span> -->
+            <!-- </a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Perl Programming Language</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Basic Syntax</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-00-introduction.html">Syntax :: Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-01-variables.html">Syntax :: Variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-02-numbers.html">Syntax :: Numbers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-03-strings.html">Syntax :: Strings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-04-operators.html">Syntax :: Operators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-05-list.html">Syntax :: list</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-06-array.html">Syntax :: array</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-07-hash.html">Syntax :: hash</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-08-if.html">Syntax :: if</a>
+  </li>
+  <li class="nav-item is-current-url" data-depth="2">
+    <a class="nav-link" href="syntax-09-unless.html">Syntax :: unless</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-10-given.html">Syntax :: given</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-11-for.html">Syntax :: for</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-12-while.html">Syntax :: while</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-13-do-while.html">Syntax :: do-while</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-14-until.html">Syntax :: until</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-15-next.html">Syntax :: next</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-16-last.html">Syntax :: last</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-17-reference.html">Syntax :: Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-18-subroutine.html">Syntax :: Subroutine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-19-module.html">Syntax :: Module</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-20-oop.html">Syntax :: OOP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-21-dbi.html">Syntax :: DBI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-22-sort.html">Syntax :: sort</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-23-open-file.html">Syntax :: Open File</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-24-read-file.html">Syntax :: Read File</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-25-write-file.html">Syntax :: Write to File</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax-26-file-test-ops.html">Syntax :: File Test Operations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../helpers/index.html">Helpers</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Perl Programming Language</span>
+    <span class="version">0.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../../note-base/0.1.0/index.html">Blog</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../note-base/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../tool-git/0.1.0/index.html">Git Version Control System</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../tool-git/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../programming-go/0.1.0/index.html">Go Programming Language</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../programming-go/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Perl Programming Language</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../note-base/0.1.0/index.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Perl Programming Language</a></li>
+    <li><a href="index.html">Basic Syntax</a></li>
+    <li><a href="syntax-09-unless.html">Syntax :: unless</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/hossein-lap/note-perl/edit/devel/docs/modules/ROOT/pages/perl/syntax/syntax-09-unless.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<article class="doc programming-perl">
+<h1 class="page">unless Statement</h1>
+<div class="paragraph">
+<p>Before discussing the unless statement, let’s revisit Perl’s philosophy:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>There is more than one way to do it.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Perl always provides you with an alternative way to achieve what you need to do.
+In programming, you often hear something like this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If it’s not true, then do this (use <code>if</code> not statement).</p>
+</li>
+<li>
+<p>or unless it’s true, then do this (use <code>unless</code> statement).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The effect is the same but the philosophy is different. That’s why Perl
+invented the <code>unless</code> statement to increase the readability of code when you
+use it properly.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>the Perl <code>unless</code> statement is equivalent to the <code>if not</code> statement</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title"><strong><em>unless</em></strong> statement</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">statement unless (condition);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl executes the statement from right to left, if the condition is <code>false</code>,
+Perl executes the statement that precedes the <code>unless</code>. If the condition is
+<code>true</code>, Perl skips the statement.</p>
+</div>
+<div class="paragraph">
+<p>If you have more than one statement to execute, you can use the following form
+of the Perl unless statement:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">unless (condition) {
+    // code block
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>condition</code> evaluates to <code>false</code>, Perl executes the code block,
+otherwise, it skips the code block.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 10;
+
+unless($a &lt;= 0){
+    print("a is greater than 0\n")
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>unless..else</em></strong> statement</div>
+<p>Sometimes you want to say unless the condition is <code>true</code>, then do this,
+otherwise do that.</p>
+</div>
+<div class="paragraph">
+<p>This is where the <code>unless&#8230;&#8203;else</code> statement comes into play. See the following
+<code>unless else</code> statement:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">unless (condition) {
+    // unless code block
+} else {
+    // else code block
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the condition is <code>false</code>, Perl will execute the <code>unless</code> code block,
+otherwise, Perl will execute the <code>else</code> code block.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 10;
+unless ($a &gt;= 0) {
+    print("a is less than 0\n");
+} else {
+    print("a is greater than or equal 0\n");
+}</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>a is greater than or equal 0</pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title"><strong><em>unless..elsif..else</em></strong> statement</div>
+<p>If you have more than one condition for checking with the <code>unless</code> statement,
+you can use the <code>unless elsif else</code> statement as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">unless (condition_1) {
+    // unless code block
+} elsif (condition_2) {
+    // elsif code block
+} else {
+    // else code block
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can have many <code>elsif</code> clauses in the <code>unless elsif</code> statement.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 1;
+
+unless ($a &gt; 0) {
+    print("a is less than 0\n");
+} elsif ($a == 0) {
+    print("a is 0\n");
+} else {
+    print("a is greater than 0\n");
+}</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title"><strong><em>unless</em></strong> statement guidelines</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>You should use the <code>unless</code> statement with a simple condition to improve the
+code readability, especially when used as a postfix after another statement
+like the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 1;
+print("unless used with a very simple condition ONLY.\n") unless($a &lt; 0);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>You should avoid using the <code>unless</code> statement when the condition is complex and
+requires <code>else</code> and/or <code>elsif</code> clauses.</p>
+</div>
+<div class="paragraph">
+<p>If you take a look at the following code, it is difficult to interpret the
+meaning of the condition.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-perl hljs" data-lang="perl">my $a = 1;
+my $b = 10;
+my $c = 20;
+unless ($a &lt; 0 &amp;&amp; $b == 10 &amp;&amp; $c &gt; 0) {
+    print("unless used with a very complex condition\n");
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://asciidoctor.org" target="_blank" rel="noopener"><img src="../../../../_/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
+      <figcaption class="footer-brand-name"><a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <!--
+      <li><a href="https://asciidoctor.org" target="_blank" rel="noopener">Home</a></li>
+      -->
+      <li><a href="https://hossein-lap.github.io">Docs</a></li>
+      <li><a href="https://chat.asciidoctor.org" target="_blank" rel="noopener">Chat</a></li>
+      <li><a href="https://github.com/asciidoctor" target="_blank" rel="noopener">Source</a></li>
+      <li><a href="https://discuss.asciidoctor.org" target="_blank" rel="noopener">List (archive)</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/asciidoctor" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@asciidoctor</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2025 Dan Allen, Sarah White, and individual Asciidoctor contributors. Except where noted, the content is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.</p>
+    <!-- <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p> -->
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Thanks to our <a href="https://asciidoctor.org/supporters/" target="_blank" rel="noopener">backers</a> and <a href="https://asciidoctor.org/contributors/" target="_blank" rel="noopener">contributors</a> for helping to make this project possible. Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://zulip.com" title="Chat powered by Zulip" target="_blank" rel="noopener"><img src="../../../../_/img/zulip-logo.svg" alt="Zulip logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="../../../../_/img/netlify-logo.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in <a href="https://asciidoc.org" target="_blank" rel="noopener">AsciiDoc</a>.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/tabs.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Accessing K8S pods | Hos Notes</title>
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="canonical" href="https://hossein-lap.github.io/programming-go/0.1.0/golang/k8s-ingress-loadbalancer.html">
+    <meta property="og:url" content="https://hossein-lap.github.io/programming-go/0.1.0/golang/k8s-ingress-loadbalancer.html">
+    <meta property="og:description" content="A documentation page for Go Programming Language.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Go Programming Language - Accessing K8S pods">
+    <meta property="og:image" content="https://hossein-lap.github.io/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <meta name="page-spec" content="programming-go::golang/k8s-ingress-loadbalancer.adoc">
+    <link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+    <!-- Put the logo here -->
+    <a class="navbar-item logo" title="Hos Notes" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">
+        <img src="../../../_/img/logo.jpg" alt="Hos Notes" width="48">
+      </a>
+      <a class="navbar-item title" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">Hos Notes</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Languages</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">Programming</div>
+              <a class="navbar-item" href="../index.html">
+                Go <small>Tooling</small>
+              </a>
+              <a class="navbar-item" href="#">
+                Lua <small>Plugable</small>
+              </a>
+              <a class="navbar-item" href="../../../programming-perl/0.1.0/index.html">
+                Perl <small>Scripting</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Markup</div>
+              <a class="navbar-item" href="#">
+                Asciidoc <small></small>
+              </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Tools</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">CLI Tooling</div>
+              <a class="navbar-item" href="../../../tool-git/0.1.0/index.html">
+                Git <small>Version Control</small>
+              </a>
+            <hr class="navbar-divider">
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <div class="navbar-link">section</div> -->
+        <!--   <div class="navbar-dropdown"> -->
+        <!--     <div class="navbar-item">subsection</div> -->
+        <!--       <a class="navbar-item" href="../../../tool-git/0.1.0/index.html"> -->
+        <!--         itemize <small>item</small> -->
+        <!--       </a> -->
+        <!--     <hr class="navbar-divider"> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Info</div>
+          <div class="navbar-dropdown is-right">
+            <div class="navbar-item">Contact</div>
+              <a class="navbar-item" href="mailto:hosteam01@gmail.com">
+                E-mail <small>hosteam01@gmail.com</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Social</div>
+              <a class="navbar-item" href="https://github.com/hossein-lap">
+                Github <small>hossein-lap</small>
+              </a>
+              <a class="navbar-item" href="https://gitlab.com/primejade">
+                Gitlab <small>primejade</small>
+              </a>
+              <a class="navbar-item" href="https://linkedin.com/in/hossein-esmail">
+                Linked-in <small>hossein-esmail</small>
+              </a>
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <a class="navbar-item" href="#" data-title="Support"> -->
+        <!--     <span class="icon"><img src="../../../_/img/octicons-24.svg#view-comment-discussion"></span> -->
+        <!--   </a> -->
+        <!--   <div class="navbar-dropdown is-right"> -->
+            <!-- <a class="navbar-item has-icon" href="https://chat.asciidoctor.org" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-comment-discussion"></span> -->
+            <!--   <span>Chat</span> -->
+            <!-- </a> -->
+            <!-- <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-linked-in"></span> -->
+            <!--   <span>E-Mail</span> -->
+            <!-- </a> -->
+        <!--     <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mail"></span> -->
+        <!--       <span>E-Mail</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mark-github"></span> -->
+        <!--       <span>Github</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mark-gitlab"></span> -->
+        <!--       <span>Gitlap</span> -->
+        <!--     </a> -->
+            <!-- <a class="navbar-item has-icon" href="https://twitter.com/asciidoctor" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-hash"></span> -->
+            <!--   <span>Tweets</span> -->
+            <!-- </a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Go Programming Language</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-url" data-depth="1">
+    <a class="nav-link" href="k8s-ingress-loadbalancer.html">K8S Ingress LoadBalancer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="go.html">Basic Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="webserver.html">Webserver</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Go Programming Language</span>
+    <span class="version">0.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../note-base/0.1.0/index.html">Blog</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../note-base/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tool-git/0.1.0/index.html">Git Version Control System</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tool-git/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Go Programming Language</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../programming-perl/0.1.0/index.html">Perl Programming Language</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../programming-perl/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../note-base/0.1.0/index.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Go Programming Language</a></li>
+    <li><a href="k8s-ingress-loadbalancer.html">K8S Ingress LoadBalancer</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/hossein-lap/note-golang/edit/devel/docs/modules/ROOT/pages/golang/k8s-ingress-loadbalancer.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc programming-go">
+<h1 class="page">Accessing K8S pods</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Configure kubernetes infrastructure with NodePort, ClusterIP, Ingress, nginx load-balancer</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This is some note, nothing serious.
+<strong>DO NOT</strong> cite from this article.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="./k8s-ingress-loadbalancer.pdf">Download this note as a PDF</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_forwarding_a_local_network_port_to_a_port_in_the_pod"><a class="anchor" href="#_forwarding_a_local_network_port_to_a_port_in_the_pod"></a>1. Forwarding a Local Network Port to a Port in The Pod</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you want to talk to a specific pod without going through a service (for
+debugging or other reasons), Kubernetes allows you to configure port forwarding
+to the pod.</p>
+</div>
+<div class="paragraph">
+<p>This is done through the <code>kubectl port-forward</code> command. The following command
+will forward your machine&#8217;s local port <code>8888</code> to port <code>8080</code> of your
+e.g <code>kubia-manual</code> pod.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl port-forward kubia-manual 8888:8080</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>... Forwarding from 127.0.0.1:8888 -&gt; 8080
+... Forwarding from [::1]:8888 -&gt; 8080</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_connecting_to_the_pod_through_the_port_forwarder"><a class="anchor" href="#_connecting_to_the_pod_through_the_port_forwarder"></a>1.1. Connecting to The Pod Through the Port Forwarder</h3>
+<div class="paragraph">
+<p>In a different terminal, you can now use curl to send an HTTP request to your pod
+through the <code>kubectl port-forward</code> proxy running on <code>localhost:8888</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ curl localhost:8888</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>You've hit kubia-manual</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_service_object"><a class="anchor" href="#_service_object"></a>2. Service Object</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each pod gets its own IP address, but this address is internal to the cluster
+and isn&#8217;t accessible from outside of it. To make the pod accessible from the
+outside, you&#8217;ll expose it through a Service object. You&#8217;ll create a special
+service of type <code>LoadBalancer</code>, because if you create a regular service (a
+<code>ClusterIP</code> service), like the pod, it would also only be accessible from
+inside the cluster. By creating a <code>LoadBalancer</code> type service, an external load
+balancer will be created and you can connect to the pod through the load
+balancer&#8217;s public IP.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_service_object"><a class="anchor" href="#_creating_a_service_object"></a>2.1. Creating a Service Object</h3>
+<div class="paragraph">
+<p>To create the service, you&#8217;ll tell Kubernetes to expose the ReplicationController you
+created:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Using YAML file</div>
+<div class="listingblock">
+<div class="title">Manifest:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: kubia
+spec:
+  ports:
+  - port: 80 # service's port
+    targetPort: 8080 # the forward-to port by service
+  selector: # all pods labeled `kubia` will follow/select this service
+    app: kubia</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Apply the service:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl create -f kubia-srv.yaml</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Using kubectl CLI options</div>
+<div class="listingblock">
+<div class="title">Template:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl expose rc &lt;rep-controller-name&gt; --type=LoadBalancer --name &lt;lb-name&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Expose:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl expose rc kubia --type=LoadBalancer --name kubia-http</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>service "kubia-http" exposed</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<div class="title">Remotely Executing Commands in Running Containers:</div>
+<ul>
+<li>
+<p>You&#8217;ll also need to obtain the cluster IP of your service
+(using <code>kubectl get svc</code>, for example)</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl exec kubia-7nog1 -- curl -s http://10.111.249.153</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>You've hit kubia-gzwli</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_session_affinity_on_the_service"><a class="anchor" href="#_session_affinity_on_the_service"></a>2.2. Session Affinity on the Service</h3>
+<div class="paragraph">
+<p>If you execute the same command a few more times, you should hit a different
+pod with every invocation, because the service proxy normally forwards each
+connection to a randomly selected backing pod, even if the connections are
+coming from the same client.</p>
+</div>
+<div class="paragraph">
+<p>If, on the other hand, you want all requests made by a certain client to be
+redirected to the same pod every time, you can set the service&#8217;s
+<code>sessionAffinity</code> property to <code>ClientIP</code> (instead of <code>None</code>, which is the
+default), as shown in the following listing.</p>
+</div>
+<div class="listingblock">
+<div class="title">Service with <code>ClientIP</code> Session Affinity Manifest</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Service
+spec:
+  sessionAffinity: ClientIP
+  ...</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Kubernetes supports only two types of service session affinity: <code>None</code> and
+<code>ClientIP</code>.</p>
+</li>
+<li>
+<p>Kubernetes services don&#8217;t operate at the HTTP level. Services deal with TCP
+and UDP packets and don&#8217;t care about the payload they carry. Because cookies
+are a construct of the HTTP protocol, services don&#8217;t know about them, which
+explains why session affinity cannot be based on cookies.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exposing_multiple_ports_in_the_same_service"><a class="anchor" href="#_exposing_multiple_ports_in_the_same_service"></a>2.3. Exposing Multiple Ports in the Same Service</h3>
+<div class="listingblock">
+<div class="title">Manifest</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: kubia
+spec:
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+  - name: https
+    port: 443
+    targetPort: 8443
+  selector:
+    app: kubia</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_named_ports"><a class="anchor" href="#_using_named_ports"></a>2.4. Using Named Ports</h3>
+<div class="paragraph">
+<p>You can give a name to each pod&#8217;s port and refer to it by name in the service spec.</p>
+</div>
+<div class="listingblock">
+<div class="title">Specifying port names in a pod definition Manifest:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">kind: Pod
+spec:
+  containers:
+  - name: kubia
+    ports:
+    - name: http
+      containerPort: 8080
+    - name: https
+      containerPort: 8443</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Referring to named ports in a service Manifest:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Service
+spec:
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
+  - name: https
+    port: 443
+    targetPort: https</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_connecting_to_services_living_outside_the_cluster"><a class="anchor" href="#_connecting_to_services_living_outside_the_cluster"></a>3. Connecting to services living outside the cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Instead of having the service redirect connections to pods in the cluster, you
+want it to redirect to external IP(s) and port(s).</p>
+</div>
+<div class="paragraph">
+<p>This allows you to take advantage of both service load balancing and service
+discovery. Client pods running in the cluster can connect to the external
+service like they connect to internal services.</p>
+</div>
+<div class="sect2">
+<h3 id="_service_endpoints"><a class="anchor" href="#_service_endpoints"></a>3.1. Service Endpoints</h3>
+<div class="paragraph">
+<p>Services don&#8217;t link to pods directly. Instead, a resource sits in between—the
+Endpoints resource. You may have already noticed endpoints if you used the
+<code>kubectl describe</code> command on your service.</p>
+</div>
+<div class="listingblock">
+<div class="title">Full details of a service:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl describe svc kubia</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>Name:             kubia
+Namespace:        default
+Labels:           &lt;none&gt;
+Selector:         app=kubia
+Type:             ClusterIP
+IP:               10.111.249.153
+Port:             &lt;unset&gt; 80/TCP
+Endpoints:        10.108.1.4:8080,10.108.2.5:8080,10.108.2.6:8080
+Session           Affinity: None
+No events.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An Endpoints resource (yes, plural) is a list of IP addresses and ports
+exposing a service. The Endpoints resource is like any other Kubernetes
+resource, so you can display its basic info with kubectl get.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl get endpoints kubia</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>NAME     ENDPOINTS                                           AGE
+kubia    10.108.1.4:8080,10.108.2.5:8080,10.108.2.6:8080     1h</pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Manually Configuring Service Endpoints</div>
+<div class="ulist">
+<ul>
+<li>
+<p>having the service&#8217;s endpoints decoupled from the service allows them to be
+configured and updated manually.</p>
+</li>
+<li>
+<p>If you create a service without a pod selector, Kubernetes won&#8217;t even create
+the Endpoints resource</p>
+<div class="ulist">
+<ul>
+<li>
+<p>after all, without a selector, it can&#8217;t know which pods to include in the
+service</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To create a service with manually managed endpoints, you need to create both
+a Service and an Endpoints resource</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">A service without a pod selector: <code>external-service.yaml</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: external-service # must match the endpoints name
+spec:
+  ports:
+  - port: 80</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Endpoints are a separate resource and not an attribute of a service</p>
+</li>
+<li>
+<p>Because you created the service without a selector, the corresponding
+Endpoints resource hasn&#8217;t been created automatically</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">A manually created Endpoints resource: <code>external-service-endpoints.yaml</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Endpoints
+metadata:
+  name: external-service # must match the service name
+subsets:
+  - addresses:
+    - ip: 11.11.11.11
+    - ip: 22.22.22.22
+    ports:
+    - port: 80 # target port of endpoints</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exposing_services_to_external_clients"><a class="anchor" href="#_exposing_services_to_external_clients"></a>4. Exposing services to external clients</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Few ways to make a service accessible externally.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NodePort</code> Service Type</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Each cluster node opens a port on the node itself (hence the name) and
+redirects traffic received on that port to the underlying service.</p>
+</li>
+<li>
+<p>The service isn&#8217;t accessible only at the internal cluster IP and port, but
+also through a dedicated port on all nodes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancer</code> Service Type, an extention of <code>NodePort</code> type</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This makes the service accessible through a dedicated load balancer,
+provisioned from the cloud infrastructure Kubernetes is running on.</p>
+</li>
+<li>
+<p>The load balancer redirects traffic to the node port across all the nodes.
+Clients connect to the service through the load balancer&#8217;s IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create <code>Ingress</code> Resource, radically different mechanism for exposing
+multiple services through a single IP address</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It operates at the HTTP level (network layer 7) and can thus offer more
+features than layer 4 services can</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_using_a_nodeport_service"><a class="anchor" href="#_using_a_nodeport_service"></a>4.1. Using a NodePort service</h3>
+<div class="paragraph">
+<p>By creating a <code>NodePort</code> service, you make Kubernetes reserve a port on all its
+nodes (the same port number is used across all of them) and forward incoming
+connections to the pods that are part of the service.</p>
+</div>
+<div class="paragraph">
+<p>This is similar to a regular service (their actual type is <code>ClusterIP</code>), but a
+<code>NodePort</code> service can be accessed not only through the service&#8217;s internal
+cluster IP, but also through any node&#8217;s IP and the reserved node port.</p>
+</div>
+<div class="paragraph">
+<p>This will make more sense when you try interacting with a <code>NodePort</code> service.</p>
+</div>
+<div class="listingblock">
+<div class="title">A NodePort service definition: <code>kubia-svc-nodeport.yaml</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: kubia-nodeport
+spec:
+  type: NodePort # service type
+  ports:
+  - port: 80 # service's internal cluster IP port
+    targetPort: 8080 # target port of the backing pods
+    nodePort: 30123 # service will listen on port 30123, each cluster nodes
+  selector:
+    app: kubia</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Examine the NodePort Service:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl get svc kubia-nodeport</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>NAME             CLUSTER-IP       EXTERNAL-IP    PORT(S)          AGE
+kubia-nodeport   10.111.254.223   &lt;nodes&gt;        80:30123/TCP     2m</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>EXTERNAL-IP</code> column shows <code>&lt;nodes&gt;</code>, indicating the service is accessible
+through the IP address of any cluster node. The <code>PORT(S)</code> column shows both the
+internal port of the cluster IP (<code>80</code>) and the node port (<code>30123</code>). The service
+is accessible at the following addresses:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>10.11.254.223:80</code></p>
+</li>
+<li>
+<p><code>&lt;1st node&#8217;s IP&gt;:30123</code></p>
+</li>
+<li>
+<p><code>&lt;2nd node&#8217;s IP&gt;:30123</code></p>
+</li>
+<li>
+<p>and so on</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Using JSONPath to get the IPs of all your nodes</div>
+<p>You can find the IP in the JSON or YAML descriptors of the nodes. But instead
+of sifting through the relatively large JSON, you can tell <code>kubectl</code> to print
+out only the node IP instead of the whole service definition</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl get nodes -o \
+  jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>130.211.97.55 130.211.99.206</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once you know the IPs of your nodes, you can try accessing your service through
+them.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ curl http://130.211.97.55:30123</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>You've hit kubia-ym8or</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ curl http://130.211.99.206:30123</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>You've hit kubia-xueq1</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exposing_a_service_through_an_external_load_balancer"><a class="anchor" href="#_exposing_a_service_through_an_external_load_balancer"></a>4.2. Exposing a service through an external load balancer</h3>
+<div class="paragraph">
+<p>Kubernetes clusters running on cloud providers usually support the automatic
+provision of a load balancer from the cloud infrastructure. All you need to do
+is set the service&#8217;s type to <code>LoadBalancer</code> instead of <code>NodePort</code>. The load
+balancer will have its own unique, publicly accessible IP address and will
+redirect all connections to your service. You can thus access your service
+through the load balancer&#8217;s IP address.</p>
+</div>
+<div class="paragraph">
+<p>If Kubernetes is running in an environment that doesn&#8217;t support <code>LoadBalancer</code>
+services, the load balancer will not be provisioned, but the service will still
+behave like a <code>NodePort</code> service. That&#8217;s because a <code>LoadBalancer</code> service is an
+extension of a <code>NodePort</code> service. You&#8217;ll run this example on Google Kubernetes
+Engine, which supports <code>LoadBalancer</code> services. Minikube doesn&#8217;t, at least not
+as of this writing.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Creating a Loadbalancer Service</div>
+<div class="listingblock">
+<div class="title">A LoadBalancer-type service: <code>kubia-svc-loadbalancer.yaml</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: kubia-loadbalancer
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: kubia</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The service type is set to LoadBalancer instead of NodePort. You&#8217;re not
+specifying a specific node port, although you could (you&#8217;re letting
+Kubernetes choose one instead).</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Connecting to the Service Through the Load Balancer</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl get svc kubia-loadbalancer</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>NAME                CLUSTER-IP       EXTERNAL-IP       PORT(S)       AGE
+kubia-loadbalancer  10.111.241.153   130.211.53.173    80:32143/TCP  1m</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Session affinity and web browsers</div>
+<div class="paragraph">
+<p>Because your service is now exposed externally, you may try accessing it with
+your web browser. You&#8217;ll see something that may strike you as odd—the browser
+will hit the exact same pod every time. Did the service&#8217;s session affinity
+change in the meantime? With <code>kubectl explain</code>, you can double-check that the
+service&#8217;s session affinity is still set to <code>None</code>, so why don&#8217;t different
+browser requests hit different pods, as is the case when using <code>curl</code>?</p>
+</div>
+<div class="paragraph">
+<p>Let me explain what&#8217;s happening. The browser is using keep-alive connections
+and sends all its requests through a single connection, whereas <code>curl</code> opens a
+new connection every time. Services work at the connection level, so when a
+connection to a service is first opened, a random pod is selected and then all
+network packets belonging to that connection are all sent to that single pod.
+Even if session affinity is set to <code>None</code>, users will always hit the same pod
+(until the connection is closed).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_understanding_the_peculiarities_of_external_connections"><a class="anchor" href="#_understanding_the_peculiarities_of_external_connections"></a>4.3. Understanding the peculiarities of external connections</h3>
+<div class="paragraph">
+<p>You must be aware of several things related to externally originating connections to
+services.</p>
+</div>
+<div class="paragraph">
+<div class="title">Understanding and Preventing Unnecessary Network Hops</div>
+<p>When an external client connects to a service through the node port (this also
+includes cases when it goes through the load balancer first), the randomly chosen
+pod may or may not be running on the same node that received the connection. An
+additional network hop is required to reach the pod, but this may not always be
+desirable.</p>
+</div>
+<div class="paragraph">
+<p>You can prevent this additional hop by configuring the service to redirect external
+traffic only to pods running on the node that received the connection. This is done by
+setting the <code>externalTrafficPolicy</code> field in the service&#8217;s <code>spec</code> section</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">spec:
+  externalTrafficPolicy: Local
+  ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Being Aware of the non-preservation of the Client&#8217;s IP</div>
+<p>Usually, when clients inside the cluster connect to a service, the pods backing
+the service can obtain the client&#8217;s IP address. But when the connection is
+received through a node port, the packets' source IP is changed, because Source
+Network Address Translation (SNAT) is performed on the packets.</p>
+</div>
+<div class="paragraph">
+<p>The backing pod can&#8217;t see the actual client&#8217;s IP, which may be a problem for
+some applications that need to know the client&#8217;s IP. In the case of a web
+server, for example, this means the access log won&#8217;t show the browser&#8217;s IP.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Local</code> external traffic policy described in the previous section affects
+the preservation of the client&#8217;s IP, because there&#8217;s no additional hop between
+the node receiving the connection and the node hosting the target pod (SNAT
+isn&#8217;t performed).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exposing_services_externally_through_an_ingress_resource"><a class="anchor" href="#_exposing_services_externally_through_an_ingress_resource"></a>5. Exposing services externally through an Ingress resource</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You must be aware of several things related to externally originating
+connections to services.</p>
+</div>
+<div class="ulist">
+<div class="title">Understanding Why Ingresses are Needed</div>
+<ul>
+<li>
+<p>each LoadBalancer service requires its own load balancer with its own public
+IP address, whereas an Ingress only requires one, even when providing access
+to dozens of services</p>
+</li>
+<li>
+<p>When a client sends an HTTP request to the Ingress, the host and path in the
+request determine which service the request is forwarded to</p>
+</li>
+<li>
+<p>Ingresses operate at the application layer of the network stack (HTTP) and
+can provide features such as cookie-based session affinity and the like,
+which services can&#8217;t</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Understanding that an Ingress Controller is Required</div>
+<p>To make Ingress resources work, an Ingress controller needs to be running in
+the cluster.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_an_ingress_resource"><a class="anchor" href="#_creating_an_ingress_resource"></a>5.1. Creating an Ingress resource</h3>
+<div class="listingblock">
+<div class="title">An Ingress resource definition: <code>kubia-ingress.yaml</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kubia
+spec:
+  rules:
+  - host: kubia.example.com #  maps the domain name to your service
+  http:
+    paths:
+    - path: /                        # All requests will be sent to port 80
+      backend:                       # of the kubia-nodeport service.
+        serviceName: kubia-nodeport  #
+        servicePort: 80              #</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This defines an Ingress with a single rule, which makes sure all HTTP requests
+received by the Ingress controller, in which the host <code>kubia.example.com</code> is
+requested, will be sent to the <code>kubia-nodeport</code> service on port <code>80</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Ingress controllers on cloud providers (in GKE, for example) require the
+Ingress to point to a <code>NodePort</code> service. But that&#8217;s not a requirement of
+Kubernetes itself.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_accessing_the_service_through_the_ingress"><a class="anchor" href="#_accessing_the_service_through_the_ingress"></a>5.2. Accessing the service through the Ingress</h3>
+<div class="paragraph">
+<p>To access your service through <a href="http://kubia.example.com" class="bare">http://kubia.example.com</a>, you&#8217;ll need to make sure
+the domain name resolves to the IP of the Ingress controller</p>
+</div>
+<div class="listingblock">
+<div class="title">Obtaining the ip Address of the Ingress:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl get ingresses</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output:</div>
+<div class="content">
+<pre>NAME      HOSTS                ADDRESS            PORTS       AGE
+kubia     kubia.example.com    192.168.99.100     80          29m</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When running on cloud providers, the address may take time to appear,
+because the Ingress controller provisions a load balancer behind the scenes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The IP is shown in the <code>ADDRESS</code> column.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Once you know the IP, you can then either configure your DNS servers to resolve
+kubia.example.com to that IP or you can setup hosts: add the following line to
+<code>/etc/hosts</code> (or <code>C:\windows\system32\drivers\etc\hosts</code> on Windows):</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>/etc/hosts</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">192.168.99.100		kubia.example.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So you can access the service at <a href="http://kubia.example.com" class="bare">http://kubia.example.com</a> using a browser or
+<code>curl</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_understading_how_ingress_work"><a class="anchor" href="#_understading_how_ingress_work"></a>5.2.1. Understading how Ingress work</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The client first performed a DNS lookup of kubia.example.com, and the DNS
+server (or the local operating system) returned the IP of the Ingress
+controller</p>
+</li>
+<li>
+<p>The client then sent an HTTP request to the Ingress controller and specified
+<code>kubia.example.com</code> in the <code>Host</code> header</p>
+<div class="ulist">
+<ul>
+<li>
+<p>From that header, the controller determined which service the client is
+trying to access, looked up the pod IPs through the Endpoints object
+associated with the service, and forwarded the client&#8217;s request to one of
+the pods.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The Ingress controller don&#8217;t forward the request to the service</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It only use it to select a pod</p>
+</li>
+<li>
+<p>Most, if not all, controllers work like this</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exposing_multiple_services_through_the_same_ingress"><a class="anchor" href="#_exposing_multiple_services_through_the_same_ingress"></a>5.3. Exposing multiple services through the same Ingress</h3>
+<div class="paragraph">
+<p>Both <code>rules</code> and <code>paths</code> are arrays, so they can contain multiple items</p>
+</div>
+<div class="sect3">
+<h4 id="_mapping_different_services_to_different_paths_of_the_same_host"><a class="anchor" href="#_mapping_different_services_to_different_paths_of_the_same_host"></a>5.3.1. Mapping different services to different paths of the same host</h4>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://asciidoctor.org" target="_blank" rel="noopener"><img src="../../../_/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
+      <figcaption class="footer-brand-name"><a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <!--
+      <li><a href="https://asciidoctor.org" target="_blank" rel="noopener">Home</a></li>
+      -->
+      <li><a href="https://hossein-lap.github.io">Docs</a></li>
+      <li><a href="https://chat.asciidoctor.org" target="_blank" rel="noopener">Chat</a></li>
+      <li><a href="https://github.com/asciidoctor" target="_blank" rel="noopener">Source</a></li>
+      <li><a href="https://discuss.asciidoctor.org" target="_blank" rel="noopener">List (archive)</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/asciidoctor" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@asciidoctor</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2025 Dan Allen, Sarah White, and individual Asciidoctor contributors. Except where noted, the content is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.</p>
+    <!-- <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p> -->
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Thanks to our <a href="https://asciidoctor.org/supporters/" target="_blank" rel="noopener">backers</a> and <a href="https://asciidoctor.org/contributors/" target="_blank" rel="noopener">contributors</a> for helping to make this project possible. Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://zulip.com" title="Chat powered by Zulip" target="_blank" rel="noopener"><img src="../../../_/img/zulip-logo.svg" alt="Zulip logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="../../../_/img/netlify-logo.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in <a href="https://asciidoc.org" target="_blank" rel="noopener">AsciiDoc</a>.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
