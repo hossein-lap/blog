@@ -1,7 +1,13 @@
 site:
   title: Hos Notes
   start_page: hos-docs::index.adoc
-  url: https://primejade.github.io/blog
+  url: https://hossein-lap.github.io
+  # homeUrl: &home_url /index.html
+
+# page:
+#   url: *home_url
+#   home: true
+#   title: Brand&#8217;s Hardware &amp; Software Requirements
 
 content:
   sources:
@@ -28,20 +34,23 @@ content:
   #   branches: devel
   #   start_path: docs
 
-runtime:
-  cache_dir: ./cache/antora
-
 ui:
   bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
-    snapshot: true
+    url: https://github.com/hossein-lap/note-antora-theme/releases/download/prod-latest/ui-bundle.zip?job=bundle-stable
+    # url: https://github.com/hossein-lap/asciidoctor-docs-ui/releases/download/prod-351/ui-bundle.zip?job=bundle-stable
+    # url: https://gitlab.com/hossein-lap/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    # snapshot: true
 
-output:
-  clean: true
-  dir: ./build
+# runtime:
+#   cache_dir: ./cache/antora
+
+# output:
+#   clean: true
+#   dir: ./build
 
 asciidoc: 
   attributes: 
+    custom-data: ./data.yml
     icons: font
     icon-set: fi
     sectnums: true
@@ -49,3 +58,5 @@ asciidoc:
     source-highlighter: highlight.js
     # highlightjs-theme: tomorrow-night
     # pygments-style: solarized-light   skip-front-matter: true
+    #
+
