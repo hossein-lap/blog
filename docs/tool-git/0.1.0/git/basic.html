@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Git | Hos Notes</title>
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="canonical" href="https://hossein-lap.github.io/tool-git/0.1.0/git/basic.html">
+    <meta property="og:url" content="https://hossein-lap.github.io/tool-git/0.1.0/git/basic.html">
+    <meta property="og:description" content="A documentation page for Git Version Control System.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Git Version Control System - Git">
+    <meta property="og:image" content="https://hossein-lap.github.io/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <meta name="page-spec" content="tool-git::git/basic.adoc">
+    <link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+    <!-- Put the logo here -->
+    <a class="navbar-item logo" title="Hos Notes" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">
+        <img src="../../../_/img/logo.jpg" alt="Hos Notes" width="48">
+      </a>
+      <a class="navbar-item title" href="https://hossein-lap.github.io/note-base/0.1.0/index.html">Hos Notes</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Languages</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">Programming</div>
+              <a class="navbar-item" href="../../../programming-go/0.1.0/index.html">
+                Go <small>Tooling</small>
+              </a>
+              <a class="navbar-item" href="#">
+                Lua <small>Plugable</small>
+              </a>
+              <a class="navbar-item" href="../../../programming-perl/0.1.0/index.html">
+                Perl <small>Scripting</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Markup</div>
+              <a class="navbar-item" href="#">
+                Asciidoc <small></small>
+              </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Tools</div>
+          <div class="navbar-dropdown">
+            <div class="navbar-item">CLI Tooling</div>
+              <a class="navbar-item" href="../index.html">
+                Git <small>Version Control</small>
+              </a>
+            <hr class="navbar-divider">
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <div class="navbar-link">section</div> -->
+        <!--   <div class="navbar-dropdown"> -->
+        <!--     <div class="navbar-item">subsection</div> -->
+        <!--       <a class="navbar-item" href="../index.html"> -->
+        <!--         itemize <small>item</small> -->
+        <!--       </a> -->
+        <!--     <hr class="navbar-divider"> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Info</div>
+          <div class="navbar-dropdown is-right">
+            <div class="navbar-item">Contact</div>
+              <a class="navbar-item" href="mailto:hosteam01@gmail.com">
+                E-mail <small>hosteam01@gmail.com</small>
+              </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">Social</div>
+              <a class="navbar-item" href="https://github.com/hossein-lap">
+                Github <small>hossein-lap</small>
+              </a>
+              <a class="navbar-item" href="https://gitlab.com/primejade">
+                Gitlab <small>primejade</small>
+              </a>
+              <a class="navbar-item" href="https://linkedin.com/in/hossein-esmail">
+                Linked-in <small>hossein-esmail</small>
+              </a>
+          </div>
+        </div>
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
+        <!--   <a class="navbar-item" href="#" data-title="Support"> -->
+        <!--     <span class="icon"><img src="../../../_/img/octicons-24.svg#view-comment-discussion"></span> -->
+        <!--   </a> -->
+        <!--   <div class="navbar-dropdown is-right"> -->
+            <!-- <a class="navbar-item has-icon" href="https://chat.asciidoctor.org" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-comment-discussion"></span> -->
+            <!--   <span>Chat</span> -->
+            <!-- </a> -->
+            <!-- <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-linked-in"></span> -->
+            <!--   <span>E-Mail</span> -->
+            <!-- </a> -->
+        <!--     <a class="navbar-item has-icon" href="mailto://hosteam01@gmail.com" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mail"></span> -->
+        <!--       <span>E-Mail</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mark-github"></span> -->
+        <!--       <span>Github</span> -->
+        <!--     </a> -->
+        <!--     <a class="navbar-item has-icon" href="https://github.com/hossein-lap" target="_blank" rel="noopener"> -->
+        <!--       <span class="icon"><img src="../../../_/img/octicons-16.svg#view-mark-gitlab"></span> -->
+        <!--       <span>Gitlap</span> -->
+        <!--     </a> -->
+            <!-- <a class="navbar-item has-icon" href="https://twitter.com/asciidoctor" target="_blank" rel="noopener"> -->
+            <!--   <span class="icon"><img src="../../../_/img/octicons-16.svg#view-hash"></span> -->
+            <!--   <span>Tweets</span> -->
+            <!-- </a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Git Version Control System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-url" data-depth="1">
+    <a class="nav-link" href="basic.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="worktrees.html">Bare repo and Worktrees</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Git Version Control System</span>
+    <span class="version">0.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../note-base/0.1.0/index.html">Blog</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../note-base/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Git Version Control System</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../programming-go/0.1.0/index.html">Go Programming Language</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../programming-go/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../programming-perl/0.1.0/index.html">Perl Programming Language</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../programming-perl/0.1.0/index.html">0.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../note-base/0.1.0/index.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Git Version Control System</a></li>
+    <li><a href="basic.html">Basic Usage</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/hossein-lap/note-git/edit/devel/docs/modules/ROOT/pages/git/basic.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc tool-git">
+<h1 class="page">Git</h1>
+<div class="sect1">
+<h2 id="_init"><a class="anchor" href="#_init"></a>1. init</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This will create a <strong>local</strong> git repository.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git init</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also you can git it an <strong>initial branch name</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git init --initial-branch=trunk</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_config"><a class="anchor" href="#_config"></a>2. config</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can configure git to behave how you like it to do.</p>
+</div>
+<div class="listingblock">
+<div class="title">Some popular options are:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">user.name = Your name        # critical
+user.email = your@email.com  # critical
+core.editor = vim      # default git's text editor
+core.autocrlf = input  # for fixing EOL character across multiple OSs
+commit.gpgsign = true  # signed commits using GPG
+tag.gpgSign = true     #   //   tags     //   //
+merge.ff = true        # fast-forward only when merging/pulling/etc..
+init.defaultBranch = master  # default branch for `git init`
+color.pager = true           # colored output e.g `git log --oneline`</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">If you&#8217;re wondering How to apply these settings on the command line:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git config --global user.name "Your Name"
+git config --global user.email you@email.com
+git config --global merge.ff true</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_staging_area"><a class="anchor" href="#_staging_area"></a>3. staging area</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Middle stage between <em>Untracked</em> files and <em>Tracked</em> files.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git add .
+git add &lt;path/to/file&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To see or do anything on files in the staging area (beside committing them),
+you need to pass <code>--cached</code> argument to the git <em>subcommand</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git rm --cached &lt;file-name&gt;
+git diff --cached .</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_status"><a class="anchor" href="#_status"></a>4. status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Show the status of files in current repository.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git status</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>On branch notes/git
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+	modified:   git.adoc
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+	.session.vim/
+	asciidoctor-theme.yml
+	git.pdf
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Short version:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git status -s</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre> M git.adoc
+?? .session.vim/
+?? asciidoctor-theme.yml
+?? git.pdf</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>??</code>: Untracked files</p>
+</li>
+<li>
+<p><code>M</code> : Modified tracked files</p>
+</li>
+<li>
+<p><code>A</code> : Files in staging area but not committed</p>
+</li>
+<li>
+<p><code>UU</code>: Files having <em>conflicts</em> which needs extra manual/automated work</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">If you want to see the status from the current working directory:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git status -s .</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre> M git.adoc
+?? .session.vim/
+?? asciidoctor-theme.yml
+?? git.pdf</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_commit"><a class="anchor" href="#_commit"></a>5. commit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Look at <strong>commit</strong> as adding changes to the <em>git history</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git commit</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The command above will open the <em>git&#8217;s text editor</em> for you to write a <em>commit
+message</em> for the changes you&#8217;ve made. To avoid that you can give the message
+at the command line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git commit -m 'my very obvious commit message'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Some extra flags for commit:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">--no-gpg-sign  # don't sign the commit, just for this one
+--amend        # apply changes to the last commit, no new commit
+               # Warning: be careful with this, it can mess things up
+--no-edit      # used with `--amend`, don't change commit message</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authenticate"><a class="anchor" href="#_authenticate"></a>5.1. authenticate</h3>
+<div class="paragraph">
+<p>For committing you need to be authenticated. You can this in a global scope
+(which is recommended for most users) or do it in a per-repo basis:</p>
+</div>
+<div class="listingblock">
+<div class="title">Global</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git config --global user.name 'You Name'
+git config --global user.email 'you@email.com'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Per Repository, inside the local repository</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git config user.name 'You Name'
+git config user.email 'you@email.com'</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keep that in mind for working with services like <strong>github.com</strong> and <strong>gitlab.com</strong>,
+the email you provide to the git, must be the same email as the one which you
+gave these services.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_log"><a class="anchor" href="#_log"></a>6. log</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Shows information about the current repository such as <strong>branches</strong>, <strong>commits</strong>,
+HEAD position, etc.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git log</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>commit f80c36530015cb932a4d60c06f94f93cf22570cf
+Author: Hossein Esmail &lt;hosteam01@gmail.com&gt;
+Date:   Sun Oct 13 23:38:50 2024 +0330
+
+    more / better notes for docker
+
+commit 6e057f8ee426d75045693f417d9769c8ff2093bd
+Author: Hossein Esmail &lt;hosteam01@gmail.com&gt;
+Date:   Fri Oct 11 15:17:28 2024 +0330
+
+    import contents
+
+commit a9555db8084619a61b2da3c51ae04c972a242f94
+Author: Hos Es &lt;62862610+hossein-lap@users.noreply.github.com&gt;
+Date:   Wed Oct 9 20:13:41 2024 +0330
+
+    Initial commit</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Some extra flags</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">--oneline  # show short commit hash and only the commit message
+--all      # show all branches
+--graph    # draw the graph for branches
+--stat     # show changed files
+--show-signature  # show gpg signature</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git log --all --oneline --graph</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>* afd0009 (notes/perl, origin/notes/perl) Add array section
+* f80c365 (HEAD -&gt; notes/git, origin/notes/git) more docker notes
+* 6e057f8 import contents
+* a9555db Initial commit</pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">What is <strong>HEAD</strong>?</div>
+<p><strong>HEAD</strong> is a name which points to your <strong>current working area</strong>'s position in the
+git repository. In the above output, inside the parentheses on the second line
+you can see <code>HEAD -&gt; notes/git</code>, that mean <strong>HEAD is pointing at notes/git
+branch</strong>. <code>notes/git</code> is the name of the branch that I&#8217;m writing this document
+inside of it that will be merged later with <code>master</code> branch of this repository.</p>
+</div>
+<div class="paragraph">
+<p>Now that we know HEAD is the current position, let&#8217;s be a little more proactive
+shall we? Okay, what about pointing at <strong>one previous position</strong> or
+<strong>two previous</strong>? Easy, <code>HEAD~1</code> and <code>HEAD~2</code> are for that.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>HEAD~&lt;number&gt;</code> means <code>&lt;number&gt;</code> times before the <strong>current position of HEAD</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_remotes"><a class="anchor" href="#_remotes"></a>7. remotes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The remote URL(s) that you are/will be working with. Most of the time it&#8217;s
+called <strong>origin</strong> but remember, it&#8217;s just a name which points to an URL.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git remote</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>origin</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Verbose output</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git remote -v</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>origin	git@github.com:hossein-lap/blog.posts.git (fetch)
+origin	git@github.com:hossein-lap/blog.posts.git (push)</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Working with remotes</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git remote add &lt;name&gt; &lt;url&gt;  # add new remote URL
+git remote remove &lt;name&gt;     # remove existing remote URL</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>remote URL can be another directory/folder on the same machine. git does
+not care.</p>
+</li>
+<li>
+<p>If you want to connect a local repository to a remote one, you need to create
+the remote yourself</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Let&#8217;s say you are working on a project on your local machine and now you&#8217;ve
+decided to share it on github, you go create the repository on github, and
+create a remote using <code>git remote add &lt;name&gt; &lt;url&gt;</code> command.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_ssh_vs_https"><a class="anchor" href="#_ssh_vs_https"></a>7.1. ssh vs https</h3>
+<div class="paragraph">
+<p>Most developers prefer using <code>ssh</code> when it comes to working with remote
+repositories. <code>ssh</code> has a SHA-256 hash-based key authentication method.
+Unlike <code>https</code> which requires username and password each time for the
+authentication.</p>
+</div>
+<div class="listingblock">
+<div class="title">Generate ssh key</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ssh-keygen</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>After creating a ssh key-pair, you need to add the <strong>public</strong> pair of the key to
+your github/gitlab account. Look for a <code>*.pub</code> file in your <code>~/.ssh</code> directory.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="title">ssh remote URL:</div>
+<div class="content">
+<pre>origin	git@github.com:hossein-lap/blog.posts.git (fetch)
+origin	git@github.com:hossein-lap/blog.posts.git (push)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">https remote URL:</div>
+<div class="content">
+<pre>origin	https://github.com/hossein-lap/blog.posts (fetch)
+origin	https://github.com/hossein-lap/blog.posts (push)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_clone"><a class="anchor" href="#_clone"></a>8. clone</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloning a repository is like downloading it from your local machine but with or
+without the commit histories.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone &lt;url&gt;
+git clone https://github.com/hossein-lap/blog.posts
+git clone git@github.com:hossein-lap/blog.posts.git</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Some extra flags</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">--depth &lt;number&gt;   # depths of previous commit history
+--branch &lt;name&gt;    # move HEAD to the &lt;name&gt; branch after clone
+--origin &lt;name&gt;    # use &lt;name&gt; instead of default `origin` for remote
+--bare             # clone the bare repo (useful but very advanced)
+                   # see the last section for more information.</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fetch"><a class="anchor" href="#_fetch"></a>9. fetch</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Synchronize the local repository with the remote repository. This does not change
+anything in the current working area. Just synchronizing.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git fetch --all        # fetch all changes from all branches
+git fetch --unshallow  # fetch all the missing contents from remote</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_push"><a class="anchor" href="#_push"></a>10. push</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Upload the git history from local to the remote.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git push &lt;remote-name&gt; &lt;branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git push origin master</code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Forced push</div>
+<div class="paragraph">
+<p>You need to use <code>--force</code> flag if you want to have used <code>--amend</code> flag
+(you&#8217;ve amended a commit) when pushing to a <strong>unprotected</strong> remote branch.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git commit --amend --no-edit
+git push origin feature/new-module --force</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Use this with caution</div>
+<p>If the branch if <strong>protected</strong> you cannot use <code>--force</code> with.
+You must remove it from <strong>protected branches</strong> first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pull"><a class="anchor" href="#_pull"></a>11. pull</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Get the changes from remote repository to the local repository.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git pull origin master</code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Be careful what branch are you currently on and what branch are you pulling
+from. This can mess things up very easily.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_branch"><a class="anchor" href="#_branch"></a>12. branch</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Working with branches.
+Branches are created from one point in the history which is you current branch</p>
+</div>
+<div class="listingblock">
+<div class="title">Your current branch</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git branch</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>* notes/git</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Create new branch</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git switch -C &lt;new-branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Above command will create a new branch from your current position on the git
+history (your current branch, your current commit) and switch to it.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively you can use <code>checkout</code> (sometimes you <strong>need</strong> to use <code>checkout</code>) but
+the <code>checkout</code> command does a lot more than creating/switching branches.
+<strong>It can be dangerous</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git checkout -b &lt;new-branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Switch back to previous branch</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git checkout -
+git switch -</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_stash"><a class="anchor" href="#_stash"></a>13. stash</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To be able to change branches your current working area must be clean. Now imagine
+you&#8217;re middle of working on something and something new comes up which is
+important, git won&#8217;t allow you to change your branch until you commit your
+changes (make your working area clean) so what you&#8217;re gonna do? Apply a temp
+commit? (you can do that on paper but it&#8217;s advised against doing this). Here
+<code>stash</code> comes to save the day.</p>
+</div>
+<div class="paragraph">
+<p><code>git stash</code> takes all your changes (on tracked files only) and temporarily
+moves them on <strong>stash area</strong> so you can access it (move it back to your working
+area) after you&#8217;ve did you explorations.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s see how <code>git log</code> looks like before stashing the changes:</p>
+</div>
+<div class="listingblock">
+<div class="title">Move changes to stash from working area</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git log --oneline --all --graph</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>* afd0009 Add array section
+* f80c365 more / better notes for docker
+* 6e057f8 import contents
+* a9555db Initial commit</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Stashing changes</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git stash push</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Saved working directory and index state WIP on notes/git: f80c365 more / better notes for docker</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s see how <code>git log</code> looks like at this point</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git log --oneline --all --graph</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>*   aa604f7 WIP on notes/git: f80c365 more / better notes for docker
+|\
+| * 977460d index on notes/git: f80c365 more / better notes for docker
+|/
+| * afd0009 Add array section
+|/
+* f80c365 more / better notes for docker
+* 6e057f8 import contents
+* a9555db Initial commit</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See all the new forks and diversions from the commits?</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>*   aa604f7 WIP on notes/git: f80c365 more / better notes for docker
+|\
+| * 977460d index on notes/git: f80c365 more / better notes for docker
+|/
+| * afd0009 Add array section
+|/
+* f80c365 more / better notes for docker</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Move back changes to working area from stash</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git stash pop</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>On branch notes/git
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+        modified:   git.adoc
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+        .session.vim/
+        asciidoctor-theme.yml
+        git.pdf
+        git.xml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (a5eec65b3011ad09cd73c9845646ea1b87659f9e)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now everything is exactly how it was before stashing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git log --oneline --all --graph</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>* afd0009 Add array section
+* f80c365 more / better notes for docker
+* 6e057f8 import contents
+* a9555db Initial commit</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>stash has a stack-like structure.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Alternatively you can use a <code>bare repo</code> with git&#8217;s <code>worktree</code> feature which
+allows you to have multiple branches checked-out at the same time. But it can
+add complexity to your workflow. You can take a look at the last section of
+this
+document.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rebase"><a class="anchor" href="#_rebase"></a>14. rebase</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Rebasing a branch is pulling the point branch was forked (created from) to a
+new point.</p>
+</div>
+<div class="literalblock">
+<div class="title">git&#8217;s manpage does a good explanation about it:</div>
+<div class="content">
+<pre>Assume the following history exists and the current branch is "topic":
+
+              A---B---C topic
+             /
+        D---E---F---G master
+
+From this point, the result of either of the following commands:
+
+    git rebase master
+    git rebase master topic
+
+would be:
+
+                      A'--B'--C' topic
+                     /
+        D---E---F---G master</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All the git manpages are available through either <code>git &lt;subcommand&gt; --help</code>
+command or <code>man git-&lt;subcommand&gt;</code> command on the command line.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git rebase --help
+man git-rebase</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_restore"><a class="anchor" href="#_restore"></a>15. restore</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Restores the state of file(s) to a previous or current state in git <strong>history</strong>.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git restore --source=HEAD .</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The above command will remove all changes on the current working directory
+which are not in neither staging area nor have been committed.</p>
+</div>
+<div class="paragraph">
+<p>The <code>.</code> means <strong>current working directory</strong>. You can replace it with file name(s)
+or (some) directory.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reset"><a class="anchor" href="#_reset"></a>16. reset</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Okay, now we are entering the <strong>DANGER</strong> zone. The reset command <strong>will remove
+your commit history</strong>. Especially with the <code>--hard</code> flag.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git reset --hard HEAD~1
+git reset --hard 6e057f8 # reset everything to a certain point
+                         # using commit hash</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_patching"><a class="anchor" href="#_patching"></a>17. patching</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can get a diff file using <code>git diff</code> command and use it later.
+These "diff" files contains all changes on file(s) which can be applied on same
+files somewhere else.</p>
+</div>
+<div class="listingblock">
+<div class="title">Get diff file</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git diff HEAD~1 HEAD &gt; &lt;file-name&gt;
+git diff HEAD~1 HEAD &gt; test-changes.diff</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Apply the diff</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">patch -p1 &lt; &lt;file-name&gt;
+patch -p1 &lt; test-changes.diff</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keep that in mind which the sequence of stages/commits must be <strong>older to newer</strong>
+if you want to <strong>apply</strong> the changes and <strong>newer to older</strong> if you want to <strong>revert</strong>
+the changes.
+Reverts</p>
+</div>
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p><strong>Older to newer</strong>: Applies changes</p>
+</li>
+<li>
+<p><strong>Newer to older</strong>: Reverts changes</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This process is called <strong>patching</strong> or <strong>applying patch</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When you are applying patch(es), you must be at the <strong>exact directory</strong> that
+you&#8217;ve get the diff file from.</p>
+</div>
+<div class="paragraph">
+<p>On the other words, applying patches only works when
+you are applying them at the same <strong>root directory</strong> of getting the patch (diff
+file).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">A diff file</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git diff Makefile default-theme.yml</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff">diff --git a/Makefile b/Makefile
+index 16ab52b..db20550 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,6 +1,6 @@
+ NAME = ttr
+
+ all:
+-	asciidoctor -a stylesheet=my-stylesheet.css ttr.adoc
+-	# asciidoctor -a linkcss -a copycss README.adoc
++	# asciidoctor -a stylesheet=my-stylesheet.css ttr.adoc
++	asciidoctor -a linkcss -a copycss ttr.adoc
+ 	asciidoctor-pdf ttr.adoc --theme hos.yml
+diff --git a/default-theme.yml b/default-theme.yml
+index f23711b..889785a 100644
+--- a/default-theme.yml
++++ b/default-theme.yml
+@@ -43,11 +43,11 @@ base:
+   border_color: EEEEEE
+   border_radius: 4
+   border_width: 0.5
+-base:
+-  font:
+-    color: #333333
+-    family: Times-Roman
+-    size: 12
++# base:
++#   font:
++#     color: #333333
++#     family: Times-Roman
++#     size: 12
+ role:
+   lead:
+     font_size: $base_font_size_large</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://asciidoctor.org" target="_blank" rel="noopener"><img src="../../../_/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
+      <figcaption class="footer-brand-name"><a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <!--
+      <li><a href="https://asciidoctor.org" target="_blank" rel="noopener">Home</a></li>
+      -->
+      <li><a href="https://hossein-lap.github.io">Docs</a></li>
+      <li><a href="https://chat.asciidoctor.org" target="_blank" rel="noopener">Chat</a></li>
+      <li><a href="https://github.com/asciidoctor" target="_blank" rel="noopener">Source</a></li>
+      <li><a href="https://discuss.asciidoctor.org" target="_blank" rel="noopener">List (archive)</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/asciidoctor" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@asciidoctor</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2025 Dan Allen, Sarah White, and individual Asciidoctor contributors. Except where noted, the content is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.</p>
+    <!-- <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p> -->
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Thanks to our <a href="https://asciidoctor.org/supporters/" target="_blank" rel="noopener">backers</a> and <a href="https://asciidoctor.org/contributors/" target="_blank" rel="noopener">contributors</a> for helping to make this project possible. Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://zulip.com" title="Chat powered by Zulip" target="_blank" rel="noopener"><img src="../../../_/img/zulip-logo.svg" alt="Zulip logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="../../../_/img/netlify-logo.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in <a href="https://asciidoc.org" target="_blank" rel="noopener">AsciiDoc</a>.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://asciidoctor.org" target="_blank" rel="noopener">Asciidoctor</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
