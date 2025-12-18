@@ -1,0 +1,6 @@
+name: note-base
+version: 0.1.0
+title: Blog
+start_page: index.adoc
+nav:
+- modules/ROOT/nav.adoc
