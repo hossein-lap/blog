@@ -46,7 +46,7 @@ ui:
 
 # output:
 #   clean: true
-#   dir: ./build
+#   dir: ./docs
 
 asciidoc: 
   attributes: 
